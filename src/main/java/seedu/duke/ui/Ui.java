@@ -1,6 +1,9 @@
 package seedu.duke.ui;
 
-import seedu.duke.task.*;
+import seedu.duke.task.Deadline;
+import seedu.duke.task.Event;
+import seedu.duke.task.Task;
+import seedu.duke.task.TaskList;
 
 import java.util.Scanner;
 
@@ -9,14 +12,14 @@ import java.util.Scanner;
  */
 public class Ui {
     private static final String MESSAGE_LINE = "____________________________________________________________";
-    private static final String MESSAGE_SAD_FACE = "\u2639";
-    private static final String MESSAGE_LOGO = " _    _ _                   _____       _ _____ _                \n" +
-            "| |  | | |                 |  __ \\     | |_   _(_)               \n" +
-            "| |  | | |__   ___ _ __ ___| |  \\/ ___ | |_| |  _ _ __ ___   ___ \n" +
-            "| |/\\| | '_ \\ / _ \\ '__/ _ \\ | __ / _ \\| __| | | | '_ ` _ \\ / _ \\\n" +
-            "\\  /\\  / | | |  __/ | |  __/ |_\\ \\ (_) | |_| | | | | | | | |  __/\n" +
-            " \\/  \\/|_| |_|\\___|_|  \\___|\\____/\\___/ \\__\\_/ |_|_| |_| |_|\\___|\n" +
-            "                                                                 \n";
+    private static final String MESSAGE_SAD_FACE = ":(";
+    private static final String MESSAGE_LOGO = " _    _ _                   _____       _ _____ _                \n"
+            + "| |  | | |                 |  __ \\     | |_   _(_)               \n"
+            + "| |  | | |__   ___ _ __ ___| |  \\/ ___ | |_| |  _ _ __ ___   ___ \n"
+            + "| |/\\| | '_ \\ / _ \\ '__/ _ \\ | __ / _ \\| __| | | | '_ ` _ \\ / _ \\\n"
+            + "\\  /\\  / | | |  __/ | |  __/ |_\\ \\ (_) | |_| | | | | | | | |  __/\n"
+            + " \\/  \\/|_| |_|\\___|_|  \\___|\\____/\\___/ \\__\\_/ |_|_| |_| |_|\\___|\n"
+            + "                                                                 \n";
     private static final String MESSAGE_GREETINGS = "\n" + MESSAGE_LOGO + "Hello! Welcome to WhereGotTime!\n"
             + "Please enter your time table details.\nYou may refer to the User Guide for instructions.\n";
 
@@ -108,7 +111,8 @@ public class Ui {
      */
     public void printFind(TaskList taskList, String keyword) {
         if (taskList.getTotalTaskCount() > 0) {
-            System.out.println("Here are the class(es) in your time table that matches the keyword \"" + keyword + "\":");
+            System.out.println("Here are the class(es) in your time table "
+                    + "that matches the keyword \"" + keyword + "\":");
             int count = 1;
             for (Task t : taskList.getTaskList()) {
                 System.out.println(count + ". " + t);

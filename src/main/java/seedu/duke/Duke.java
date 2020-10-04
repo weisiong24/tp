@@ -13,10 +13,10 @@ public class Duke {
     private TaskList tasks;
     private final Ui ui;
 
-    public Duke(String filePath) {
+    public Duke() {
         ui = new Ui();
         try {
-            storage = new Storage(filePath);
+            storage = new Storage();
             tasks = new TaskList(storage.load());
         } catch (DukeException e) {
             ui.showError(e.getMessage());
@@ -43,7 +43,7 @@ public class Duke {
     }
 
     public static void main(String[] args) {
-        new Duke("data/duke.txt").run();
+        new Duke().run();
     }
 
 
@@ -51,7 +51,7 @@ public class Duke {
     /**
      * Main entry-point for the java.duke.Duke application.
      */
-/*    public static void main(String[] args) {
+    /*    public static void main(String[] args) {
         String logo = " ____        _        \n"
                 + "|  _ \\ _   _| | _____ \n"
                 + "| | | | | | | |/ / _ \\\n"

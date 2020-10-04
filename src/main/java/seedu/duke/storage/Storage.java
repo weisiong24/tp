@@ -1,7 +1,10 @@
 package seedu.duke.storage;
 
 import seedu.duke.exception.DukeException;
-import seedu.duke.task.*;
+import seedu.duke.task.Deadline;
+import seedu.duke.task.Event;
+import seedu.duke.task.Task;
+import seedu.duke.task.TaskList;
 
 import java.io.File;
 import java.io.FileNotFoundException;
@@ -14,8 +17,8 @@ import java.util.Scanner;
  * Manages the loading and saving of data to or from a text file.
  */
 public class Storage {
-    private static final String MESSAGE_TICK_SYMBOL = "\u2713";
-    private final String FILE_PATH;
+    //public String Message_Tick_Symbol = "\u2713";
+    private static final String FP = "data/duke.txt";
     public static final int MAX_SIZE = 100;
 
     /**
@@ -23,8 +26,8 @@ public class Storage {
      *
      * @throws DukeException if an I/O error has occurred.
      */
-    public Storage(String FILE_PATH) throws DukeException {
-        this.FILE_PATH = FILE_PATH;
+    public Storage() throws DukeException {
+        //this.FP = FP;
         initialise();
     }
 
@@ -34,7 +37,7 @@ public class Storage {
      * @throws DukeException if an I/O error has occurred.
      */
     private void initialise() throws DukeException {
-        File storageFile = new File(FILE_PATH);
+        File storageFile = new File(FP);
         File storageFolder = new File(storageFile.getParent());
         if (storageFolder.exists() && storageFolder.isDirectory()) {
             System.out.println("Data folder found! Finding duke.txt...");
@@ -65,7 +68,7 @@ public class Storage {
     public ArrayList<Task> load() throws DukeException {
         Scanner reader;
         try {
-            reader = new Scanner(new File(FILE_PATH));
+            reader = new Scanner(new File(FP));
         } catch (FileNotFoundException e) {
             throw new DukeException("Attempt to read duke.txt failed.");
         }
@@ -99,7 +102,7 @@ public class Storage {
         default:
             throw new DukeException("Existing task list format is corrupted. Please check again.");
         }
-        if (parsedLines[1].equals(MESSAGE_TICK_SYMBOL)) {  //
+        if (parsedLines[1].equals("\u2713")) {  //
             task.markAsDone();
         }
         storageTasks.add(task);
@@ -114,7 +117,7 @@ public class Storage {
     public void write(TaskList taskList) throws DukeException {
         ArrayList<Task> tasks = taskList.getTaskList();
         try {
-            FileWriter fw = new FileWriter(new File(FILE_PATH));
+            FileWriter fw = new FileWriter(new File(FP));
             writeTask(fw, tasks);
             fw.close();
         } catch (IOException e) {
