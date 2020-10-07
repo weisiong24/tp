@@ -2,10 +2,9 @@ package seedu.duke.parser;
 
 import seedu.duke.command.ByeCommand;
 import seedu.duke.command.Command;
-import seedu.duke.command.DeadlineCommand;
 import seedu.duke.command.DeleteCommand;
-import seedu.duke.command.DoneCommand;
-import seedu.duke.command.EventCommand;
+//import seedu.duke.command.DoneCommand;
+//import seedu.duke.command.EventCommand;
 import seedu.duke.command.FindCommand;
 import seedu.duke.command.ListCommand;
 import seedu.duke.exception.DukeException;
@@ -32,17 +31,17 @@ public class Parser {
     public static Command parse(String input) throws DukeException {
         String[] parsedInputs = input.split(" ", 2);
         switch (parsedInputs[0]) {
-        case COMMAND_DEADLINE:
-            checkDeadlineValidity(parsedInputs);
-            return new DeadlineCommand(parsedInputs[1]);
-        case COMMAND_EVENT:
-            checkEventValidity(parsedInputs);
-            return new EventCommand(parsedInputs[1]);
+//        case COMMAND_DEADLINE:
+//            checkDeadlineValidity(parsedInputs);
+//            return new DeadlineCommand(parsedInputs[1]);
+//        case COMMAND_EVENT:
+//            checkEventValidity(parsedInputs);
+//            return new EventCommand(parsedInputs[1]);
         case COMMAND_LIST:
             return new ListCommand();
-        case COMMAND_DONE:
-            checkTaskIndexValidity(parsedInputs);
-            return new DoneCommand(parsedInputs[1]);
+//        case COMMAND_DONE:
+//            checkTaskIndexValidity(parsedInputs);
+//            return new DoneCommand(parsedInputs[1]);
         case COMMAND_DELETE:
             checkTaskIndexValidity(parsedInputs);
             return new DeleteCommand(parsedInputs[1]);
