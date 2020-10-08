@@ -82,10 +82,10 @@ public class Ui {
      *
      * @param task the task to be added to the array list.
      */
-    public void printEvent(TaskList taskList, Event task) {
-        System.out.println("Got it! I've added the following event in the list:\n" + task);
-        System.out.println("Now now have " + taskList.getTotalTaskCount() + " tasks in the list.");
-    }
+//    public void printEvent(TaskList taskList, Event task) {
+//        System.out.println("Got it! I've added the following event in the list:\n" + task);
+//        System.out.println("Now now have " + taskList.getTotalTaskCount() + " tasks in the list.");
+//    }
 
     public void printDone(Task task) {
         System.out.println("Nice! I have marked this task as done:\n" + task);
