@@ -1,7 +1,7 @@
 package seedu.duke;
 
 import seedu.duke.exception.DukeException;
-import seedu.duke.storage.Storage;
+//import seedu.duke.storage.Storage;
 import seedu.duke.task.TaskList;
 import seedu.duke.ui.Ui;
 import seedu.duke.command.Command;
@@ -9,19 +9,19 @@ import seedu.duke.parser.Parser;
 
 public class Duke {
 
-    private Storage storage;
+    //private Storage storage;
     private TaskList tasks;
     private final Ui ui;
 
     public Duke() {
         ui = new Ui();
-        try {
+        /*try {
             storage = new Storage();
             tasks = new TaskList(storage.load());
         } catch (DukeException e) {
             ui.showError(e.getMessage());
             tasks = new TaskList();
-        }
+        }*/
     }
 
     public void run() {
@@ -32,7 +32,7 @@ public class Duke {
                 String fullCommand = ui.readCommand();
                 ui.showLine(); // show the divider line ("_______")
                 Command c = Parser.parse(fullCommand);
-                c.execute(tasks, ui, storage);
+                c.execute(tasks, ui/*, storage*/);
                 isExit = c.isExit();
             } catch (DukeException e) {
                 ui.showError(e.getMessage());

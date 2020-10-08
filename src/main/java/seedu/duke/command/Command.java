@@ -1,7 +1,7 @@
 package seedu.duke.command;
 
 import seedu.duke.exception.DukeException;
-import seedu.duke.storage.Storage;
+//import seedu.duke.storage.Storage;
 import seedu.duke.task.TaskList;
 import seedu.duke.ui.Ui;
 
@@ -23,10 +23,9 @@ public abstract class Command {
      *
      * @param tasks the TaskList given to execute command on.
      * @param ui the corresponding messages based on the task.
-     * @param storage storing data into the text file.
      * @throws DukeException if execution encounters error.
      */
-    public abstract void execute(TaskList tasks, Ui ui, Storage storage) throws DukeException;
+    public abstract void execute(TaskList tasks, Ui ui/*, Storage storage*/) throws DukeException;
 
     public boolean isExit() {
         return isExit;

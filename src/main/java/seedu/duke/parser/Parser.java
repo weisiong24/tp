@@ -2,10 +2,9 @@ package seedu.duke.parser;
 
 import seedu.duke.command.ByeCommand;
 import seedu.duke.command.Command;
-import seedu.duke.command.DeadlineCommand;
 import seedu.duke.command.DeleteCommand;
-import seedu.duke.command.DoneCommand;
-import seedu.duke.command.EventCommand;
+//import seedu.duke.command.DoneCommand;
+//import seedu.duke.command.EventCommand;
 import seedu.duke.command.FindCommand;
 import seedu.duke.command.ListCommand;
 import seedu.duke.exception.DukeException;
@@ -14,10 +13,10 @@ import seedu.duke.exception.DukeException;
  * Parses the user's input.
  */
 public class Parser {
-    private static final String COMMAND_DEADLINE = "deadline";
-    private static final String COMMAND_EVENT = "event";
+    //private static final String COMMAND_DEADLINE = "deadline";
+    //private static final String COMMAND_EVENT = "event";
     private static final String COMMAND_LIST = "list";
-    private static final String COMMAND_DONE = "done";
+    //private static final String COMMAND_DONE = "done";
     private static final String COMMAND_DELETE = "delete";
     private static final String COMMAND_FIND = "find";
     private static final String COMMAND_BYE = "bye";
@@ -32,17 +31,17 @@ public class Parser {
     public static Command parse(String input) throws DukeException {
         String[] parsedInputs = input.split(" ", 2);
         switch (parsedInputs[0]) {
-        case COMMAND_DEADLINE:
+        /*case COMMAND_DEADLINE:
             checkDeadlineValidity(parsedInputs);
             return new DeadlineCommand(parsedInputs[1]);
         case COMMAND_EVENT:
             checkEventValidity(parsedInputs);
-            return new EventCommand(parsedInputs[1]);
+            return new EventCommand(parsedInputs[1]);*/
         case COMMAND_LIST:
             return new ListCommand();
-        case COMMAND_DONE:
+        /*case COMMAND_DONE:
             checkTaskIndexValidity(parsedInputs);
-            return new DoneCommand(parsedInputs[1]);
+            return new DoneCommand(parsedInputs[1]);*/
         case COMMAND_DELETE:
             checkTaskIndexValidity(parsedInputs);
             return new DeleteCommand(parsedInputs[1]);
