@@ -31,17 +31,17 @@ public class Parser {
     public static Command parse(String input) throws DukeException {
         String[] parsedInputs = input.split(" ", 2);
         switch (parsedInputs[0]) {
-//        case COMMAND_DEADLINE:
-//            checkDeadlineValidity(parsedInputs);
-//            return new DeadlineCommand(parsedInputs[1]);
-//        case COMMAND_EVENT:
-//            checkEventValidity(parsedInputs);
-//            return new EventCommand(parsedInputs[1]);
+        /*case COMMAND_DEADLINE:
+            checkDeadlineValidity(parsedInputs);
+            return new DeadlineCommand(parsedInputs[1]);
+        case COMMAND_EVENT:
+            checkEventValidity(parsedInputs);
+            return new EventCommand(parsedInputs[1]);*/
         case COMMAND_LIST:
             return new ListCommand();
-//        case COMMAND_DONE:
-//            checkTaskIndexValidity(parsedInputs);
-//            return new DoneCommand(parsedInputs[1]);
+        /*case COMMAND_DONE:
+            checkTaskIndexValidity(parsedInputs);
+            return new DoneCommand(parsedInputs[1]);*/
         case COMMAND_DELETE:
             checkTaskIndexValidity(parsedInputs);
             return new DeleteCommand(parsedInputs[1]);

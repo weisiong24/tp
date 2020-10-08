@@ -21,6 +21,6 @@ public class DeleteCommand extends Command {
         Task removedTask = tasks.getTask(index);
         tasks.deleteTask(index);
         ui.printDelete(tasks, removedTask);
-//        storage.write(tasks);
+        //storage.write(tasks);
     }
 }

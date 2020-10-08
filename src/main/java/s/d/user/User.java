@@ -1,6 +1,6 @@
 package s.d.user;
 
-import s.d.Timetable.Timetable;
+import s.d.timetable.Timetable;
 
 import java.util.ArrayList;
 

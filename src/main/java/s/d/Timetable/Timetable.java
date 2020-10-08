@@ -1,4 +1,4 @@
-package s.d.Timetable;
+package s.d.timetable;
 
 import java.util.ArrayList;
 

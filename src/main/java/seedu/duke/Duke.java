@@ -9,19 +9,19 @@ import seedu.duke.parser.Parser;
 
 public class Duke {
 
-//    private Storage storage;
+    //private Storage storage;
     private TaskList tasks;
     private final Ui ui;
 
     public Duke() {
         ui = new Ui();
-//        try {
-//            storage = new Storage();
-//            tasks = new TaskList(storage.load());
-//        } catch (DukeException e) {
-//            ui.showError(e.getMessage());
-//            tasks = new TaskList();
-//        }
+        /*try {
+            storage = new Storage();
+            tasks = new TaskList(storage.load());
+        } catch (DukeException e) {
+            ui.showError(e.getMessage());
+            tasks = new TaskList();
+        }*/
     }
 
     public void run() {
