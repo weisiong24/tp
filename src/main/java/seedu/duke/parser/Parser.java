@@ -13,10 +13,10 @@ import seedu.duke.exception.DukeException;
  * Parses the user's input.
  */
 public class Parser {
-    private static final String COMMAND_DEADLINE = "deadline";
-    private static final String COMMAND_EVENT = "event";
+    //private static final String COMMAND_DEADLINE = "deadline";
+    //private static final String COMMAND_EVENT = "event";
     private static final String COMMAND_LIST = "list";
-    private static final String COMMAND_DONE = "done";
+    //private static final String COMMAND_DONE = "done";
     private static final String COMMAND_DELETE = "delete";
     private static final String COMMAND_FIND = "find";
     private static final String COMMAND_BYE = "bye";
