@@ -1,6 +1,6 @@
-package s.d.user;
+package seedu.duke.user;
 
-import s.d.timetable.Timetable;
+import seedu.duke.timetable.Timetable;
 
 public class User {
     protected String name;
@@ -11,5 +11,13 @@ public class User {
         this.name = name;
         this.passWord = passWord;
         this.timetable = new Timetable();
+    }
+
+    public String getName() {
+        return name;
+    }
+
+    public Timetable getTimetable() {
+        return timetable;
     }
 }
