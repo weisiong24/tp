@@ -2,11 +2,12 @@ package seedu.duke.parser;
 
 import seedu.duke.command.ByeCommand;
 import seedu.duke.command.Command;
-import seedu.duke.command.DeleteCommand;
+//import seedu.duke.command.DeleteCommand;
 //import seedu.duke.command.DoneCommand;
 //import seedu.duke.command.EventCommand;
-import seedu.duke.command.FindCommand;
-import seedu.duke.command.ListCommand;
+//import seedu.duke.command.FindCommand;
+//import seedu.duke.command.ListCommand;
+import seedu.duke.command.LogInCommand;
 import seedu.duke.exception.DukeException;
 
 /**
@@ -15,11 +16,13 @@ import seedu.duke.exception.DukeException;
 public class Parser {
     //private static final String COMMAND_DEADLINE = "deadline";
     //private static final String COMMAND_EVENT = "event";
-    private static final String COMMAND_LIST = "list";
+    //private static final String COMMAND_LIST = "list";
     //private static final String COMMAND_DONE = "done";
-    private static final String COMMAND_DELETE = "delete";
-    private static final String COMMAND_FIND = "find";
+    //private static final String COMMAND_DELETE = "delete";
+    //private static final String COMMAND_FIND = "find";
     private static final String COMMAND_BYE = "bye";
+    private static final String COMMAND_LOGIN = "login";
+
 
     /**
      * Returns a Command object based on user's string input.
@@ -37,23 +40,28 @@ public class Parser {
         case COMMAND_EVENT:
             checkEventValidity(parsedInputs);
             return new EventCommand(parsedInputs[1]);*/
-        case COMMAND_LIST:
-            return new ListCommand();
+        /*case COMMAND_LIST:
+            return new ListCommand();*/
         /*case COMMAND_DONE:
             checkTaskIndexValidity(parsedInputs);
             return new DoneCommand(parsedInputs[1]);*/
-        case COMMAND_DELETE:
+        /*case COMMAND_DELETE:
             checkTaskIndexValidity(parsedInputs);
             return new DeleteCommand(parsedInputs[1]);
         case COMMAND_FIND:
             verifyFind(parsedInputs);
-            return new FindCommand(parsedInputs[1]);
+            return new FindCommand(parsedInputs[1]);*/
+        case COMMAND_LOGIN:
+            checkLogInValidity(parsedInputs);
+            return new LogInCommand(parsedInputs[1]);
         case COMMAND_BYE:
             return new ByeCommand();
         default:
             throw new DukeException("Sorry! I don't know what that means :-(");
         }
     }
+
+
 
     /**
      * Checks the index's validity.
@@ -120,6 +128,20 @@ public class Parser {
             throw new DukeException("There is no description in your event command!");
         } else if (input[1].substring(atPosition + 3).isBlank()) {
             throw new DukeException("An event task requires an '/at' to indicate location!");
+        }
+    }
+
+    private static void checkLogInValidity(String[] input) throws DukeException {
+        if (input.length < 2) {
+            throw new DukeException("There is no description in your login command!");
+        } else if (!input[1].contains("/")) {
+            throw new DukeException("An login requires an '/' to indicate password!");
+        }
+        int atPosition = input[1].indexOf("/");
+        if (input[1].substring(0, atPosition).isBlank()) {
+            throw new DukeException("There is no username in your login command!");
+        } else if (input[1].substring(atPosition + 1).isBlank()) {
+            throw new DukeException("An login requires a password!");
         }
     }
 

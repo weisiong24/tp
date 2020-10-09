@@ -4,6 +4,7 @@ package seedu.duke.ui;
 //import seedu.duke.task.Event;
 import seedu.duke.task.Task;
 import seedu.duke.task.TaskList;
+import seedu.duke.user.User;
 
 import java.util.Scanner;
 
@@ -127,6 +128,10 @@ public class Ui {
      */
     public void showBye() {
         System.out.println("Thanks for using WhereGotTime. Hope to see you again soon!");
+    }
+
+    public void greetUser(User currentUser) {
+        System.out.println("Hello " + currentUser.getName() + "!");
     }
 
     /**
