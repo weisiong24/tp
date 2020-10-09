@@ -5,17 +5,23 @@ package seedu.duke.task;
  */
 public abstract class Task {
     protected String description;
-    protected String taskType;
-    protected boolean isDone;
+    protected String location;
+    protected String timeStart;
+    protected String timeEnd;
+    //protected String taskType;
+    //protected boolean isDone;
 
     /**
      * Initialises a new Task object, and marks it as undone by default.
      *
      * @param description the description of a particular task.
      */
-    public Task(String description) {
+    public Task(String description, String location, String timeStart, String timeEnd) {
         this.description = description;
-        this.isDone = false;
+        this.location = location;
+        this.timeStart = timeStart;
+        this.timeEnd = timeEnd;
+        //this.isDone = false;
     }
 
     /**
@@ -23,9 +29,9 @@ public abstract class Task {
      *
      * @param taskType the type of task.
      */
-    public void setTaskType(String taskType) {
-        this.taskType = taskType;
-    }
+    //public void setTaskType(String taskType) {
+    //this.taskType = taskType;
+    //}
 
     /**
      * Returns a task's description.
@@ -41,33 +47,33 @@ public abstract class Task {
      *
      * @return the type of task in string.
      */
-    public String getTaskType() {
+    /*public String getTaskType() {
         return taskType;
-    }
+    }*/
 
     /**
      * Returns the done status of a task.
      *
      * @return the done status of the task in boolean.
      */
-    public boolean isDone() {
+    /*public boolean isDone() {
         return isDone;
-    }
+    }*/
 
     /**
      * Returns the done status of a task.
      * @return {@code \u2713} or {@code \u2718}.
      */
-    public String getStatusIcon() {
+    /*public String getStatusIcon() {
         return (isDone ? "\u2713" : "\u2718"); //return tick or X symbols
-    }
+    }*/
 
     /**
      * Sets a task as done.
      */
-    public void markAsDone() {
-        this.isDone = true;
-    }
+    //public void markAsDone() {
+    //this.isDone = true;
+    //}
 
     /**
      * Returns the task description and status based on given format.
@@ -76,7 +82,7 @@ public abstract class Task {
      */
     @Override
     public String toString() {
-        return "[" + getStatusIcon() + "] " + this.description;
+        return this.description + this.location + this.timeStart + this.timeEnd;
     }
 
 }

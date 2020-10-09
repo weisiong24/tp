@@ -1,6 +1,3 @@
-Data folder found! Finding duke.txt...
-Existing duke.txt found. Loading previously saved task list...
-Previous task list loaded successfully
 ____________________________________________________________
  _    _ _                   _____       _ _____ _                
 | |  | | |                 |  __ \     | |_   _(_)               
