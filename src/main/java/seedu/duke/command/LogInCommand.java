@@ -26,8 +26,7 @@ public class LogInCommand extends Command {
         ui.greetUser(newUser);
         isLogIn = true;
 
-        System.out.println(users.getTotalUserCount());
-        System.out.println(users.getUser(1).getName());
+
         //storage.write(tasks);
     }
 }
