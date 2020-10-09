@@ -73,13 +73,13 @@ public class Parser {
             throw new DukeException("An add command needs to be in a 'name /day /time /location' format!");
         }
         String[] position = input[1].split(" /",4);
-        if (position[0].isBlank()) {
+        if (position[0].isEmpty()) {
             throw new DukeException("There is no name in your add command!");
-        } else if (position[1].isBlank()) {
+        } else if (position[1].isEmpty()) {
             throw new DukeException("There is no day in your add command!");
-        } else if (position[2].isBlank()) {
+        } else if (position[2].isEmpty()) {
             throw new DukeException("There is no time in your add command!");
-        } else if (position[3].isBlank()) {
+        } else if (position[3].isEmpty()) {
             throw new DukeException("There is no location in your add command!");
         }
 
@@ -127,9 +127,9 @@ public class Parser {
             throw new DukeException("A deadline task requires a '/by' to indicate time frame!");
         }
         int byPosition = input[1].indexOf("/by");
-        if (input[1].substring(0, byPosition).isBlank()) {
+        if (input[1].substring(0, byPosition).isEmpty()) {
             throw new DukeException("There is no description in your deadline command!");
-        } else if (input[1].substring(byPosition + 3).isBlank()) {
+        } else if (input[1].substring(byPosition + 3).isEmpty()) {
             throw new DukeException("Please indicate time frame!");
         }
     }
@@ -147,9 +147,9 @@ public class Parser {
             throw new DukeException("An event task requires an '/at' to indicate location!");
         }
         int atPosition = input[1].indexOf("/at");
-        if (input[1].substring(0, atPosition).isBlank()) {
+        if (input[1].substring(0, atPosition).isEmpty()) {
             throw new DukeException("There is no description in your event command!");
-        } else if (input[1].substring(atPosition + 3).isBlank()) {
+        } else if (input[1].substring(atPosition + 3).isEmpty()) {
             throw new DukeException("An event task requires an '/at' to indicate location!");
         }
     }
@@ -161,9 +161,9 @@ public class Parser {
             throw new DukeException("An login requires an '/' to indicate password!");
         }
         int atPosition = input[1].indexOf("/");
-        if (input[1].substring(0, atPosition).isBlank()) {
+        if (input[1].substring(0, atPosition).isEmpty()) {
             throw new DukeException("There is no username in your login command!");
-        } else if (input[1].substring(atPosition + 1).isBlank()) {
+        } else if (input[1].substring(atPosition + 1).isEmpty()) {
             throw new DukeException("An login requires a password!");
         }
     }
