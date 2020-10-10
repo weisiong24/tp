@@ -1,9 +1,10 @@
 package seedu.duke.ui;
 
-import seedu.duke.task.Deadline;
+//import seedu.duke.task.Deadline;
 import seedu.duke.task.Event;
 import seedu.duke.task.Task;
 import seedu.duke.task.TaskList;
+import seedu.duke.user.User;
 
 import java.util.Scanner;
 
@@ -72,23 +73,23 @@ public class Ui {
      * @param taskList the array list of tasks.
      * @param task the task to be added to the array list.
      */
-    public void printDeadline(TaskList taskList, Deadline task) {
+    /*public void printDeadline(TaskList taskList, Deadline task) {
         System.out.println("Got it! I've added the following deadline in the list:\n" + task);
         System.out.println("Now now have " + taskList.getTotalTaskCount() + " tasks in the list.");
-    }
+    }*/
 
     /**
      * Prints out the event task given by the user.
      *
-     * @param taskList the array list of tasks.
-     * @param task the task to be added to the array list.
+     * @param event the task to be added to the array list.
      */
-    public void printEvent(TaskList taskList, Event task) {
-        System.out.println("Got it! I've added the following event in the list:\n" + task);
-        System.out.println("Now now have " + taskList.getTotalTaskCount() + " tasks in the list.");
+    public void printEvent(Event event, String date) {
+        System.out.println("Got it! I've added the following event in " + date + "\n" + event);
+        //System.out.println("Now now have " + taskList.getTotalTaskCount() + " tasks in the list.");
     }
 
     public void printDone(Task task) {
+
         System.out.println("Nice! I have marked this task as done:\n" + task);
     }
 
@@ -128,6 +129,10 @@ public class Ui {
      */
     public void showBye() {
         System.out.println("Thanks for using WhereGotTime. Hope to see you again soon!");
+    }
+
+    public void greetUser(User currentUser) {
+        System.out.println("Hello " + currentUser.getName() + "!");
     }
 
     /**
