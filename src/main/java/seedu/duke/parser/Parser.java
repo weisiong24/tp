@@ -79,9 +79,9 @@ public class Parser {
             throw new DukeException("There is no day in your add command!");
         } else if (position[2].isEmpty()) {
             throw new DukeException("There is no time in your add command!");
-        } else if (position[3].isEmpty()) {
+        } else {
             throw new DukeException("There is no location in your add command!");
-        }
+        } 
 
     }
 
