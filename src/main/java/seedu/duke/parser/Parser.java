@@ -7,7 +7,7 @@ import seedu.duke.command.Command;
 //import seedu.duke.command.DoneCommand;
 //import seedu.duke.command.EventCommand;
 //import seedu.duke.command.FindCommand;
-//import seedu.duke.command.ListCommand;
+import seedu.duke.command.ListCommand;
 import seedu.duke.command.LogInCommand;
 import seedu.duke.exception.DukeException;
 
@@ -17,7 +17,7 @@ import seedu.duke.exception.DukeException;
 public class Parser {
     //private static final String COMMAND_DEADLINE = "deadline";
     //private static final String COMMAND_EVENT = "event";
-    //private static final String COMMAND_LIST = "list";
+    private static final String COMMAND_LIST = "list";
     //private static final String COMMAND_DONE = "done";
     //private static final String COMMAND_DELETE = "delete";
     //private static final String COMMAND_FIND = "find";
@@ -42,8 +42,9 @@ public class Parser {
         case COMMAND_EVENT:
             checkEventValidity(parsedInputs);
             return new EventCommand(parsedInputs[1]);*/
-        /*case COMMAND_LIST:
-            return new ListCommand();*/
+        case COMMAND_LIST:
+            checkListValidity(parsedInputs);
+            return new ListCommand(parsedInputs[1]);
         /*case COMMAND_DONE:
             checkTaskIndexValidity(parsedInputs);
             return new DoneCommand(parsedInputs[1]);*/
@@ -79,10 +80,15 @@ public class Parser {
             throw new DukeException("There is no day in your add command!");
         } else if (position[2].isEmpty()) {
             throw new DukeException("There is no time in your add command!");
-        } else {
+        } else if (position[3].isEmpty()) {
             throw new DukeException("There is no location in your add command!");
-        } 
+        }
+    }
 
+    private static void checkListValidity(String[] input) throws DukeException {
+        if (input.length < 2) {
+            throw new DukeException("There is no description in your list command!");
+        }
     }
 
 
