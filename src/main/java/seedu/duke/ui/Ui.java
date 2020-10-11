@@ -1,11 +1,14 @@
 package seedu.duke.ui;
 
 //import seedu.duke.task.Deadline;
+import seedu.duke.exception.DukeException;
 import seedu.duke.task.Event;
 import seedu.duke.task.Task;
 import seedu.duke.task.TaskList;
 import seedu.duke.user.User;
+import seedu.duke.user.UserList;
 
+import java.util.ArrayList;
 import java.util.Scanner;
 
 /**
@@ -52,18 +55,55 @@ public class Ui {
     /**
      * Prints out all tasks saved in the array list.
      *
-     * @param taskList the array list to print.
+     * @param users the array list to print.
      */
-    public void printList(TaskList taskList) {
-        if (taskList.getTotalTaskCount() > 0) {
-            System.out.println("Here are all the classes in your time table: ");
+    public void printList(UserList users, User nowUser, String day) throws DukeException {
+        int userIndex = -1;
+
+        for (int i = 0; i < users.getTotalUserCount(); i++) {
+            if ((users.getUser(i + 1).getName() == nowUser.getName())) {
+                userIndex = i + 1;
+            } else {
+                throw new DukeException("Sorry! You are not Logged in to any account :-(");
+            }
+        }
+
+        ArrayList<Object> timetable = null;
+        switch (day) {
+            case "mon":
+                timetable = (users.getUser(userIndex).getTimetable()).getMonTimetable();
+                break;
+            case "tue":
+                timetable = (users.getUser(userIndex).getTimetable()).getTueTimetable();
+                break;
+            case "wed":
+                timetable = (users.getUser(userIndex).getTimetable()).getWedTimetable();
+                break;
+            case "thu":
+                timetable = (users.getUser(userIndex).getTimetable()).getThuTimetable();
+                break;
+            case "fri":
+                timetable = (users.getUser(userIndex).getTimetable()).getFriTimetable();
+                break;
+            case "sat":
+                timetable = (users.getUser(userIndex).getTimetable()).getSatTimetable();
+                break;
+            case "sun":
+                timetable = (users.getUser(userIndex).getTimetable()).getSunTimetable();
+                break;
+            default:
+                throw new DukeException("Sorry! I don't know what day you mean :-(");
+        }
+        if (!timetable.isEmpty()) {
             int count = 1;
-            for (Task t : taskList.getTaskList()) {
-                System.out.println(count + ". " + t);
+            System.out.println("Here are the classes in your timetable for " + day + ":");
+            for (Object u : timetable) {
+                System.out.println(count + ". " + u);
                 count++;
             }
+            System.out.println();
         } else {
-            System.out.println("There is no class in your time table! Consider adding one?");
+            System.out.println("There is no class in your timetable for " + day + "!");
         }
     }
 
