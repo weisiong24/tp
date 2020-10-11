@@ -43,6 +43,7 @@ public class Parser {
             checkEventValidity(parsedInputs);
             return new EventCommand(parsedInputs[1]);*/
         case COMMAND_LIST:
+            checkListValidity(parsedInputs);
             return new ListCommand(parsedInputs[1]);
         /*case COMMAND_DONE:
             checkTaskIndexValidity(parsedInputs);
@@ -81,6 +82,12 @@ public class Parser {
             throw new DukeException("There is no time in your add command!");
         } else if (position[3].isEmpty()) {
             throw new DukeException("There is no location in your add command!");
+        }
+    }
+
+    private static void checkListValidity(String[] input) throws DukeException {
+        if (input.length < 2) {
+            throw new DukeException("There is no description in your list command!");
         }
     }
 

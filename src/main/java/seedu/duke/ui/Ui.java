@@ -60,39 +60,41 @@ public class Ui {
     public void printList(UserList users, User nowUser, String day) throws DukeException {
         int userIndex = -1;
 
+        if (nowUser == null) {
+            throw new DukeException("Sorry! You are not logged in to any account :-(");
+        }
+
         for (int i = 0; i < users.getTotalUserCount(); i++) {
             if ((users.getUser(i + 1).getName() == nowUser.getName())) {
                 userIndex = i + 1;
-            } else {
-                throw new DukeException("Sorry! You are not Logged in to any account :-(");
             }
         }
 
         ArrayList<Object> timetable = null;
         switch (day) {
-            case "mon":
-                timetable = (users.getUser(userIndex).getTimetable()).getMonTimetable();
-                break;
-            case "tue":
-                timetable = (users.getUser(userIndex).getTimetable()).getTueTimetable();
-                break;
-            case "wed":
-                timetable = (users.getUser(userIndex).getTimetable()).getWedTimetable();
-                break;
-            case "thu":
-                timetable = (users.getUser(userIndex).getTimetable()).getThuTimetable();
-                break;
-            case "fri":
-                timetable = (users.getUser(userIndex).getTimetable()).getFriTimetable();
-                break;
-            case "sat":
-                timetable = (users.getUser(userIndex).getTimetable()).getSatTimetable();
-                break;
-            case "sun":
-                timetable = (users.getUser(userIndex).getTimetable()).getSunTimetable();
-                break;
-            default:
-                throw new DukeException("Sorry! I don't know what day you mean :-(");
+        case "mon":
+            timetable = (users.getUser(userIndex).getTimetable()).getMonTimetable();
+            break;
+        case "tue":
+            timetable = (users.getUser(userIndex).getTimetable()).getTueTimetable();
+            break;
+        case "wed":
+            timetable = (users.getUser(userIndex).getTimetable()).getWedTimetable();
+            break;
+        case "thu":
+            timetable = (users.getUser(userIndex).getTimetable()).getThuTimetable();
+            break;
+        case "fri":
+            timetable = (users.getUser(userIndex).getTimetable()).getFriTimetable();
+            break;
+        case "sat":
+            timetable = (users.getUser(userIndex).getTimetable()).getSatTimetable();
+            break;
+        case "sun":
+            timetable = (users.getUser(userIndex).getTimetable()).getSunTimetable();
+            break;
+        default:
+            throw new DukeException("Sorry! I don't know what day you mean :-(");
         }
         if (!timetable.isEmpty()) {
             int count = 1;
