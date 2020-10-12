@@ -147,6 +147,26 @@ public class Ui {
     }
 
     /**
+     * Prints out the day of the timetable that has been cleared.
+     *
+     * @param timetable the timetable of the day to be cleared.
+     */
+    public void printClear(ArrayList<Object> timetable, String day) {
+        int count = 1;
+        int size = timetable.size();
+        if (size == 1) {
+            System.out.println("Noted. I have removed this class from your " + day + " timetable:");
+        } else {
+            System.out.println("Noted. I have removed these classes from your " + day + " timetable:");
+        }
+        for (Object c : timetable) {
+            System.out.println(count + ". " + c);
+            count++;
+        }
+        System.out.println("Your " + day + " timetable has been cleared.");
+    }
+
+    /**
      * Prints all result(s) that matches the search keyword.
      *
      * @param taskList the array list that contains the keyword.

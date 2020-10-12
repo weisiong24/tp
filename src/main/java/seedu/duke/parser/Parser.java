@@ -1,20 +1,17 @@
 package seedu.duke.parser;
 
-import seedu.duke.command.AddCommand;
-import seedu.duke.command.ByeCommand;
-import seedu.duke.command.Command;
+import seedu.duke.command.*;
 //import seedu.duke.command.DeleteCommand;
 //import seedu.duke.command.DoneCommand;
 //import seedu.duke.command.EventCommand;
 //import seedu.duke.command.FindCommand;
-import seedu.duke.command.ListCommand;
-import seedu.duke.command.LogInCommand;
 import seedu.duke.exception.DukeException;
 
 /**
  * Parses the user's input.
  */
 public class Parser {
+    private static final String COMMAND_CLEAR = "clear";
     //private static final String COMMAND_DEADLINE = "deadline";
     //private static final String COMMAND_EVENT = "event";
     private static final String COMMAND_LIST = "list";
@@ -36,7 +33,10 @@ public class Parser {
     public static Command parse(String input) throws DukeException {
         String[] parsedInputs = input.split(" ", 2);
         switch (parsedInputs[0]) {
-        /*case COMMAND_DEADLINE:
+        case COMMAND_CLEAR:
+            checkClearValidity(parsedInputs);
+            return new ClearCommand(parsedInputs[1]);
+         /*case COMMAND_DEADLINE:
             checkDeadlineValidity(parsedInputs);
             return new DeadlineCommand(parsedInputs[1]);
         case COMMAND_EVENT:
@@ -88,6 +88,14 @@ public class Parser {
     private static void checkListValidity(String[] input) throws DukeException {
         if (input.length < 2) {
             throw new DukeException("There is no description in your list command!");
+        }
+    }
+
+    private static void checkClearValidity(String[] input) throws DukeException {
+        if (input.length < 2) {
+            throw new DukeException("There is no description in your clear command!");
+        } else if (!input[1].contains("/")) {
+            throw new DukeException("An clear command needs to be in a 'clear /day' format!");
         }
     }
 
