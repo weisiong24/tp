@@ -1,13 +1,7 @@
 package seedu.duke.command;
 
-//import seedu.duke.exception.DukeException;
-//import seedu.duke.storage.Storage;
-//import seedu.duke.task.Task;
-//import seedu.duke.task.TaskList;
-//import seedu.duke.ui.Ui;
-
 import seedu.duke.exception.DukeException;
-import seedu.duke.task.Event;
+//import seedu.duke.storage.Storage;
 import seedu.duke.ui.Ui;
 import seedu.duke.user.User;
 import seedu.duke.user.UserList;
@@ -31,7 +25,6 @@ public class DeleteCommand extends Command {
 
         String[] parsedInputs = input.split("/", 3);
         String day = parsedInputs[1].trim();
-        System.out.println("day: " + day);
         int index;
 
         try {
