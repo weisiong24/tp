@@ -22,7 +22,7 @@ public class LogInCommand extends Command {
         boolean doesExist = false;
         
         String[] parsedInputs = input.split(" /", 2);
-        for (int i = 1; i<users.getTotalUserCount(); i++) {
+        for (int i = 1; i < users.getTotalUserCount(); i++) {
             if (parsedInputs[0].equals((users.getUser(i)).getName())) {
                 if (parsedInputs[1].equals((users.getUser(i)).getPassWord())) {
                     currentUser = users.getUser(i);
@@ -34,7 +34,7 @@ public class LogInCommand extends Command {
             }
         } 
         
-        if (doesExist == false){
+        if (doesExist == false) {
             //System.out.println("User: " + parsedInputs[0] + " does not exist!");
             User newUser = new User(parsedInputs[0], parsedInputs[1]);
             currentUser = newUser;
