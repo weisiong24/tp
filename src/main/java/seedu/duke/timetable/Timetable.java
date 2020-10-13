@@ -1,5 +1,6 @@
 package seedu.duke.timetable;
 
+import seedu.duke.exception.DukeException;
 import seedu.duke.task.Event;
 
 import java.util.ArrayList;
@@ -24,32 +25,25 @@ public class Timetable {
         this.sunTimetable = new ArrayList<>();
     }
 
-    public ArrayList<Event> getMonTimetable() {
-        return monTimetable;
-    }
-
-    public ArrayList<Event> getTueTimetable() {
-        return tueTimetable;
-    }
-
-    public ArrayList<Event> getWedTimetable() {
-        return wedTimetable;
-    }
-
-    public ArrayList<Event> getThuTimetable() {
-        return thuTimetable;
-    }
-
-    public ArrayList<Event> getFriTimetable() {
-        return friTimetable;
-    }
-
-    public ArrayList<Event> getSatTimetable() {
-        return satTimetable;
-    }
-
-    public ArrayList<Event> getSunTimetable() {
-        return sunTimetable;
+    public ArrayList<Event> getTimetable(String day) throws DukeException {
+        switch (day) {
+        case "mon":
+            return monTimetable;
+        case "tue":
+            return tueTimetable;
+        case "wed":
+            return wedTimetable;
+        case "thu":
+            return thuTimetable;
+        case "fri":
+            return friTimetable;
+        case "sat":
+            return satTimetable;
+        case "sun":
+            return sunTimetable;
+        default:
+            throw new DukeException("Sorry! I don't know what day you mean :-(");
+        }
     }
 
 
