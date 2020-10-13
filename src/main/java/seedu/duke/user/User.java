@@ -17,6 +17,10 @@ public class User {
         return name;
     }
 
+    public String getPassWord() {
+        return passWord;
+    }
+
     public Timetable getTimetable() {
         return timetable;
     }
