@@ -3,7 +3,7 @@ package seedu.duke.parser;
 import seedu.duke.command.AddCommand;
 import seedu.duke.command.ByeCommand;
 import seedu.duke.command.Command;
-//import seedu.duke.command.DeleteCommand;
+import seedu.duke.command.DeleteCommand;
 //import seedu.duke.command.DoneCommand;
 //import seedu.duke.command.EventCommand;
 //import seedu.duke.command.FindCommand;
@@ -19,7 +19,7 @@ public class Parser {
     //private static final String COMMAND_EVENT = "event";
     private static final String COMMAND_LIST = "list";
     //private static final String COMMAND_DONE = "done";
-    //private static final String COMMAND_DELETE = "delete";
+    private static final String COMMAND_DELETE = "delete";
     //private static final String COMMAND_FIND = "find";
     private static final String COMMAND_BYE = "bye";
     private static final String COMMAND_LOGIN = "login";
@@ -48,10 +48,10 @@ public class Parser {
         /*case COMMAND_DONE:
             checkTaskIndexValidity(parsedInputs);
             return new DoneCommand(parsedInputs[1]);*/
-        /*case COMMAND_DELETE:
-            checkTaskIndexValidity(parsedInputs);
+        case COMMAND_DELETE:
+            checkDeleteValidity(parsedInputs);
             return new DeleteCommand(parsedInputs[1]);
-        case COMMAND_FIND:
+        /*case COMMAND_FIND:
             verifyFind(parsedInputs);
             return new FindCommand(parsedInputs[1]);*/
         case COMMAND_LOGIN:
@@ -88,6 +88,20 @@ public class Parser {
     private static void checkListValidity(String[] input) throws DukeException {
         if (input.length < 2) {
             throw new DukeException("There is no description in your list command!");
+        }
+    }
+
+    private static void checkDeleteValidity(String[] input) throws DukeException {
+        if (input.length < 2) {
+            throw new DukeException("There is no description in your delete command!");
+        } else if (!input[1].contains("/")) {
+            throw new DukeException("A delete command needs to be in a '/day /index' format!");
+        }
+        String[] position = input[1].split("/",3);
+        if (position[1].isEmpty()) {
+            throw new DukeException("There is no day in your delete command!");
+        } else if (position[2].isEmpty()) {
+            throw new DukeException("There is no index in your delete command!");
         }
     }
 
