@@ -4,6 +4,7 @@ package seedu.duke.parser;
 import seedu.duke.command.AddCommand;
 import seedu.duke.command.ByeCommand;
 import seedu.duke.command.ClearCommand;
+import seedu.duke.command.CompareCommand;
 import seedu.duke.command.Command;
 import seedu.duke.command.DeleteCommand;
 //import seedu.duke.command.DoneCommand;
@@ -27,6 +28,7 @@ public class Parser {
     private static final String COMMAND_BYE = "bye";
     private static final String COMMAND_LOGIN = "login";
     private static final String COMMAND_ADD = "add";
+    private static final String COMMAND_COMPARE = "compare";
 
 
     /**
@@ -68,6 +70,8 @@ public class Parser {
             return new AddCommand(parsedInputs[1]);
         case COMMAND_BYE:
             return new ByeCommand();
+        case COMMAND_COMPARE:
+            return new CompareCommand(parsedInputs[1]);
         default:
             throw new DukeException("Sorry! I don't know what that means :-(");
         }

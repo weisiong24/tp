@@ -85,4 +85,12 @@ public abstract class Task {
         return this.description + this.location + this.timeStart + this.timeEnd;
     }
 
+    public String getTimeStart() {
+        return this.timeStart;
+    }
+
+    public String getTimeEnd() {
+        return this.timeEnd;
+    }
+
 }
