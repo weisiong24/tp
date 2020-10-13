@@ -6,13 +6,13 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class Timetable {
-    protected ArrayList<Object> monTimetable;
-    protected ArrayList<Object> tueTimetable;
-    protected ArrayList<Object> wedTimetable;
-    protected ArrayList<Object> thuTimetable;
-    protected ArrayList<Object> friTimetable;
-    protected ArrayList<Object> satTimetable;
-    protected ArrayList<Object> sunTimetable;
+    protected ArrayList<Event> monTimetable;
+    protected ArrayList<Event> tueTimetable;
+    protected ArrayList<Event> wedTimetable;
+    protected ArrayList<Event> thuTimetable;
+    protected ArrayList<Event> friTimetable;
+    protected ArrayList<Event> satTimetable;
+    protected ArrayList<Event> sunTimetable;
 
     public Timetable() {
         this.monTimetable = new ArrayList<>();
@@ -24,31 +24,31 @@ public class Timetable {
         this.sunTimetable = new ArrayList<>();
     }
 
-    public ArrayList<Object> getMonTimetable() {
+    public ArrayList<Event> getMonTimetable() {
         return monTimetable;
     }
 
-    public ArrayList<Object> getTueTimetable() {
+    public ArrayList<Event> getTueTimetable() {
         return tueTimetable;
     }
 
-    public ArrayList<Object> getWedTimetable() {
+    public ArrayList<Event> getWedTimetable() {
         return wedTimetable;
     }
 
-    public ArrayList<Object> getThuTimetable() {
+    public ArrayList<Event> getThuTimetable() {
         return thuTimetable;
     }
 
-    public ArrayList<Object> getFriTimetable() {
+    public ArrayList<Event> getFriTimetable() {
         return friTimetable;
     }
 
-    public ArrayList<Object> getSatTimetable() {
+    public ArrayList<Event> getSatTimetable() {
         return satTimetable;
     }
 
-    public ArrayList<Object> getSunTimetable() {
+    public ArrayList<Event> getSunTimetable() {
         return sunTimetable;
     }
 

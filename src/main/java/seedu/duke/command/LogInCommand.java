@@ -19,11 +19,28 @@ public class LogInCommand extends Command {
 
     @Override
     public void execute(UserList users, Ui ui, User nowUser/*, Storage storage*/) throws DukeException {
+        boolean doesExist = false;
+        
         String[] parsedInputs = input.split(" /", 2);
-        User newUser = new User(parsedInputs[0], parsedInputs[1]);
-        currentUser = newUser;
-        users.addUser(newUser);
-        ui.greetUser(newUser);
+        for (int i = 1; i < users.getTotalUserCount(); i++) {
+            if (parsedInputs[0].equals((users.getUser(i)).getName())) {
+                if (parsedInputs[1].equals((users.getUser(i)).getPassWord())) {
+                    currentUser = users.getUser(i);
+                    //System.out.println(parsedInputs[0] + " == " + (users.getUser(i)).getName());
+                    doesExist = true;
+                } else {
+                    throw new DukeException("Wrong Password");
+                }
+            }
+        } 
+        
+        if (doesExist == false) {
+            //System.out.println("User: " + parsedInputs[0] + " does not exist!");
+            User newUser = new User(parsedInputs[0], parsedInputs[1]);
+            currentUser = newUser;
+            users.addUser(newUser);
+        }
+        ui.greetUser(currentUser);
         isLogIn = true;
 
 
