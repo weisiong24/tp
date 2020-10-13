@@ -70,40 +70,14 @@ public class Ui {
             }
         }
 
-        ArrayList<Event> timetable = null;
-        switch (day) {
-        case "mon":
-            timetable = (users.getUser(userIndex).getTimetable()).getMonTimetable();
-            break;
-        case "tue":
-            timetable = (users.getUser(userIndex).getTimetable()).getTueTimetable();
-            break;
-        case "wed":
-            timetable = (users.getUser(userIndex).getTimetable()).getWedTimetable();
-            break;
-        case "thu":
-            timetable = (users.getUser(userIndex).getTimetable()).getThuTimetable();
-            break;
-        case "fri":
-            timetable = (users.getUser(userIndex).getTimetable()).getFriTimetable();
-            break;
-        case "sat":
-            timetable = (users.getUser(userIndex).getTimetable()).getSatTimetable();
-            break;
-        case "sun":
-            timetable = (users.getUser(userIndex).getTimetable()).getSunTimetable();
-            break;
-        default:
-            throw new DukeException("Sorry! I don't know what day you mean :-(");
-        }
+        ArrayList<Event> timetable = (users.getUser(userIndex).getTimetable()).getTimetable(day);
         if (!timetable.isEmpty()) {
             int count = 1;
             System.out.println("Here are the classes in your timetable for " + day + ":");
-            for (Object u : timetable) {
-                System.out.println(count + ". " + u);
+            for (Object c : timetable) {
+                System.out.println(count + ". " + c);
                 count++;
             }
-            System.out.println();
         } else {
             System.out.println("There is no class in your timetable for " + day + "!");
         }
@@ -145,6 +119,26 @@ public class Ui {
     public void printDelete(String deletedClass, String day, int size) {
         System.out.println("Noted. I have removed this class from your time table:\n" + deletedClass);
         System.out.println("Now you have " + size + " class(es) for " + day +  " in the time table.");
+    }
+
+    /**
+     * Prints out the day of the timetable that has been cleared.
+     *
+     * @param timetable the timetable of the day to be cleared.
+     */
+    public void printClear(ArrayList<Object> timetable, String day) {
+        int count = 1;
+        int size = timetable.size();
+        if (size == 1) {
+            System.out.println("Noted. I have removed this class from your " + day + " timetable:");
+        } else {
+            System.out.println("Noted. I have removed these classes from your " + day + " timetable:");
+        }
+        for (Object c : timetable) {
+            System.out.println(count + ". " + c);
+            count++;
+        }
+        System.out.println("Your " + day + " timetable has been cleared.");
     }
 
     /**

@@ -2,6 +2,7 @@ package seedu.duke.command;
 
 import seedu.duke.exception.DukeException;
 //import seedu.duke.storage.Storage;
+import seedu.duke.task.Event;
 import seedu.duke.ui.Ui;
 import seedu.duke.user.User;
 import seedu.duke.user.UserList;
@@ -31,32 +32,7 @@ public class DeleteCommand extends Command {
             index = Integer.parseInt(parsedInputs[2]);
             for (int i = 0; i < users.getTotalUserCount(); i++) {
                 if ((users.getUser(i + 1).getName() == nowUser.getName())) {
-                    ArrayList<Object> timetable = null;
-                    switch (day) {
-                    case "mon":
-                        timetable = (users.getUser(i + 1).getTimetable()).getMonTimetable();
-                        break;
-                    case "tue":
-                        timetable = (users.getUser(i + 1).getTimetable()).getTueTimetable();
-                        break;
-                    case "wed":
-                        timetable = (users.getUser(i + 1).getTimetable()).getWedTimetable();
-                        break;
-                    case "thu":
-                        timetable = (users.getUser(i + 1).getTimetable()).getThuTimetable();
-                        break;
-                    case "fri":
-                        timetable = (users.getUser(i + 1).getTimetable()).getFriTimetable();
-                        break;
-                    case "sat":
-                        timetable = (users.getUser(i + 1).getTimetable()).getSatTimetable();
-                        break;
-                    case "sun":
-                        timetable = (users.getUser(i + 1).getTimetable()).getSunTimetable();
-                        break;
-                    default:
-                        throw new DukeException("Sorry! I don't know what day you mean :-(");
-                    }
+                    ArrayList<Event> timetable = (users.getUser(i + 1).getTimetable()).getTimetable(day);;
                     String removedClass = timetable.get(index - 1).toString();
                     timetable.remove(index - 1);
                     ui.printDelete(removedClass, day, timetable.size());
