@@ -37,4 +37,13 @@ public class UserList {
     public int getTotalUserCount() {
         return users.size();
     }
+
+    public User getUserByName(String userName) {
+        for (User user : this.users) {
+            if (user.getName().equals(userName)) {
+                return user;
+            }
+        }
+        return null;
+    }
 }
