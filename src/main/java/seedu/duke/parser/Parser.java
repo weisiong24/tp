@@ -42,7 +42,7 @@ public class Parser {
         case COMMAND_CLEAR:
             checkClearValidity(parsedInputs);
             return new ClearCommand(parsedInputs[1]);
-         /*case COMMAND_DEADLINE:
+        /*case COMMAND_DEADLINE:
             checkDeadlineValidity(parsedInputs);
             return new DeadlineCommand(parsedInputs[1]);
         case COMMAND_EVENT:

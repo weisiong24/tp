@@ -70,40 +70,14 @@ public class Ui {
             }
         }
 
-        ArrayList<Event> timetable = null;
-        switch (day) {
-        case "mon":
-            timetable = (users.getUser(userIndex).getTimetable()).getMonTimetable();
-            break;
-        case "tue":
-            timetable = (users.getUser(userIndex).getTimetable()).getTueTimetable();
-            break;
-        case "wed":
-            timetable = (users.getUser(userIndex).getTimetable()).getWedTimetable();
-            break;
-        case "thu":
-            timetable = (users.getUser(userIndex).getTimetable()).getThuTimetable();
-            break;
-        case "fri":
-            timetable = (users.getUser(userIndex).getTimetable()).getFriTimetable();
-            break;
-        case "sat":
-            timetable = (users.getUser(userIndex).getTimetable()).getSatTimetable();
-            break;
-        case "sun":
-            timetable = (users.getUser(userIndex).getTimetable()).getSunTimetable();
-            break;
-        default:
-            throw new DukeException("Sorry! I don't know what day you mean :-(");
-        }
+        ArrayList<Event> timetable = (users.getUser(userIndex).getTimetable()).getTimetable(day);
         if (!timetable.isEmpty()) {
             int count = 1;
             System.out.println("Here are the classes in your timetable for " + day + ":");
-            for (Object u : timetable) {
-                System.out.println(count + ". " + u);
+            for (Object c : timetable) {
+                System.out.println(count + ". " + c);
                 count++;
             }
-            System.out.println();
         } else {
             System.out.println("There is no class in your timetable for " + day + "!");
         }
