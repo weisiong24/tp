@@ -9,7 +9,7 @@ import java.util.Arrays;
 
 import seedu.duke.task.Event;
 
-public class CompareCommand extends Command{
+public class CompareCommand extends Command {
 
     public CompareCommand(String input) {
         super(input);
@@ -18,7 +18,8 @@ public class CompareCommand extends Command{
     @Override
     public void execute(UserList users, Ui ui, User nowUser) throws DukeException {
 
-        ArrayList<Integer> outputArray = new ArrayList<Integer>(Arrays.asList(0,1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20,21,22,23));
+        ArrayList<Integer> outputArray = new ArrayList<Integer>(Arrays.asList(0,1,2,3,4,5,6,7,8,9,
+                10,11,12,13,14,15,16,17,18,19,20,21,22,23));
 
         if (nowUser != null) {
             String[] parsedInputs = input.split(" /", 3);
@@ -27,43 +28,43 @@ public class CompareCommand extends Command{
             ArrayList<Event> nowUserTimetable;
             ArrayList<Event> targetUserTimetable;
 
-            User targetUser = users.getUserByName(targetName); //implement a function to return user from UserList based on name
+            User targetUser = users.getUserByName(targetName);
 
-            if (targetUser == null){
+            if (targetUser == null) {
                 throw new DukeException("No such user!");
             }
 
             switch (date) {
-                case "mon":
-                    nowUserTimetable = nowUser.getTimetable().getTimetable("mon");
-                    targetUserTimetable = targetUser.getTimetable().getTimetable("mon");
-                    break;
-                case "tue":
-                    nowUserTimetable = nowUser.getTimetable().getTimetable("tue");
-                    targetUserTimetable = targetUser.getTimetable().getTimetable("tue");
-                    break;
-                case "wed":
-                    nowUserTimetable = nowUser.getTimetable().getTimetable("wed");
-                    targetUserTimetable = targetUser.getTimetable().getTimetable("wed");
-                    break;
-                case "thu":
-                    nowUserTimetable = nowUser.getTimetable().getTimetable("thu");
-                    targetUserTimetable = targetUser.getTimetable().getTimetable("thu");
-                    break;
-                case "fri":
-                    nowUserTimetable = nowUser.getTimetable().getTimetable("fri");
-                    targetUserTimetable = targetUser.getTimetable().getTimetable("fri");
-                    break;
-                case "sat":
-                    nowUserTimetable = nowUser.getTimetable().getTimetable("sat");
-                    targetUserTimetable = targetUser.getTimetable().getTimetable("sat");
-                    break;
-                case "sun":
-                    nowUserTimetable = nowUser.getTimetable().getTimetable("sun");
-                    targetUserTimetable = targetUser.getTimetable().getTimetable("sun");
-                    break;
-                default:
-                    throw new DukeException("Sorry! I don't know what day you mean :-(");
+            case "mon":
+                nowUserTimetable = nowUser.getTimetable().getTimetable("mon");
+                targetUserTimetable = targetUser.getTimetable().getTimetable("mon");
+                break;
+            case "tue":
+                nowUserTimetable = nowUser.getTimetable().getTimetable("tue");
+                targetUserTimetable = targetUser.getTimetable().getTimetable("tue");
+                break;
+            case "wed":
+                nowUserTimetable = nowUser.getTimetable().getTimetable("wed");
+                targetUserTimetable = targetUser.getTimetable().getTimetable("wed");
+                break;
+            case "thu":
+                nowUserTimetable = nowUser.getTimetable().getTimetable("thu");
+                targetUserTimetable = targetUser.getTimetable().getTimetable("thu");
+                break;
+            case "fri":
+                nowUserTimetable = nowUser.getTimetable().getTimetable("fri");
+                targetUserTimetable = targetUser.getTimetable().getTimetable("fri");
+                break;
+            case "sat":
+                nowUserTimetable = nowUser.getTimetable().getTimetable("sat");
+                targetUserTimetable = targetUser.getTimetable().getTimetable("sat");
+                break;
+            case "sun":
+                nowUserTimetable = nowUser.getTimetable().getTimetable("sun");
+                targetUserTimetable = targetUser.getTimetable().getTimetable("sun");
+                break;
+            default:
+                throw new DukeException("Sorry! I don't know what day you mean :-(");
             }
 
             /**
@@ -71,20 +72,20 @@ public class CompareCommand extends Command{
              * Assuming for each day of the week, timetable ArrayList<Object> contains only [0:23] timeslots
              * Loop below returns an outputArray that holds the common available hours in that day
              */
-            for (Event event : nowUserTimetable){
-                int temp_x = (Integer.valueOf(Integer.parseInt(event.getTimeStart().substring(0,2))));
-                int temp_y = (Integer.valueOf(Integer.parseInt(event.getTimeEnd().substring(0,2))));
+            for (Event event : nowUserTimetable) {
+                int tempX = (Integer.valueOf(Integer.parseInt(event.getTimeStart().substring(0,2))));
+                int tempY = (Integer.valueOf(Integer.parseInt(event.getTimeEnd().substring(0,2))));
 
-                for (int i = temp_x; i<temp_y+1 ; i++){
+                for (int i = tempX; i < tempY + 1; i++) {
                     outputArray.remove(Integer.valueOf(i));
                 }
             }
 
-            for (Event event : targetUserTimetable){
-                int temp_x = (Integer.valueOf(Integer.parseInt(event.getTimeStart().substring(0,2))));
-                int temp_y = (Integer.valueOf(Integer.parseInt(event.getTimeEnd().substring(0,2))));
+            for (Event event : targetUserTimetable) {
+                int tempX = (Integer.valueOf(Integer.parseInt(event.getTimeStart().substring(0,2))));
+                int tempY = (Integer.valueOf(Integer.parseInt(event.getTimeEnd().substring(0,2))));
 
-                for (int i = temp_x; i<=temp_y ; i++){
+                for (int i = tempX; i <= tempY; i++) {
                     outputArray.remove(Integer.valueOf(i));
                 }
             }
