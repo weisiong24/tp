@@ -70,7 +70,7 @@ public class Ui {
             }
         }
 
-        ArrayList<Object> timetable = null;
+        ArrayList<Event> timetable = null;
         switch (day) {
         case "mon":
             timetable = (users.getUser(userIndex).getTimetable()).getMonTimetable();

@@ -25,10 +25,10 @@ public class AddCommand extends Command {
             String[] parsedInputs = input.split(" /", 4);
             String[] timeInputs = parsedInputs[2].split("-", 2);
 
-            String date = parsedInputs[1];
+            String date = parsedInputs[1].toLowerCase();
 
             for (int i = 0; i < users.getTotalUserCount(); i++) {
-                if ((users.getUser(i + 1).getName() == nowUser.getName())) {
+                if ((users.getUser(i + 1).getName().equals(nowUser.getName()))) {
                     Event newEvent = new Event(parsedInputs[0], parsedInputs[3], timeInputs[0], timeInputs[1]);
                     ui.printEvent(newEvent, date);
                     switch (date) {
