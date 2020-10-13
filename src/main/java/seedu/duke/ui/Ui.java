@@ -1,6 +1,5 @@
 package seedu.duke.ui;
 
-//import seedu.duke.task.Deadline;
 import seedu.duke.exception.DukeException;
 import seedu.duke.task.Event;
 import seedu.duke.task.Task;
@@ -179,5 +178,15 @@ public class Ui {
      */
     public void showError(String message) {
         System.out.println(MESSAGE_SAD_FACE + " OOPS!!! " + message);
+    }
+
+    /**
+     * Prints the common available timeslots between 2 timetables
+     */
+    public void printCompare(ArrayList<Integer> outputArray) {
+        System.out.println("Your common timeslots are: \n");
+        for (int availableTime : outputArray){
+            System.out.println(availableTime + "HR ");
+        }
     }
 }
