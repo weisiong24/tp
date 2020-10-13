@@ -25,37 +25,13 @@ public class AddCommand extends Command {
             String[] parsedInputs = input.split(" /", 4);
             String[] timeInputs = parsedInputs[2].split("-", 2);
 
-            String date = parsedInputs[1].toLowerCase();
+            String day = parsedInputs[1].toLowerCase();
 
             for (int i = 0; i < users.getTotalUserCount(); i++) {
                 if ((users.getUser(i + 1).getName().equals(nowUser.getName()))) {
                     Event newEvent = new Event(parsedInputs[0], parsedInputs[3], timeInputs[0], timeInputs[1]);
-                    ui.printEvent(newEvent, date);
-                    switch (date) {
-                    case "mon":
-                        (users.getUser(i + 1).getTimetable()).getMonTimetable().add(newEvent);
-                        break;
-                    case "tue":
-                        (users.getUser(i + 1).getTimetable()).getTueTimetable().add(newEvent);
-                        break;
-                    case "wed":
-                        (users.getUser(i + 1).getTimetable()).getWedTimetable().add(newEvent);
-                        break;
-                    case "thu":
-                        (users.getUser(i + 1).getTimetable()).getThuTimetable().add(newEvent);;
-                        break;
-                    case "fri":
-                        (users.getUser(i + 1).getTimetable()).getFriTimetable().add(newEvent);
-                        break;
-                    case "sat":
-                        (users.getUser(i + 1).getTimetable()).getSatTimetable().add(newEvent);
-                        break;
-                    case "sun":
-                        (users.getUser(i + 1).getTimetable()).getSunTimetable().add(newEvent);
-                        break;
-                    default:
-                        throw new DukeException("Sorry! I don't know what day you mean :-(");
-                    }
+                    ui.printEvent(newEvent, day);
+                    (users.getUser(i + 1).getTimetable()).getTimetable(day).add(newEvent);
                 }
             }
             //((Timetable) currentUser.getTimetable())
