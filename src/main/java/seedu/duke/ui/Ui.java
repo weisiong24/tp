@@ -70,7 +70,7 @@ public class Ui {
             }
         }
 
-        ArrayList<Object> timetable = null;
+        ArrayList<Event> timetable = null;
         switch (day) {
         case "mon":
             timetable = (users.getUser(userIndex).getTimetable()).getMonTimetable();
@@ -138,12 +138,13 @@ public class Ui {
     /**
      * Prints out the task that has been deleted.
      *
-     * @param taskList the array list of tasks.
-     * @param task the task that has been deleted.
+     * @param deletedClass the class that has been deleted.
+     * @param day the day on which the task that has been deleted is on.
+     * @param size the number of classes left on that day.
      */
-    public void printDelete(TaskList taskList, Task task) {
-        System.out.println("Noted. I have removed this class from your time table:\n" + task);
-        System.out.println("Now you have " + taskList.getTotalTaskCount() + " class(es) in the time table.");
+    public void printDelete(String deletedClass, String day, int size) {
+        System.out.println("Noted. I have removed this class from your time table:\n" + deletedClass);
+        System.out.println("Now you have " + size + " class(es) for " + day +  " in the time table.");
     }
 
     /**

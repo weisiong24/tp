@@ -44,6 +44,7 @@ public class Duke {
 
                 if (c.isLogIn() == true) {
                     nowUser = c.getCurrentUser();
+                    //System.out.println(nowUser.getName() + users.getTotalUserCount());
                 }
                 //System.out.println(nowUser.getName());
                 isExit = c.isExit();
