@@ -37,7 +37,7 @@ public class AddCommand extends Command {
             String[] timeInputs = parsedInputs[3].split("-", 2);
 
             String day = parsedInputs[2].toLowerCase().trim();
-
+          
             assert timeInputs[0].length() == 4 : "Wrong Start time format specified";
             assert day.length() == 3 : "Wrong format of day entered";
 
@@ -48,7 +48,7 @@ public class AddCommand extends Command {
 
             for (int i = 0; i < users.getTotalUserCount(); i++) {
                 if ((users.getUser(i + 1).getName().equals(nowUser.getName()))) {
-                    Event newEvent = new Event(parsedInputs[1].trim(), parsedInputs[4].trim(),
+                    Event newEvent = new Event(parsedInputs[1].trim(), parsedInputs[4].trim(), 
                             timeInputs[0].trim(), timeInputs[1].trim());
                     ui.printEvent(newEvent, day);
                     users.getUser(i + 1).getTimetable().getTimetable(day).add(newEvent);
