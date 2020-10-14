@@ -92,5 +92,9 @@ public abstract class Task {
     public String getTimeEnd() {
         return this.timeEnd;
     }
+    
+    public String getLocation() {
+        return this.location;
+    }
 
 }
