@@ -19,8 +19,12 @@ public class EditCommand extends Command {
     @Override
     public void execute(UserList users, Ui ui, User nowUser/*, Storage storage*/) throws DukeException {
         String[] parsedInputs = input.split("/", 4);
+        assert parsedInputs.length == 4 : "input format is not according to UG";
+        
         String date = parsedInputs[1].trim();
         String[] newTime = parsedInputs[3].split("-");
+        assert newTime.length == 2 : "date format is not according to UG";
+        
         int index = Integer.parseInt(parsedInputs[2].trim());
         Event oldEvent;
 

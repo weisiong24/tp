@@ -26,7 +26,7 @@ public class AddCommand extends Command {
         super(input);
     }
 
-    private static Logger logger = Logger.getLogger("LogAddCommand");
+    private static Logger logger = Logger.getLogger("LogLogInCommand");
 
     @Override
     public void execute(UserList users, Ui ui, User nowUser/*, Storage storage*/) throws DukeException {
