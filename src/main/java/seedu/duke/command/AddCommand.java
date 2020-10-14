@@ -30,7 +30,7 @@ public class AddCommand extends Command {
 
     @Override
     public void execute(UserList users, Ui ui, User nowUser/*, Storage storage*/) throws DukeException {
-        //Lec /day /time /location
+        /*/Lec /day /time /location*/
         setupInputLogger();
         if (nowUser != null) {
             String[] parsedInputs = input.split("/", 5);
