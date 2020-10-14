@@ -12,6 +12,7 @@ class UserListTest {
         User user = new User("man","123");
         
         users.addUser(user);
+        
         assertEquals(1, users.getTotalUserCount());
     }
 }
