@@ -32,6 +32,9 @@ public class LogInCommand extends Command {
         setupInputLogger();
         
         String[] parsedInputs = input.split(" /", 2);
+
+        assert parsedInputs.length == 2 : "Username or Password is missing";
+        
         for (int i = 1; i <= users.getTotalUserCount(); i++) {
             if (parsedInputs[0].equals((users.getUser(i)).getName())) {
                 if (parsedInputs[1].equals((users.getUser(i)).getPassWord())) {
@@ -56,8 +59,9 @@ public class LogInCommand extends Command {
         }
         ui.greetUser(currentUser);
         isLogIn = true;
-
-        logger.log(Level.INFO, "end of processing");
+        assert isLogIn() == true : "Username or Password is missing";
+        
+        logger.log(Level.INFO, "end of processing"  + "\n");
         
         //storage.write(tasks);
     }
