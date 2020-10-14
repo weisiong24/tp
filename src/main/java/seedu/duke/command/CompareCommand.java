@@ -73,8 +73,8 @@ public class CompareCommand extends Command {
              * Loop below returns an outputArray that holds the common available hours in that day
              */
             for (Event event : nowUserTimetable) {
-                int tempX = (Integer.valueOf(Integer.parseInt(event.getTimeStart().substring(0,2))));
-                int tempY = (Integer.valueOf(Integer.parseInt(event.getTimeEnd().substring(0,2))));
+                int tempX = (Integer.parseInt(event.getTimeStart().substring(0, 2)));
+                int tempY = (Integer.parseInt(event.getTimeEnd().substring(0, 2)));
 
                 for (int i = tempX; i < tempY + 1; i++) {
                     outputArray.remove(Integer.valueOf(i));
@@ -82,10 +82,10 @@ public class CompareCommand extends Command {
             }
 
             for (Event event : targetUserTimetable) {
-                int tempX = (Integer.valueOf(Integer.parseInt(event.getTimeStart().substring(0,2))));
-                int tempY = (Integer.valueOf(Integer.parseInt(event.getTimeEnd().substring(0,2))));
+                int tempX = (Integer.parseInt(event.getTimeStart().substring(0, 2)));
+                int tempY = (Integer.parseInt(event.getTimeEnd().substring(0, 2)));
 
-                for (int i = tempX; i <= tempY; i++) {
+                for (int i = tempX; i < tempY; i++) {
                     outputArray.remove(Integer.valueOf(i));
                 }
             }
