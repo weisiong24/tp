@@ -33,26 +33,27 @@ public class AddCommand extends Command {
         //Lec /day /time /location
         setupInputLogger();
         if (nowUser != null) {
-            String[] parsedInputs = input.split(" /", 4);
-            String[] timeInputs = parsedInputs[2].split("-", 2);
-            String day = parsedInputs[1].toLowerCase();
-            
+            String[] parsedInputs = input.split("/", 5);
+            String[] timeInputs = parsedInputs[3].split("-", 2);
+
+            String day = parsedInputs[2].toLowerCase().trim();
+          
             assert timeInputs[0].length() == 4 : "Wrong Start time format specified";
-            assert timeInputs[1].length() == 4 : "Wrong End time format specified";
             assert day.length() == 3 : "Wrong format of day entered";
 
-            logger.log(Level.INFO,"Timetable name successfully added:  " + parsedInputs[0]);
-            logger.log(Level.INFO,"Day successfully add:  " + parsedInputs[1]);
-            logger.log(Level.INFO,"Time successfully add:  " + parsedInputs[2]);
-            logger.log(Level.INFO,"Location successfully add:  " + parsedInputs[3] + "\n");
+            logger.log(Level.INFO,"Timetable name successfully added:  " + parsedInputs[1]);
+            logger.log(Level.INFO,"Day successfully add:  " + parsedInputs[2]);
+            logger.log(Level.INFO,"Time successfully add:  " + parsedInputs[3]);
+            logger.log(Level.INFO,"Location successfully add:  " + parsedInputs[4] + "\n");
 
             for (int i = 0; i < users.getTotalUserCount(); i++) {
                 if ((users.getUser(i + 1).getName().equals(nowUser.getName()))) {
-                    Event newEvent = new Event(parsedInputs[0], parsedInputs[3], timeInputs[0], timeInputs[1]);
+                    Event newEvent = new Event(parsedInputs[1].trim(), parsedInputs[4].trim(), 
+                            timeInputs[0].trim(), timeInputs[1].trim());
                     ui.printEvent(newEvent, day);
-                    (users.getUser(i + 1).getTimetable()).getTimetable(day).add(newEvent);
-                    ArrayList<Event> timetable = (users.getUser(i + 1).getTimetable()).getTimetable(day);
-                    logger.log(Level.INFO, "day" + "timetable successfully add:  " + timetable  + "\n");
+                    users.getUser(i + 1).getTimetable().getTimetable(day).add(newEvent);
+                    ArrayList<Event> timetable = users.getUser(i + 1).getTimetable().getTimetable(day);
+                    logger.log(Level.INFO, day + " timetable successfully add:  " + timetable  + "\n");
                 }
             }
             //((Timetable) currentUser.getTimetable())
