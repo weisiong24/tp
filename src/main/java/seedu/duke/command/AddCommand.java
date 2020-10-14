@@ -22,16 +22,17 @@ public class AddCommand extends Command {
     public void execute(UserList users, Ui ui, User nowUser/*, Storage storage*/) throws DukeException {
         //Lec /day /time /location
         if (nowUser != null) {
-            String[] parsedInputs = input.split(" /", 4);
-            String[] timeInputs = parsedInputs[2].split("-", 2);
+            String[] parsedInputs = input.split("/", 5);
+            String[] timeInputs = parsedInputs[3].split("-", 2);
 
-            String day = parsedInputs[1].toLowerCase();
+            String day = parsedInputs[2].toLowerCase().trim();
 
             for (int i = 0; i < users.getTotalUserCount(); i++) {
                 if ((users.getUser(i + 1).getName().equals(nowUser.getName()))) {
-                    Event newEvent = new Event(parsedInputs[0], parsedInputs[3], timeInputs[0], timeInputs[1]);
+                    Event newEvent = new Event(parsedInputs[1].trim(), parsedInputs[4].trim(), 
+                            timeInputs[0].trim(), timeInputs[1].trim());
                     ui.printEvent(newEvent, day);
-                    (users.getUser(i + 1).getTimetable()).getTimetable(day).add(newEvent);
+                    users.getUser(i + 1).getTimetable().getTimetable(day).add(newEvent);
                 }
             }
             //((Timetable) currentUser.getTimetable())
