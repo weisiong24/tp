@@ -1,15 +1,10 @@
 package seedu.duke.command;
 
 import seedu.duke.exception.DukeException;
-import seedu.duke.task.Task;
-import seedu.duke.task.TaskList;
 import seedu.duke.ui.Ui;
 import seedu.duke.user.User;
 import seedu.duke.user.UserList;
 import seedu.duke.task.Event;
-import seedu.duke.timetable.Timetable;
-
-import java.util.ArrayList;
 
 public class EditCommand extends Command {
     public EditCommand(String input) {
