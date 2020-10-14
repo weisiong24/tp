@@ -61,7 +61,7 @@ public class LogInCommand extends Command {
         isLogIn = true;
         assert isLogIn() == true : "Username or Password is missing";
         
-        logger.log(Level.INFO, "end of processing");
+        logger.log(Level.INFO, "end of processing"  + "\n");
         
         //storage.write(tasks);
     }
