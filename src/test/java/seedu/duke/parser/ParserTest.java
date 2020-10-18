@@ -3,9 +3,13 @@ package seedu.duke.parser;
 import org.junit.jupiter.api.Test;
 import seedu.duke.command.Command;
 import seedu.duke.command.AddCommand;
+import seedu.duke.command.ByeCommand;
+import seedu.duke.command.CompareCommand;
 import seedu.duke.command.ClearCommand;
 import seedu.duke.command.DeleteCommand;
+import seedu.duke.command.EditCommand;
 import seedu.duke.command.ListCommand;
+import seedu.duke.command.LogInCommand;
 import seedu.duke.exception.DukeException;
 
 //import static org.junit.jupiter.api.Assertions.assertEquals;
@@ -27,15 +31,33 @@ public class ParserTest {
     }
 
     @Test
+    public void parse_byeCommand_parsedCorrectly() throws DukeException {
+        final String input = "bye";
+        parseAndAssertCommandType(input, ByeCommand.class);
+    }
+
+    @Test
     public void parse_clearCommand_parsedCorrectly() throws DukeException {
         final String input = "clear /sun";
         parseAndAssertCommandType(input, ClearCommand.class);
     }
 
     @Test
+    public void parse_compareCommand_parsedCorrectly() throws DukeException {
+        final String input = "compare /Alex /mon";
+        parseAndAssertCommandType(input, CompareCommand.class);
+    }
+
+    @Test
     public void parse_deleteCommand_parsedCorrectly() throws DukeException {
         final String input = "delete /tue /2";
         parseAndAssertCommandType(input, DeleteCommand.class);
+    }
+
+    @Test
+    public void parse_editCommand_parsedCorrectly() throws DukeException {
+        final String input = "edit /mon /2 /1000-1200";
+        parseAndAssertCommandType(input, EditCommand.class);
     }
 
     @Test
@@ -46,6 +68,12 @@ public class ParserTest {
         } catch (DukeException e) {
             e.printStackTrace();
         }
+    }
+
+    @Test
+    public void parse_loginCommand_parsedCorrectly() throws DukeException {
+        final String input = "login John /1324";
+        parseAndAssertCommandType(input, LogInCommand.class);
     }
 
     /**
