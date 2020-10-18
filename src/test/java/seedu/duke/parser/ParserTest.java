@@ -61,13 +61,9 @@ public class ParserTest {
     }
 
     @Test
-    public void parse_listCommand_parsedCorrectly() {
+    public void parse_listCommand_parsedCorrectly() throws DukeException {
         final String input = "list /all";
-        try {
-            parseAndAssertCommandType(input, ListCommand.class);
-        } catch (DukeException e) {
-            e.printStackTrace();
-        }
+        parseAndAssertCommandType(input, ListCommand.class);
     }
 
     @Test
