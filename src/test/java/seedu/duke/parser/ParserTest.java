@@ -78,7 +78,8 @@ public class ParserTest {
      * @param input to be parsed
      * @param expectedCommandClass expected class of returned command
      */
-    private <T extends Command> void parseAndAssertCommandType(String input, Class<T> expectedCommandClass) throws DukeException {
+    private <T extends Command> void parseAndAssertCommandType(String input, Class<T> expectedCommandClass)
+            throws DukeException {
         final Command result = Parser.parse(input);
         assertTrue(result.getClass().isAssignableFrom(expectedCommandClass));
     }
