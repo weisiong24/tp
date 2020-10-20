@@ -33,27 +33,27 @@ It is also developed to assist in finding common available time slots to study w
 ## Instructions for manual testing
 
 {Give instructions on how to do a manual product testing e.g., how to load sample data to be used for testing}
-login Alex /123<\b>
-add /CS2113 Lec /mon /1200-1300 /LT21<\b>
-add /CS3243 Lec /mon /1400-1500 /LT22<\b>
-add /CS2040C Tut /mon /0800-1000 /COM1-2<\b>
-add /CG2028 Tut /Thu /0900-1100 /E4-4-1<\b>
-add /CG2023 Lec /Fri /1700-1800 /E7-3-10<\b>
-list /all<\b>
-list /mon<\b>
-edit /mon /3 /1300-1400<\b>
-edit /fri /1 /0900-1100<\b>
-list /all<\b>
-list /mon<\b>
-login Tammy /321<\b>
-add /CS2113 Lec /mon /1200-1300 /LT21<\b>
-add /CS2040C Tut /mon /0800-1000 /COM1-2<\b>
-add /CG2028 Tut /Thu /0900-1100 /E4-4-1<\b>
-compare /Alex /mon<\b>
-list /mon<\b>
-edit /mon /2 /1000-1200<\b>
-compare /Alex /mon<\b>
-login Alex /123<\b>
-delete /mon /2<\b>
-clear /fri<\b>
-bye<\b>
+login Alex /123<br/>
+add /CS2113 Lec /mon /1200-1300 /LT21<br/>
+add /CS3243 Lec /mon /1400-1500 /LT22<br/>
+add /CS2040C Tut /mon /0800-1000 /COM1-2<br/>
+add /CG2028 Tut /Thu /0900-1100 /E4-4-1<br/>
+add /CG2023 Lec /Fri /1700-1800 /E7-3-10<br/>
+list /all<br/>
+list /mon<br/>
+edit /mon /3 /1300-1400<br/>
+edit /fri /1 /0900-1100<br/>
+list /all<br/>
+list /mon<br/>
+login Tammy /321<br/>
+add /CS2113 Lec /mon /1200-1300 /LT21<br/>
+add /CS2040C Tut /mon /0800-1000 /COM1-2<br/>
+add /CG2028 Tut /Thu /0900-1100 /E4-4-1<br/>
+compare /Alex /mon<br/>
+list /mon<br/>
+edit /mon /2 /1000-1200<br/>
+compare /Alex /mon<br/>
+login Alex /123<br/>
+delete /mon /2<br/>
+clear /fri<br/>
+bye<br/>
