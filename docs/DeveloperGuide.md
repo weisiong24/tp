@@ -8,11 +8,12 @@
 ## Product scope
 ### Target user profile
 
-{Describe the target user profile}
+Our Application, WheregotTime targets University students.
 
 ### Value proposition
 
-{Describe the value proposition: what problem does it solve?}
+It is to help students keep track of their timetable (event name, time and venue of their events). 
+Furthermore, it can allow them to compare timetable with their peers to find a common timeslot so that they can plan for common revision time.
 
 ## User Stories
 
