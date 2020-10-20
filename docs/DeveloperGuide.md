@@ -11,9 +11,9 @@
 Our Application, WheregotTime targets University students.
 
 ### Value proposition
-
-It is to help students keep track of their timetable (event name, time and venue of their events). 
-Furthermore, it can allow them to compare timetable with their peers to find a common timeslot so that they can plan for common revision time.
+It was developed to solve the inconvenience student face when accessing timetables and lecture venues and
+to keep track of their timetable.
+It is also developed to assist in finding common available time slots to study with peers
 
 ## User Stories
 
