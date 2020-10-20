@@ -3,7 +3,13 @@
 ## Design & implementation
 
 {Describe the design and implementation of the product. Use UML diagrams and short code snippets where applicable.}
-
+login function
+Add Function
+Edit Function
+Delete Function
+Clear Function
+Display Function
+Compare Function
 
 ## Product scope
 ### Target user profile
@@ -20,6 +26,7 @@ It is also developed to assist in finding common available time slots to study w
 |Version| As a ... | I want to ... | So that I can ...|
 |--------|----------|---------------|------------------|
 |v1.0|new user|see usage instructions|refer to them when I forget how to use the application|
+|v1.0|new user|add events into my timetable for the day|refer to the timetable to remind me of the event|
 |v2.0|user|find a to-do item by name|locate a to-do without having to go through the entire list|
 
 ## Non-Functional Requirements
@@ -32,7 +39,6 @@ It is also developed to assist in finding common available time slots to study w
 
 ## Instructions for manual testing
 
-{Give instructions on how to do a manual product testing e.g., how to load sample data to be used for testing}
 login Alex /123<br/>
 add /CS2113 Lec /mon /1200-1300 /LT21<br/>
 add /CS3243 Lec /mon /1400-1500 /LT22<br/>
