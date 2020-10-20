@@ -3,31 +3,41 @@
 ## Design & implementation
 
 {Describe the design and implementation of the product. Use UML diagrams and short code snippets where applicable.}
-login function
-Add Function
-Edit Function
-Delete Function
-Clear Function
-Display Function
-Compare Function
+login function<br/> 
+
+Add Function<br/>
+
+Edit Function<br/>
+
+Delete Function<br/>
+
+Clear Function<br/>
+
+Display Function<br/>
+
+Compare Function<br/>
 
 ## Product scope
 ### Target user profile
 
-Our Application, WheregotTime targets University students.
+Our Application, WheregotTime is developed for University students.
 
 ### Value proposition
-It was developed to solve the inconvenience student face when accessing timetables and lecture venues and
-to keep track of their timetable.
-It is also developed to assist in finding common available time slots to study with peers
+It was developed to solve the inconvenience students face when accessing timetables and lecture venues and
+also to keep track of their timetable.
+It is also developed to assist in finding common available time slots for students to study with their peers
 
 ## User Stories
 
 |Version| As a ... | I want to ... | So that I can ...|
 |--------|----------|---------------|------------------|
-|v1.0|new user|see usage instructions|refer to them when I forget how to use the application|
+|v1.0|new user|login to my own timetable|be sure that it is my own timetable that is shown there|
 |v1.0|new user|add events into my timetable for the day|refer to the timetable to remind me of the event|
-|v2.0|user|find a to-do item by name|locate a to-do without having to go through the entire list|
+|v1.0|new user|edit events that I have entered into my timetable for the day|easily change the details as I need it|
+|v1.0|new user|delete events in my timetable for the day|remove events in the timetable that I do not wish to keep|
+|v1.0|new user|clear my timetable for the day|so that I can remove all the entries I have entered wrong|
+|v1.0|new user|compare my timetable with my friends|schedule a common time for revision together|
+|v2.0|user|find a to-do item by name|locate a to-do without having to go through the entire list| example only
 
 ## Non-Functional Requirements
 
