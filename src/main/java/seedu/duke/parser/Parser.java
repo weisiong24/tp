@@ -31,6 +31,7 @@ public class Parser {
     private static final String COMMAND_ADD = "add";
     private static final String COMMAND_EDIT = "edit";
     private static final String COMMAND_COMPARE = "compare";
+    public static final int MAX_PASSWORD_LENGTH = 6;
 
 
     /**
@@ -208,7 +209,12 @@ public class Parser {
             throw new DukeException("There is no username in your login command!");
         } else if (input[1].substring(atPosition + 1).isEmpty()) {
             throw new DukeException("An login requires a password!");
+        } else if (input[1].substring(atPosition + 1).length() != MAX_PASSWORD_LENGTH) {
+            throw new DukeException("Password needs to be 6-digits long!");
+        } else if (!input[1].substring(atPosition + 1).matches("[0-9]+")) {
+            throw new DukeException("Password needs to be a 6-digits number!");
         }
+        
     }
 
     /**
