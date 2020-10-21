@@ -7,12 +7,22 @@ import static org.junit.jupiter.api.Assertions.assertEquals;
 class UserListTest {
     
     @Test
-    void testAddUser() {
+    void addUser_addsProperly() {
         UserList users = new UserList();
         User user = new User("man","123");
         
         users.addUser(user);
         
         assertEquals(1, users.getTotalUserCount());
+    }
+
+    @Test
+    void getUserByName_getsProperly() {
+        UserList users = new UserList();
+        User user = new User("man","123");
+
+        users.addUser(user);
+        
+        assertEquals("123", (users.getUserByName("man").passWord));
     }
 }
