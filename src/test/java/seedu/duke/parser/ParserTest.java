@@ -68,7 +68,7 @@ public class ParserTest {
 
     @Test
     public void parse_loginCommand_parsedCorrectly() throws DukeException {
-        final String input = "login John /1324";
+        final String input = "login John /132456";
         parseAndAssertCommandType(input, LogInCommand.class);
     }
 
