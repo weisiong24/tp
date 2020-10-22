@@ -8,6 +8,7 @@ import seedu.duke.user.User;
 import seedu.duke.user.UserList;
 
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.Scanner;
 
 /**
@@ -112,12 +113,12 @@ public class Ui {
      * Prints out the task that has been deleted.
      *
      * @param deletedClass the class that has been deleted.
-     * @param day the day on which the task that has been deleted is on.
-     * @param size the number of classes left on that day.
+     * @param day          the day on which the task that has been deleted is on.
+     * @param size         the number of classes left on that day.
      */
     public void printDelete(String deletedClass, String day, int size) {
         System.out.println("Noted. I have removed this class from your time table:\n" + deletedClass);
-        System.out.println("Now you have " + size + " class(es) for " + day +  " in the time table.");
+        System.out.println("Now you have " + size + " class(es) for " + day + " in the time table.");
     }
 
     /**
@@ -144,7 +145,7 @@ public class Ui {
      * Prints all result(s) that matches the search keyword.
      *
      * @param taskList the array list that contains the keyword.
-     * @param keyword the word that the user searches.
+     * @param keyword  the word that the user searches.
      */
     public void printFind(TaskList taskList, String keyword) {
         if (taskList.getTotalTaskCount() > 0) {
@@ -186,9 +187,44 @@ public class Ui {
     }
 
     public void printCompare(ArrayList<Integer> outputArray) {
+        ArrayList<Integer> fullArray = new ArrayList<>(Arrays.asList(0, 1, 2, 3, 4, 5, 6, 7, 8, 9,
+                10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23));
+
+        int checkPoint = 0;
+
         System.out.println("Your common timeslots are: \n");
-        for (int availableTime : outputArray) {
-            System.out.println(availableTime + "HR ");
+        for (int availableTime : fullArray) {
+            if ((availableTime >= 1) && (!(outputArray.contains(availableTime - 1)))
+                    && (!(outputArray.contains(availableTime)))) {
+                checkPoint++;
+                continue;
+            }
+            if (!(outputArray.contains(availableTime))) {
+                int tempMinusOne = availableTime - 1;
+                if (checkPoint < 10) {
+                    if (tempMinusOne < 10) {
+                        System.out.println("0" + checkPoint + "00HR to 0" + tempMinusOne + "59HR");
+                    } else {
+                        System.out.println("0" + checkPoint + "00HR to " + tempMinusOne + "59HR");
+                    }
+                } else {
+                    if (tempMinusOne < 10) {
+                        System.out.println(checkPoint + "00HR to 0" + tempMinusOne + "59HR");
+                    } else {
+                        System.out.println(checkPoint + "00HR to " + tempMinusOne + "59HR");
+                    }
+                }
+                if (availableTime != 23) {
+                    checkPoint = availableTime + 1;
+                }
+            }
+        }
+        if (checkPoint != 23) {
+            if (checkPoint < 10) {
+                System.out.println("0" + checkPoint + "00HR to " + "2359HR");
+            } else {
+                System.out.println(checkPoint + "00HR to " + "2359HR");
+            }
         }
     }
 }
