@@ -49,7 +49,7 @@ It is also developed to assist in finding common available time slots for studen
 
 ## Instructions for manual testing
 
-login Alex /123<br/>
+login Alex /123123<br/>
 add /CS2113 Lec /mon /1200-1300 /LT21<br/>
 add /CS3243 Lec /mon /1400-1500 /LT22<br/>
 add /CS2040C Tut /mon /0800-1000 /COM1-2<br/>
@@ -61,7 +61,7 @@ edit /mon /3 /1300-1400<br/>
 edit /fri /1 /0900-1100<br/>
 list /all<br/>
 list /mon<br/>
-login Tammy /321<br/>
+login Tammy /321321<br/>
 add /CS2113 Lec /mon /1200-1300 /LT21<br/>
 add /CS2040C Tut /mon /0800-1000 /COM1-2<br/>
 add /CG2028 Tut /Thu /0900-1100 /E4-4-1<br/>
@@ -69,7 +69,7 @@ compare /Alex /mon<br/>
 list /mon<br/>
 edit /mon /2 /1000-1200<br/>
 compare /Alex /mon<br/>
-login Alex /123<br/>
+login Alex /123123<br/>
 delete /mon /2<br/>
 clear /fri<br/>
 bye<br/>
