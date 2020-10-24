@@ -7,6 +7,20 @@ login function<br/>
 
 Add Function<br/>
 
+Class Diagram of the add function:
+![](team/uml.PNG)<br/>
+
+The add function gets the inputs from the User and places it to the event class so that 
+it can parser to string.
+It will then pass the data onto UI class to inform user of the event added 
+to the timetable. 
+As shown,the AddCommand also pass the parameters (event name,day,time
+and location) so that it can be placed accordingly to the corresponding day of the timetable<br/>
+
+To ensure that the users do not enter duplicate event that has the same timing, 
+a parser check of the command can be implemented into the ver 2.0 of WhereGotTime.
+Below is the proposed class diagram after adding this improvement into the application.
+
 Edit Function<br/>
 
 Delete Function<br/>
@@ -20,12 +34,12 @@ Compare Function<br/>
 ## Product scope
 ### Target user profile
 
-Our Application, WheregotTime is developed for University students.
+Our Application, WhereGotTime is developed for University students.
 
 ### Value proposition
 It was developed to solve the inconvenience students face when accessing timetables and lecture venues and
-also to keep track of their timetable.
-It is also developed to assist in finding common available time slots for students to study with their peers
+ to keep track of their timetable.
+It is also developed to assist in finding common available time slots for students to study with their peers.
 
 ## User Stories
 
@@ -49,7 +63,7 @@ It is also developed to assist in finding common available time slots for studen
 
 ## Instructions for manual testing
 
-login Alex /123123<br/>
+login Alex /123<br/>
 add /CS2113 Lec /mon /1200-1300 /LT21<br/>
 add /CS3243 Lec /mon /1400-1500 /LT22<br/>
 add /CS2040C Tut /mon /0800-1000 /COM1-2<br/>
@@ -61,7 +75,7 @@ edit /mon /3 /1300-1400<br/>
 edit /fri /1 /0900-1100<br/>
 list /all<br/>
 list /mon<br/>
-login Tammy /321321<br/>
+login Tammy /321<br/>
 add /CS2113 Lec /mon /1200-1300 /LT21<br/>
 add /CS2040C Tut /mon /0800-1000 /COM1-2<br/>
 add /CG2028 Tut /Thu /0900-1100 /E4-4-1<br/>
@@ -69,7 +83,7 @@ compare /Alex /mon<br/>
 list /mon<br/>
 edit /mon /2 /1000-1200<br/>
 compare /Alex /mon<br/>
-login Alex /123123<br/>
+login Alex /123<br/>
 delete /mon /2<br/>
 clear /fri<br/>
 bye<br/>
