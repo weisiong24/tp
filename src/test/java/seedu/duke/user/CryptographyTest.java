@@ -8,21 +8,21 @@ class CryptographyTest {
     
     @Test
     public void encipherPassword_converts_String_to_cipherText_Properly() {
-        String password= "123456";
+        String password = "123456";
         
         assertEquals("561278", Cryptography.encipherPassword(password));
     }
 
     @Test
     public void encipherPassword_converts_maxString_to_cipherText_Properly() {
-        String password= "999999";
+        String password = "999999";
 
         assertEquals("777777", Cryptography.encipherPassword(password));
     }
 
     @Test
     public void encipherPassword_converts_minString_to_cipherText_Properly() {
-        String password= "000000";
+        String password = "000000";
 
         assertEquals("000000", Cryptography.encipherPassword(password));
     }
@@ -30,21 +30,21 @@ class CryptographyTest {
 
     @Test
     void decipherPassword_converts_String_to_plainText_Properly() {
-        String password= "561278";
+        String password = "561278";
 
         assertEquals("123456", Cryptography.decipherPassword(password));
     }
 
     @Test
     public void decipherPassword_converts_maxString_to_plainText_Properly() {
-        String password= "777777";
+        String password = "777777";
 
         assertEquals("999999", Cryptography.decipherPassword(password));
     }
 
     @Test
     public void decipherPassword_converts_minString_to_plainText_Properly() {
-        String password= "000000";
+        String password = "000000";
 
         assertEquals("000000", Cryptography.encipherPassword(password));
     }
