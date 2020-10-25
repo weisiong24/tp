@@ -43,23 +43,23 @@ public class Storage {
         File storageFile = new File(FP);
         File storageFolder = new File(storageFile.getParent());
         if (storageFolder.exists() && storageFolder.isDirectory()) {
-            System.out.println("Data folder found! Finding duke.txt...");
+            //System.out.println("Data folder found! Finding duke.txt...");
         } else {
-            System.out.println("Data folder not found! Creating one...");
+            //System.out.println("Data folder not found! Creating one...");
             if (!storageFolder.mkdir()) {
-                throw new DukeException("Attempt to create a data folder failed.");
+                //throw new DukeException("Attempt to create a data folder failed.");
             }
         }
         try {
             if (storageFile.createNewFile()) {
-                System.out.println("No existing duke.txt found! Creating one...");
+                //System.out.println("No existing duke.txt found! Creating one...");
             } else {
-                System.out.println("Existing duke.txt found. Loading previously saved task list...");
+                //System.out.println("Existing duke.txt found. Loading previously saved task list...");
             }
         } catch (IOException e) {
-            throw new DukeException("Attempt to create duke.txt failed.");
+            //throw new DukeException("Attempt to create duke.txt failed.");
         } finally {
-            System.out.println("Previous task list loaded successfully");
+            //System.out.println("Previous task list loaded successfully");
         }
     }
 
