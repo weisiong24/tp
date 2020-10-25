@@ -1,7 +1,6 @@
 package seedu.duke.user;
 
 import seedu.duke.exception.DukeException;
-import seedu.duke.user.User;
 
 import java.util.ArrayList;
 
@@ -46,4 +45,5 @@ public class UserList {
         }
         return null;
     }
+    
 }
