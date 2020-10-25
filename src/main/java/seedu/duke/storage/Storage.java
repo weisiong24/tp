@@ -5,6 +5,7 @@ import seedu.duke.exception.DukeException;
 import seedu.duke.task.Event;
 import seedu.duke.task.Task;
 import seedu.duke.task.TaskList;
+import seedu.duke.timetable.Timetable;
 import seedu.duke.user.User;
 import seedu.duke.user.UserList;
 
@@ -12,6 +13,7 @@ import java.io.File;
 import java.io.FileNotFoundException;
 import java.io.FileWriter;
 import java.io.IOException;
+import java.lang.reflect.Array;
 import java.util.ArrayList;
 import java.util.Scanner;
 
@@ -80,9 +82,10 @@ public class Storage {
             loadTask(reader, tasks);
         }
         return tasks;
-    }
+    }*/
+    
 
-    *//**
+/*    *//**
      * Parses the saved tasks according to specified format in order to be loaded.
      *
      * @param reader reads user's string input.
@@ -164,12 +167,12 @@ public class Storage {
         }
     }*/
 
-    /**
+/*    *//**
      * Writes specific task details to the text file in given format.
      *
      * @param fw FileWriter object.
      * @throws IOException if an I/O error has occurred.
-     */
+     *//*
     private void writeTask(FileWriter fw, UserList users) throws IOException, DukeException {
         for (User k : users.getUserList()) {
             ArrayList<ArrayList<Event>> allTimeTable = k.combineAllTimetable();
@@ -185,6 +188,41 @@ public class Storage {
             fw.write("###");
             fw.append("\n");
         }
+    }*/
 
+    /**
+     * Writes specific task details to the text file in given format.
+     *
+     * @param fw FileWriter object.
+     * @throws IOException if an I/O error has occurred.
+     */
+    private void writeTask(FileWriter fw, UserList users) throws IOException, DukeException {
+        for (User u : users.getUserList()) {
+            fw.write(u.getName() + " | " + u.getPassWord());
+            fw.append("\n");
+
+            for (String day : days) {
+                fw.write(day);
+                fw.append("\n");
+                ArrayList<Event> timetableIndividualDay = u.getTimetable().getTimetable(day);
+                int timetableSize = timetableIndividualDay.size();
+
+                for (int k = 0; k < timetableSize; k++) {
+                    String classDescription = timetableIndividualDay.get(k).getDescription();
+                    String location = timetableIndividualDay.get(k).getLocation();
+                    String startTime = timetableIndividualDay.get(k).getTimeStart();
+                    String endTime = timetableIndividualDay.get(k).getTimeEnd();
+                    fw.write("/" + classDescription + " /" + location + " /" + startTime
+                            + "-" + endTime);
+                    if (!(k == (timetableSize - 1))) {
+                        fw.write(" | ");
+                    }
+                }
+                fw.append("\n");
+
+            }
+            fw.write("###");
+            fw.append("\n");
+        }
     }
 }
