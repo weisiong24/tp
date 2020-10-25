@@ -55,8 +55,8 @@ public class AddCommand extends Command {
                     case "mon":
                         ArrayList<Event> mon = users.getUser(i + 1).getTimetable().monTimetable;
                         for (int j = 0; j < mon.size() - 1; j++) {
-                            if (mon.get(j).getDescription().equals(mon.get(j + 1).getDescription())
-                                    && mon.get(j).getTimeStart().equals(mon.get(j + 1).getTimeStart())) {
+                            if (mon.get(j).getTimeStart().equals(mon.get(j + 1).getTimeStart())
+                                    || mon.get(j).getTimeEnd().equals(mon.get(j + 1).getTimeEnd())) {
                                 mon.remove(j + 1);
                                 throw new DukeException("Duplicate Timetable Detected! Please re-enter");
                             }
@@ -65,8 +65,8 @@ public class AddCommand extends Command {
                     case "tue":
                         ArrayList<Event> tue = users.getUser(i + 1).getTimetable().tueTimetable;
                         for (int j = 0; j < tue.size() - 1; j++) {
-                            if (tue.get(j).getDescription().equals(tue.get(j + 1).getDescription())
-                                    && tue.get(j).getTimeStart().equals(tue.get(j + 1).getTimeStart())) {
+                            if (tue.get(j).getTimeStart().equals(tue.get(j + 1).getTimeStart())
+                                    || tue.get(j).getTimeEnd().equals(tue.get(j + 1).getTimeEnd())) {
                                 tue.remove(j + 1);
                                 throw new DukeException("Duplicate Timetable Detected! Please re-enter");
                             }
@@ -75,8 +75,8 @@ public class AddCommand extends Command {
                     case "wed":
                         ArrayList<Event> wed = users.getUser(i + 1).getTimetable().wedTimetable;
                         for (int j = 0; j < wed.size() - 1; j++) {
-                            if (wed.get(j).getDescription().equals(wed.get(j + 1).getDescription())
-                                    && wed.get(j).getTimeStart().equals(wed.get(j + 1).getTimeStart())) {
+                            if (wed.get(j).getTimeStart().equals(wed.get(j + 1).getTimeStart())
+                                    || wed.get(j).getTimeEnd().equals(wed.get(j + 1).getTimeEnd())) {
                                 wed.remove(j + 1);
                                 throw new DukeException("Duplicate Timetable Detected! Please re-enter");
                             }
@@ -85,8 +85,8 @@ public class AddCommand extends Command {
                     case "thu":
                         ArrayList<Event> thu = users.getUser(i + 1).getTimetable().thuTimetable;
                         for (int j = 0; j < thu.size() - 1; j++) {
-                            if (thu.get(j).getDescription().equals(thu.get(j + 1).getDescription())
-                                    && thu.get(j).getTimeStart().equals(thu.get(j + 1).getTimeStart())) {
+                            if (thu.get(j).getTimeStart().equals(thu.get(j + 1).getTimeStart())
+                                    || thu.get(j).getTimeEnd().equals(thu.get(j + 1).getTimeEnd())) {
                                 thu.remove(j + 1);
                                 throw new DukeException("Duplicate Timetable Detected! Please re-enter");
                             }
@@ -95,8 +95,8 @@ public class AddCommand extends Command {
                     case "fri":
                         ArrayList<Event> fri = users.getUser(i + 1).getTimetable().friTimetable;
                         for (int j = 0; j < fri.size() - 1; j++) {
-                            if (fri.get(j).getDescription().equals(fri.get(j + 1).getDescription())
-                                    && fri.get(j).getTimeStart().equals(fri.get(j + 1).getTimeStart())) {
+                            if (fri.get(j).getTimeStart().equals(fri.get(j + 1).getTimeStart())
+                                    || fri.get(j).getTimeEnd().equals(fri.get(j + 1).getTimeEnd())) {
                                 fri.remove(j + 1);
                                 throw new DukeException("Duplicate Timetable Detected! Please re-enter");
                             }
@@ -105,8 +105,8 @@ public class AddCommand extends Command {
                     case "sat":
                         ArrayList<Event> sat = users.getUser(i + 1).getTimetable().satTimetable;
                         for (int j = 0; j < sat.size() - 1; j++) {
-                            if (sat.get(j).getDescription().equals(sat.get(j + 1).getDescription())
-                                    && sat.get(j).getTimeStart().equals(sat.get(j + 1).getTimeStart())) {
+                            if (sat.get(j).getTimeStart().equals(sat.get(j + 1).getTimeStart())
+                                    || sat.get(j).getTimeEnd().equals(sat.get(j + 1).getTimeEnd())) {
                                 sat.remove(j + 1);
                                 throw new DukeException("Duplicate Timetable Detected! Please re-enter");
                             }
@@ -115,8 +115,8 @@ public class AddCommand extends Command {
                     case "sun":
                         ArrayList<Event> sun = users.getUser(i + 1).getTimetable().sunTimetable;
                         for (int j = 0; j < sun.size() - 1; j++) {
-                            if (sun.get(j).getDescription().equals(sun.get(j + 1).getDescription())
-                                    && sun.get(j).getTimeStart().equals(sun.get(j + 1).getTimeStart())) {
+                            if (sun.get(j).getTimeStart().equals(sun.get(j + 1).getTimeStart())
+                                    || sun.get(j).getTimeEnd().equals(sun.get(j + 1).getTimeEnd())) {
                                 sun.remove(j + 1);
                                 throw new DukeException("Duplicate Timetable Detected! Please re-enter");
                             }
