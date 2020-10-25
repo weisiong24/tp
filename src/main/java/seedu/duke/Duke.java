@@ -10,24 +10,24 @@ import seedu.duke.ui.Ui;
 import seedu.duke.user.User;
 import seedu.duke.user.UserList;
 
-//import seedu.duke.storage.Storage;
+import seedu.duke.storage.Storage;
 
 public class Duke {
 
-    //private Storage storage;
+    private Storage storage;
     private TaskList tasks;
     private UserList users;
     private final Ui ui;
 
     public Duke() {
         ui = new Ui();
-        /*try {
+        try {
             storage = new Storage();
-            tasks = new TaskList(storage.load());
+            //tasks = new TaskList(storage.load());
         } catch (DukeException e) {
             ui.showError(e.getMessage());
-            tasks = new TaskList();
-        }*/
+            //tasks = new TaskList();
+        }
         users = new UserList();
     }
 
@@ -41,8 +41,9 @@ public class Duke {
                 ui.showLine(); // show the divider line ("_______")
                 Command c = Parser.parse(fullCommand);
                 c.execute(users, ui, nowUser/*, storage*/);
+                storage.write(users);
 
-                if (c.isLogIn() == true) {
+                if (c.isLogIn()) {
                     nowUser = c.getCurrentUser();
                     //System.out.println(nowUser.getName() + users.getTotalUserCount());
                 }

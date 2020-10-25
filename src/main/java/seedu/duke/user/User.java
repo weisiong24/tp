@@ -1,6 +1,9 @@
 package seedu.duke.user;
 
 import seedu.duke.timetable.Timetable;
+import seedu.duke.task.Event;
+
+import java.util.ArrayList;
 
 public class User {
     protected String name;
@@ -23,5 +26,17 @@ public class User {
 
     public Timetable getTimetable() {
         return timetable;
+    }
+    
+    public ArrayList<ArrayList<Event>> combineAllTimetable() {
+        ArrayList<ArrayList<Event>> combinedTimeTable = new ArrayList<>();
+        combinedTimeTable.add(getTimetable().monTimetable);
+        combinedTimeTable.add(getTimetable().tueTimetable);
+        combinedTimeTable.add(getTimetable().wedTimetable);
+        combinedTimeTable.add(getTimetable().thuTimetable);
+        combinedTimeTable.add(getTimetable().friTimetable);
+        combinedTimeTable.add(getTimetable().satTimetable);
+        combinedTimeTable.add(getTimetable().sunTimetable);
+        return combinedTimeTable;
     }
 }

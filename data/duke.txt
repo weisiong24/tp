@@ -1,0 +1,32 @@
+Alex | 123123
+mon
+[CS2113 Lec LT21 1200-1300, CS2040C Tut COM1-2 1300-1400]
+tue
+[]
+wed
+[]
+thu
+[CG2028 Tut E4-4-1 0900-1100]
+fri
+[]
+sat
+[]
+sun
+[]
+###
+Tammy | 321321
+mon
+[CS2113 Lec LT21 1200-1300, CS2040C Tut COM1-2 1000-1200]
+tue
+[]
+wed
+[]
+thu
+[CG2028 Tut E4-4-1 0900-1100]
+fri
+[]
+sat
+[]
+sun
+[]
+###
