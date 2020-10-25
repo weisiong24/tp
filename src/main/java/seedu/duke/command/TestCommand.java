@@ -6,6 +6,7 @@ import seedu.duke.ui.Ui;
 import seedu.duke.user.User;
 import seedu.duke.user.UserList;
 import seedu.duke.task.Event;
+import seedu.duke.storage.Storage;
 
 import javax.sound.midi.SysexMessage;
 import java.sql.Array;
@@ -50,6 +51,9 @@ public class TestCommand extends Command {
             printAllTimeTable(allTimeTable);
             System.out.println("###");
         }
+        
+        Storage s = new Storage();
+        s.write(users);
         
     }
 
