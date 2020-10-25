@@ -9,11 +9,13 @@ public class User {
     protected String name;
     protected String passWord;
     protected Timetable timetable;
+    protected String encipheredPassword;
 
     public User(String name, String passWord) {
         this.name = name;
         this.passWord = passWord;
         this.timetable = new Timetable();
+        this.encipheredPassword = Cryptography.encipherPassword(passWord);
     }
 
     public String getName() {
@@ -22,6 +24,10 @@ public class User {
 
     public String getPassWord() {
         return passWord;
+    }
+
+    public String getEncipheredPassword() {
+        return encipheredPassword;
     }
 
     public Timetable getTimetable() {
