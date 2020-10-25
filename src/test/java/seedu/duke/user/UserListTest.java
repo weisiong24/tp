@@ -9,7 +9,7 @@ class UserListTest {
     @Test
     void addUser_addsProperly() {
         UserList users = new UserList();
-        User user = new User("man","123");
+        User user = new User("man","123123");
         
         users.addUser(user);
         
@@ -19,10 +19,10 @@ class UserListTest {
     @Test
     void getUserByName_getsProperly() {
         UserList users = new UserList();
-        User user = new User("man","123");
+        User user = new User("man","123123");
 
         users.addUser(user);
         
-        assertEquals("123", (users.getUserByName("man").passWord));
+        assertEquals("123123", (users.getUserByName("man").passWord));
     }
 }
