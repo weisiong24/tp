@@ -1,7 +1,7 @@
 package seedu.duke.command;
 
 import seedu.duke.exception.DukeException;
-//import seedu.duke.storage.Storage;
+import seedu.duke.storage.Storage;
 import seedu.duke.task.TaskList;
 import seedu.duke.ui.Ui;
 import seedu.duke.user.User;
@@ -29,7 +29,7 @@ public abstract class Command {
      * @param ui the corresponding messages based on the task.
      * @throws DukeException if execution encounters error.
      */
-    public abstract void execute(UserList users, Ui ui, User nowUser/*, Storage storage*/) throws DukeException;
+    public abstract void execute(UserList users, Ui ui, User nowUser) throws DukeException;
 
     public boolean isExit() {
         return isExit;
