@@ -120,7 +120,6 @@ public class Storage {
      * @throws DukeException if an I/O error has occurred.
      */
     public void load(UserList users) throws DukeException {
-        System.out.println("sadasdasd");
         Scanner reader;
         
         try {
@@ -128,9 +127,9 @@ public class Storage {
         } catch (FileNotFoundException e) {
             throw new DukeException("Attempt to read duke.txt failed.");
         }
-
-        loadTask(reader, users);
-
+        while(reader.hasNextLine()){
+            loadTask(reader, users);
+        }
     }
 
 
