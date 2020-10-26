@@ -127,7 +127,7 @@ public class Storage {
         } catch (FileNotFoundException e) {
             throw new DukeException("Attempt to read duke.txt failed.");
         }
-        while(reader.hasNextLine()){
+        while (reader.hasNextLine()) {
             loadTask(reader, users);
         }
     }
