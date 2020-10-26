@@ -1,32 +1,31 @@
+Total user: 2
 Alex | 123123
 mon
-[CS2113 Lec LT21 1200-1300, CS2040C Tut COM1-2 1300-1400]
+/CS2113 Lec /LT21 /1200-1300 | /CS2113 Lec /LT21 /1300-1400 | /CS3243 Lec /LT22 /1400-1500 | /CS2040C Tut /COM1-2 /0800-1000
 tue
-[]
+
 wed
-[]
+/CS3230 Lab /COM1-2-21 /1100-1400
 thu
-[CG2028 Tut E4-4-1 0900-1100]
+/CG2028 Tut /E4-4-1 /0900-1100
 fri
-[]
+
 sat
-[]
+
 sun
-[]
-###
+
 Tammy | 321321
 mon
-[CS2113 Lec LT21 1200-1300, CS2040C Tut COM1-2 1000-1200]
+/CS2113 Lec /LT21 /1200-1300 | /CS2040C Tut /COM1-2 /1000-1200 | /CS2113 Lec /LT21 /1200-1300 | /CS2040C Tut /COM1-2 /0800-1000
 tue
-[]
+
 wed
-[]
+
 thu
-[CG2028 Tut E4-4-1 0900-1100]
+/CG2028 Tut /E4-4-1 /0900-1100
 fri
-[]
+
 sat
-[]
+
 sun
-[]
-###
+
