@@ -5,6 +5,7 @@ import seedu.duke.exception.DukeException;
 import seedu.duke.task.Event;
 import seedu.duke.task.Task;
 import seedu.duke.task.TaskList;
+import seedu.duke.timetable.Timetable;
 import seedu.duke.user.User;
 import seedu.duke.user.UserList;
 
@@ -12,6 +13,7 @@ import java.io.File;
 import java.io.FileNotFoundException;
 import java.io.FileWriter;
 import java.io.IOException;
+import java.lang.reflect.Array;
 import java.util.ArrayList;
 import java.util.Scanner;
 
@@ -80,9 +82,10 @@ public class Storage {
             loadTask(reader, tasks);
         }
         return tasks;
-    }
+    }*/
+    
 
-    *//**
+/*    *//**
      * Parses the saved tasks according to specified format in order to be loaded.
      *
      * @param reader reads user's string input.
@@ -110,6 +113,69 @@ public class Storage {
         }
         storageTasks.add(task);
     }*/
+
+    /**
+     * Loads data from the text file to task arraylist.
+     *
+     * @throws DukeException if an I/O error has occurred.
+     */
+    public void load(UserList users) throws DukeException {
+        Scanner reader;
+        
+        try {
+            reader = new Scanner(new File(FP));
+        } catch (FileNotFoundException e) {
+            throw new DukeException("Attempt to read duke.txt failed.");
+        }
+        while (reader.hasNextLine()) {
+            loadTask(reader, users);
+        }
+    }
+
+
+    /**
+     * Parses the saved tasks according to specified format in order to be loaded.
+     *
+     * @param reader reads user's string input.
+     * @param storageTasks the task arraylist.
+     * @throws DukeException if an I/O error has occurred.
+     */
+    private void loadTask(Scanner reader, UserList users) throws DukeException {
+        String firstLine = reader.nextLine();
+        int totalUser = 0;
+        if (firstLine.contains("Total user: ")) {
+            totalUser = Integer.parseInt(firstLine.substring(12));
+        } else {
+            throw new DukeException("duke.txt formatting is incorrect.");
+        }
+
+        for (int i = 0; i < totalUser; i++) {
+            String[] userCredentials = reader.nextLine().split("\\|");
+            User newUser = new User(userCredentials[0].trim(), userCredentials[1].trim());
+            users.addUser((newUser));
+
+            for (int j = 0; j < 7; j++) {
+                reader.nextLine();
+                String line = reader.nextLine();
+                
+                if (line.isEmpty()) {
+                    continue;
+                }
+
+                String[] timetables = line.split("\\|");
+                for (String s : timetables) {
+                    String[] lessons = s.split("/");
+                    String description = lessons[1].trim();
+                    String location = lessons[2].trim();
+                    String timeRange = lessons[3].trim();
+                    String[] times = timeRange.split("-");
+                    Event lessonEvent = new Event(description, location, times[0].trim(), times[1].trim());
+                    ArrayList<Event> timetable = users.getUser(i + 1).getTimetable().getTimetable(days[j]);
+                    timetable.add(lessonEvent);
+                }
+            }
+        }
+    }
 
 /*    *//**
      * Writes data to the text file.
@@ -164,12 +230,12 @@ public class Storage {
         }
     }*/
 
-    /**
+/*    *//**
      * Writes specific task details to the text file in given format.
      *
      * @param fw FileWriter object.
      * @throws IOException if an I/O error has occurred.
-     */
+     *//*
     private void writeTask(FileWriter fw, UserList users) throws IOException, DukeException {
         for (User k : users.getUserList()) {
             ArrayList<ArrayList<Event>> allTimeTable = k.combineAllTimetable();
@@ -185,6 +251,40 @@ public class Storage {
             fw.write("###");
             fw.append("\n");
         }
+    }*/
 
+    /**
+     * Writes specific task details to the text file in given format.
+     *
+     * @param fw FileWriter object.
+     * @throws IOException if an I/O error has occurred.
+     */
+    private void writeTask(FileWriter fw, UserList users) throws IOException, DukeException {
+        fw.write("Total user: " + users.getTotalUserCount());
+        fw.append("\n");
+        for (User u : users.getUserList()) {
+            fw.write(u.getName() + " | " + u.getPassWord());
+            fw.append("\n");
+
+            for (String day : days) {
+                fw.write(day);
+                fw.append("\n");
+                ArrayList<Event> timetableIndividualDay = u.getTimetable().getTimetable(day);
+                int timetableSize = timetableIndividualDay.size();
+
+                for (int k = 0; k < timetableSize; k++) {
+                    String classDescription = timetableIndividualDay.get(k).getDescription();
+                    String location = timetableIndividualDay.get(k).getLocation();
+                    String startTime = timetableIndividualDay.get(k).getTimeStart();
+                    String endTime = timetableIndividualDay.get(k).getTimeEnd();
+                    fw.write("/" + classDescription + " /" + location + " /" + startTime
+                            + "-" + endTime);
+                    if (!(k == (timetableSize - 1))) {
+                        fw.write(" | ");
+                    }
+                }
+                fw.append("\n");
+            }
+        }
     }
 }

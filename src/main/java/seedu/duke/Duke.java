@@ -22,13 +22,13 @@ public class Duke {
     public Duke() {
         ui = new Ui();
         try {
+            users = new UserList();
             storage = new Storage();
-            //tasks = new TaskList(storage.load());
+            storage.load(users);
         } catch (DukeException e) {
+            users = new UserList();
             ui.showError(e.getMessage());
-            //tasks = new TaskList();
         }
-        users = new UserList();
     }
 
     public void run() {
