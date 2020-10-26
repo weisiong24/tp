@@ -141,5 +141,12 @@ Noted. I have removed this class from your fri timetable:
 Your fri timetable has been cleared.
 ____________________________________________________________
 ____________________________________________________________
+Got it! I've added the following event in wed
+CS3230 Lab COM1-2-21 1100-1400
+____________________________________________________________
+____________________________________________________________
+:( OOPS!!! Duplicate Timetable Detected! Please re-enter
+____________________________________________________________
+____________________________________________________________
 Thanks for using WhereGotTime. Hope to see you again soon!
 ____________________________________________________________
