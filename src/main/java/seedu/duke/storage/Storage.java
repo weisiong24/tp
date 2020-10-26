@@ -1,11 +1,8 @@
 package seedu.duke.storage;
 
 import seedu.duke.exception.DukeException;
-//import seedu.duke.task.Deadline;
 import seedu.duke.task.Event;
-import seedu.duke.task.Task;
-import seedu.duke.task.TaskList;
-import seedu.duke.timetable.Timetable;
+import seedu.duke.user.Cryptography;
 import seedu.duke.user.User;
 import seedu.duke.user.UserList;
 
@@ -13,9 +10,10 @@ import java.io.File;
 import java.io.FileNotFoundException;
 import java.io.FileWriter;
 import java.io.IOException;
-import java.lang.reflect.Array;
 import java.util.ArrayList;
 import java.util.Scanner;
+
+//import seedu.duke.task.Deadline;
 
 /**
  * Manages the loading and saving of data to or from a text file.
@@ -24,7 +22,7 @@ public class Storage {
     //public String Message_Tick_Symbol = "\u2713";
     private static final String FP = "data/duke.txt";
     private static final String[] days = {"mon", "tue", "wed", "thu", "fri", "sat", "sun"};
-    public static final int MAX_SIZE = 100;
+    //public static final int MAX_SIZE = 100;
 
     /**
      * Creates a new file if it does not exist.
@@ -85,7 +83,7 @@ public class Storage {
     }*/
     
 
-/*    *//**
+    /**
      * Parses the saved tasks according to specified format in order to be loaded.
      *
      * @param reader reads user's string input.
@@ -137,7 +135,6 @@ public class Storage {
      * Parses the saved tasks according to specified format in order to be loaded.
      *
      * @param reader reads user's string input.
-     * @param storageTasks the task arraylist.
      * @throws DukeException if an I/O error has occurred.
      */
     private void loadTask(Scanner reader, UserList users) throws DukeException {
@@ -151,7 +148,8 @@ public class Storage {
 
         for (int i = 0; i < totalUser; i++) {
             String[] userCredentials = reader.nextLine().split("\\|");
-            User newUser = new User(userCredentials[0].trim(), userCredentials[1].trim());
+            User newUser = new User(userCredentials[0].trim(), 
+                    Cryptography.decipherPassword(userCredentials[1].trim()));
             users.addUser((newUser));
 
             for (int j = 0; j < 7; j++) {
@@ -177,7 +175,7 @@ public class Storage {
         }
     }
 
-/*    *//**
+    /**
      * Writes data to the text file.
      *
      * @tasks Arraylist of task.
@@ -196,8 +194,7 @@ public class Storage {
 
     /**
      * Writes data to the text file.
-     *
-     * @tasks Arraylist of task.
+     * #@tasks Arraylist of task.
      * @throws DukeException if an I/O error has occurred.
      */
     public void write(UserList users) throws DukeException {
@@ -230,7 +227,7 @@ public class Storage {
         }
     }*/
 
-/*    *//**
+    /**
      * Writes specific task details to the text file in given format.
      *
      * @param fw FileWriter object.
@@ -263,7 +260,7 @@ public class Storage {
         fw.write("Total user: " + users.getTotalUserCount());
         fw.append("\n");
         for (User u : users.getUserList()) {
-            fw.write(u.getName() + " | " + u.getPassWord());
+            fw.write(u.getName() + " | " + u.getEncipheredPassword());
             fw.append("\n");
 
             for (String day : days) {
