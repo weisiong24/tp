@@ -22,3 +22,5 @@ LogInCommand.log.1
 LogInCommand.log
 LogInCommand.log.lck
 AddCommand.log.3
+data/duke.txt
+AddCommand.log.lck

@@ -6,6 +6,7 @@ import seedu.duke.task.Event;
 import seedu.duke.ui.Ui;
 import seedu.duke.user.User;
 import seedu.duke.user.UserList;
+import seedu.duke.timetable.SortTimetable;
 
 import java.io.IOException;
 import java.util.ArrayList;
@@ -183,6 +184,7 @@ public class AddCommand extends Command {
                         break;
                     }
                     ui.printEvent(newEvent, day);
+                    SortTimetable.sortTimetable(users, nowUser, day);
 
                     logger.log(Level.INFO, day + " timetable successfully add:  " + timetable  + "\n");
                 }
