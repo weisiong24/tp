@@ -55,7 +55,7 @@ public class LogInCommand extends Command {
             users.addUser(newUser);
 
             logger.log(Level.INFO,"User Name successfully added:  " + parsedInputs[0]);
-            logger.log(Level.INFO,"Password successfully added:  " + parsedInputs[1]  + "\n");
+            //logger.log(Level.INFO,"Password successfully added:  " + parsedInputs[1]  + "\n");
         }
         ui.greetUser(currentUser);
         isLogIn = true;
