@@ -27,8 +27,8 @@ public class DeleteCommand extends Command {
         try {
             String[] parsedInputs = input.split("/", 3);
             if (parsedInputs.length < 3) {
-                throw new DukeException("Your edit format is not according to UG!\nIt should be " +
-                        "'delete /[day] /[number as shown in list]'!");
+                throw new DukeException("Your edit format is not according to UG!\nIt should be "
+                        + "'delete /[day] /[number as shown in list]'!");
             }
             
             String day = parsedInputs[1].trim();
