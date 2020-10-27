@@ -8,6 +8,7 @@ import seedu.duke.command.CompareCommand;
 import seedu.duke.command.ClearCommand;
 import seedu.duke.command.DeleteCommand;
 import seedu.duke.command.EditCommand;
+import seedu.duke.command.FindCommand;
 import seedu.duke.command.ListCommand;
 import seedu.duke.command.LogInCommand;
 import seedu.duke.exception.DukeException;
@@ -58,6 +59,12 @@ public class ParserTest {
     public void parse_editCommand_parsedCorrectly() throws DukeException {
         final String input = "edit /mon /2 /1000-1200";
         parseAndAssertCommandType(input, EditCommand.class);
+    }
+
+    @Test
+    public void parse_findCommand_parsedCorrectly() throws DukeException {
+        final String input = "find CS2113";
+        parseAndAssertCommandType(input, FindCommand.class);
     }
 
     @Test
