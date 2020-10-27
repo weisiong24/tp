@@ -54,6 +54,41 @@ prompting the user to re-enter again.<br/>
 ### Display Function<br/>
 
 ### Compare Function<br/>
+#### System Architecture of the Compare Function<br/>
+![](team/CompareCommand_ClassDiagram.jpg) <br/>
+The System Architecture given above explains the high-level design of the <b>COMPARE</b> command.<br/>
+
+Listed below are some features we will be highlighting:<br/>
+
+* Ui: The User Interface of the app<br/>
+* CompareCommand: The main logic command of the <b>COMPARE</b> function<br/>
+* Timetable: The arraylist where events that are added are stored accordingly<br/>
+* User: User(s) of the program<br/>
+* UserList: An arraylist of User<br/>
+
+#### Design of the Compare Function<br/>
+![](team/CompareCommand_UML_Diagram.jpg)<br/>
+
+1) The <b>COMPARE</b> function gets the inputs from the User and retrieves the User's / Target User's<br/>
+timetables based on a specific day. It will then compare the timetables and return an arraylist
+of common timeslots.<br/>
+2)  It will then pass the arraylist onto Ui class to display the range of common <br/>
+timeslots the User and Target User have on a specific day of the week.<br/>
+
+
+#### Sequence Design of Compare Function<br/>
+![](team/CompareCommand_SequenceDesign.jpg) <br/>
+
+#### Improvements to be made to Version 2.0<br/>
+* Display a range of timings instead of individual hours<br/>
+* Remove edge cases<br/>
+
+E.g.<br/>
+* compare /Alex /Mon<br/>
+* compare /Tammy /Mon<br/>
+
+These cases above would no longer output "0000HR, 0100HR" etc but
+instead "0000HR - 1000HR"
 
 ### Login Function
 #### Class Diagram
