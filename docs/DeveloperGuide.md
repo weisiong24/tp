@@ -53,7 +53,7 @@ prompting the user to re-enter again.<br/>
 
 ### Display Function<br/>
 
-###Compare Function<br/>
+### Compare Function<br/>
 
 ### Login Function
 #### Class Diagram
