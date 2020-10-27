@@ -54,20 +54,10 @@ public class Ui {
      * Prints out all tasks saved in the array list.
      *
      * @param users the array list to print.
+     * @param userIndex the index of the current user
+     * @param day the day in the timetable to print
      */
-    public void printList(UserList users, User nowUser, String day) throws DukeException {
-        int userIndex = -1;
-
-        if (nowUser == null) {
-            throw new DukeException("Sorry! You are not logged in to any account :-(");
-        }
-
-        for (int i = 0; i < users.getTotalUserCount(); i++) {
-            if ((users.getUser(i + 1).getName() == nowUser.getName())) {
-                userIndex = i + 1;
-            }
-        }
-
+    public void printList(UserList users, int userIndex, String day) throws DukeException {
         ArrayList<Event> timetable = (users.getUser(userIndex).getTimetable()).getTimetable(day);
         if (!timetable.isEmpty()) {
             int count = 1;
