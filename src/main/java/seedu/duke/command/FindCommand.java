@@ -37,14 +37,8 @@ public class FindCommand extends Command {
         assert userIndex != -1 : "User not found";
 
         String classesFound = "";
-        ArrayList<Event> timetableMon = (users.getUser(userIndex).getTimetable()).getTimetable("mon");
-        ArrayList<Event> timetableTue = (users.getUser(userIndex).getTimetable()).getTimetable("tue");
-        ArrayList<Event> timetableWed = (users.getUser(userIndex).getTimetable()).getTimetable("wed");
-        ArrayList<Event> timetableThu = (users.getUser(userIndex).getTimetable()).getTimetable("thu");
-        ArrayList<Event> timetableFri = (users.getUser(userIndex).getTimetable()).getTimetable("fri");
-        ArrayList<Event> timetableSat = (users.getUser(userIndex).getTimetable()).getTimetable("sat");
-        ArrayList<Event> timetableSun = (users.getUser(userIndex).getTimetable()).getTimetable("sun");
 
+        ArrayList<Event> timetableMon = (users.getUser(userIndex).getTimetable()).getTimetable("mon");
         for (Object c : timetableMon) {
             String classEvent = c.toString();
             if (classEvent.contains(keyword)) {
@@ -53,6 +47,7 @@ public class FindCommand extends Command {
             }
         }
 
+        ArrayList<Event> timetableTue = (users.getUser(userIndex).getTimetable()).getTimetable("tue");
         for (Object c : timetableTue) {
             String classEvent = c.toString();
             if (classEvent.contains(keyword)) {
@@ -61,6 +56,7 @@ public class FindCommand extends Command {
             }
         }
 
+        ArrayList<Event> timetableWed = (users.getUser(userIndex).getTimetable()).getTimetable("wed");
         for (Object c : timetableWed) {
             String classEvent = c.toString();
             if (classEvent.contains(keyword)) {
@@ -68,7 +64,7 @@ public class FindCommand extends Command {
                 count++;
             }
         }
-
+        ArrayList<Event> timetableThu = (users.getUser(userIndex).getTimetable()).getTimetable("thu");
         for (Object c : timetableThu) {
             String classEvent = c.toString();
             if (classEvent.contains(keyword)) {
@@ -77,6 +73,7 @@ public class FindCommand extends Command {
             }
         }
 
+        ArrayList<Event> timetableFri = (users.getUser(userIndex).getTimetable()).getTimetable("fri");
         for (Object c : timetableFri) {
             String classEvent = c.toString();
             if (classEvent.contains(keyword)) {
@@ -85,6 +82,7 @@ public class FindCommand extends Command {
             }
         }
 
+        ArrayList<Event> timetableSat = (users.getUser(userIndex).getTimetable()).getTimetable("sat");
         for (Object c : timetableSat) {
             String classEvent = c.toString();
             if (classEvent.contains(keyword)) {
@@ -93,6 +91,7 @@ public class FindCommand extends Command {
             }
         }
 
+        ArrayList<Event> timetableSun = (users.getUser(userIndex).getTimetable()).getTimetable("sun");
         for (Object c : timetableSun) {
             String classEvent = c.toString();
             if (classEvent.contains(keyword)) {
