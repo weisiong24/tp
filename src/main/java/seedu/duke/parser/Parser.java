@@ -11,7 +11,7 @@ import seedu.duke.command.EditCommand;
 import seedu.duke.command.TestCommand;
 //import seedu.duke.command.DoneCommand;
 //import seedu.duke.command.EventCommand;
-//import seedu.duke.command.FindCommand;
+import seedu.duke.command.FindCommand;
 import seedu.duke.command.ListCommand;
 import seedu.duke.command.LogInCommand;
 import seedu.duke.exception.DukeException;
@@ -26,7 +26,7 @@ public class Parser {
     private static final String COMMAND_LIST = "list";
     //private static final String COMMAND_DONE = "done";
     private static final String COMMAND_DELETE = "delete";
-    //private static final String COMMAND_FIND = "find";
+    private static final String COMMAND_FIND = "find";
     private static final String COMMAND_BYE = "bye";
     private static final String COMMAND_LOGIN = "login";
     private static final String COMMAND_ADD = "add";
@@ -64,9 +64,9 @@ public class Parser {
         case COMMAND_DELETE:
             checkDeleteValidity(parsedInputs);
             return new DeleteCommand(parsedInputs[1]);
-        /*case COMMAND_FIND:
+        case COMMAND_FIND:
             verifyFind(parsedInputs);
-            return new FindCommand(parsedInputs[1]);*/
+            return new FindCommand(parsedInputs[1]);
         case COMMAND_LOGIN:
             checkLogInValidity(parsedInputs);
             return new LogInCommand(parsedInputs[1]);
