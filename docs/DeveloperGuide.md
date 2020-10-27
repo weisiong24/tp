@@ -2,9 +2,7 @@
 
 ## Design & implementation
 
-{Describe the design and implementation of the product. Use UML diagrams and short code snippets where applicable.}
-login function<br/> 
-###System Architecture of the Add Function<br/>
+### System Architecture of the Add Function<br/>
 
 ![](team/Architect-digram.PNG)
 
@@ -16,7 +14,7 @@ Below we will discuss a quick overview of each component.
 * Add Command: The main logic command of the add function<br/>
 * Timetable: The arraylist where events that are added are stored accordingly<br/>
 
-###Design of the Add Function<br/>
+### Design of the Add Function<br/>
 
 UML Class Diagram of the Add function:
 ![](team/uml.PNG)<br/>
@@ -28,10 +26,10 @@ to the timetable.</br>
 3) Next,the add function will pass all the parameters (event name,day,time
 and location) to the timetable class into its arraylist divided by the day of the week<br/>
 
-###Sequence Design of Add Function<br/>
+### Sequence Design of Add Function<br/>
 ![](team/seqdiagram.jpg)<br/>
 
-###Improvements to be made to Version 2.0<br/>
+### Improvements to be made to Version 2.0<br/>
 * To ensure that the users do not enter duplicate event that has the same timing or in between the time 
 that is entered. 
 * A verification check is added to the add command of the version 2.0 of WhereGotTime.
@@ -62,7 +60,7 @@ Our Application, WhereGotTime is developed for University students.
 
 ### Value proposition
 It was developed to solve the inconvenience students face when accessing timetables and lecture venues and
- to keep track of their timetable.
+to keep track of their timetable.
 It is also developed to assist in finding common available time slots for students to study with their peers.
 
 ## User Stories
@@ -75,8 +73,9 @@ It is also developed to assist in finding common available time slots for studen
 |v1.0|new user|delete events in my timetable for the day|remove an event in the timetable that I do not wish to keep|
 |v1.0|new user|clear my timetable for the day|so that I can remove all the entries I have entered wrongly|
 |v1.0|new user|compare my timetable with my friends|schedule a common time for revision together|
-|v2.0|user|find a to-do item by name|locate a to-do without having to go through the entire list| example only
-
+|v2.0|user|have my password encrypted|only I can access my own timetables| 
+|v2.0|user|be assured that my inputs are correctly added|my input are correctly convey into the timetable| 
+|v2.0|user|access my saved timetables|I do not have to manually enter the timetables again| 
 ## Non-Functional Requirements
 
 {Give non-functional requirements}
@@ -107,7 +106,7 @@ compare /Alex /mon<br/>
 list /mon<br/>
 edit /mon /2 /1000-1200<br/>
 compare /Alex /mon<br/>
-login Alex /123<br/>
+login Alex /123123<br/>
 delete /mon /2<br/>
 clear /fri<br/>
 bye<br/>
