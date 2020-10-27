@@ -40,6 +40,17 @@ Example of usage:
 
 `add /CG2028 Tut /Thu /0900-1100 /E4-4-1`
 
+### Comparing timetables: `compare`
+Compares current User's timetable to Target user's timetable.
+
+Format: `compare /TargetUser's name /day`
+  
+Example of usage: 
+
+`compare /Alex /Mon`
+
+`compare /Tammy /Mon`
+
 ### Exiting the program: `bye`
 Exits the Program<br/>
 
