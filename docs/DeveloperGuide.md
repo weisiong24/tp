@@ -65,17 +65,18 @@ It is also developed to assist in finding common available time slots for studen
 
 ## User Stories
 
-|Version| As a ... | I want to ... | So that I can ...|<br/>
-|--------|----------|---------------|------------------|<br/>
-|v1.0|new user|login to my own timetable|be sure that it is my own timetable that is shown there|<br/>
-|v1.0|new user|add events into my timetable for the day|refer to the timetable to remind me of the event|<br/>
-|v1.0|new user|edit events that I have entered into my timetable for the day|easily change the details as I need it|<br/>
-|v1.0|new user|delete events in my timetable for the day|remove an event in the timetable that I do not wish to keep|<br/>
-|v1.0|new user|clear my timetable for the day|so that I can remove all the entries I have entered wrongly|<br/>
-|v1.0|new user|compare my timetable with my friends|schedule a common time for revision together|<br/>
-|v2.0|user|have my password encrypted|only I can access my own timetables|<br/>
-|v2.0|user|be assured that my inputs are correctly added|my input are correctly convey into the timetable|<br/> 
-|v2.0|user|access my saved timetables|I do not have to manually enter the timetables again|<br/>
+|Version| As a ... | I want to ... | So that I can ...|
+|--------|----------|---------------|------------------|
+|v1.0|new user|login to my own timetable|be sure that it is my own timetable that is shown there|
+|v1.0|new user|add events into my timetable for the day|refer to the timetable to remind me of the event|
+|v1.0|new user|edit events that I have entered into my timetable for the day|easily change the details as I need it|
+|v1.0|new user|delete events in my timetable for the day|remove an event in the timetable that I do not wish to keep|
+|v1.0|new user|clear my timetable for the day|so that I can remove all the entries I have entered wrongly|
+|v1.0|new user|compare my timetable with my friends|schedule a common time for revision together|
+|v2.0|user|have my password encrypted|only I can access my own timetables|
+|v2.0|user|be assured that my inputs are correctly added|my input are correctly convey into the timetable|
+|v2.0|user|access my saved timetables|I do not have to manually enter the timetables again|
+
 ## Non-Functional Requirements
 
 {Give non-functional requirements}
