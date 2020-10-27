@@ -2,7 +2,9 @@
 
 ## Design & implementation
 
-### System Architecture of the Add Function<br/>
+### Add Function
+
+#### System Architecture of the Add Function<br/>
 
 ![](team/Architect-digram.PNG)
 
@@ -14,7 +16,7 @@ Below we will discuss a quick overview of each component.
 * Add Command: The main logic command of the add function<br/>
 * Timetable: The arraylist where events that are added are stored accordingly<br/>
 
-### Design of the Add Function<br/>
+#### Design of the Add Function<br/>
 
 UML Class Diagram of the Add function:
 ![](team/uml.PNG)<br/>
@@ -26,10 +28,10 @@ to the timetable.<br/>
 3) Next,the add function will pass all the parameters (event name,day,time
 and location) to the timetable class into its arraylist divided by the day of the week<br/>
 
-### Sequence Design of Add Function<br/>
+#### Sequence Design of Add Function<br/>
 ![](team/seqdiagram.jpg)<br/>
 
-### Improvements to be made to Version 2.0<br/>
+#### Improvements to be made to Version 2.0<br/>
 * To ensure that the users do not enter duplicate event that has the same timing or in between the time 
 that is entered. 
 * A verification check is added to the add command of the version 2.0 of WhereGotTime.
@@ -43,15 +45,71 @@ The above would result in the first line being add,
 while the other two will result in the app giving an error message
 prompting the user to re-enter again.<br/>
 
-Edit Function<br/>
+### Edit Function<br/>
 
-Delete Function<br/>
+### Delete Function<br/>
 
-Clear Function<br/>
+### Clear Function<br/>
 
-Display Function<br/>
+### Display Function<br/>
 
-Compare Function<br/>
+### Compare Function<br/>
+#### System Architecture of the Compare Function<br/>
+![](team/CompareCommand_ClassDiagram.jpg) <br/>
+The System Architecture given above explains the high-level design of the <b>COMPARE</b> command.<br/>
+
+Listed below are some features we will be highlighting:<br/>
+
+* Ui: The User Interface of the app<br/>
+* CompareCommand: The main logic command of the <b>COMPARE</b> function<br/>
+* Timetable: The arraylist where events that are added are stored accordingly<br/>
+* User: User(s) of the program<br/>
+* UserList: An arraylist of User<br/>
+
+#### Design of the Compare Function<br/>
+![](team/CompareCommand_UML_Diagram.jpg)<br/>
+
+1) The <b>COMPARE</b> function gets the inputs from the User and retrieves the User's / Target User's<br/>
+timetables based on a specific day. It will then compare the timetables and return an arraylist
+of common timeslots.<br/>
+2)  It will then pass the arraylist onto Ui class to display the range of common <br/>
+timeslots the User and Target User have on a specific day of the week.<br/>
+
+
+#### Sequence Design of Compare Function<br/>
+![](team/CompareCommand_SequenceDesign.jpg) <br/>
+
+#### Improvements to be made to Version 2.0<br/>
+* Display a range of timings instead of individual hours<br/>
+* Remove edge cases<br/>
+
+E.g.<br/>
+* compare /Alex /Mon<br/>
+* compare /Tammy /Mon<br/>
+
+These cases above would no longer output "0000HR, 0100HR" etc but
+instead "0000HR - 1000HR"
+
+### Login Function
+#### Class Diagram
+![](team/LogInCommand_Class_Diagram_v001.png)
+
+#### Sequence Diagram
+![](team/LogInCommand_Sequence_v001.png)
+
+1.) When the user inputs a Login Command, a LogInCommand Object is created with the input member Username and Password.
+<br/>
+2.) The Login Command is then executed by sending the users UserList, ui Ui and the User nowUser to the method where 
+it search the users to check if the input Username already exists with the correct password.
+<br/>
+3.) If the User already exists, it will return the User back to the method as currentUser. Otherwise, it will create a
+User with the input Username and Password.
+<br/>
+
+#### Improvements to be made to Version 2.0<br/>
+* In order to protect the User's privacy, the User's Passwords have been encrypted on the save file. 
+* A Cryptography Class with encipherPassword and decipherPassword has been implemented as part of the version 2.0 of 
+WhereGotTime.
 
 ## Product scope
 ### Target user profile
