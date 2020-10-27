@@ -57,10 +57,10 @@ prompting the user to re-enter again.<br/>
 
 ### Login Function
 #### Class Diagram
-![](team/LogInCommand_Class_Diagram_v001.PNG)
+![](team/LogInCommand_Class_Diagram_v001.png)
 
 #### Sequence Diagram
-![](team/LogInCommand_Sequence_v001.PNG)
+![](team/LogInCommand_Sequence_v001.png)
 
 1.) When the user inputs a Login Command, a LogInCommand Object is created with the input member Username and Password.
 <br/>
