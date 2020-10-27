@@ -1,6 +1,7 @@
 package seedu.duke.command;
 
 import seedu.duke.exception.DukeException;
+import seedu.duke.timetable.SortTimetable;
 import seedu.duke.ui.Ui;
 import seedu.duke.user.User;
 import seedu.duke.user.UserList;
@@ -32,5 +33,7 @@ public class EditCommand extends Command {
                 ui.printEdit(newTime, date, index);
             }
         }
+
+        SortTimetable.sortTimetable(users, nowUser, date);
     }
 }

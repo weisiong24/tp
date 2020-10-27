@@ -144,18 +144,14 @@ public class Ui {
     /**
      * Prints all result(s) that matches the search keyword.
      *
-     * @param taskList the array list that contains the keyword.
+     * @param classesFound string of classes that contains the keyword.
      * @param keyword  the word that the user searches.
      */
-    public void printFind(TaskList taskList, String keyword) {
-        if (taskList.getTotalTaskCount() > 0) {
-            System.out.println("Here are the class(es) in your time table "
+    public void printFind(String classesFound, String keyword) {
+        if (!classesFound.equals("")) {
+            System.out.print("Here are the class(es) in your timetable "
                     + "that matches the keyword \"" + keyword + "\":");
-            int count = 1;
-            for (Task t : taskList.getTaskList()) {
-                System.out.println(count + ". " + t);
-                count++;
-            }
+            System.out.println(classesFound);
         } else {
             System.out.println("No class of yours contains the keyword \"" + keyword + "\".");
         }
