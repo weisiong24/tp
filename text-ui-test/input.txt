@@ -23,4 +23,5 @@ delete /mon /2
 clear /fri
 add /CS3230 Lab /Wed /1100-1400 /COM1-2-21
 add /CS3230 Lec /Wed /1300-1500 /LT43
+list /all
 bye

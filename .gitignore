@@ -14,7 +14,6 @@ src/main/resources/docs/
 bin/
 
 /text-ui-test/ACTUAL.txt
-text-ui-test/EXPECTED-UNIX.TXT
 AddCommand.log
 AddCommand.log.1
 AddCommand.log.2
