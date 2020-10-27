@@ -1,6 +1,5 @@
 package seedu.duke.parser;
 
-//import seedu.duke.command.DeleteCommand;
 import seedu.duke.command.AddCommand;
 import seedu.duke.command.ByeCommand;
 import seedu.duke.command.ClearCommand;
@@ -9,8 +8,6 @@ import seedu.duke.command.Command;
 import seedu.duke.command.DeleteCommand;
 import seedu.duke.command.EditCommand;
 import seedu.duke.command.TestCommand;
-//import seedu.duke.command.DoneCommand;
-//import seedu.duke.command.EventCommand;
 import seedu.duke.command.FindCommand;
 import seedu.duke.command.ListCommand;
 import seedu.duke.command.LogInCommand;
@@ -21,10 +18,7 @@ import seedu.duke.exception.DukeException;
  */
 public class Parser {
     private static final String COMMAND_CLEAR = "clear";
-    //private static final String COMMAND_DEADLINE = "deadline";
-    //private static final String COMMAND_EVENT = "event";
     private static final String COMMAND_LIST = "list";
-    //private static final String COMMAND_DONE = "done";
     private static final String COMMAND_DELETE = "delete";
     private static final String COMMAND_FIND = "find";
     private static final String COMMAND_BYE = "bye";
@@ -49,18 +43,9 @@ public class Parser {
         case COMMAND_CLEAR:
             checkClearValidity(parsedInputs);
             return new ClearCommand(parsedInputs[1]);
-        /*case COMMAND_DEADLINE:
-            checkDeadlineValidity(parsedInputs);
-            return new DeadlineCommand(parsedInputs[1]);
-        case COMMAND_EVENT:
-            checkEventValidity(parsedInputs);
-            return new EventCommand(parsedInputs[1]);*/
         case COMMAND_LIST:
             checkListValidity(parsedInputs);
             return new ListCommand(parsedInputs[1]);
-        /*case COMMAND_DONE:
-            checkTaskIndexValidity(parsedInputs);
-            return new DoneCommand(parsedInputs[1]);*/
         case COMMAND_DELETE:
             checkDeleteValidity(parsedInputs);
             return new DeleteCommand(parsedInputs[1]);
@@ -139,74 +124,6 @@ public class Parser {
         }
     }
 
-    /**
-     * Checks the index's validity.
-     *
-     * @param input user's string input.
-     * @throws DukeException if the index is not a number or within valid range.
-     */
-    private static void checkTaskIndexValidity(String[] input) throws DukeException {
-        try {
-            Integer.parseInt(input[1]);
-        } catch (NumberFormatException e) {
-            throw new DukeException("Please enter the task number you want to mark as done!");
-        } catch (IndexOutOfBoundsException e) {
-            throw new DukeException("You've entered an invalid task number!");
-        }
-    }
-
-    /**
-     * Checks the validity of the description for todo.
-     *
-     * @param input user's string input.
-     * @throws DukeException if the description for todo is an empty field.
-     */
-    private static void checkTodoValidity(String[] input) throws DukeException {
-        if (input.length < 2) {
-            throw new DukeException("There is no description in your todo command!");
-        }
-    }
-
-    /**
-     * Checks the validity of the description for deadline.
-     *
-     * @param input user's string input.
-     * @throws DukeException if the description for deadline is an empty field.
-     */
-    private static void checkDeadlineValidity(String[] input) throws DukeException {
-        if (input.length < 2) {
-            throw new DukeException("There is no description in your deadline command!");
-        } else if (!input[1].contains("/by")) {
-            throw new DukeException("A deadline task requires a '/by' to indicate time frame!");
-        }
-        int byPosition = input[1].indexOf("/by");
-        if (input[1].substring(0, byPosition).isEmpty()) {
-            throw new DukeException("There is no description in your deadline command!");
-        } else if (input[1].substring(byPosition + 3).isEmpty()) {
-            throw new DukeException("Please indicate time frame!");
-        }
-    }
-
-    /**
-     * Checks the validity of the description for event.
-     *
-     * @param input user's string input.
-     * @throws DukeException if the description for event is an empty field.
-     */
-    private static void checkEventValidity(String[] input) throws DukeException {
-        if (input.length < 2) {
-            throw new DukeException("There is no description in your event command!");
-        } else if (!input[1].contains("/at")) {
-            throw new DukeException("An event task requires an '/at' to indicate location!");
-        }
-        int atPosition = input[1].indexOf("/at");
-        if (input[1].substring(0, atPosition).isEmpty()) {
-            throw new DukeException("There is no description in your event command!");
-        } else if (input[1].substring(atPosition + 3).isEmpty()) {
-            throw new DukeException("An event task requires an '/at' to indicate location!");
-        }
-    }
-
     private static void checkLogInValidity(String[] input) throws DukeException {
         if (input.length < 2) {
             throw new DukeException("There is no description in your login command!");
@@ -234,7 +151,7 @@ public class Parser {
      */
     private static void verifyFind(String[] input) throws DukeException {
         if (input.length < 2) {
-            throw new DukeException("Search description is empty");
+            throw new DukeException("Find description is empty");
         }
     }
 

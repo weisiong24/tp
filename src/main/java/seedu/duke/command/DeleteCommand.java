@@ -1,7 +1,6 @@
 package seedu.duke.command;
 
 import seedu.duke.exception.DukeException;
-//import seedu.duke.storage.Storage;
 import seedu.duke.task.Event;
 import seedu.duke.ui.Ui;
 import seedu.duke.user.User;
@@ -19,7 +18,7 @@ public class DeleteCommand extends Command {
     }
 
     @Override
-    public void execute(UserList users, Ui ui, User nowUser/*, Storage storage*/) throws DukeException {
+    public void execute(UserList users, Ui ui, User nowUser) throws DukeException {
         if (nowUser == null) {
             throw new DukeException("Sorry! You are not logged in to any account :-(");
         }

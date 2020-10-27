@@ -19,9 +19,9 @@ public class ClearCommand extends Command {
     }
 
     @Override
-    public void execute(UserList users, Ui ui, User nowUser/*, Storage storage*/) throws DukeException {
+    public void execute(UserList users, Ui ui, User nowUser) throws DukeException {
         if (nowUser == null) {
-            throw new DukeException("Sorry! You are not Logged in to any account :-(");
+            throw new DukeException("Sorry! You are not logged in to any account :-(");
         }
 
         String[] parsedInputs = input.split("/", 2);
