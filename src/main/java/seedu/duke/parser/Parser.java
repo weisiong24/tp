@@ -74,7 +74,7 @@ public class Parser {
             checkAddValidity(parsedInputs);
             return new AddCommand(parsedInputs[1]);
         case COMMAND_EDIT:
-            //checkEditValidity(parsedInputs);
+            checkEditValidity(parsedInputs);
             return new EditCommand(parsedInputs[1]);
         case COMMAND_BYE:
             return new ByeCommand();
@@ -84,6 +84,12 @@ public class Parser {
             return new TestCommand();
         default:
             throw new DukeException("Sorry! I don't know what that means :-(");
+        }
+    }
+    
+    private static void checkEditValidity(String[] input) throws DukeException {
+        if (input.length < 2) {
+            throw new DukeException("There is no description in your edit command!");
         }
     }
 

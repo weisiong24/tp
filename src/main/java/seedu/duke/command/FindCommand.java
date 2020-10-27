@@ -28,7 +28,7 @@ public class FindCommand extends Command {
         int count = 1;
 
         for (int i = 0; i < users.getTotalUserCount(); i++) {
-            if ((users.getUser(i + 1).getName() == nowUser.getName())) {
+            if ((users.getUser(i + 1).getName().equals(nowUser.getName()))) {
                 userIndex = i + 1;
                 break;
             }
