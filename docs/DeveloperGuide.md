@@ -45,13 +45,13 @@ The above would result in the first line being add,
 while the other two will result in the app giving an error message
 prompting the user to re-enter again.<br/>
 
-###Edit Function<br/>
+### Edit Function<br/>
 
-###Delete Function<br/>
+### Delete Function<br/>
 
-###Clear Function<br/>
+### Clear Function<br/>
 
-###Display Function<br/>
+### Display Function<br/>
 
 ###Compare Function<br/>
 
