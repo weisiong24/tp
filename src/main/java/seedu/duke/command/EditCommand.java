@@ -20,7 +20,7 @@ public class EditCommand extends Command {
         String[] parsedInputs = input.split("/", 4);
         if (parsedInputs.length < 4) {
             throw new DukeException("Your edit format is not according to UG!\nIt should be " +
-                    "'/edit /[day] /[number as shown in list] /[new timing]'!");
+                    "'edit /[day] /[number as shown in list] /[new timing]'!");
         }
 
         assert parsedInputs.length == 4 : "input format is not according to UG";
@@ -41,6 +41,7 @@ public class EditCommand extends Command {
                     ui.printEdit(newTime, date, index);
                 }
             }
+        SortTimetable.sortTimetable(users, nowUser, date);
         } catch (NumberFormatException e) {
             throw new DukeException("You've entered an invalid index!");
         } catch (IndexOutOfBoundsException e) {
@@ -48,8 +49,6 @@ public class EditCommand extends Command {
         } catch (NullPointerException e) {
             throw new DukeException("Empty timing values");
         }
-
-        SortTimetable.sortTimetable(users, nowUser, date);
     }
 
 }
