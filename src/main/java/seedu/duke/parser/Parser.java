@@ -133,7 +133,6 @@ public class Parser {
         }
     }
 
-
     /**
      * Checks the index's validity.
      *
