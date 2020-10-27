@@ -2,8 +2,6 @@ package seedu.duke.ui;
 
 import seedu.duke.exception.DukeException;
 import seedu.duke.task.Event;
-import seedu.duke.task.Task;
-import seedu.duke.task.TaskList;
 import seedu.duke.user.User;
 import seedu.duke.user.UserList;
 
@@ -56,20 +54,10 @@ public class Ui {
      * Prints out all tasks saved in the array list.
      *
      * @param users the array list to print.
+     * @param userIndex the index of the current user
+     * @param day the day in the timetable to print
      */
-    public void printList(UserList users, User nowUser, String day) throws DukeException {
-        int userIndex = -1;
-
-        if (nowUser == null) {
-            throw new DukeException("Sorry! You are not logged in to any account :-(");
-        }
-
-        for (int i = 0; i < users.getTotalUserCount(); i++) {
-            if ((users.getUser(i + 1).getName() == nowUser.getName())) {
-                userIndex = i + 1;
-            }
-        }
-
+    public void printList(UserList users, int userIndex, String day) throws DukeException {
         ArrayList<Event> timetable = (users.getUser(userIndex).getTimetable()).getTimetable(day);
         if (!timetable.isEmpty()) {
             int count = 1;
@@ -84,17 +72,6 @@ public class Ui {
     }
 
     /**
-     * Prints out the deadline task given by the user.
-     *
-     * @param taskList the array list of tasks.
-     * @param task the task to be added to the array list.
-     */
-    /*public void printDeadline(TaskList taskList, Deadline task) {
-        System.out.println("Got it! I've added the following deadline in the list:\n" + task);
-        System.out.println("Now now have " + taskList.getTotalTaskCount() + " tasks in the list.");
-    }*/
-
-    /**
      * Prints out the event task given by the user.
      *
      * @param event the task to be added to the array list.
@@ -104,10 +81,6 @@ public class Ui {
         //System.out.println("Now now have " + taskList.getTotalTaskCount() + " tasks in the list.");
     }
 
-    public void printDone(Task task) {
-
-        System.out.println("Nice! I have marked this task as done:\n" + task);
-    }
 
     /**
      * Prints out the task that has been deleted.
