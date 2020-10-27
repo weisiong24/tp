@@ -152,10 +152,10 @@ public class Storage {
                     Cryptography.decipherPassword(userCredentials[1].trim()));
             users.addUser((newUser));
 
-            for (int j = 0; j < 7; j++) {
+            for (String day : days) {
                 reader.nextLine();
                 String line = reader.nextLine();
-                
+
                 if (line.isEmpty()) {
                     continue;
                 }
@@ -168,7 +168,7 @@ public class Storage {
                     String timeRange = lessons[3].trim();
                     String[] times = timeRange.split("-");
                     Event lessonEvent = new Event(description, location, times[0].trim(), times[1].trim());
-                    ArrayList<Event> timetable = users.getUser(i + 1).getTimetable().getTimetable(days[j]);
+                    ArrayList<Event> timetable = users.getUser(i + 1).getTimetable().getTimetable(day);
                     timetable.add(lessonEvent);
                 }
             }
