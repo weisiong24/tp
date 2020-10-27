@@ -50,7 +50,7 @@ public class Parser {
             checkDeleteValidity(parsedInputs);
             return new DeleteCommand(parsedInputs[1]);
         case COMMAND_FIND:
-            verifyFind(parsedInputs);
+            checkFindValidity(parsedInputs);
             return new FindCommand(parsedInputs[1]);
         case COMMAND_LOGIN:
             checkLogInValidity(parsedInputs);
@@ -99,6 +99,15 @@ public class Parser {
     private static void checkListValidity(String[] input) throws DukeException {
         if (input.length < 2) {
             throw new DukeException("There is no description in your list command!");
+        } else if (!input[1].contains("/")) {
+            throw new DukeException("A list command needs to be in a 'list /day' format!");
+        }
+
+        String[] position = input[1].split("/",2);
+        if (!position[0].isEmpty()) {
+            throw new DukeException("Unexpected input found! A list command needs to be in a 'list /day' format.");
+        } else if (position[1].isEmpty()) {
+            throw new DukeException("There is no day in your list command!");
         }
     }
 
@@ -108,19 +117,34 @@ public class Parser {
         } else if (!input[1].contains("/")) {
             throw new DukeException("An clear command needs to be in a 'clear /day' format!");
         }
+
+        String[] position = input[1].split("/",2);
+        if (!position[0].isEmpty()) {
+            throw new DukeException("Unexpected input found! A clear command needs to be in a 'clear /day' format.");
+        } else if (position[1].isEmpty()) {
+            throw new DukeException("There is no day in your clear command!");
+        }
     }
 
     private static void checkDeleteValidity(String[] input) throws DukeException {
         if (input.length < 2) {
             throw new DukeException("There is no description in your delete command!");
         } else if (!input[1].contains("/")) {
-            throw new DukeException("A delete command needs to be in a '/day /index' format!");
+            throw new DukeException("A delete command needs to be in a 'delete /day /index' format!");
         }
-        String[] position = input[1].split("/",3);
-        if (position[1].isEmpty()) {
-            throw new DukeException("There is no day in your delete command!");
-        } else if (position[2].isEmpty()) {
-            throw new DukeException("There is no index in your delete command!");
+
+        try {
+            String[] position = input[1].split("/",3);
+            if (!position[0].isEmpty()) {
+                throw new DukeException("Unexpected input found! A delete command needs to be in a"
+                        + "'delete /day /index format.");
+            } else if (position[1].isEmpty()) {
+                throw new DukeException("There is no day in your delete command!");
+            } else if (position[2].isEmpty()) {
+                throw new DukeException("There is no index in your delete command!");
+            }
+        } catch (IndexOutOfBoundsException e) {
+            throw new DukeException("A delete command needs to be in a '/day /index' format!");
         }
     }
 
@@ -149,10 +173,18 @@ public class Parser {
      * @param input user's string input.
      * @throws DukeException if the KEYWORD is an empty field.
      */
-    private static void verifyFind(String[] input) throws DukeException {
+    private static void checkFindValidity(String[] input) throws DukeException {
         if (input.length < 2) {
-            throw new DukeException("Find description is empty");
+            throw new DukeException("There is no description in your find command!");
+        } else if (!input[1].contains("/")) {
+            throw new DukeException("A find command needs to be in a 'find /keyword' format!");
+        }
+
+        String[] position = input[1].split("/",2);
+        if (!position[0].isEmpty()) {
+            throw new DukeException("Unexpected input found! A find command needs to be in a 'find /keyword' format.");
+        } else if (position[1].isEmpty()) {
+            throw new DukeException("There is no keyword in your find command!");
         }
     }
-
 }

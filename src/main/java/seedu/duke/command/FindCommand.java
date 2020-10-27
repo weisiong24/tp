@@ -23,7 +23,8 @@ public class FindCommand extends Command {
             throw new DukeException("Sorry! You are not logged in to any account :-(");
         }
 
-        String keyword = input;
+        String[] parsedInputs = input.split("/", 2);
+        String keyword = parsedInputs[1];
         int userIndex = -1;
         int count = 1;
 

@@ -90,8 +90,8 @@ public class Ui {
      * @param size         the number of classes left on that day.
      */
     public void printDelete(String deletedClass, String day, int size) {
-        System.out.println("Noted. I have removed this class from your time table:\n" + deletedClass);
-        System.out.println("Now you have " + size + " class(es) for " + day + " in the time table.");
+        System.out.println("Noted. I have removed this class from your timetable:\n" + deletedClass);
+        System.out.println("Now you have " + size + " class(es) for " + day + " in the timetable.");
     }
 
     /**
@@ -126,7 +126,7 @@ public class Ui {
                     + "that matches the keyword \"" + keyword + "\":");
             System.out.println(classesFound);
         } else {
-            System.out.println("No class of yours contains the keyword \"" + keyword + "\".");
+            System.out.println("None of your classes contain the keyword \"" + keyword + "\".");
         }
     }
 
