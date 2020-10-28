@@ -52,8 +52,15 @@ public class AddCommand extends Command {
                     ArrayList<Event> timetable = users.getUser(i + 1).getTimetable().getTimetable(day);
                     timetable.add(newEvent);
 
-                    if (timeInputs[0].trim().equals(timeInputs[1].trim())) {
-                        throw new DukeException("Start Time cannot be the same as End time");
+                    int timeStart = Integer.parseInt(timeInputs[0].trim());
+                    int timeEnd = Integer.parseInt(timeInputs[1].trim());
+
+                    if (timeStart == timeEnd) {
+                        timetable.remove(newEvent);
+                        throw new DukeException("Start time cannot be the same as End time");
+                    } else if (timeStart > timeEnd) {
+                        timetable.remove(newEvent);
+                        throw new DukeException("Start time cannot be later than End time");
                     }
 
                     switch (day) {
