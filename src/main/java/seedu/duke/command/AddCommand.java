@@ -208,7 +208,6 @@ public class AddCommand extends Command {
             fh.setLevel(Level.INFO);
             fh.setFormatter(new SimpleFormatter());
             logger.addHandler(fh);
-
         } catch (IOException e) {
             logger.log(Level.SEVERE,"File logging not working");
         }

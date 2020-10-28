@@ -1,13 +1,10 @@
 package seedu.duke.command;
 
-//import seedu.duke.storage.Storage;
-//import seedu.duke.exception.DukeException;
 import seedu.duke.exception.DukeException;
 import seedu.duke.ui.Ui;
 import seedu.duke.user.User;
 import seedu.duke.user.UserList;
 
-import java.util.ArrayList;
 
 /**
  * Prints a list of all tasks to the user.
@@ -19,24 +16,36 @@ public class ListCommand extends Command {
     }
 
     @Override
-    public void execute(UserList users, Ui ui, User nowUser/*, Storage storage*/) throws DukeException {
+    public void execute(UserList users, Ui ui, User nowUser) throws DukeException {
+        int userIndex = -1;
+
+        if (nowUser == null) {
+            throw new DukeException("Sorry! You are not logged in to any account :-(");
+        }
+
+        for (int i = 0; i < users.getTotalUserCount(); i++) {
+            if ((users.getUser(i + 1).getName() == nowUser.getName())) {
+                userIndex = i + 1;
+            }
+        }
+
         String day = input.substring(1);
         if (day.equals("all")) {
-            ui.printList(users, nowUser, "mon");
+            ui.printList(users, userIndex, "mon");
             System.out.println();
-            ui.printList(users, nowUser, "tue");
+            ui.printList(users, userIndex, "tue");
             System.out.println();
-            ui.printList(users, nowUser, "wed");
+            ui.printList(users, userIndex, "wed");
             System.out.println();
-            ui.printList(users, nowUser, "thu");
+            ui.printList(users, userIndex, "thu");
             System.out.println();
-            ui.printList(users, nowUser, "fri");
+            ui.printList(users, userIndex, "fri");
             System.out.println();
-            ui.printList(users, nowUser, "sat");
+            ui.printList(users, userIndex, "sat");
             System.out.println();
-            ui.printList(users, nowUser, "sun");
+            ui.printList(users, userIndex, "sun");
         } else {
-            ui.printList(users, nowUser, day);
+            ui.printList(users, userIndex, day);
         }
     }
 }

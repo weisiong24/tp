@@ -23,12 +23,13 @@ public class FindCommand extends Command {
             throw new DukeException("Sorry! You are not logged in to any account :-(");
         }
 
-        String keyword = input;
+        String[] parsedInputs = input.split("/", 2);
+        String keyword = parsedInputs[1];
         int userIndex = -1;
         int count = 1;
 
         for (int i = 0; i < users.getTotalUserCount(); i++) {
-            if ((users.getUser(i + 1).getName() == nowUser.getName())) {
+            if ((users.getUser(i + 1).getName().equals(nowUser.getName()))) {
                 userIndex = i + 1;
                 break;
             }
