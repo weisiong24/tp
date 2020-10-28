@@ -17,7 +17,7 @@ Some example commands you can try:
     1. add /CS2113 Lec /fri /1600-1800 /lt23: Adds an event named CS2113 Lecture for current logged in the student (John Snow) to Time Table
     1. edit /mon /3 /1300-1400 : Edits an event named CS2113 on Fri for current logged in student (John Snow) in the TimeTable
     1. list /all: list of all the classes that John Snow has in a new line, enumerated.
-    1. find CS2113: finds all the classes that John Snow has containing "CS2113"
+    1. find /CS2113: finds all the classes that John Snow has containing "CS2113"
     1. delete 2 : Deletes the 2nd class shown in the current list.
     1. clear /day: Deletes all classes in the current list for John Snow
 
@@ -68,13 +68,13 @@ Example of usage:
 ### Finding a class: `find`
 Lists all the classes based on the keyword entered by user
 
-Format: `find keyword`
+Format: `find /keyword`
 
 Example of usage:
 
-`find CS2113`
+`find /CS2113`
 
-`find Lec`
+`find /Lec`
 
 ### Deleting a class: `delete`
 Deletes a class as specified by the user 
