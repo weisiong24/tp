@@ -1,11 +1,11 @@
 package seedu.duke.command;
 
 import seedu.duke.exception.DukeException;
-//import seedu.duke.storage.Storage;
 import seedu.duke.task.Event;
 import seedu.duke.ui.Ui;
 import seedu.duke.user.User;
 import seedu.duke.user.UserList;
+import seedu.duke.timetable.SortTimetable;
 
 import java.io.IOException;
 import java.util.ArrayList;
@@ -51,6 +51,11 @@ public class AddCommand extends Command {
 
                     ArrayList<Event> timetable = users.getUser(i + 1).getTimetable().getTimetable(day);
                     timetable.add(newEvent);
+
+                    if (timeInputs[0].trim().equals(timeInputs[1].trim())) {
+                        throw new DukeException("Start Time cannot be the same as End time");
+                    }
+
                     switch (day) {
                     case "mon":
                         ArrayList<Event> mon = users.getUser(i + 1).getTimetable().monTimetable;
@@ -64,7 +69,12 @@ public class AddCommand extends Command {
                                     || (timeStartInt + 200 == timeStartNextInt && timeEndInt > timeStartNextInt)
                                     || (timeStartInt + 300 == timeStartNextInt && timeEndInt > timeStartNextInt)
                                     || (timeStartInt + 400 == timeStartNextInt && timeEndInt > timeStartNextInt)
-                                    || (timeStartInt + 500 == timeStartNextInt && timeEndInt > timeStartNextInt)) {
+                                    || (timeStartInt + 500 == timeStartNextInt && timeEndInt > timeStartNextInt)
+                                    || (timeEndNextInt == timeStartInt + 100 && timeEndInt > timeStartNextInt)
+                                    || (timeEndNextInt == timeStartInt + 200 && timeEndInt > timeStartNextInt)
+                                    || (timeEndNextInt == timeStartInt + 300 && timeEndInt > timeStartNextInt)
+                                    || (timeEndNextInt == timeStartInt + 400 && timeEndInt > timeStartNextInt)
+                                    || (timeEndNextInt == timeStartInt + 500 && timeEndInt > timeStartNextInt)) {
                                 mon.remove(j + 1);
                                 throw new DukeException("Duplicate Timetable Detected! Please re-enter");
                             }
@@ -83,7 +93,12 @@ public class AddCommand extends Command {
                                     || (timeStartInt + 200 == timeStartNextInt && timeEndInt > timeStartNextInt)
                                     || (timeStartInt + 300 == timeStartNextInt && timeEndInt > timeStartNextInt)
                                     || (timeStartInt + 400 == timeStartNextInt && timeEndInt > timeStartNextInt)
-                                    || (timeStartInt + 500 == timeStartNextInt && timeEndInt > timeStartNextInt)) {
+                                    || (timeStartInt + 500 == timeStartNextInt && timeEndInt > timeStartNextInt)
+                                    || (timeEndNextInt == timeStartInt + 100 && timeEndInt > timeStartNextInt)
+                                    || (timeEndNextInt == timeStartInt + 200 && timeEndInt > timeStartNextInt)
+                                    || (timeEndNextInt == timeStartInt + 300 && timeEndInt > timeStartNextInt)
+                                    || (timeEndNextInt == timeStartInt + 400 && timeEndInt > timeStartNextInt)
+                                    || (timeEndNextInt == timeStartInt + 500 && timeEndInt > timeStartNextInt)) {
                                 tue.remove(j + 1);
                                 throw new DukeException("Duplicate Timetable Detected! Please re-enter");
                             }
@@ -101,7 +116,12 @@ public class AddCommand extends Command {
                                     || (timeStartInt + 200 == timeStartNextInt && timeEndInt > timeStartNextInt)
                                     || (timeStartInt + 300 == timeStartNextInt && timeEndInt > timeStartNextInt)
                                     || (timeStartInt + 400 == timeStartNextInt && timeEndInt > timeStartNextInt)
-                                    || (timeStartInt + 500 == timeStartNextInt && timeEndInt > timeStartNextInt)) {
+                                    || (timeStartInt + 500 == timeStartNextInt && timeEndInt > timeStartNextInt)
+                                    || (timeEndNextInt == timeStartInt + 100 && timeEndInt > timeStartNextInt)
+                                    || (timeEndNextInt == timeStartInt + 200 && timeEndInt > timeStartNextInt)
+                                    || (timeEndNextInt == timeStartInt + 300 && timeEndInt > timeStartNextInt)
+                                    || (timeEndNextInt == timeStartInt + 400 && timeEndInt > timeStartNextInt)
+                                    || (timeEndNextInt == timeStartInt + 500 && timeEndInt > timeStartNextInt)) {
                                 wed.remove(j + 1);
                                 throw new DukeException("Duplicate Timetable Detected! Please re-enter");
                             }
@@ -119,7 +139,12 @@ public class AddCommand extends Command {
                                     || (timeStartInt + 200 == timeStartNextInt && timeEndInt > timeStartNextInt)
                                     || (timeStartInt + 300 == timeStartNextInt && timeEndInt > timeStartNextInt)
                                     || (timeStartInt + 400 == timeStartNextInt && timeEndInt > timeStartNextInt)
-                                    || (timeStartInt + 500 == timeStartNextInt && timeEndInt > timeStartNextInt)) {
+                                    || (timeStartInt + 500 == timeStartNextInt && timeEndInt > timeStartNextInt)
+                                    || (timeEndNextInt == timeStartInt + 100 && timeEndInt > timeStartNextInt)
+                                    || (timeEndNextInt == timeStartInt + 200 && timeEndInt > timeStartNextInt)
+                                    || (timeEndNextInt == timeStartInt + 300 && timeEndInt > timeStartNextInt)
+                                    || (timeEndNextInt == timeStartInt + 400 && timeEndInt > timeStartNextInt)
+                                    || (timeEndNextInt == timeStartInt + 500 && timeEndInt > timeStartNextInt)) {
                                 thu.remove(j + 1);
                                 throw new DukeException("Duplicate Timetable Detected! Please re-enter");
                             }
@@ -137,7 +162,12 @@ public class AddCommand extends Command {
                                     || (timeStartInt + 200 == timeStartNextInt && timeEndInt > timeStartNextInt)
                                     || (timeStartInt + 300 == timeStartNextInt && timeEndInt > timeStartNextInt)
                                     || (timeStartInt + 400 == timeStartNextInt && timeEndInt > timeStartNextInt)
-                                    || (timeStartInt + 500 == timeStartNextInt && timeEndInt > timeStartNextInt)) {
+                                    || (timeStartInt + 500 == timeStartNextInt && timeEndInt > timeStartNextInt)
+                                    || (timeEndNextInt == timeStartInt + 100 && timeEndInt > timeStartNextInt)
+                                    || (timeEndNextInt == timeStartInt + 200 && timeEndInt > timeStartNextInt)
+                                    || (timeEndNextInt == timeStartInt + 300 && timeEndInt > timeStartNextInt)
+                                    || (timeEndNextInt == timeStartInt + 400 && timeEndInt > timeStartNextInt)
+                                    || (timeEndNextInt == timeStartInt + 500 && timeEndInt > timeStartNextInt)) {
                                 fri.remove(j + 1);
                                 throw new DukeException("Duplicate Timetable Detected! Please re-enter");
                             }
@@ -155,7 +185,12 @@ public class AddCommand extends Command {
                                     || (timeStartInt + 200 == timeStartNextInt && timeEndInt > timeStartNextInt)
                                     || (timeStartInt + 300 == timeStartNextInt && timeEndInt > timeStartNextInt)
                                     || (timeStartInt + 400 == timeStartNextInt && timeEndInt > timeStartNextInt)
-                                    || (timeStartInt + 500 == timeStartNextInt && timeEndInt > timeStartNextInt)) {
+                                    || (timeStartInt + 500 == timeStartNextInt && timeEndInt > timeStartNextInt)
+                                    || (timeEndNextInt == timeStartInt + 100 && timeEndInt > timeStartNextInt)
+                                    || (timeEndNextInt == timeStartInt + 200 && timeEndInt > timeStartNextInt)
+                                    || (timeEndNextInt == timeStartInt + 300 && timeEndInt > timeStartNextInt)
+                                    || (timeEndNextInt == timeStartInt + 400 && timeEndInt > timeStartNextInt)
+                                    || (timeEndNextInt == timeStartInt + 500 && timeEndInt > timeStartNextInt)) {
                                 sat.remove(j + 1);
                                 throw new DukeException("Duplicate Timetable Detected! Please re-enter");
                             }
@@ -173,7 +208,12 @@ public class AddCommand extends Command {
                                     || (timeStartInt + 200 == timeStartNextInt && timeEndInt > timeStartNextInt)
                                     || (timeStartInt + 300 == timeStartNextInt && timeEndInt > timeStartNextInt)
                                     || (timeStartInt + 400 == timeStartNextInt && timeEndInt > timeStartNextInt)
-                                    || (timeStartInt + 500 == timeStartNextInt && timeEndInt > timeStartNextInt)) {
+                                    || (timeStartInt + 500 == timeStartNextInt && timeEndInt > timeStartNextInt)
+                                    || (timeEndNextInt == timeStartInt + 100 && timeEndInt > timeStartNextInt)
+                                    || (timeEndNextInt == timeStartInt + 200 && timeEndInt > timeStartNextInt)
+                                    || (timeEndNextInt == timeStartInt + 300 && timeEndInt > timeStartNextInt)
+                                    || (timeEndNextInt == timeStartInt + 400 && timeEndInt > timeStartNextInt)
+                                    || (timeEndNextInt == timeStartInt + 500 && timeEndInt > timeStartNextInt)) {
                                 sun.remove(j + 1);
                                 throw new DukeException("Duplicate Timetable Detected! Please re-enter");
                             }
@@ -183,15 +223,11 @@ public class AddCommand extends Command {
                         break;
                     }
                     ui.printEvent(newEvent, day);
+                    SortTimetable.sortTimetable(users, nowUser, day);
 
                     logger.log(Level.INFO, day + " timetable successfully add:  " + timetable  + "\n");
                 }
             }
-
-            //((Timetable) currentUser.getTimetable())
-            //tasks.addTask(newTask);
-            //ui.printEvent(newEvent, date);
-            //storage.write(tasks);
         } else {
             logger.log(Level.WARNING,"Not logged in" + "\n");
             throw new DukeException("Sorry! You are not Logged in to any account :-(");
@@ -206,7 +242,6 @@ public class AddCommand extends Command {
             fh.setLevel(Level.INFO);
             fh.setFormatter(new SimpleFormatter());
             logger.addHandler(fh);
-
         } catch (IOException e) {
             logger.log(Level.SEVERE,"File logging not working");
         }
