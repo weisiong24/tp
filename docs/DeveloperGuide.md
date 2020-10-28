@@ -1,8 +1,9 @@
 # Developer Guide
 
-## 1. Table of content
+## Table of content
 **1. Setting Up**\
-**2. Design**
+**2. Design**\
+**3. Implementation**
 
 ## 1. Setting Up
 
@@ -21,8 +22,31 @@ tiers make use of services provided by lower tiers.
 
 ![](images/Overall Architecture.PNG)
 
+<div markdown="span" class="alert alert-primary">
 
-## 3. Design & implementation
+**Tip:** The `.puml` files used to create diagrams in this document can be found in the [diagrams](https://github.com/se-edu/addressbook-level3/tree/master/docs/diagrams/) folder. Refer to the [_PlantUML Tutorial_](https://se-education.org/guides/tutorials/plantUml.html) to learn to create and edit diagrams.
+
+</div>
+
+Here is a quick overview of the main components of WhereGotTime:
+1. `WhereGotTime` - initializes the components in the app
+1. `UI` - the user interface of the app
+1. `Parser` - analyzes and interprets user input
+1. `Command` - executes the action required by user
+1. `Storage` - reads and writes data to file 
+1. `Common` - collection of classes used by multiple components
+   * `Users` - the users who have logged into WhereGotTime
+   * `Timetable` - the timetable of each of the users
+   * `Event` - an object representing a lesson in the timetable
+
+**How architecture components interact**
+
+The following Sequence Diagram displays how components interact when the user inputs `clear /fri`
+
+![Architecture Sequence Diagram](images/ArchitectureSequenceDiagram.png)
+
+## 3. Implementation
+This section describes how features/functions are implemented.
 
 ### Add Function
 
