@@ -27,7 +27,7 @@ public class ParserTest {
 
     @Test
     public void parse_addCommand_parsedCorrectly() throws DukeException {
-        final String input = "add CS2113 Lecture /fri /1600-1800 /LT15";
+        final String input = "add /CS2113 Lecture /fri /1600-1800 /LT15";
         parseAndAssertCommandType(input, AddCommand.class);
     }
 
