@@ -23,6 +23,6 @@ class UserListTest {
 
         users.addUser(user);
         
-        assertEquals("123123", (users.getUserByName("man").passWord));
+        assertEquals("123123", (users.getUserByName("man").password));
     }
 }

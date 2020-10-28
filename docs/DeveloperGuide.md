@@ -1,6 +1,20 @@
 # Developer Guide
 
-## Design & implementation
+## 1. Table of content
+**1. Setting Up**\
+**2. Design**
+
+## 2. Design
+
+### 2.1 Architecture
+The **Architecture Diagram** below shows a high-level design of WhereGotTime. The design is based 
+on multi-tier architecture where the processing, UI, logic and data management are separated. The upper
+tiers make use of services provided by lower tiers.
+
+![](team/Overall Architecture.PNG)
+
+
+## 3. Design & implementation
 
 ### Add Function
 
@@ -46,6 +60,9 @@ while the other two will result in the app giving an error message
 prompting the user to re-enter again.<br/>
 
 ### Edit Function<br/>
+Class Diagram
+
+![](team/ClassDiagram_EditCommand.png)<br/>
 
 ### Delete Function<br/>
 

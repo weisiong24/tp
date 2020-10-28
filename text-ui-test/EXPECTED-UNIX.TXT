@@ -131,9 +131,9 @@ ____________________________________________________________
 Hello Alex!
 ____________________________________________________________
 ____________________________________________________________
-Noted. I have removed this class from your time table:
+Noted. I have removed this class from your timetable:
 CS2040C Tut COM1-2 1300-1400
-Now you have 2 class(es) for mon in the time table.
+Now you have 2 class(es) for mon in the timetable.
 ____________________________________________________________
 ____________________________________________________________
 Noted. I have removed this class from your fri timetable:
