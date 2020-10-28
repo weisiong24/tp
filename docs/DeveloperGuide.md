@@ -4,6 +4,14 @@
 **1. Setting Up**\
 **2. Design**
 
+## 1. Setting Up
+
+**Prerequisites:**
+* JDK 11
+* IntelliJ IDE
+
+Refer to the guide [_Setting Up_](SettingUp.md).
+
 ## 2. Design
 
 ### 2.1 Architecture
