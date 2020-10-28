@@ -32,6 +32,16 @@ Some example commands you can try:
 * Clear timetable
 * Exit program
 
+### Login user: `login`
+Creates a new User with inputted username and password (if first time user).
+Logs the existing user back into the app. (existing user)
+
+Format: `login username /password(6-digit)`
+
+Example of usage: 
+
+`login John /123456`
+
 ### Adding a timetable: `add`
 Adds a new timetable to the list of timetable arraylist.
 
@@ -111,7 +121,7 @@ Format: `bye`
 
 {Give a 'cheat sheet' of commands here}
 
-* Login user
+* Login user `login username /password`
 * Add timetable `add /event name /day /timeStart-timeEnd /Location`
 * Edit timetable `edit /day /index /timeStart-timeEnd`
 * List timetable `list /day`
