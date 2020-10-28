@@ -79,20 +79,35 @@ public class Parser {
     }
 
     private static void checkAddValidity(String[] input) throws DukeException {
-        if (input.length < 2) {
-            throw new DukeException("There is no description in your add command!");
-        } else if (!input[1].contains("/")) {
-            throw new DukeException("An add command needs to be in a 'name /day /time /location' format!");
-        }
-        String[] position = input[1].split(" /",4);
-        if (position[0].isEmpty()) {
-            throw new DukeException("There is no name in your add command!");
-        } else if (position[1].isEmpty()) {
-            throw new DukeException("There is no day in your add command!");
-        } else if (position[2].isEmpty()) {
-            throw new DukeException("There is no time in your add command!");
-        } else if (position[3].isEmpty()) {
-            throw new DukeException("There is no location in your add command!");
+        try {
+            if (input.length < 2) {
+                throw new DukeException("There is no description in your add command!");
+            } else if (!input[1].contains("/")) {
+                throw new DukeException("An add command needs to be in a 'add /name /day /time /location' format!");
+            }
+
+            String[] position = input[1].split(" /", 4);
+            if (position[0].isEmpty()) {
+                throw new DukeException("There is no name in your add command!");
+            } else if (position[1].isEmpty()) {
+                throw new DukeException("There is no day in your add command!");
+            } else if (position[2].isEmpty()) {
+                throw new DukeException("There is no time in your add command!");
+            } else if (position[3].isEmpty()) {
+                throw new DukeException("There is no location in your add command!");
+            }
+
+            if (position[1].length() > 3 || position[1].length() < 3) {
+
+                throw new DukeException("Wrong Syntax to Indicate Day, Correct Syntax is e.g mon");
+            }
+
+            if (!position[0].contains("/")) {
+                throw new DukeException("The event name is missing /. It has to be 'add /name /day /time /location");
+            }
+        } catch (IndexOutOfBoundsException e) {
+
+            throw new DukeException("An add command needs to be in a 'add /name /day /time /location' format!");
         }
     }
 
