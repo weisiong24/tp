@@ -91,11 +91,23 @@ These cases above would no longer output "0000HR, 0100HR" etc but
 instead "0000HR - 1000HR"
 
 ### Login Function
+#### System Architecture of the Login Function<br/>
+![](team/LogInCommand_Architecture_Diagram_v001.png)
+* UI: The User Interface of the app<br/>
+* LogInCommand: The main logic command of the Login function<br/>
+* Parser: The main logic that takes input data and builds the command.
+* User: The Class where username, password, etc are stored
+* UserList: The Class that creates an ArrayList where the User objects will be stored
+
 #### Class Diagram
-![](team/LogInCommand_Class_Diagram_v001.png)
+![](team/LogInCommand_Class_Diagram_v002.png)
+1.) The LogInCommand checks the UserList to check if the inputted user already exists.
+<br/>
+2.) In the case that the User is a first time user, the LogInCommand will create a new User object then add it into 
+the UserList. 
 
 #### Sequence Diagram
-![](team/LogInCommand_Sequence_v001.png)
+![](team/LogInCommand_Sequence_v002.png)
 
 1.) When the user inputs a Login Command, a LogInCommand Object is created with the input member Username and Password.
 <br/>
