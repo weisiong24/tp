@@ -63,7 +63,7 @@ public class ParserTest {
 
     @Test
     public void parse_findCommand_parsedCorrectly() throws DukeException {
-        final String input = "find CS2113";
+        final String input = "find /CS2113";
         parseAndAssertCommandType(input, FindCommand.class);
     }
 
