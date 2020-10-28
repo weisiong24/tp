@@ -20,4 +20,6 @@ skinparam Sequence {
     BoxFontColor #FFFFFF
 }
 
+hide circle
 hide footbox
+hide members

@@ -96,11 +96,53 @@ Class Diagram
 
 ![](images/ClassDiagram_EditCommand.png)<br/>
 
-### Delete Function<br/>
+### Delete Function
 
-### Clear Function<br/>
+#### System Architecture of the Delete Function<br/>
 
-### Display Function<br/>
+![](images/DeleteCommand_ArchitectureDiagram.png)
+
+The Architecture Diagram given above explains the high-level design of the delete command.<br/>
+* UI: The User Interface of the app<br/>
+* DeleteCommand: The main logic command of the delete function<br/>
+* Timetable: The arraylist where events that are added are stored accordingly<br/>
+* WhereGotTime: The main logic component of the app<br/>
+
+### Clear Function
+
+#### System Architecture of the Clear Function<br/>
+
+![](images/ClearCommand_ArchitectureDiagram.png)
+
+The Architecture Diagram given above explains the high-level design of the clear command.<br/>
+* UI: The User Interface of the app<br/>
+* ClearCommand: The main logic command of the clear function<br/>
+* Timetable: The arraylist where events that are added are stored accordingly<br/>
+* WhereGotTime: The main logic component of the app<br/>
+
+### List Function
+
+#### System Architecture of the List Function<br/>
+
+![](images/ListCommand_ArchitectureDiagram.png)
+
+The Architecture Diagram given above explains the high-level design of the list command.<br/>
+* UI: The User Interface of the app<br/>
+* ListCommand: The main logic command of the list function<br/>
+* Timetable: The arraylist where events that are added are stored accordingly<br/>
+* WhereGotTime: The main logic component of the app<br/>
+
+### Find Function
+
+#### System Architecture of the Find Function<br/>
+
+![](images/FindCommand_ArchitectureDiagram.png)
+
+The Architecture Diagram given above explains the high-level design of the find command.<br/>
+* UI: The User Interface of the app<br/>
+* FindCommand: The main logic command of the find function<br/>
+* Timetable: The arraylist where events that are added are stored accordingly<br/>
+* WhereGotTime: The main logic component of the app<br/>
 
 ### Compare Function<br/>
 #### System Architecture of the Compare Function<br/>
