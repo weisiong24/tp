@@ -1,6 +1,5 @@
 package seedu.duke.command;
 
-import seedu.duke.task.TaskList;
 import seedu.duke.ui.Ui;
 import seedu.duke.user.User;
 import seedu.duke.user.UserList;

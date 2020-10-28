@@ -1,7 +1,6 @@
 package seedu.duke.command;
 
 import seedu.duke.exception.DukeException;
-//import seedu.duke.storage.Storage;
 import seedu.duke.task.Event;
 import seedu.duke.ui.Ui;
 import seedu.duke.user.User;
@@ -19,18 +18,13 @@ public class DeleteCommand extends Command {
     }
 
     @Override
-    public void execute(UserList users, Ui ui, User nowUser/*, Storage storage*/) throws DukeException {
+    public void execute(UserList users, Ui ui, User nowUser) throws DukeException {
         if (nowUser == null) {
             throw new DukeException("Sorry! You are not logged in to any account :-(");
         }
         
         try {
             String[] parsedInputs = input.split("/", 3);
-            if (parsedInputs.length < 3) {
-                throw new DukeException("Your edit format is not according to UG!\nIt should be "
-                        + "'delete /[day] /[number as shown in list]'!");
-            }
-            
             String day = parsedInputs[1].trim();
             int index;
             index = Integer.parseInt(parsedInputs[2]);
