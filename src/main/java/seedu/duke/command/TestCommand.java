@@ -1,18 +1,13 @@
 package seedu.duke.command;
 
 import seedu.duke.exception.DukeException;
-import seedu.duke.timetable.Timetable;
 import seedu.duke.ui.Ui;
 import seedu.duke.user.User;
 import seedu.duke.user.UserList;
 import seedu.duke.task.Event;
 import seedu.duke.storage.Storage;
 
-import javax.sound.midi.SysexMessage;
-import java.sql.Array;
-import java.sql.Time;
 import java.util.ArrayList;
-import java.util.Arrays;
 
 public class TestCommand extends Command {
 
@@ -28,7 +23,7 @@ public class TestCommand extends Command {
        
         String currentUserName = nowUser.getName();
         System.out.println("currentUserName: " + currentUserName);
-        String currentUserPW = nowUser.getPassWord();
+        String currentUserPW = nowUser.getPassword();
         System.out.println("currentUserPW: " + currentUserPW + "\n");
         
         
@@ -47,7 +42,7 @@ public class TestCommand extends Command {
         System.out.println("\nPrint each user's timetable information:");
         for (User k : users.getUserList()) {
             ArrayList<ArrayList<Event>> allTimeTable = k.combineAllTimetable();
-            System.out.println((k.getName() + " | " + k.getPassWord()));
+            System.out.println((k.getName() + " | " + k.getPassword()));
             printAllTimeTable(allTimeTable);
             System.out.println("###");
         }

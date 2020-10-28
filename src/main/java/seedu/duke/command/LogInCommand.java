@@ -37,7 +37,7 @@ public class LogInCommand extends Command {
         
         for (int i = 1; i <= users.getTotalUserCount(); i++) {
             if (parsedInputs[0].equals((users.getUser(i)).getName())) {
-                if (parsedInputs[1].equals((users.getUser(i)).getPassWord())) {
+                if (parsedInputs[1].equals((users.getUser(i)).getPassword())) {
                     currentUser = users.getUser(i);
                     //System.out.println(parsedInputs[0] + " == " + (users.getUser(i)).getName());
                     doesExist = true;
