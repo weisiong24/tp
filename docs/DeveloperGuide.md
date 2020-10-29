@@ -11,7 +11,7 @@ The **Architecture Diagram** below shows a high-level design of WhereGotTime. Th
 on multi-tier architecture where the processing, UI, logic and data management are separated. The upper
 tiers make use of services provided by lower tiers.
 
-![](team/Overall Architecture.PNG)
+![](team/Overall Architecture.PNG)<br/>
 
 
 ## 3. Design & implementation
@@ -61,7 +61,6 @@ prompting the user to re-enter again.<br/>
 
 ### Edit Function<br/>
 Class Diagram
-
 ![](team/ClassDiagram_EditCommand.png)<br/>
 
 ### Delete Function<br/>
