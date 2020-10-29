@@ -1,8 +1,17 @@
 # Developer Guide
 
-## 1. Table of content
+## Table of content
 **1. Setting Up**\
-**2. Design**
+**2. Design**\
+**3. Implementation**
+
+## 1. Setting Up
+
+**Prerequisites:**
+* JDK 11
+* IntelliJ IDE
+
+Refer to the guide [_Setting Up_](SettingUp.md).
 
 ## 2. Design
 
@@ -11,16 +20,39 @@ The **Architecture Diagram** below shows a high-level design of WhereGotTime. Th
 on multi-tier architecture where the processing, UI, logic and data management are separated. The upper
 tiers make use of services provided by lower tiers.
 
-![](team/Overall Architecture.PNG)
+![](images/Overall Architecture.PNG)
 
+<div markdown="span" class="alert alert-primary">
 
-## 3. Design & implementation
+**Tip:** The `.puml` files used to create diagrams in this document can be found in the [diagrams](https://github.com/se-edu/addressbook-level3/tree/master/docs/diagrams/) folder. Refer to the [_PlantUML Tutorial_](https://se-education.org/guides/tutorials/plantUml.html) to learn to create and edit diagrams.
+
+</div>
+
+Here is a quick overview of the main components of WhereGotTime:
+1. `WhereGotTime` - initializes the components in the app
+1. `UI` - the user interface of the app
+1. `Parser` - analyzes and interprets user input
+1. `Command` - executes the action required by user
+1. `Storage` - reads and writes data to file 
+1. `Common` - collection of classes used by multiple components
+   * `Users` - the users who have logged into WhereGotTime
+   * `Timetable` - the timetable of each of the users
+   * `Event` - an object representing a lesson in the timetable
+
+**How architecture components interact**
+
+The following Sequence Diagram displays how components interact when the user inputs `clear /fri`
+
+![Architecture Sequence Diagram](images/ArchitectureSequenceDiagram.png)
+
+## 3. Implementation
+This section describes how features/functions are implemented.
 
 ### Add Function
 
 #### System Architecture of the Add Function<br/>
 
-![](team/Architect-digram.PNG)
+![](images/Architect-digram.PNG)
 
 The Architecture Diagram given above explains the high-level design of the add command.<br/>
 
@@ -33,7 +65,7 @@ Below we will discuss a quick overview of each component.
 #### Design of the Add Function<br/>
 
 UML Class Diagram of the Add function:
-![](team/uml.PNG)<br/>
+![](images/uml.PNG)<br/>
 
 1) The Add function gets the inputs from the User and places it to the event class so that 
 it can parser to string.<br/>
@@ -43,7 +75,7 @@ to the timetable.<br/>
 and location) to the timetable class into its arraylist divided by the day of the week<br/>
 
 #### Sequence Design of Add Function<br/>
-![](team/seqdiagram.jpg)<br/>
+![](images/seqdiagram.jpg)<br/>
 
 #### Improvements to be made to Version 2.0<br/>
 * To ensure that the users do not enter duplicate event that has the same timing or in between the time 
@@ -62,17 +94,61 @@ prompting the user to re-enter again.<br/>
 ### Edit Function<br/>
 Class Diagram
 
-![](team/ClassDiagram_EditCommand.png)<br/>
+![](images/ClassDiagram_EditCommand.png)<br/>
 
-### Delete Function<br/>
+### Delete Function
 
-### Clear Function<br/>
+#### System Architecture of the Delete Function<br/>
 
-### Display Function<br/>
+![](images/DeleteCommand_ArchitectureDiagram.png)
+
+The Architecture Diagram given above explains the high-level design of the delete command.<br/>
+* UI: The User Interface of the app<br/>
+* DeleteCommand: The main logic command of the delete function<br/>
+* Timetable: The arraylist where events that are added are stored accordingly<br/>
+* WhereGotTime: The main logic component of the app<br/>
+
+#### Design of the Delete Function<br/>
+
+### Clear Function
+
+#### System Architecture of the Clear Function<br/>
+
+![](images/ClearCommand_ArchitectureDiagram.png)
+
+The Architecture Diagram given above explains the high-level design of the clear command.<br/>
+* UI: The User Interface of the app<br/>
+* ClearCommand: The main logic command of the clear function<br/>
+* Timetable: The arraylist where events that are added are stored accordingly<br/>
+* WhereGotTime: The main logic component of the app<br/>
+
+### List Function
+
+#### System Architecture of the List Function<br/>
+
+![](images/ListCommand_ArchitectureDiagram.png)
+
+The Architecture Diagram given above explains the high-level design of the list command.<br/>
+* UI: The User Interface of the app<br/>
+* ListCommand: The main logic command of the list function<br/>
+* Timetable: The arraylist where events that are added are stored accordingly<br/>
+* WhereGotTime: The main logic component of the app<br/>
+
+### Find Function
+
+#### System Architecture of the Find Function<br/>
+
+![](images/FindCommand_ArchitectureDiagram.png)
+
+The Architecture Diagram given above explains the high-level design of the find command.<br/>
+* UI: The User Interface of the app<br/>
+* FindCommand: The main logic command of the find function<br/>
+* Timetable: The arraylist where events that are added are stored accordingly<br/>
+* WhereGotTime: The main logic component of the app<br/>
 
 ### Compare Function<br/>
 #### System Architecture of the Compare Function<br/>
-![](team/CompareCommand_ClassDiagram.jpg) <br/>
+![](images/CompareCommand_ClassDiagram.jpg) <br/>
 The System Architecture given above explains the high-level design of the <b>COMPARE</b> command.<br/>
 
 Listed below are some features we will be highlighting:<br/>
@@ -84,7 +160,7 @@ Listed below are some features we will be highlighting:<br/>
 * UserList: An arraylist of User<br/>
 
 #### Design of the Compare Function<br/>
-![](team/CompareCommand_UML_Diagram.jpg)<br/>
+![](images/CompareCommand_UML_Diagram.jpg)<br/>
 
 1) The <b>COMPARE</b> function gets the inputs from the User and retrieves the User's / Target User's<br/>
 timetables based on a specific day. It will then compare the timetables and return an arraylist
@@ -94,7 +170,7 @@ timeslots the User and Target User have on a specific day of the week.<br/>
 
 
 #### Sequence Design of Compare Function<br/>
-![](team/CompareCommand_SequenceDesign.jpg) <br/>
+![](images/CompareCommand_SequenceDesign.jpg) <br/>
 
 #### Improvements to be made to Version 2.0<br/>
 * Display a range of timings instead of individual hours<br/>
@@ -109,7 +185,7 @@ instead "0000HR - 1000HR"
 
 ### Login Function
 #### System Architecture of the Login Function<br/>
-![](team/LogInCommand_Architecture_Diagram_v001.png)
+![](images/LogInCommand_Architecture_Diagram_v001.png)
 * UI: The User Interface of the app<br/>
 * LogInCommand: The main logic command of the Login function<br/>
 * Parser: The main logic that takes input data and builds the command.
@@ -117,14 +193,14 @@ instead "0000HR - 1000HR"
 * UserList: The Class that creates an ArrayList where the User objects will be stored
 
 #### Class Diagram
-![](team/LogInCommand_Class_Diagram_v002.png)
+![](images/LogInCommand_Class_Diagram_v002.png)
 1.) The LogInCommand checks the UserList to check if the inputted user already exists.
 <br/>
 2.) In the case that the User is a first time user, the LogInCommand will create a new User object then add it into 
 the UserList. 
 
 #### Sequence Diagram
-![](team/LogInCommand_Sequence_v002.png)
+![](images/LogInCommand_Sequence_v002.png)
 
 1.) When the user inputs a Login Command, a LogInCommand Object is created with the input member Username and Password.
 <br/>
