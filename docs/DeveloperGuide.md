@@ -45,7 +45,7 @@ The following Sequence Diagram displays how components interact when the user in
 
 ![Architecture Sequence Diagram](images/ArchitectureSequenceDiagram.png)
 
-## 3. Implementation
+## 3. Design & Implementation
 This section describes how features/functions are implemented.
 
 ### Add Function
