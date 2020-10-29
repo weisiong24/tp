@@ -110,6 +110,16 @@ The Architecture Diagram given above explains the high-level design of the delet
 
 #### Design of the Delete Function<br/>
 
+![](images/DeleteCommand_umlDiagram.png)
+
+1. `DeleteCommand` gets the input from the User and gets the relevant timetable from `Timetable`
+1. `DeleteCommand` then proceeds to delete the event in the timetable based on the index in the user input
+1. `DeleteCommand` passes the day, deleted event and size of timetable to the `UI`
+1. `UI` updates the user of the successful deletion of the event
+
+#### Sequence Design of Delete Function<br/>
+![](images/DeleteCommand_SequenceDiagram.png)<br/>
+
 ### Clear Function
 
 #### System Architecture of the Clear Function<br/>
@@ -121,6 +131,18 @@ The Architecture Diagram given above explains the high-level design of the clear
 * ClearCommand: The main logic command of the clear function<br/>
 * Timetable: The arraylist where events that are added are stored accordingly<br/>
 * WhereGotTime: The main logic component of the app<br/>
+
+#### Design of the Clear Function<br/>
+
+![](images/ClearCommand_umlDiagram.png)
+
+1. `ClearCommand` gets the input from the User and gets the relevant timetable from `Timetable`
+1. `ClearCommand` then proceeds to clear all events from the timetable
+1. `ClearCommand` passes the day and cleared lesson to the `UI`
+1. `UI` updates the user of the successful clearing of events
+
+#### Sequence Design of Clear Function<br/>
+![](images/ClearCommand_SequenceDiagram.png)<br/>
 
 ### List Function
 
@@ -134,6 +156,17 @@ The Architecture Diagram given above explains the high-level design of the list 
 * Timetable: The arraylist where events that are added are stored accordingly<br/>
 * WhereGotTime: The main logic component of the app<br/>
 
+#### Design of the List Function<br/>
+
+![](images/ListCommand_umlDiagram.png)
+
+1. `ListCommand` gets the input from the User and gets the relevant user's timetable(s) from `Timetable`
+1. `ListCommand` then passes the user's timetable(s) to the `UI`
+1. `UI` prints all the classes in the timetable
+
+#### Sequence Design of List Function<br/>
+![](images/ListCommand_SequenceDiagram.png)<br/>
+
 ### Find Function
 
 #### System Architecture of the Find Function<br/>
@@ -145,6 +178,18 @@ The Architecture Diagram given above explains the high-level design of the find 
 * FindCommand: The main logic command of the find function<br/>
 * Timetable: The arraylist where events that are added are stored accordingly<br/>
 * WhereGotTime: The main logic component of the app<br/>
+
+#### Design of the Find Function<br/>
+
+![](images/FindCommand_umlDiagram.png)
+
+1. `FindCommand` gets the input from the User and gets the timetable from `Timetable`
+1. `FindCommand` then searches through the timetable to find event that match the keyword entered by User
+1. `FindCommand` passes the matching events to `UI`
+1. `UI` prints the matching events
+
+#### Sequence Design of Find Function<br/>
+![](images/FindCommand_SequenceDiagram.png)<br/>
 
 ### Compare Function<br/>
 #### System Architecture of the Compare Function<br/>
