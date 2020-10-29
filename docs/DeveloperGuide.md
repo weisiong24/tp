@@ -117,6 +117,9 @@ The Architecture Diagram given above explains the high-level design of the delet
 1. `DeleteCommand` passes the day, deleted event and size of timetable to the `UI`
 1. `UI` updates the user of the successful deletion of the event
 
+#### Sequence Design of Delete Function<br/>
+![](images/DeleteCommand_SequenceDiagram.png)<br/>
+
 ### Clear Function
 
 #### System Architecture of the Clear Function<br/>
@@ -138,6 +141,9 @@ The Architecture Diagram given above explains the high-level design of the clear
 1. `ClearCommand` passes the day and cleared lesson to the `UI`
 1. `UI` updates the user of the successful clearing of events
 
+#### Sequence Design of Clear Function<br/>
+![](images/ClearCommand_SequenceDiagram.png)<br/>
+
 ### List Function
 
 #### System Architecture of the List Function<br/>
@@ -157,6 +163,9 @@ The Architecture Diagram given above explains the high-level design of the list 
 1. `ListCommand` gets the input from the User and gets the relevant user's timetable(s) from `Timetable`
 1. `ListCommand` then passes the user's timetable(s) to the `UI`
 1. `UI` prints all the classes in the timetable
+
+#### Sequence Design of List Function<br/>
+![](images/ListCommand_SequenceDiagram.png)<br/>
 
 ### Find Function
 
@@ -178,6 +187,9 @@ The Architecture Diagram given above explains the high-level design of the find 
 1. `FindCommand` then searches through the timetable to find event that match the keyword entered by User
 1. `FindCommand` passes the matching events to `UI`
 1. `UI` prints the matching events
+
+#### Sequence Design of Find Function<br/>
+![](images/FindCommand_SequenceDiagram.png)<br/>
 
 ### Compare Function<br/>
 #### System Architecture of the Compare Function<br/>
