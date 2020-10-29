@@ -108,6 +108,8 @@ The Architecture Diagram given above explains the high-level design of the delet
 * Timetable: The arraylist where events that are added are stored accordingly<br/>
 * WhereGotTime: The main logic component of the app<br/>
 
+#### Design of the Delete Function<br/>
+
 ### Clear Function
 
 #### System Architecture of the Clear Function<br/>

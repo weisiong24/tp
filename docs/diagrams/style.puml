@@ -1,4 +1,5 @@
 skinparam BackgroundColor #FFFFFF
+skinparam classAttributeIconSize 0
 skinparam SequenceBoxBackgroundColor #111111
 skinparam Shadowing false
 
