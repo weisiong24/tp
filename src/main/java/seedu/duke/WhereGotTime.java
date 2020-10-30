@@ -9,13 +9,13 @@ import seedu.duke.user.UserList;
 
 import seedu.duke.storage.Storage;
 
-public class Duke {
+public class WhereGotTime {
 
     private Storage storage;
     private UserList users;
     private final Ui ui;
 
-    public Duke() {
+    public WhereGotTime() {
         ui = new Ui();
         try {
             users = new UserList();
@@ -54,6 +54,6 @@ public class Duke {
     }
 
     public static void main(String[] args) {
-        new Duke().run();
+        new WhereGotTime().run();
     }
 }
