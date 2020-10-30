@@ -7,13 +7,13 @@ import java.util.ArrayList;
 
 public class User {
     protected String name;
-    protected String passWord;
+    protected String password;
     protected Timetable timetable;
     protected String encipheredPassword;
 
     public User(String name, String passWord) {
         this.name = name;
-        this.passWord = passWord;
+        this.password = passWord;
         this.timetable = new Timetable();
         this.encipheredPassword = Cryptography.encipherPassword(passWord);
     }
@@ -22,8 +22,8 @@ public class User {
         return name;
     }
 
-    public String getPassWord() {
-        return passWord;
+    public String getPassword() {
+        return password;
     }
 
     public String getEncipheredPassword() {

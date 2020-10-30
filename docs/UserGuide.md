@@ -32,6 +32,16 @@ Some example commands you can try:
 * Clear timetable
 * Exit program
 
+### Login user: `login`
+Creates a new User with inputted username and password (if first time user).
+Logs the existing user back into the app. (existing user)
+
+Format: `login username /password(6-digit)`
+
+Example of usage: 
+
+`login John /123456`
+
 ### Adding a timetable: `add`
 Adds a new timetable to the list of timetable arraylist.
 
@@ -42,6 +52,19 @@ Example of usage:
 `add /CS2040C Tut /mon /0800-1000 /COM1-2`
 
 `add /CG2028 Tut /Thu /0900-1100 /E4-4-1`
+
+### Editing a timetable : `edit`
+Edits an existing timetable with a new timing.
+
+Format: `edit /day /index /(timeStart-timeEnd)`
+
+note: You may get the `index` by listing the full timetables using `list /all`
+
+Example of usage:
+
+`edit /mon /2 /1100-1200`
+
+`edit /fri /4 /1300-1500`
 
 ### Listing a timetable: `list`
 Lists all the classes on a particular day or on all days
@@ -111,7 +134,7 @@ Format: `bye`
 
 {Give a 'cheat sheet' of commands here}
 
-* Login user
+* Login user `login username /password`
 * Add timetable `add /event name /day /timeStart-timeEnd /Location`
 * Edit timetable `edit /day /index /timeStart-timeEnd`
 * List timetable `list /day`
