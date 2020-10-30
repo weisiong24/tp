@@ -53,6 +53,19 @@ Example of usage:
 
 `add /CG2028 Tut /Thu /0900-1100 /E4-4-1`
 
+### Editing a timetable : `edit`
+Edits an existing timetable with a new timing.
+
+Format: `edit /day /index /(timeStart-timeEnd)`
+
+note: You may get the `index` by listing the full timetables using `list /all`
+
+Example of usage:
+
+`edit /mon /2 /1100-1200`
+
+`edit /fri /4 /1300-1500`
+
 ### Listing a timetable: `list`
 Lists all the classes on a particular day or on all days
 
