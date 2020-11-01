@@ -180,8 +180,9 @@ public class Parser {
             throw new DukeException("Password needs to be a 6-digits number!");
         } else if (input[1].substring(0, atPosition).trim().isEmpty()) {
             throw new DukeException("There is no username in your login command!");
+        }  else if (!input[1].substring(0, atPosition - 1).matches("^[a-zA-Z]*$")) {
+            throw new DukeException("Username needs to contain one word with only Alphabets!");
         }
-        
         
         
     }
