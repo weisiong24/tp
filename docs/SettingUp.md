@@ -6,7 +6,7 @@
 1. **Configure the JDK**: Follow the guide [_[se-edu/guides] IDEA: Configuring the JDK_](https://se-education.org/guides/tutorials/intellijJdk.html) to configure IntelliJ to use **JDK11**.
 1. **Import the project as a Gradle project**: Follow the guide [_[se-edu/guides] IDEA: Importing a Gradle project_](https://se-education.org/guides/tutorials/intellijImportGradleProject.html) to import the project into IDEA.
 1. **Verify the setup**:
-   1. Run `seedu.duke.WhereGotTime`, you should see something like the following:
+   1. Run `WhereGotTime`, you should see something like the following:
        ```
       Executing task 'WhereGotTime.main()'...
        
