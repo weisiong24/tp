@@ -78,7 +78,8 @@ Example of usage:
 `list /all`
 
 ### Comparing timetables: `compare`
-Compares current User's timetable to Target user's timetable.
+Compares current User's timetable to Target user's timetable and
+returns a range of common available timeslots.
 
 Format: `compare /TargetUser's name /day`
   
