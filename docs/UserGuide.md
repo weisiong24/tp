@@ -78,7 +78,7 @@ Example of usage:
 `list /all`
 
 ### Comparing timetables: `compare`
-Compares current User's timetable to Target user's timetable.
+Compares current User's timetable to Target user's timetable and returns a range of common available timeslots.
 
 Format: `compare /TargetUser's name /day`
   
@@ -122,14 +122,6 @@ Exits the Program<br/>
 
 Format: `bye`
 
-
-
-## FAQ
-
-**Q**: How do I transfer my data to another computer? 
-
-**A**: {your answer here}
-
 ## Command Summary
 
 {Give a 'cheat sheet' of commands here}
@@ -138,7 +130,7 @@ Format: `bye`
 * Add timetable `add /event name /day /timeStart-timeEnd /Location`
 * Edit timetable `edit /day /index /timeStart-timeEnd`
 * List timetable `list /day`
-* Compare timetable
+* Compare timetable `compare /target username /day`
 * Find class `find /keyword`
 * Delete timetable `delete /day /index`
 * Clear timetable `clear /day`
