@@ -29,11 +29,11 @@ test {
 }
 
 application {
-    mainClassName = "seedu.duke.WhereGotTime"
+    mainClassName = "seedu.WhereGotTime"
 }
 
 shadowJar {
-    archiveBaseName = "duke"
+    archiveBaseName = "WhereGotTime"
     archiveClassifier = null
 }
 
