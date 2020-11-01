@@ -31,8 +31,14 @@ public class LogInCommand extends Command {
         boolean doesExist = false;
         setupInputLogger();
         
-        String[] parsedInputs = input.split(" /", 2);
-
+        String[] parsedInputs = input.split("/", 2);
+        
+        if (parsedInputs[0].endsWith(" ")) {
+            parsedInputs[0] = parsedInputs[0].substring(0, parsedInputs[0].length() - 1);
+        } else {
+            throw new DukeException("Wrong format. Please use format login username /password");
+        }
+        
         assert parsedInputs.length == 2 : "Username or Password is missing";
         
         for (int i = 1; i <= users.getTotalUserCount(); i++) {
