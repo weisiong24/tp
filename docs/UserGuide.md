@@ -7,7 +7,7 @@ WhereGotTime is an application for the student to check their timetable and comp
 ## Quick Start
 
 1. Ensure you have Java 11 or above installed in your Computer.
-1. Down the latest version of  WhereGotTime.jar from [here](https://github.com/AY2021S1-CS2113-T13-3/tp/releases/tag/v1.0).
+1. Down the latest version of  WhereGotTime.jar from [here](https://github.com/AY2021S1-CS2113-T13-3/tp/releases/tag/2.0).
 1. Copy the jar file into an empty folder you want to use as the home folder for your WhereGotTime.
 1. Open a command window in that folder
 1. Run the command java -jar {filename}.jar e.g., java -jar Duke.jar (i.e., run the command in the same folder as the jar file)
@@ -51,7 +51,11 @@ Example of usage:
 
 `add /CS2040C Tut /mon /0800-1000 /COM1-2`
 
-`add /CG2028 Tut /Thu /0900-1100 /E4-4-1`
+`add /CG2028 Tut /Thu /1200-1300 /E4-4-1`
+
+Expected Output:
+
+![](images/expectedoutput.PNG)<br/>
 
 ### Editing a timetable : `edit`
 Edits an existing timetable with a new timing.

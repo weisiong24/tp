@@ -98,12 +98,13 @@ public class Parser {
             }
 
             if (position[1].length() > 3 || position[1].length() < 3) {
-
-                throw new DukeException("Wrong Syntax to Indicate Day, Correct Syntax is e.g mon");
+                throw new DukeException("\nInvalid day Format \n" 
+                        + "Correct format is add /name /day /timeStart-timeEnd /location\n" 
+                        + "E.g: add /CS2113 Lec /mon /2000-2100 /LT1");
             }
 
             if (!position[0].contains("/")) {
-                throw new DukeException("The event name is missing /. It has to be 'add /name /day /time /location");
+                throw new DukeException("TAn add command needs to be in a 'add /name /day /time /location' format!");
             }
         } catch (IndexOutOfBoundsException e) {
 
