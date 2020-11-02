@@ -14,6 +14,11 @@ public class EditCommand extends Command {
 
     @Override
     public void execute(UserList users, Ui ui, User nowUser/*, Storage storage*/) throws WhereGotTimeException {
+        
+        if (nowUser == null) {
+            throw new WhereGotTimeException("Sorry! You are not logged in to any account!");
+        }
+        
         String[] parsedInputs = input.split("/", 4);
         if (parsedInputs.length < 4) {
             throw new WhereGotTimeException("Your edit format is not according to UG!\nIt should be "
