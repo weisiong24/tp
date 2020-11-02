@@ -60,7 +60,8 @@ public class AddCommand extends Command {
                             }
                             if (timeStart > 2300 || timeEnd > 2300) {
                                 timetable.remove(newEvent);
-                                throw new WhereGotTimeException("Start and End time must be in 24 hour format (0000-2300)");
+                                throw new WhereGotTimeException("Start and End time must be "
+                                        + "in 24 hour format (0000-2300)");
                             }
                         } catch (NumberFormatException n) {
                             timetable.remove(newEvent);
@@ -244,7 +245,8 @@ public class AddCommand extends Command {
                     }
                 }
             } catch (IndexOutOfBoundsException e) {
-                throw new WhereGotTimeException("An add command needs to be in a 'add /name /day /time /location' format!");
+                throw new WhereGotTimeException("An add command needs to be in "
+                        + "a 'add /name /day /time /location' format!");
             }
         } else {
             logger.log(Level.WARNING, "Not logged in" + "\n");

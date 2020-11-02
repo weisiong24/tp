@@ -87,7 +87,8 @@ public class Parser {
             if (input.length < 2) {
                 throw new WhereGotTimeException("There is no description in your add command!");
             } else if (!input[1].contains("/")) {
-                throw new WhereGotTimeException("An add command needs to be in a 'add /name /day /time /location' format!");
+                throw new WhereGotTimeException("An add command needs to be in a"
+                        + " 'add /name /day /time /location' format!");
             }
 
             String[] position = input[1].split(" /", 4);
@@ -108,7 +109,8 @@ public class Parser {
             }
 
             if (!position[0].contains("/")) {
-                throw new WhereGotTimeException("TAn add command needs to be in a 'add /name /day /time /location' format!");
+                throw new WhereGotTimeException("TAn add command needs to be in "
+                        + "a 'add /name /day /time /location' format!");
             }
         } catch (IndexOutOfBoundsException e) {
 
@@ -125,7 +127,8 @@ public class Parser {
 
         String[] position = input[1].split("/",2);
         if (!position[0].isEmpty()) {
-            throw new WhereGotTimeException("Unexpected input found! A list command needs to be in a 'list /day' format.");
+            throw new WhereGotTimeException("Unexpected input found! A list command needs to be in "
+                    + "a 'list /day' format.");
         } else if (position[1].isEmpty()) {
             throw new WhereGotTimeException("There is no day in your list command!");
         }
@@ -140,7 +143,8 @@ public class Parser {
 
         String[] position = input[1].split("/",2);
         if (!position[0].isEmpty()) {
-            throw new WhereGotTimeException("Unexpected input found! A clear command needs to be in a 'clear /day' format.");
+            throw new WhereGotTimeException("Unexpected input found! A clear command needs to be in "
+                    + "a 'clear /day' format.");
         } else if (position[1].isEmpty()) {
             throw new WhereGotTimeException("There is no day in your clear command!");
         }
@@ -207,7 +211,8 @@ public class Parser {
 
         String[] position = input[1].split("/",2);
         if (!position[0].isEmpty()) {
-            throw new WhereGotTimeException("Unexpected input found! A find command needs to be in a 'find /keyword' format.");
+            throw new WhereGotTimeException("Unexpected input found! A find command needs to be in "
+                    + "a 'find /keyword' format.");
         } else if (position[1].isEmpty()) {
             throw new WhereGotTimeException("There is no keyword in your find command!");
         }
