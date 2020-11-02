@@ -1,6 +1,6 @@
 package seedu.ui;
 
-import seedu.exception.DukeException;
+import seedu.exception.WhereGotTimeException;
 import seedu.task.Event;
 import seedu.user.User;
 import seedu.user.UserList;
@@ -57,7 +57,7 @@ public class Ui {
      * @param userIndex the index of the current user
      * @param day the day in the timetable to print
      */
-    public void printList(UserList users, int userIndex, String day) throws DukeException {
+    public void printList(UserList users, int userIndex, String day) throws WhereGotTimeException {
         ArrayList<Event> timetable = (users.getUser(userIndex).getTimetable()).getTimetable(day);
         if (!timetable.isEmpty()) {
             int count = 1;
@@ -130,7 +130,7 @@ public class Ui {
         }
     }
 
-    public void printEdit(String[] editedField, String date, int index) throws DukeException {
+    public void printEdit(String[] editedField, String date, int index) throws WhereGotTimeException {
         System.out.println("Got it! I have edited " + date + "'s #" + index + " lesson to "
                 + "the following timing: " + editedField[0] + "-" + editedField[1]);
     }

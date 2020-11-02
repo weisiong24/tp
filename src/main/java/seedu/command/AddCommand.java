@@ -1,6 +1,6 @@
 package seedu.command;
 
-import seedu.exception.DukeException;
+import seedu.exception.WhereGotTimeException;
 import seedu.task.Event;
 import seedu.ui.Ui;
 import seedu.user.User;
@@ -24,7 +24,7 @@ public class AddCommand extends Command {
     private static Logger logger = Logger.getLogger("LogLogInCommand");
 
     @Override
-    public void execute(UserList users, Ui ui, User nowUser/*, Storage storage*/) throws DukeException {
+    public void execute(UserList users, Ui ui, User nowUser/*, Storage storage*/) throws WhereGotTimeException {
         /*/Lec /day /time /location*/
         setupInputLogger();
 
@@ -53,22 +53,22 @@ public class AddCommand extends Command {
 
                             if (timeStart == timeEnd) {
                                 timetable.remove(newEvent);
-                                throw new DukeException("Start time cannot be the same as End time");
+                                throw new WhereGotTimeException("Start time cannot be the same as End time");
                             } else if (timeStart > timeEnd) {
                                 timetable.remove(newEvent);
-                                throw new DukeException("Start time cannot be later than End time");
+                                throw new WhereGotTimeException("Start time cannot be later than End time");
                             }
                             if (timeStart > 2300 || timeEnd > 2300) {
                                 timetable.remove(newEvent);
-                                throw new DukeException("Start and End time must be in 24 hour format (0000-2300)");
+                                throw new WhereGotTimeException("Start and End time must be in 24 hour format (0000-2300)");
                             }
                         } catch (NumberFormatException n) {
                             timetable.remove(newEvent);
-                            throw new DukeException("\nInvalid Time Format \n"
+                            throw new WhereGotTimeException("\nInvalid Time Format \n"
                                     + "Correct format is add /name /day /timeStart-timeEnd /location\n"
                                     + "E.g: add /CS2113 Lec /mon /2000-2100 /LT1");
                         } catch (IndexOutOfBoundsException e) {
-                            throw new DukeException("An add command needs to be in a"
+                            throw new WhereGotTimeException("An add command needs to be in a"
                                     + "add /name /day /time /location' format!");
                         }
                         switch (day) {
@@ -91,7 +91,7 @@ public class AddCommand extends Command {
                                         || (timeEndNextInt == timeStartInt + 400 && timeEndInt > timeStartNextInt)
                                         || (timeEndNextInt == timeStartInt + 500 && timeEndInt > timeStartNextInt)) {
                                     mon.remove(j + 1);
-                                    throw new DukeException("Duplicate Timetable Detected! Please re-enter");
+                                    throw new WhereGotTimeException("Duplicate Timetable Detected! Please re-enter");
                                 }
                             }
                             break;
@@ -115,7 +115,7 @@ public class AddCommand extends Command {
                                         || (timeEndNextInt == timeStartInt + 400 && timeEndInt > timeStartNextInt)
                                         || (timeEndNextInt == timeStartInt + 500 && timeEndInt > timeStartNextInt)) {
                                     tue.remove(j + 1);
-                                    throw new DukeException("Duplicate Timetable Detected! Please re-enter");
+                                    throw new WhereGotTimeException("Duplicate Timetable Detected! Please re-enter");
                                 }
                             }
                             break;
@@ -138,7 +138,7 @@ public class AddCommand extends Command {
                                         || (timeEndNextInt == timeStartInt + 400 && timeEndInt > timeStartNextInt)
                                         || (timeEndNextInt == timeStartInt + 500 && timeEndInt > timeStartNextInt)) {
                                     wed.remove(j + 1);
-                                    throw new DukeException("Duplicate Timetable Detected! Please re-enter");
+                                    throw new WhereGotTimeException("Duplicate Timetable Detected! Please re-enter");
                                 }
                             }
                             break;
@@ -161,7 +161,7 @@ public class AddCommand extends Command {
                                         || (timeEndNextInt == timeStartInt + 400 && timeEndInt > timeStartNextInt)
                                         || (timeEndNextInt == timeStartInt + 500 && timeEndInt > timeStartNextInt)) {
                                     thu.remove(j + 1);
-                                    throw new DukeException("Duplicate Timetable Detected! Please re-enter");
+                                    throw new WhereGotTimeException("Duplicate Timetable Detected! Please re-enter");
                                 }
                             }
                             break;
@@ -184,7 +184,7 @@ public class AddCommand extends Command {
                                         || (timeEndNextInt == timeStartInt + 400 && timeEndInt > timeStartNextInt)
                                         || (timeEndNextInt == timeStartInt + 500 && timeEndInt > timeStartNextInt)) {
                                     fri.remove(j + 1);
-                                    throw new DukeException("Duplicate Timetable Detected! Please re-enter");
+                                    throw new WhereGotTimeException("Duplicate Timetable Detected! Please re-enter");
                                 }
                             }
                             break;
@@ -207,7 +207,7 @@ public class AddCommand extends Command {
                                         || (timeEndNextInt == timeStartInt + 400 && timeEndInt > timeStartNextInt)
                                         || (timeEndNextInt == timeStartInt + 500 && timeEndInt > timeStartNextInt)) {
                                     sat.remove(j + 1);
-                                    throw new DukeException("Duplicate Timetable Detected! Please re-enter");
+                                    throw new WhereGotTimeException("Duplicate Timetable Detected! Please re-enter");
                                 }
                             }
                             break;
@@ -230,7 +230,7 @@ public class AddCommand extends Command {
                                         || (timeEndNextInt == timeStartInt + 400 && timeEndInt > timeStartNextInt)
                                         || (timeEndNextInt == timeStartInt + 500 && timeEndInt > timeStartNextInt)) {
                                     sun.remove(j + 1);
-                                    throw new DukeException("Duplicate Timetable Detected! Please re-enter");
+                                    throw new WhereGotTimeException("Duplicate Timetable Detected! Please re-enter");
                                 }
                             }
                             break;
@@ -244,11 +244,11 @@ public class AddCommand extends Command {
                     }
                 }
             } catch (IndexOutOfBoundsException e) {
-                throw new DukeException("An add command needs to be in a 'add /name /day /time /location' format!");
+                throw new WhereGotTimeException("An add command needs to be in a 'add /name /day /time /location' format!");
             }
         } else {
             logger.log(Level.WARNING, "Not logged in" + "\n");
-            throw new DukeException("Sorry! You are not Logged in to any account :-(");
+            throw new WhereGotTimeException("Sorry! You are not Logged in to any account :-(");
         }
     }
 
