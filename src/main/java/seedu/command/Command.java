@@ -1,6 +1,6 @@
 package seedu.command;
 
-import seedu.exception.DukeException;
+import seedu.exception.WhereGotTimeException;
 import seedu.ui.Ui;
 import seedu.user.User;
 import seedu.user.UserList;
@@ -25,9 +25,9 @@ public abstract class Command {
      *
      * @param users the UserList given to execute command on.
      * @param ui the corresponding messages based on the task.
-     * @throws DukeException if execution encounters error.
+     * @throws WhereGotTimeException if execution encounters error.
      */
-    public abstract void execute(UserList users, Ui ui, User nowUser) throws DukeException;
+    public abstract void execute(UserList users, Ui ui, User nowUser) throws WhereGotTimeException;
 
     public boolean isExit() {
         return isExit;

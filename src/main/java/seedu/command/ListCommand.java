@@ -1,6 +1,6 @@
 package seedu.command;
 
-import seedu.exception.DukeException;
+import seedu.exception.WhereGotTimeException;
 import seedu.ui.Ui;
 import seedu.user.User;
 import seedu.user.UserList;
@@ -16,11 +16,11 @@ public class ListCommand extends Command {
     }
 
     @Override
-    public void execute(UserList users, Ui ui, User nowUser) throws DukeException {
+    public void execute(UserList users, Ui ui, User nowUser) throws WhereGotTimeException {
         int userIndex = -1;
 
         if (nowUser == null) {
-            throw new DukeException("Sorry! You are not logged in to any account :-(");
+            throw new WhereGotTimeException("Sorry! You are not logged in to any account!");
         }
 
         for (int i = 0; i < users.getTotalUserCount(); i++) {

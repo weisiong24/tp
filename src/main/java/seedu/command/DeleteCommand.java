@@ -1,6 +1,6 @@
 package seedu.command;
 
-import seedu.exception.DukeException;
+import seedu.exception.WhereGotTimeException;
 import seedu.task.Event;
 import seedu.ui.Ui;
 import seedu.user.User;
@@ -18,9 +18,9 @@ public class DeleteCommand extends Command {
     }
 
     @Override
-    public void execute(UserList users, Ui ui, User nowUser) throws DukeException {
+    public void execute(UserList users, Ui ui, User nowUser) throws WhereGotTimeException {
         if (nowUser == null) {
-            throw new DukeException("Sorry! You are not logged in to any account :-(");
+            throw new WhereGotTimeException("Sorry! You are not logged in to any account :-(");
         }
         
         try {
@@ -38,11 +38,11 @@ public class DeleteCommand extends Command {
                 }
             }
         } catch (NumberFormatException e) {
-            throw new DukeException("You've entered an invalid index!");
+            throw new WhereGotTimeException("You've entered an invalid index!");
         } catch (IndexOutOfBoundsException e) {
-            throw new DukeException("You've entered an invalid index!");
+            throw new WhereGotTimeException("You've entered an invalid index!");
         } catch (NullPointerException e) {
-            throw new DukeException("Input not according UG!");
+            throw new WhereGotTimeException("Input not according UG!");
         }
     }
 }

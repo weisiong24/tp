@@ -1,6 +1,6 @@
 package seedu.command;
 
-import seedu.exception.DukeException;
+import seedu.exception.WhereGotTimeException;
 import seedu.ui.Ui;
 import seedu.user.User;
 import seedu.user.UserList;
@@ -18,7 +18,7 @@ public class TestCommand extends Command {
     String[] days = {"mon", "tue", "wed", "thu", "fri", "sat", "sun"};
 
     @Override
-    public void execute(UserList users, Ui ui, User nowUser/*, Storage storage*/) throws DukeException {
+    public void execute(UserList users, Ui ui, User nowUser/*, Storage storage*/) throws WhereGotTimeException {
         System.out.println(System.lineSeparator() + "Starting developer test:\n");
        
         String currentUserName = nowUser.getName();

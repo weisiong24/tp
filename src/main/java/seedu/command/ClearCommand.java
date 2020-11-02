@@ -1,6 +1,6 @@
 package seedu.command;
 
-import seedu.exception.DukeException;
+import seedu.exception.WhereGotTimeException;
 import seedu.task.Event;
 import seedu.ui.Ui;
 import seedu.user.User;
@@ -18,9 +18,9 @@ public class ClearCommand extends Command {
     }
 
     @Override
-    public void execute(UserList users, Ui ui, User nowUser) throws DukeException {
+    public void execute(UserList users, Ui ui, User nowUser) throws WhereGotTimeException {
         if (nowUser == null) {
-            throw new DukeException("Sorry! You are not logged in to any account :-(");
+            throw new WhereGotTimeException("Sorry! You are not logged in to any account :-(");
         }
 
         String[] parsedInputs = input.split("/", 2);
@@ -34,7 +34,7 @@ public class ClearCommand extends Command {
                     timetable.clear();
                     ui.printClear(deletedTimetable, day);
                 } else {
-                    throw new DukeException("There is no class in your timetable for " + day + "!");
+                    throw new WhereGotTimeException("There is no class in your timetable for " + day + "!");
                 }
                 break;
             }

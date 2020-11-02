@@ -1,6 +1,6 @@
 package seedu.user;
 
-import seedu.exception.DukeException;
+import seedu.exception.WhereGotTimeException;
 
 import java.util.ArrayList;
 
@@ -25,11 +25,11 @@ public class UserList {
         return users;
     }
 
-    public User getUser(int index) throws DukeException {
+    public User getUser(int index) throws WhereGotTimeException {
         try {
             return users.get(index - 1);
         } catch (IndexOutOfBoundsException e) {
-            throw new DukeException("Invalid user number!");
+            throw new WhereGotTimeException("Invalid user number!");
         }
     }
 
