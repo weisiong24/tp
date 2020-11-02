@@ -1,6 +1,6 @@
 package seedu.command;
 
-import seedu.exception.DukeException;
+import seedu.exception.WhereGotTimeException;
 import seedu.ui.Ui;
 import seedu.user.User;
 import seedu.user.UserList;
@@ -16,7 +16,7 @@ public class CompareCommand extends Command {
     }
 
     @Override
-    public void execute(UserList users, Ui ui, User nowUser) throws DukeException {
+    public void execute(UserList users, Ui ui, User nowUser) throws WhereGotTimeException {
 
         ArrayList<Integer> outputArray = new ArrayList<>(Arrays.asList(0,1,2,3,4,5,6,7,8,9,
                 10,11,12,13,14,15,16,17,18,19,20,21,22,23));
@@ -31,7 +31,7 @@ public class CompareCommand extends Command {
             User targetUser = users.getUserByName(targetName);
 
             if (targetUser == null) {
-                throw new DukeException("No such user!");
+                throw new WhereGotTimeException("No such user!");
             }
 
             switch (date) {
@@ -64,7 +64,7 @@ public class CompareCommand extends Command {
                 targetUserTimetable = targetUser.getTimetable().getTimetable("sun");
                 break;
             default:
-                throw new DukeException("Sorry! I don't know what day you mean :-(");
+                throw new WhereGotTimeException("Sorry! I don't know what day you mean :-(");
             }
 
             /**

@@ -1,6 +1,6 @@
 package seedu.ui;
 
-import seedu.exception.DukeException;
+import seedu.exception.WhereGotTimeException;
 import seedu.task.Event;
 import seedu.user.User;
 import seedu.user.UserList;
@@ -57,7 +57,7 @@ public class Ui {
      * @param userIndex the index of the current user
      * @param day the day in the timetable to print
      */
-    public void printList(UserList users, int userIndex, String day) throws DukeException {
+    public void printList(UserList users, int userIndex, String day) throws WhereGotTimeException {
         ArrayList<Event> timetable = (users.getUser(userIndex).getTimetable()).getTimetable(day);
         if (!timetable.isEmpty()) {
             int count = 1;
@@ -130,7 +130,28 @@ public class Ui {
         }
     }
 
-    public void printEdit(String[] editedField, String date, int index) throws DukeException {
+    public void printHelp(boolean isLoggedIn, User nowUser) {
+        if (isLoggedIn) {
+            System.out.print("Hi " + nowUser.getName() + ".");
+        } else {
+            System.out.print("You're currently not logged in.");
+        }
+        System.out.println("\nHere are the list of commands for WhereGotTime.");
+        System.out.println("Note: commands are not case sensitive.");
+        System.out.println("\t1. Login command\t: login (username) /(6-digit password)");
+        System.out.println("\t2. Add command\t\t: add /(module name & descriptions) /(day) /(startTime-endTime) "
+                + "/(location)");
+        System.out.println("\t3. List command\t\t: list /all OR list /(day)"
+                + "/(location)");
+        System.out.println("\t4. Edit command\t\t: edit /(day) /(index) /(startTime-endTime)");
+        System.out.println("\t5. Delete command\t: delete /(day) /(index)");
+        System.out.println("\t6. Clear command\t: clear /(day)");
+        System.out.println("\t7. Find command\t\t: find /(keyword)");
+        System.out.println("\t8. Compare command\t: compare /(target user's name) /(day)");
+
+    }
+
+    public void printEdit(String[] editedField, String date, int index) throws WhereGotTimeException {
         System.out.println("Got it! I have edited " + date + "'s #" + index + " lesson to "
                 + "the following timing: " + editedField[0] + "-" + editedField[1]);
     }

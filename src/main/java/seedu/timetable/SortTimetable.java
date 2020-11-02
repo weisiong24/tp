@@ -1,6 +1,6 @@
 package seedu.timetable;
 
-import seedu.exception.DukeException;
+import seedu.exception.WhereGotTimeException;
 import seedu.task.Event;
 import seedu.user.User;
 import seedu.user.UserList;
@@ -9,7 +9,7 @@ import java.util.ArrayList;
 
 public class SortTimetable {
 
-    public static void sortTimetable(UserList users, User nowUser, String day) throws DukeException {
+    public static void sortTimetable(UserList users, User nowUser, String day) throws WhereGotTimeException {
         assert nowUser != null;
         int userIndex = -1;
 

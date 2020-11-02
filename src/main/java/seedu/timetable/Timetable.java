@@ -1,6 +1,6 @@
 package seedu.timetable;
 
-import seedu.exception.DukeException;
+import seedu.exception.WhereGotTimeException;
 import seedu.task.Event;
 
 import java.util.ArrayList;
@@ -24,7 +24,7 @@ public class Timetable {
         this.sunTimetable = new ArrayList<>();
     }
 
-    public ArrayList<Event> getTimetable(String day) throws DukeException {
+    public ArrayList<Event> getTimetable(String day) throws WhereGotTimeException {
         switch (day) {
         case "mon":
             return monTimetable;
@@ -41,7 +41,7 @@ public class Timetable {
         case "sun":
             return sunTimetable;
         default:
-            throw new DukeException("Sorry! I don't know what day you mean :-(");
+            throw new WhereGotTimeException("Sorry! I don't know what day you mean :-(");
         }
     }
 

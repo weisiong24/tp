@@ -1,6 +1,6 @@
 package seedu.command;
 
-import seedu.exception.DukeException;
+import seedu.exception.WhereGotTimeException;
 import seedu.timetable.SortTimetable;
 import seedu.ui.Ui;
 import seedu.user.User;
@@ -13,10 +13,15 @@ public class EditCommand extends Command {
     }
 
     @Override
-    public void execute(UserList users, Ui ui, User nowUser/*, Storage storage*/) throws DukeException {
+    public void execute(UserList users, Ui ui, User nowUser/*, Storage storage*/) throws WhereGotTimeException {
+        
+        if (nowUser == null) {
+            throw new WhereGotTimeException("Sorry! You are not logged in to any account!");
+        }
+        
         String[] parsedInputs = input.split("/", 4);
         if (parsedInputs.length < 4) {
-            throw new DukeException("Your edit format is not according to UG!\nIt should be "
+            throw new WhereGotTimeException("Your edit format is not according to UG!\nIt should be "
                     + "'edit /[day] /[number as shown in list] /[new timing]'!");
         }
 
@@ -41,11 +46,11 @@ public class EditCommand extends Command {
             SortTimetable.sortTimetable(users, nowUser, date);
             
         } catch (NumberFormatException e) {
-            throw new DukeException("You've entered an invalid index!");
+            throw new WhereGotTimeException("You've entered an invalid index!");
         } catch (IndexOutOfBoundsException e) {
-            throw new DukeException("You've entered an invalid index!");
+            throw new WhereGotTimeException("You've entered an invalid index!");
         } catch (NullPointerException e) {
-            throw new DukeException("Empty timing values");
+            throw new WhereGotTimeException("Empty timing values");
         }
     }
 

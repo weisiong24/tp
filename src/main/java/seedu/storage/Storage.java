@@ -1,6 +1,6 @@
 package seedu.storage;
 
-import seedu.exception.DukeException;
+import seedu.exception.WhereGotTimeException;
 import seedu.task.Event;
 import seedu.user.Cryptography;
 import seedu.user.User;
@@ -27,9 +27,9 @@ public class Storage {
     /**
      * Creates a new file if it does not exist.
      *
-     * @throws DukeException if an I/O error has occurred.
+     * @throws WhereGotTimeException if an I/O error has occurred.
      */
-    public Storage() throws DukeException {
+    public Storage() throws WhereGotTimeException {
         //this.FP = FP;
         initialise();
     }
@@ -37,9 +37,9 @@ public class Storage {
     /**
      * Initialises a file by checking path validity.
      *
-     * @throws DukeException if an I/O error has occurred.
+     * @throws WhereGotTimeException if an I/O error has occurred.
      */
-    private void initialise() throws DukeException {
+    private void initialise() throws WhereGotTimeException {
         File storageFile = new File(FP);
         File storageFolder = new File(storageFile.getParent());
         if (storageFolder.exists() && storageFolder.isDirectory()) {
@@ -66,7 +66,7 @@ public class Storage {
 /*    *//**
      * Loads data from the text file to task arraylist.
      *
-     * @throws DukeException if an I/O error has occurred.
+     * @throws WhereGotTimeException if an I/O error has occurred.
      *//*
     public ArrayList<Task> load() throws DukeException {
         Scanner reader;
@@ -88,7 +88,7 @@ public class Storage {
      *
      * @param reader reads user's string input.
      * @param storageTasks the task arraylist.
-     * @throws DukeException if an I/O error has occurred.
+     * @throws WhereGotTimeException if an I/O error has occurred.
      *//*
     private void loadTask(Scanner reader, ArrayList<Task> storageTasks) throws DukeException {
         Task task;
@@ -115,15 +115,15 @@ public class Storage {
     /**
      * Loads data from the text file to task arraylist.
      *
-     * @throws DukeException if an I/O error has occurred.
+     * @throws WhereGotTimeException if an I/O error has occurred.
      */
-    public void load(UserList users) throws DukeException {
+    public void load(UserList users) throws WhereGotTimeException {
         Scanner reader;
         
         try {
             reader = new Scanner(new File(FP));
         } catch (FileNotFoundException e) {
-            throw new DukeException("Attempt to read duke.txt failed.");
+            throw new WhereGotTimeException("Attempt to read duke.txt failed.");
         }
         while (reader.hasNextLine()) {
             loadTask(reader, users);
@@ -135,15 +135,15 @@ public class Storage {
      * Parses the saved tasks according to specified format in order to be loaded.
      *
      * @param reader reads user's string input.
-     * @throws DukeException if an I/O error has occurred.
+     * @throws WhereGotTimeException if an I/O error has occurred.
      */
-    private void loadTask(Scanner reader, UserList users) throws DukeException {
+    private void loadTask(Scanner reader, UserList users) throws WhereGotTimeException {
         String firstLine = reader.nextLine();
         int totalUser = 0;
         if (firstLine.contains("Total user: ")) {
             totalUser = Integer.parseInt(firstLine.substring(12));
         } else {
-            throw new DukeException("duke.txt formatting is incorrect.");
+            throw new WhereGotTimeException("duke.txt formatting is incorrect.");
         }
 
         for (int i = 0; i < totalUser; i++) {
@@ -179,7 +179,7 @@ public class Storage {
      * Writes data to the text file.
      *
      * @tasks Arraylist of task.
-     * @throws DukeException if an I/O error has occurred.
+     * @throws WhereGotTimeException if an I/O error has occurred.
      *//*
     public void write(TaskList taskList) throws DukeException {
         ArrayList<Task> tasks = taskList.getTaskList();
@@ -195,16 +195,16 @@ public class Storage {
     /**
      * Writes data to the text file.
      * #@tasks Arraylist of task.
-     * @throws DukeException if an I/O error has occurred.
+     * @throws WhereGotTimeException if an I/O error has occurred.
      */
-    public void write(UserList users) throws DukeException {
+    public void write(UserList users) throws WhereGotTimeException {
         //ArrayList<Task> tasks = taskList.getTaskList();
         try {
             FileWriter fw = new FileWriter(new File(FP));
             writeTask(fw, users);
             fw.close();
         } catch (IOException e) {
-            throw new DukeException("Attempt to write to duke.txt failed.");
+            throw new WhereGotTimeException("Attempt to write to duke.txt failed.");
         }
     }
 
@@ -256,7 +256,7 @@ public class Storage {
      * @param fw FileWriter object.
      * @throws IOException if an I/O error has occurred.
      */
-    private void writeTask(FileWriter fw, UserList users) throws IOException, DukeException {
+    private void writeTask(FileWriter fw, UserList users) throws IOException, WhereGotTimeException {
         fw.write("Total user: " + users.getTotalUserCount());
         fw.append("\n");
         for (User u : users.getUserList()) {

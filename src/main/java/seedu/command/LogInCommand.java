@@ -1,6 +1,6 @@
 package seedu.command;
 
-import seedu.exception.DukeException;
+import seedu.exception.WhereGotTimeException;
 //import seedu.duke.storage.Storage;
 //import seedu.duke.task.Event;
 //import seedu.duke.task.TaskList;
@@ -27,7 +27,7 @@ public class LogInCommand extends Command {
     private static Logger logger = Logger.getLogger("LogAddCommand");
 
     @Override
-    public void execute(UserList users, Ui ui, User nowUser/*, Storage storage*/) throws DukeException {
+    public void execute(UserList users, Ui ui, User nowUser/*, Storage storage*/) throws WhereGotTimeException {
         boolean doesExist = false;
         setupInputLogger();
         
@@ -36,7 +36,7 @@ public class LogInCommand extends Command {
         if (parsedInputs[0].endsWith(" ")) {
             parsedInputs[0] = parsedInputs[0].substring(0, parsedInputs[0].length() - 1);
         } else {
-            throw new DukeException("Wrong format. Please use format login username /password");
+            throw new WhereGotTimeException("Wrong format. Please use format login username /password");
         }
         
         assert parsedInputs.length == 2 : "Username or Password is missing";
@@ -49,7 +49,7 @@ public class LogInCommand extends Command {
                     doesExist = true;
                 } else {
                     logger.log(Level.WARNING,"Wrong Password" + "\n");
-                    throw new DukeException("Wrong Password");
+                    throw new WhereGotTimeException("Wrong Password");
                 }
             }
         } 
