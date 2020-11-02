@@ -10,6 +10,7 @@ import seedu.command.EditCommand;
 import seedu.command.TestCommand;
 import seedu.command.FindCommand;
 import seedu.command.ListCommand;
+import seedu.command.HelpCommand;
 import seedu.command.LogInCommand;
 import seedu.exception.WhereGotTimeException;
 
@@ -18,6 +19,7 @@ import seedu.exception.WhereGotTimeException;
  */
 public class Parser {
     private static final String COMMAND_CLEAR = "clear";
+    private static final String COMMAND_HELP = "help";
     private static final String COMMAND_LIST = "list";
     private static final String COMMAND_DELETE = "delete";
     private static final String COMMAND_FIND = "find";
@@ -39,7 +41,7 @@ public class Parser {
      */
     public static Command parse(String input) throws WhereGotTimeException {
         String[] parsedInputs = input.split(" ", 2);
-        switch (parsedInputs[0]) {
+        switch (parsedInputs[0].toLowerCase()) {
         case COMMAND_CLEAR:
             checkClearValidity(parsedInputs);
             return new ClearCommand(parsedInputs[1]);
@@ -61,6 +63,8 @@ public class Parser {
         case COMMAND_EDIT:
             checkEditValidity(parsedInputs);
             return new EditCommand(parsedInputs[1]);
+        case COMMAND_HELP:
+            return new HelpCommand();
         case COMMAND_BYE:
             return new ByeCommand();
         case COMMAND_COMPARE:
@@ -97,7 +101,7 @@ public class Parser {
                 throw new WhereGotTimeException("There is no location in your add command!");
             }
 
-            if (position[1].length() > 3 || position[1].length() < 3) {
+            if (position[1].length() != 3) {
                 throw new WhereGotTimeException("\nInvalid day Format \n" 
                         + "Correct format is add /name /day /timeStart-timeEnd /location\n" 
                         + "E.g: add /CS2113 Lec /mon /2000-2100 /LT1");

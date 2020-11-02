@@ -20,7 +20,7 @@ public class ListCommand extends Command {
         int userIndex = -1;
 
         if (nowUser == null) {
-            throw new WhereGotTimeException("Sorry! You are not logged in to any account :-(");
+            throw new WhereGotTimeException("Sorry! You are not logged in to any account!");
         }
 
         for (int i = 0; i < users.getTotalUserCount(); i++) {
