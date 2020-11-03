@@ -77,7 +77,7 @@ public class Ui {
      * @param event the task to be added to the array list.
      */
     public void printEvent(Event event, String date) {
-        System.out.println("Got it! I've added the following event in " + date + "\n" + event);
+        System.out.println("Got it! I've added the following event on " + date + "\n" + event);
         //System.out.println("Now now have " + taskList.getTotalTaskCount() + " tasks in the list.");
     }
 
