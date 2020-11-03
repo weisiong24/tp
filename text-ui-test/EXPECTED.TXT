@@ -14,23 +14,23 @@ ____________________________________________________________
 Hello Alex!
 ____________________________________________________________
 ____________________________________________________________
-Got it! I've added the following event in mon
+Got it! I've added the following event on mon
 CS2113 Lec LT21 1200-1300
 ____________________________________________________________
 ____________________________________________________________
-Got it! I've added the following event in mon
+Got it! I've added the following event on mon
 CS3243 Lec LT22 1400-1500
 ____________________________________________________________
 ____________________________________________________________
-Got it! I've added the following event in mon
+Got it! I've added the following event on mon
 CS2040C Tut COM1-2 0800-1000
 ____________________________________________________________
 ____________________________________________________________
-Got it! I've added the following event in thu
+Got it! I've added the following event on thu
 CG2028 Tut E4-4-1 0900-1100
 ____________________________________________________________
 ____________________________________________________________
-Got it! I've added the following event in fri
+Got it! I've added the following event on fri
 CG2023 Lec E7-3-10 1700-1800
 ____________________________________________________________
 ____________________________________________________________
@@ -95,15 +95,15 @@ ____________________________________________________________
 Hello Tammy!
 ____________________________________________________________
 ____________________________________________________________
-Got it! I've added the following event in mon
+Got it! I've added the following event on mon
 CS2113 Lec LT21 1200-1300
 ____________________________________________________________
 ____________________________________________________________
-Got it! I've added the following event in mon
+Got it! I've added the following event on mon
 CS2040C Tut COM1-2 0800-1000
 ____________________________________________________________
 ____________________________________________________________
-Got it! I've added the following event in thu
+Got it! I've added the following event on thu
 CG2028 Tut E4-4-1 0900-1100
 ____________________________________________________________
 ____________________________________________________________
@@ -141,7 +141,7 @@ Noted. I have removed this class from your fri timetable:
 Your fri timetable has been cleared.
 ____________________________________________________________
 ____________________________________________________________
-Got it! I've added the following event in wed
+Got it! I've added the following event on wed
 CS3230 Lab COM1-2-21 1100-1400
 ____________________________________________________________
 ____________________________________________________________

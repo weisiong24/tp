@@ -58,10 +58,10 @@ public class AddCommand extends Command {
                                 timetable.remove(newEvent);
                                 throw new WhereGotTimeException("Start time cannot be later than End time");
                             }
-                            if (timeStart > 2300 || timeEnd > 2300) {
+                            if (timeStart > 2300 || timeEnd > 2359) {
                                 timetable.remove(newEvent);
                                 throw new WhereGotTimeException("Start and End time must be "
-                                        + "in 24 hour format (0000-2300)");
+                                        + "in 24 hour format (0000-2359)");
                             }
                         } catch (NumberFormatException n) {
                             timetable.remove(newEvent);
