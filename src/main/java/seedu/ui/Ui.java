@@ -167,6 +167,10 @@ public class Ui {
         System.out.println("Hello " + currentUser.getName() + "!");
     }
 
+    public void greetReturningUser(User currentUser) {
+        System.out.println("Hello again " + currentUser.getName() + "!");
+    }
+
     /**
      * Prints error message.
      *
