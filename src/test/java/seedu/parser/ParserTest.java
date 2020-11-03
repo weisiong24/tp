@@ -75,7 +75,7 @@ public class ParserTest {
 
     @Test
     public void parse_loginCommand_parsedCorrectly() throws WhereGotTimeException {
-        final String input = "login John /132456";
+        final String input = "login /John /132456";
         parseAndAssertCommandType(input, LogInCommand.class);
     }
 

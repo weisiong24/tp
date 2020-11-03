@@ -46,4 +46,15 @@ public class UserList {
         return null;
     }
     
+    public void removeUser(String userName)  throws WhereGotTimeException {
+        System.out.println(userName);
+        for (int i = 0; i < users.size(); i++) {
+            System.out.println(users.get(i).getName());
+            if (users.get(i).getName().equals(userName)) {
+                users.remove(i);
+            } else {
+                throw new WhereGotTimeException(userName + " does not exist!");
+            }
+        }
+    }
 }
