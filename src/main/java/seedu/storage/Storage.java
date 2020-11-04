@@ -20,7 +20,7 @@ import java.util.Scanner;
  */
 public class Storage {
     //public String Message_Tick_Symbol = "\u2713";
-    private static final String FP = "data/duke.txt";
+    private static final String FP = "data/WhereGotTime.txt";
     private static final String[] days = {"mon", "tue", "wed", "thu", "fri", "sat", "sun"};
     //public static final int MAX_SIZE = 100;
 
@@ -123,7 +123,7 @@ public class Storage {
         try {
             reader = new Scanner(new File(FP));
         } catch (FileNotFoundException e) {
-            throw new WhereGotTimeException("Attempt to read duke.txt failed.");
+            throw new WhereGotTimeException("Attempt to read WhereGotTime.txt failed.");
         }
         while (reader.hasNextLine()) {
             loadTask(reader, users);
@@ -143,7 +143,7 @@ public class Storage {
         if (firstLine.contains("Total user: ")) {
             totalUser = Integer.parseInt(firstLine.substring(12));
         } else {
-            throw new WhereGotTimeException("duke.txt formatting is incorrect.");
+            throw new WhereGotTimeException("WhereGotTime.txt formatting is incorrect.");
         }
 
         for (int i = 0; i < totalUser; i++) {
@@ -204,7 +204,7 @@ public class Storage {
             writeTask(fw, users);
             fw.close();
         } catch (IOException e) {
-            throw new WhereGotTimeException("Attempt to write to duke.txt failed.");
+            throw new WhereGotTimeException("Attempt to write to WhereGotTime.txt failed.");
         }
     }
 
