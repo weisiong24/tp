@@ -6,9 +6,12 @@ ____________________________________________________________
 \  /\  / | | |  __/ | |  __/ |_\ \ (_) | |_| | | | | | | | |  __/
  \/  \/|_| |_|\___|_|  \___|\____/\___/ \__\_/ |_|_| |_| |_|\___|
                                                                  
-Hello! Welcome to WhereGotTime!
-Please enter your time table details.
-You may refer to the User Guide for instructions.
+Hello! Welcome to WhereGotTime, a program that helps you and 
+your friend find common unoccupied slots in the timetable!
+
+You're currently not logged in.
+
+Tip: type 'help' for a list of commands.
 ____________________________________________________________
 ____________________________________________________________
 Hello Alex!
