@@ -151,9 +151,9 @@ public class Ui {
         System.out.println("\t7. Find command\t\t: find /(keyword)");
         System.out.println("\t8. Compare command\t: compare /(target user's name) /(day)");
         System.out.println("\nNote:");
-        System.out.println("\u2022 command is not case sensitive");
-        System.out.println("\u2022 startTime and endTime should be in 24-hour format (e.g. 0000-2359)");
-        System.out.println("\u2022 day should be 3-letter, e.g. Mon, TUE, wed, etc");
+        System.out.println("- command is not case sensitive");
+        System.out.println("- startTime and endTime should be in 24-hour format (e.g. 0000-2359)");
+        System.out.println("- day should be 3-letter, e.g. Mon, TUE, wed, etc");
 
     }
 
