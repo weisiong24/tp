@@ -33,7 +33,7 @@ public class AddCommand extends Command {
             String[] timeInputs = parsedInputs[3].split("-", 2);
 
             String day = parsedInputs[2].toLowerCase().trim();
-            
+
             assert day.length() == 3 : "Wrong format of day entered";
 
             logger.log(Level.INFO, "Timetable name successfully added:  " + parsedInputs[1]);
@@ -47,10 +47,35 @@ public class AddCommand extends Command {
                                 timeInputs[0].trim(), timeInputs[1].trim());
                         ArrayList<Event> timetable = users.getUser(i + 1).getTimetable().getTimetable(day);
                         timetable.add(newEvent);
+                        
                         try {
                             int timeStart = Integer.parseInt(timeInputs[0].trim());
                             int timeEnd = Integer.parseInt(timeInputs[1].trim());
+                            int timeStartHour = Integer.parseInt(timeInputs[0].trim().substring(0, 2));
+                            int timeStartMin = Integer.parseInt(timeInputs[0].trim().substring(2));
+                            int timeEndHour = Integer.parseInt(timeInputs[1].trim().substring(0, 2));
+                            int timeEndMin = Integer.parseInt(timeInputs[1].trim().substring(2));
+                            
+                            if (timeStartHour < 0 || timeStartHour > 23) {
+                                timetable.remove(newEvent);
+                                throw new WhereGotTimeException("Invalid Hour! It should be within "
+                                        + "24-hour format. (0000-2359)");
+                            } else if (timeStartMin < 0 || timeStartMin > 59) {
+                                timetable.remove(newEvent);
+                                throw new WhereGotTimeException("Invalid minute! It should be within "
+                                        + "24-hour format. (0000-2359)");
+                            }
 
+                            if (timeEndHour < 0 || timeEndHour > 23) {
+                                timetable.remove(newEvent);
+                                throw new WhereGotTimeException("Invalid Hour! It should be within "
+                                        + "24-hour format. (0000-2359)");
+                            } else if (timeEndMin < 0 || timeEndMin > 59) {
+                                timetable.remove(newEvent);
+                                throw new WhereGotTimeException("Invalid minute! It should be within "
+                                        + "24-hour format. (0000-2359)");
+                            }
+                            
                             if (timeStart == timeEnd) {
                                 timetable.remove(newEvent);
                                 throw new WhereGotTimeException("Start time cannot be the same as End time");
@@ -62,6 +87,13 @@ public class AddCommand extends Command {
                                 timetable.remove(newEvent);
                                 throw new WhereGotTimeException("Start and End time must be "
                                         + "in 24 hour format (0000-2359)");
+                            }
+
+                            if (parsedInputs[4].contains("/")) {
+                                timetable.remove(newEvent);
+                                throw new WhereGotTimeException("\nInvalid location Format \n"
+                                        + "Correct format is add /name /day /timeStart-timeEnd /location\n"
+                                        + "E.g: add /CS2113 Lec /mon /2000-2100 /LT1");
                             }
                         } catch (NumberFormatException n) {
                             timetable.remove(newEvent);
