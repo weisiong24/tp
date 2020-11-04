@@ -37,7 +37,7 @@ Got it! I've added the following event on fri
 CG2023 Lec E7-3-10 1700-1800
 ____________________________________________________________
 ____________________________________________________________
-Here are the classes in your timetable for mon:
+Here are the classes in your timetable for mon, sorted according to time:
 1. CS2040C Tut COM1-2 0800-1000
 2. CS2113 Lec LT21 1200-1300
 3. CS3243 Lec LT22 1400-1500
@@ -46,10 +46,10 @@ There is no class in your timetable for tue!
 
 There is no class in your timetable for wed!
 
-Here are the classes in your timetable for thu:
+Here are the classes in your timetable for thu, sorted according to time:
 1. CG2028 Tut E4-4-1 0900-1100
 
-Here are the classes in your timetable for fri:
+Here are the classes in your timetable for fri, sorted according to time:
 1. CG2023 Lec E7-3-10 1700-1800
 
 There is no class in your timetable for sat!
@@ -57,7 +57,7 @@ There is no class in your timetable for sat!
 There is no class in your timetable for sun!
 ____________________________________________________________
 ____________________________________________________________
-Here are the classes in your timetable for mon:
+Here are the classes in your timetable for mon, sorted according to time:
 1. CS2040C Tut COM1-2 0800-1000
 2. CS2113 Lec LT21 1200-1300
 3. CS3243 Lec LT22 1400-1500
@@ -69,7 +69,7 @@ ____________________________________________________________
 Got it! I have edited fri's #1 lesson to the following timing: 0900-1100
 ____________________________________________________________
 ____________________________________________________________
-Here are the classes in your timetable for mon:
+Here are the classes in your timetable for mon, sorted according to time:
 1. CS2113 Lec LT21 1200-1300
 2. CS2040C Tut COM1-2 1300-1400
 3. CS3243 Lec LT22 1400-1500
@@ -78,10 +78,10 @@ There is no class in your timetable for tue!
 
 There is no class in your timetable for wed!
 
-Here are the classes in your timetable for thu:
+Here are the classes in your timetable for thu, sorted according to time:
 1. CG2028 Tut E4-4-1 0900-1100
 
-Here are the classes in your timetable for fri:
+Here are the classes in your timetable for fri, sorted according to time:
 1. CG2023 Lec E7-3-10 0900-1100
 
 There is no class in your timetable for sat!
@@ -89,7 +89,7 @@ There is no class in your timetable for sat!
 There is no class in your timetable for sun!
 ____________________________________________________________
 ____________________________________________________________
-Here are the classes in your timetable for mon:
+Here are the classes in your timetable for mon, sorted according to time:
 1. CS2113 Lec LT21 1200-1300
 2. CS2040C Tut COM1-2 1300-1400
 3. CS3243 Lec LT22 1400-1500
@@ -117,7 +117,7 @@ Your common timeslots are:
 1500HR to 2359HR
 ____________________________________________________________
 ____________________________________________________________
-Here are the classes in your timetable for mon:
+Here are the classes in your timetable for mon, sorted according to time:
 1. CS2040C Tut COM1-2 0800-1000
 2. CS2113 Lec LT21 1200-1300
 ____________________________________________________________
@@ -151,16 +151,16 @@ ____________________________________________________________
 :( OOPS!!! Duplicate Timetable Detected! Please re-enter
 ____________________________________________________________
 ____________________________________________________________
-Here are the classes in your timetable for mon:
+Here are the classes in your timetable for mon, sorted according to time:
 1. CS2113 Lec LT21 1200-1300
 2. CS3243 Lec LT22 1400-1500
 
 There is no class in your timetable for tue!
 
-Here are the classes in your timetable for wed:
+Here are the classes in your timetable for wed, sorted according to time:
 1. CS3230 Lab COM1-2-21 1100-1400
 
-Here are the classes in your timetable for thu:
+Here are the classes in your timetable for thu, sorted according to time:
 1. CG2028 Tut E4-4-1 0900-1100
 
 There is no class in your timetable for fri!
