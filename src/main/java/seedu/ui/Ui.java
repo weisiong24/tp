@@ -149,11 +149,12 @@ public class Ui {
         System.out.println("\t5. Delete command\t: delete /(day) /(index)");
         System.out.println("\t6. Clear command\t: clear /(day)");
         System.out.println("\t7. Find command\t\t: find /(keyword)");
-        System.out.println("\t8. Compare command\t: compare /(target user's name) /(day)");
+        System.out.println("\t8. Compare command\t: compare /(target username) /(day)");
         System.out.println("\nNote:");
-        System.out.println("- command is not case sensitive");
-        System.out.println("- startTime and endTime should be in 24-hour format (e.g. 0000-2359)");
-        System.out.println("- day should be 3-letter, e.g. Mon, TUE, wed, etc");
+        System.out.println("- command and 'day' are not case sensitive, but username and password are.");
+        System.out.println("- startTime and endTime should be in 24-hour format (e.g. 0000-2359).");
+        System.out.println("- 'day' should be 3-letter, e.g. Mon, TUE, wed, etc.");
+
 
     }
 
