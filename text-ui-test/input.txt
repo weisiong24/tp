@@ -1,7 +1,7 @@
 login /Alex /123123
-add /CS2113 Lec /mon /1200-1300 /LT21
-add /CS3243 Lec /mon /1400-1500 /LT22
-add /CS2040C Tut /mon /0800-1000 /COM1-2
+add /CS2113 Lec /Mon /1200-1300 /LT21
+aDd /CS3243 Lec /moN /1400-1500 /LT22
+aDD /CS2040C Tut /MON /0800-1000 /COM1-2
 add /CG2028 Tut /Thu /0900-1100 /E4-4-1
 add /CG2023 Lec /Fri /1700-1800 /E7-3-10
 list /all
