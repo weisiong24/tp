@@ -11,6 +11,7 @@ import seedu.command.FindCommand;
 import seedu.command.HelpCommand;
 import seedu.command.ListCommand;
 import seedu.command.LogInCommand;
+import seedu.command.RemoveUserCommand;
 import seedu.command.TestCommand;
 import seedu.exception.WhereGotTimeException;
 
@@ -52,9 +53,9 @@ public class Parser {
         case COMMAND_DELETE:
             checkDeleteValidity(parsedInputs);
             return new DeleteCommand(parsedInputs[1]);
-        /*case COMMAND_REMOVE:
+        case COMMAND_REMOVE:
             checkRemoveValidity(parsedInputs);
-            return new RemoveUserCommand(parsedInputs[1]);*/
+            return new RemoveUserCommand(parsedInputs[1]);
         case COMMAND_FIND:
             checkFindValidity(parsedInputs);
             return new FindCommand(parsedInputs[1]);
@@ -193,7 +194,6 @@ public class Parser {
             } else if (position[1].trim().isEmpty()) {
                 throw new WhereGotTimeException("There is no username in your remove user command!");
             }
-            
         }  catch (IndexOutOfBoundsException e) {
             throw new WhereGotTimeException("A remove user command needs to be in a 'remove /username' format!");
         }
