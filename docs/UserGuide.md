@@ -11,9 +11,9 @@ WhereGotTime is an application for the student to check their timetable and comp
 1. Copy the jar file into an empty folder you want to use as the home folder for your WhereGotTime.
 1. Open a command window in that folder
 1. Run the command java -jar {filename}.jar e.g., java -jar Duke.jar (i.e., run the command in the same folder as the jar file)
-1. Type the command in the command box and press Enter to execute it. e.g. typing <strong>exit</strong> and pressing Enter will close the app.<br/>
+1. Type the command in the command box and press Enter to execute it. e.g. typing bye and pressing Enter will close the app.<br/>
 Some example commands you can try:
-    1. login John Snow /123123: login as John Snow
+    1. login /John Snow /123123: login as John Snow
     1. add /CS2113 Lec /fri /1600-1800 /lt23: Adds an event named CS2113 Lecture for current logged in the student (John Snow) to Time Table
     1. edit /mon /3 /1300-1400 : Edits an event named CS2113 on Fri for current logged in student (John Snow) in the TimeTable
     1. list /all: list of all the classes that John Snow has in a new line, enumerated.
@@ -36,11 +36,15 @@ Some example commands you can try:
 Creates a new User with inputted username and password (if first time user).
 Logs the existing user back into the app. (existing user)
 
-Format: `login username /password(6-digit)`
+Format: `login /username /password(6-digit)`
 
 Example of usage: 
 
-`login John /123456`
+`login /John /123456`
+
+Expected Output:
+
+![](images/Userlogin_EO.PNG)<br/>
 
 ### Adding a timetable: `add`
 Adds a new timetable to the list of timetable arraylist.
@@ -62,14 +66,17 @@ Edits an existing timetable with a new timing.
 
 Format: `edit /day /index /(timeStart-timeEnd)`
 
-note: You may get the `index` by listing the full timetables using `list /all`
+Note: You may get the `index` by listing the full timetables using `list /all`
 
 Example of usage:
 
-`edit /mon /2 /1100-1200`
+`edit /mon /1 /1100-1200`
 
-`edit /fri /4 /1300-1500`
+`edit /thu /1 /1300-1500`
 
+Expected Output:
+
+![](images/Edit_EO.PNG)<br/>
 ### Listing a timetable: `list`
 Lists all the classes on a particular day or on all days
 
@@ -80,6 +87,12 @@ Example of usage:
 `list /mon`
 
 `list /all`
+
+Expected Output:
+
+![](images/list_EO.PNG)<br/>
+
+![](images/list_all_EO.PNG)<br/>
 
 ### Comparing timetables: `compare`
 Compares current User's timetable to Target user's timetable and returns a range of common available timeslots.
@@ -99,9 +112,13 @@ Format: `find /keyword`
 
 Example of usage:
 
-`find /CS2113`
+`find /CG2028`
 
-`find /Lec`
+`find /Tut`
+
+Expected output:
+
+![](images/Find_EO.PNG)<br/>
 
 ### Deleting a class: `delete`
 Deletes a class as specified by the user 
@@ -110,7 +127,11 @@ Format: `delete /day /index`
 
 Example of usage:
 
-`delete /thu /3`
+`delete /thu /1`
+
+Expected Output:
+
+![](images/Delete_EO.PNG)<br/>
 
 ### Clearing timetable: `clear`
 Clears all the classes on the day specified by the user
@@ -121,16 +142,21 @@ Example of usage:
 
 `clear /mon`
 
+Expected Output:
+
+![](images/clear_EO.PNG)<br/>
+
 ### Exiting the program: `bye`
 Exits the Program<br/>
 
 Format: `bye`
 
+Expected output:
+
+![](images/Exit_EO.PNG)<br/>
+
 ## Command Summary
-
-{Give a 'cheat sheet' of commands here}
-
-* Login user `login username /password`
+* Login user `login /username /password`
 * Add timetable `add /event name /day /timeStart-timeEnd /Location`
 * Edit timetable `edit /day /index /timeStart-timeEnd`
 * List timetable `list /day`
