@@ -1,6 +1,7 @@
 package seedu.user;
 
 import org.junit.jupiter.api.Test;
+import seedu.exception.WhereGotTimeException;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
 

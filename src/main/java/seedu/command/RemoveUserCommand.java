@@ -1,4 +1,4 @@
-/*package seedu.command;
+package seedu.command;
 
 import seedu.exception.WhereGotTimeException;
 import seedu.task.Event;
@@ -20,4 +20,4 @@ public class RemoveUserCommand extends Command {
         position[1] = position[1].trim();
         users.removeUser(position[1]);
     }
-}*/
+}
