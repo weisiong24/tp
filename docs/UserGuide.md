@@ -174,4 +174,5 @@ Expected output:
 * Find class `find /keyword`
 * Delete timetable `delete /day /index`
 * Clear timetable `clear /day`
+* Help Command `help`
 * Exit program `bye`
