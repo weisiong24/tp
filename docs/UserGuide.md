@@ -1,7 +1,4 @@
----
-layout: page
-title: User Guide
----
+# User Guide
 
 WhereGotTime is an application for the student to check their timetable and compare them against their peers for a common timeslot to be able so that they can schedule a study time together
 
