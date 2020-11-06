@@ -1,17 +1,20 @@
 package seedu.parser;
 
+import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
-import seedu.command.Command;
 import seedu.command.AddCommand;
 import seedu.command.ByeCommand;
-import seedu.command.CompareCommand;
 import seedu.command.ClearCommand;
+import seedu.command.Command;
+import seedu.command.CompareCommand;
 import seedu.command.DeleteCommand;
 import seedu.command.EditCommand;
 import seedu.command.FindCommand;
 import seedu.command.ListCommand;
 import seedu.command.LogInCommand;
+import seedu.command.RemoveUserCommand;
 import seedu.exception.WhereGotTimeException;
+import seedu.user.UserList;
 
 //import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertThrows;
@@ -79,6 +82,110 @@ public class ParserTest {
         parseAndAssertCommandType(input, LogInCommand.class);
     }
 
+    @Test
+    public void parse_removeCommand_parsedCorrectly() throws WhereGotTimeException {
+        final String input = "remove /John /132456";
+        parseAndAssertCommandType(input, RemoveUserCommand.class);
+    }
+    
+    @Test
+    public void parse_loginCommand_testExpectedException_noDescription() {
+        Assertions.assertThrows(WhereGotTimeException.class, () -> {
+            Parser.parse("login");
+        });
+    }
+
+    @Test
+    public void parse_loginCommand_testExpectedException_noDescriptionSlash() {
+        Assertions.assertThrows(WhereGotTimeException.class, () -> {
+            Parser.parse("login man /123123");
+        });
+    }
+
+    @Test
+    public void parse_loginCommand_testExpectedException_emptyUsername() {
+        Assertions.assertThrows(WhereGotTimeException.class, () -> {
+            Parser.parse("login /     /123123");
+        });
+    }
+
+    @Test
+    public void parse_loginCommand_testExpectedException_emptyPassword() {
+        Assertions.assertThrows(WhereGotTimeException.class, () -> {
+            Parser.parse("login /man /");
+        });
+    }
+
+    @Test
+    public void parse_loginCommand_testExpectedException_wrongLengthPassword() {
+        Assertions.assertThrows(WhereGotTimeException.class, () -> {
+            Parser.parse("login /man /123");
+        });
+    }
+
+    @Test
+    public void parse_loginCommand_testExpectedException_invalidUsername() {
+        Assertions.assertThrows(WhereGotTimeException.class, () -> {
+            Parser.parse("login /ke$ha /123123");
+        });
+    }
+
+    @Test
+    public void parse_loginCommand_testExpectedException_not6NumbersPassword() {
+        Assertions.assertThrows(WhereGotTimeException.class, () -> {
+            Parser.parse("login /man /123abc");
+        });
+    }
+
+    @Test
+    public void parse_removeCommand_testExpectedException_noDescription() {
+        Assertions.assertThrows(WhereGotTimeException.class, () -> {
+            Parser.parse("remove");
+        });
+    }
+
+    @Test
+    public void parse_removeCommand_testExpectedException_noDescriptionSlash() {
+        Assertions.assertThrows(WhereGotTimeException.class, () -> {
+            Parser.parse("remove man /123123");
+        });
+    }
+
+    @Test
+    public void parse_removeCommand_testExpectedException_emptyUsername() {
+        Assertions.assertThrows(WhereGotTimeException.class, () -> {
+            Parser.parse("remove /     /123123");
+        });
+    }
+
+    @Test
+    public void parse_removeCommand_testExpectedException_emptyPassword() {
+        Assertions.assertThrows(WhereGotTimeException.class, () -> {
+            Parser.parse("remove /man /");
+        });
+    }
+
+    @Test
+    public void parse_removeCommand_testExpectedException_wrongLengthPassword() {
+        Assertions.assertThrows(WhereGotTimeException.class, () -> {
+            Parser.parse("remove /man /123");
+        });
+    }
+
+    @Test
+    public void parse_removeCommand_testExpectedException_invalidUsername() {
+        Assertions.assertThrows(WhereGotTimeException.class, () -> {
+            Parser.parse("remove /ke$ha /123123");
+        });
+    }
+
+    @Test
+    public void parse_removeCommand_testExpectedException_not6NumbersPassword() {
+        Assertions.assertThrows(WhereGotTimeException.class, () -> {
+            Parser.parse("remove /man /123abc");
+        });
+    }
+    
     /**
      * Parses input and asserts the class/type of the returned command object.
      *
