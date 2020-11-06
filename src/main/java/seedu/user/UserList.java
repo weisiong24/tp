@@ -46,15 +46,27 @@ public class UserList {
         return null;
     }
     
-    public void removeUser(String userName)  throws WhereGotTimeException {
-        System.out.println(userName);
+    public void removeUser(String userName, String passWord)  throws WhereGotTimeException {
+        boolean isMatch = false;
+        
+        if (users.isEmpty()) {
+            throw new WhereGotTimeException("No users exist!");
+        }
+        
         for (int i = 0; i < users.size(); i++) {
-            System.out.println(users.get(i).getName());
             if (users.get(i).getName().equals(userName)) {
-                users.remove(i);
-            } else {
-                throw new WhereGotTimeException(userName + " does not exist!");
+                if (users.get(i).getPassword().equals(passWord)) {
+                    users.remove(i);
+                    System.out.println(userName + " has been removed.");
+                    isMatch = true;
+                } else {
+                    throw new WhereGotTimeException("Wrong Password");
+                }
             }
+        }
+
+        if (isMatch == false) {
+            throw new WhereGotTimeException(userName + " does not exist!");
         }
     }
 }

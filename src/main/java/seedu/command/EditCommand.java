@@ -43,6 +43,12 @@ public class EditCommand extends Command {
             for (int i = 0; i < users.getTotalUserCount(); i++) {
                 if ((users.getUser(i + 1).getName().equals(nowUser.getName()))) {
                     originalEvent = nowUser.getTimetable().getTimetable(date).get(index - 1);
+                    String originalStartTime = originalEvent.getTimeStart();
+                    String originalEndTime = originalEvent.getTimeEnd();
+                    if (newTime[0].equals(originalStartTime) && newTime[1].equals(originalEndTime)) {
+                        throw new WhereGotTimeException("You have entered a timing that is exactly the \nsame as "
+                                + "the original one! Hence, no changes were made!");
+                    }
                     Event modifiedEvent = new Event(originalEvent.getDescription(),
                             originalEvent.getLocation(), newTime[0], newTime[1]);
                     nowUser.getTimetable().getTimetable(date).set(index - 1, modifiedEvent);
