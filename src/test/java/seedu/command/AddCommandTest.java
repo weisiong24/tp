@@ -12,6 +12,7 @@ class AddCommandTest {
     String timeStart = "1600";
     String timeEnd = "1900";
     String locationTest = "/LT23";
+    
     @Test
     void testAddCommand() {
         Event e = new Event(name, location,timeStart,timeEnd);
