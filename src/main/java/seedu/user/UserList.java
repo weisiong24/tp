@@ -54,7 +54,6 @@ public class UserList {
         }
         
         for (int i = 0; i < users.size(); i++) {
-            System.out.println(users.get(i).getName());
             if (users.get(i).getName().equals(userName)) {
                 if (users.get(i).getPassword().equals(passWord)) {
                     users.remove(i);
