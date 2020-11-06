@@ -4,6 +4,9 @@
 
 WhereGotTime is an application for the student to check their timetable and compare them against their peers for a common timeslot to be able so that they can schedule a study time together
 
+* Table of Contents
+{:toc}
+
 ## Quick Start
 
 1. Ensure you have Java 11 or above installed in your Computer.
@@ -30,6 +33,7 @@ Some example commands you can try:
 * Find class
 * Delete timetable
 * Clear timetable
+* Help command
 * Exit program
 
 ### Login user: `login`
@@ -146,6 +150,15 @@ Expected Output:
 
 ![](images/clear_EO.PNG)<br/>
 
+### Help Command: `help`
+Display the list of commands available and their usage<br/>
+
+Format: `help`
+
+Expected output:
+
+![](images/help_EO.PNG)<br/>
+
 ### Exiting the program: `bye`
 Exits the Program<br/>
 
@@ -164,4 +177,5 @@ Expected output:
 * Find class `find /keyword`
 * Delete timetable `delete /day /index`
 * Clear timetable `clear /day`
+* Help Command `help`
 * Exit program `bye`
