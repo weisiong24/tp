@@ -30,6 +30,7 @@ Some example commands you can try:
 * Find class
 * Delete timetable
 * Clear timetable
+* Help command
 * Exit program
 
 ### Login user: `login`
@@ -145,6 +146,15 @@ Example of usage:
 Expected Output:
 
 ![](images/clear_EO.PNG)<br/>
+
+### Help Command: `help`
+Display the list of commands available and their usage<br/>
+
+Format: `help`
+
+Expected output:
+
+![](images/help_EO.PNG)<br/>
 
 ### Exiting the program: `bye`
 Exits the Program<br/>
