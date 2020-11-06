@@ -4,6 +4,9 @@
 
 WhereGotTime is an application for the student to check their timetable and compare them against their peers for a common timeslot to be able so that they can schedule a study time together
 
+* Table of Contents
+{:toc}
+
 ## Quick Start
 
 1. Ensure you have Java 11 or above installed in your Computer.
