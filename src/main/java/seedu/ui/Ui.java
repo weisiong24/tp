@@ -22,10 +22,10 @@ public class Ui {
             + "\\  /\\  / | | |  __/ | |  __/ |_\\ \\ (_) | |_| | | | | | | | |  __/\n"
             + " \\/  \\/|_| |_|\\___|_|  \\___|\\____/\\___/ \\__\\_/ |_|_| |_| |_|\\___|\n"
             + "                                                                 \n";
-    private static final String MESSAGE_GREETINGS = "\n" + MESSAGE_LOGO + "Hello! Welcome to WhereGotTime, a program "
-            + "that helps you and \nyour friend find common unoccupied slots in the timetable!"
+    private static final String MESSAGE_GREETINGS = "\n" + MESSAGE_LOGO + "Hello! Welcome to WhereGotTime, a special timetable "
+            + "program that helps \nyou and your friend(s) find common unoccupied slots in the timetable!"
             + "\n\nYou're currently not logged in."
-            + "\n\nTip: type 'help' for a list of commands.\n";
+            + "\n\nTip: enter 'help' for a list of commands.\n";
 
     private final Scanner scanner = new Scanner(System.in);
 
@@ -66,7 +66,7 @@ public class Ui {
             System.out.println("Here are the classes in your timetable for " + day
                     + ", sorted according to time:");
             for (Object c : timetable) {
-                System.out.println(count + ". " + c);
+                System.out.println("\t" + count + ". " + c);
                 count++;
             }
         } else {
@@ -111,7 +111,7 @@ public class Ui {
             System.out.println("Noted. I have removed these classes from your " + day + " timetable:");
         }
         for (Object c : timetable) {
-            System.out.println(count + ". " + c);
+            System.out.println("\t" + count + ". " + c);
             count++;
         }
         System.out.println("Your " + day + " timetable has been cleared.");
@@ -151,6 +151,8 @@ public class Ui {
         System.out.println("\t7. Find command\t\t: find /(keyword)");
         System.out.println("\t8. Compare command\t: compare");
         System.out.println("\nNote:");
+        System.out.println("- if this is your first time using WhereGotTime, using the Login command "
+                + "would \n  create a new user profile that matches (username) and (6-digit password)");
         System.out.println("- command and 'day' are not case sensitive, but username and password are.");
         System.out.println("- startTime and endTime should be in 24-hour format (e.g. 0000-2359).");
         System.out.println("- 'day' should be 3-letter, e.g. Mon, TUE, wed, etc.");
@@ -193,7 +195,7 @@ public class Ui {
 
         int checkPoint = 0;
 
-        System.out.println("Your common timeslots are: \n");
+        System.out.println("Your common unoccupied timeslots are: \n");
         for (int availableTime : fullArray) {
             if ((availableTime >= 1) && (!(outputArray.contains(availableTime - 1)))
                     && (!(outputArray.contains(availableTime)))) {
