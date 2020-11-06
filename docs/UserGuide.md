@@ -97,15 +97,26 @@ Expected Output:
 ![](images/list_all_EO.PNG)<br/>
 
 ### Comparing timetables: `compare`
-Compares current User's timetable to Target user's timetable and returns a range of common available timeslots.
+Compares current User's timetable to Target user's timetable and returns a range of common available timeslots.<br/>
 
-Format: `compare /TargetUser's name /day`
+Format: <br/>
+`compare`<br/>
+`TargetUser's index`<br/>
+`day`<br/>
   
-Example of usage: 
+Example of usage: <br/>
 
-`compare /Alex /Mon`
+`compare`<br/>
+`1`<br/>
+`mon`<br/>
 
-`compare /Tammy /Mon`
+`compare`<br/>
+`2`<br/>
+`tue`<br/>
+
+Expected output: <br/>
+
+![](images/compare_ss.png)<br/>
 
 ### Finding a class: `find`
 Lists all the classes based on the keyword entered by user
