@@ -31,16 +31,17 @@ class LogInCommandTest {
 
     @Test
     void execute_executesProperlyReturningUser() throws WhereGotTimeException {
-        Ui ui = new Ui();
         UserList users = new UserList();
-        User nowUser = null;
-
+        
         User user1 = new User("Alex","123123");
         User user2 = new User("Ben","321321");
         User user3 = new User("Carl","456456");
         users.addUser(user1);
         users.addUser(user2);
         users.addUser(user3);
+
+        Ui ui = new Ui();
+        User nowUser = null;
         
         LogInCommand login = new LogInCommand("/Carl /456456");
         login.execute(users,ui,nowUser);
