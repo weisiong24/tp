@@ -110,65 +110,9 @@ Got it! I've added the following event on thu
 CG2028 Tut E4-4-1 0900-1100
 ____________________________________________________________
 ____________________________________________________________
-Your common timeslots are: 
-
-0000HR to 0759HR
-1000HR to 1159HR
-1500HR to 2359HR
+Please input the index number of the user you would like to compare with.
 ____________________________________________________________
+1. Alex
+2. Tammy
 ____________________________________________________________
-Here are the classes in your timetable for mon, sorted according to time:
-1. CS2040C Tut COM1-2 0800-1000
-2. CS2113 Lec LT21 1200-1300
-____________________________________________________________
-____________________________________________________________
-Got it! I have edited mon's #1 lesson to the following timing: 1000-1200
-____________________________________________________________
-____________________________________________________________
-Your common timeslots are: 
-
-0000HR to 0959HR
-1500HR to 2359HR
-____________________________________________________________
-____________________________________________________________
-Hello again Alex!
-____________________________________________________________
-____________________________________________________________
-Noted. I have removed this class from your timetable:
-CS2040C Tut COM1-2 1300-1400
-Now you have 2 class(es) for mon in the timetable.
-____________________________________________________________
-____________________________________________________________
-Noted. I have removed this class from your fri timetable:
-1. CG2023 Lec E7-3-10 0900-1100
-Your fri timetable has been cleared.
-____________________________________________________________
-____________________________________________________________
-Got it! I've added the following event on wed
-CS3230 Lab COM1-2-21 1100-1400
-____________________________________________________________
-____________________________________________________________
-:( OOPS!!! Duplicate Timetable Detected! Please re-enter
-____________________________________________________________
-____________________________________________________________
-Here are the classes in your timetable for mon, sorted according to time:
-1. CS2113 Lec LT21 1200-1300
-2. CS3243 Lec LT22 1400-1500
-
-There is no class in your timetable for tue!
-
-Here are the classes in your timetable for wed, sorted according to time:
-1. CS3230 Lab COM1-2-21 1100-1400
-
-Here are the classes in your timetable for thu, sorted according to time:
-1. CG2028 Tut E4-4-1 0900-1100
-
-There is no class in your timetable for fri!
-
-There is no class in your timetable for sat!
-
-There is no class in your timetable for sun!
-____________________________________________________________
-____________________________________________________________
-Thanks for using WhereGotTime. Hope to see you again soon!
 ____________________________________________________________

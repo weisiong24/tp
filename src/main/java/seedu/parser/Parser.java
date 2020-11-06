@@ -73,7 +73,7 @@ public class Parser {
         case COMMAND_BYE:
             return new ByeCommand();
         case COMMAND_COMPARE:
-            return new CompareCommand(parsedInputs[1]);
+            return new CompareCommand(parsedInputs[0]);
         case COMMAND_TEST:
             return new TestCommand();
         default:

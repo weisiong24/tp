@@ -1,14 +1,14 @@
 package seedu.command;
 
 import seedu.exception.WhereGotTimeException;
+import seedu.task.Event;
 import seedu.ui.Ui;
 import seedu.user.User;
 import seedu.user.UserList;
 
 import java.util.ArrayList;
 import java.util.Arrays;
-
-import seedu.task.Event;
+import java.util.Scanner;
 
 public class CompareCommand extends Command {
 
@@ -26,13 +26,31 @@ public class CompareCommand extends Command {
         if (nowUser == null) {
             throw new WhereGotTimeException("Sorry! You are not logged in to any account!");
         } else {
-            String[] parsedInputs = input.split(" /", 3);
-            String targetName = parsedInputs[0].substring(1);
-            String date = parsedInputs[1];
+            int tempInt = 1;
+            System.out.println("Please input the index number of the user you would like to compare with.");
+            System.out.println("____________________________________________________________");
+            for (User u : users.getUserList()) { 
+                System.out.println(tempInt + ". " + u.getName());
+                tempInt++;
+            }
+            System.out.println("____________________________________________________________");
+            Scanner scanner = new Scanner(System.in);
+            String tempString = scanner.nextLine().trim();
+            
+            //String[] parsedInputs = temp_string.split(" /", 3);
+            //String targetName = parsedInputs[0].substring(1);
+            //String date = parsedInputs[1];
             ArrayList<Event> nowUserTimetable;
             ArrayList<Event> targetUserTimetable;
 
-            User targetUser = users.getUserByName(targetName);
+            //User targetUser = users.getUserByName(targetName);
+            final User targetUser = users.getUser(Integer.parseInt(tempString));
+            System.out.println("____________________________________________________________");
+            System.out.println("Please input the day of the week you would like to compare. (Mon / Tue" 
+                    + " / Wed / Thu / Fri)");
+            System.out.println("____________________________________________________________");
+            scanner = new Scanner(System.in);
+            String date = scanner.nextLine().trim();
 
             if (targetUser == null) {
                 throw new WhereGotTimeException("No such user!");
