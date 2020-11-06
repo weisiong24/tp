@@ -25,7 +25,7 @@ public class Timetable {
     }
 
     public ArrayList<Event> getTimetable(String day) throws WhereGotTimeException {
-        switch (day) {
+        switch (day.toLowerCase()) {
         case "mon":
             return monTimetable;
         case "tue":
