@@ -25,7 +25,7 @@ public class Timetable {
     }
 
     public ArrayList<Event> getTimetable(String day) throws WhereGotTimeException {
-        switch (day) {
+        switch (day.toLowerCase()) {
         case "mon":
             return monTimetable;
         case "tue":
@@ -41,7 +41,8 @@ public class Timetable {
         case "sun":
             return sunTimetable;
         default:
-            throw new WhereGotTimeException("Sorry! I don't know what day you mean :-(");
+            throw new WhereGotTimeException("Sorry! I don't know what day you mean :-(\n" +
+                    "Note: 'day' should be 3-letters, eg. MON, Tue, Wed");
         }
     }
 

@@ -24,7 +24,7 @@ public class ClearCommand extends Command {
         }
 
         String[] parsedInputs = input.split("/", 2);
-        String day = parsedInputs[1];
+        String day = parsedInputs[1].toLowerCase();
 
         for (int i = 0; i < users.getTotalUserCount(); i++) {
             if ((users.getUser(i + 1).getName() == nowUser.getName())) {
