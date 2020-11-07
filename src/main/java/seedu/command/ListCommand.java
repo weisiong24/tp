@@ -24,7 +24,7 @@ public class ListCommand extends Command {
         }
 
         for (int i = 0; i < users.getTotalUserCount(); i++) {
-            if ((users.getUser(i + 1).getName() == nowUser.getName())) {
+            if ((users.getUser(i + 1).getName().equals(nowUser.getName()))) {
                 userIndex = i + 1;
             }
         }

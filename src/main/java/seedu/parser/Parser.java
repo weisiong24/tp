@@ -77,7 +77,8 @@ public class Parser {
         case COMMAND_TEST:
             return new TestCommand();
         default:
-            throw new WhereGotTimeException("Sorry! I don't know what that means :-(");
+            throw new WhereGotTimeException("Sorry! I don't know what that means. Enter 'help' for a "
+                    + "list of valid commands!");
         }
     }
     
