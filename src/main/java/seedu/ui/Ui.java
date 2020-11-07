@@ -156,8 +156,8 @@ public class Ui {
         System.out.println("- if this is your first time using WhereGotTime, using the Login command "
                 + "would \n  create a new user profile that matches (username) and (6-digit password)");
         System.out.println("- command and 'day' are not case sensitive, but username and password are.");
-        System.out.println("- startTime and endTime should be in 24-hour format and in 30-minute block. "
-                + "e.g. 0900, 1330, 1530, etc.");
+        System.out.println("- startTime and endTime should be in 24-hour format and in 1-hour block. "
+                + "e.g. 0900, 1300, 2300, etc.");
         System.out.println("- 'day' should be 3-letter, e.g. Mon, TUE, wed, etc.");
     }
 
