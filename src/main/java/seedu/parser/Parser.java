@@ -73,7 +73,7 @@ public class Parser {
         case COMMAND_BYE:
             return new ByeCommand();
         case COMMAND_COMPARE:
-            return new CompareCommand(parsedInputs[1]);
+            return new CompareCommand(parsedInputs[0]);
         case COMMAND_TEST:
             return new TestCommand();
         default:
@@ -179,32 +179,34 @@ public class Parser {
 
     private static void checkRemoveValidity(String[] input) throws WhereGotTimeException {
         if (input.length < 2) {
-            throw new WhereGotTimeException("There is no description in your remove user command!");
-        } else if (!input[1].contains("/")) {
-            throw new WhereGotTimeException("A remove user command needs to be in a 'remove /username' format!");
+            throw new WhereGotTimeException("There is no description in your remove command!");
         }
         
         try {
-            String[] position = input[1].split("/",2);
-
+            String[] position = input[1].split("/", 3);
+            position[1] = position[1].trim();
+    
             if (position[1].isEmpty()) {
-                throw new WhereGotTimeException("There is no username in your remove user command!");
+                throw new WhereGotTimeException("There is no username in your remove command!");
+            } else if (position[2].isEmpty()) {
+                throw new WhereGotTimeException("A remove requires a password!");
+            } else if (position[2].length() != MAX_PASSWORD_LENGTH) {
+                throw new WhereGotTimeException("Password needs to be 6-digits long!");
+            } else if (!position[2].matches("[0-9]+")) {
+                throw new WhereGotTimeException("Password needs to be a 6-digits number!");
             } else if (!position[1].matches("^[a-zA-Z]*$")) {
                 throw new WhereGotTimeException("Username needs to contain one word with only Alphabets!");
-            } else if (position[1].trim().isEmpty()) {
-                throw new WhereGotTimeException("There is no username in your remove user command!");
             }
-        }  catch (IndexOutOfBoundsException e) {
-            throw new WhereGotTimeException("A remove user command needs to be in a 'remove /username' format!");
+        } catch (IndexOutOfBoundsException e) {
+            throw new WhereGotTimeException("Wrong format! Please follow the format login /username /password");
         }
     }
 
     private static void checkLogInValidity(String[] input) throws WhereGotTimeException {
         if (input.length < 2) {
             throw new WhereGotTimeException("There is no description in your login command!");
-        } else if (!input[1].contains("/")) {
-            throw new WhereGotTimeException("An login requires an ' /' to indicate password!");
         }
+        
         try {
             String[] position = input[1].split("/", 3);
             position[1] = position[1].trim();
@@ -212,13 +214,11 @@ public class Parser {
             if (position[1].isEmpty()) {
                 throw new WhereGotTimeException("There is no username in your login command!");
             } else if (position[2].isEmpty()) {
-                throw new WhereGotTimeException("An login requires a password!");
+                throw new WhereGotTimeException("A login requires a password!");
             } else if (position[2].length() != MAX_PASSWORD_LENGTH) {
                 throw new WhereGotTimeException("Password needs to be 6-digits long!");
             } else if (!position[2].matches("[0-9]+")) {
                 throw new WhereGotTimeException("Password needs to be a 6-digits number!");
-            } else if (position[1].trim().isEmpty()) {
-                throw new WhereGotTimeException("There is no username in your login command!");
             } else if (!position[1].matches("^[a-zA-Z]*$")) {
                 throw new WhereGotTimeException("Username needs to contain one word with only Alphabets!");
             }
