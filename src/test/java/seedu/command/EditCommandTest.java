@@ -447,13 +447,13 @@ class EditCommandTest {
                         + "CS2113 NUS 0900-1200" + System.lineSeparator()
                         + "Hey devtest, here are the lessons in your mon timetable, sorted from "
                         + "the earliest class." + System.lineSeparator()
-                        + "\t1. CS2113 NUS 0900-1200" + System.lineSeparator() + System.lineSeparator()
+                        + "    1. CS2113 NUS 0900-1200" + System.lineSeparator() + System.lineSeparator()
                         + "To edit, enter:" + System.lineSeparator()
                         + "/(index) /(newStartTime-newEndTime)" + System.lineSeparator()
                         + "____________________________________________________________" + System.lineSeparator()
                         + "Got it! I have edited the lesson as follows:" + System.lineSeparator()
-                        + "ORIGINAL\t: CS2113 NUS 0900-1200" + System.lineSeparator()
-                        + "EDITED\t\t: CS2113 NUS 0900-1300" + System.lineSeparator(),
+                        + "ORIGINAL    : CS2113 NUS 0900-1200" + System.lineSeparator()
+                        + "EDITED      : CS2113 NUS 0900-1300" + System.lineSeparator(),
 
                 outputStreamCaptor.toString());
     }
@@ -487,22 +487,25 @@ class EditCommandTest {
 
         System.setOut(new PrintStream(outputStreamCaptor));
 
-        assertEquals("Got it! I've added the following event on mon\n"
-                        + "CS2113 NUS 0900-1200\n"
-                        + "Got it! I've added the following event on mon\n"
-                        + "CS2040C LT34 1300-1500\n"
-                        + "Got it! I've added the following event on mon\n"
+        assertEquals("Got it! I've added the following event on mon" + System.lineSeparator()
+                        + "CS2113 NUS 0900-1200" + System.lineSeparator()
+                        + "Got it! I've added the following event on mon" + System.lineSeparator()
+                        + "CS2040C LT34 1300-1500" + System.lineSeparator()
+                        + "Got it! I've added the following event on mon" + System.lineSeparator()
                         + "CS3230 COM1 1600-1800\n"
-                        + "Hey devtest, here are the lessons in your mon timetable, sorted from the earliest class.\n"
-                        + "\t1. CS2113 NUS 0900-1200\n"
-                        + "\t2. CS2040C LT34 1300-1500\n"
-                        + "\t3. CS3230 COM1 1600-1800\n\n"
-                        + "To edit, enter:\n"
-                        + "/(index) /(newStartTime-newEndTime)\n"
-                        + "____________________________________________________________\n"
-                        + "Got it! I have edited the lesson as follows:\n"
-                        + "ORIGINAL\t: CS2040C LT34 1300-1500\n"
-                        + "EDITED\t\t: CS2040C LT34 1300-1600\n",
+                        + "Hey devtest, here are the lessons in your mon timetable, sorted from the "
+                        + "earliest class." + System.lineSeparator()
+                        + "    1. CS2113 NUS 0900-1200" + System.lineSeparator()
+                        + "    2. CS2040C LT34 1300-1500" + System.lineSeparator()
+                        + "    3. CS3230 COM1 1600-1800" + System.lineSeparator()
+                        + System.lineSeparator()
+                        + "To edit, enter:" + System.lineSeparator()
+                        + "/(index) /(newStartTime-newEndTime)" + System.lineSeparator()
+                        + "____________________________________________________________"
+                        + System.lineSeparator()
+                        + "Got it! I have edited the lesson as follows:" + System.lineSeparator()
+                        + "ORIGINAL    : CS2040C LT34 1300-1500" + System.lineSeparator()
+                        + "EDITED      : CS2040C LT34 1300-1600" + System.lineSeparator(),
 
                 outputStreamCaptor.toString());
     }
@@ -530,9 +533,9 @@ class EditCommandTest {
 
         System.setOut(new PrintStream(outputStreamCaptor));
 
-        assertEquals("Got it! I've added the following event on mon\n"
-                        + "CS2113 NUS 0900-1200\n"
-                        + "Hey devtest, there is no class in your fri timetable!\n",
+        assertEquals("Got it! I've added the following event on mon" + System.lineSeparator()
+                        + "CS2113 NUS 0900-1200" + System.lineSeparator()
+                        + "Hey devtest, there is no class in your fri timetable!" + System.lineSeparator(),
                 
                 outputStreamCaptor.toString());
     }
