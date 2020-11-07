@@ -443,16 +443,16 @@ class EditCommandTest {
 
         System.setOut(new PrintStream(outputStreamCaptor));
 
-        assertEquals("Got it! I've added the following event on mon\n"
-                        + "CS2113 NUS 0900-1200\n"
-                        + "Hey devtest, here are the lessons in your mon timetable, sorted from the earliest class.\n"
-                        + "\t1. CS2113 NUS 0900-1200\n\n"
-                        + "To edit, enter:\n"
-                        + "/(index) /(newStartTime-newEndTime)\n"
-                        + "____________________________________________________________\n"
-                        + "Got it! I have edited the lesson as follows:\n"
-                        + "ORIGINAL\t: CS2113 NUS 0900-1200\n"
-                        + "EDITED\t\t: CS2113 NUS 0900-1300\n",
+        assertEquals("Got it! I've added the following event on mon" + System.lineSeparator()
+                        + "CS2113 NUS 0900-1200" + System.lineSeparator()
+                        + "Hey devtest, here are the lessons in your mon timetable, sorted from the earliest class." + System.lineSeparator()
+                        + "\t1. CS2113 NUS 0900-1200" + System.lineSeparator() + System.lineSeparator()
+                        + "To edit, enter:" + System.lineSeparator()
+                        + "/(index) /(newStartTime-newEndTime)" + System.lineSeparator()
+                        + "____________________________________________________________" + System.lineSeparator()
+                        + "Got it! I have edited the lesson as follows:" + System.lineSeparator()
+                        + "ORIGINAL\t: CS2113 NUS 0900-1200" + System.lineSeparator()
+                        + "EDITED\t\t: CS2113 NUS 0900-1300" + System.lineSeparator(),
 
                 outputStreamCaptor.toString());
     }
