@@ -16,8 +16,9 @@ public class RemoveUserCommand extends Command {
 
     @Override
     public void execute(UserList users, Ui ui, User nowUser) throws WhereGotTimeException {
-        String[] position = input.split("/",2);
+        String[] position = input.split("/",3);
         position[1] = position[1].trim();
-        users.removeUser(position[1]);
+        position[2] = position[2].trim();
+        users.removeUser(position[1], position[2]);
     }
 }
