@@ -60,21 +60,21 @@ public class AddCommand extends Command {
                             if (timeStartHour < 0 || timeStartHour > 23) {
                                 timetable.remove(newEvent);
                                 throw new WhereGotTimeException("Invalid Hour! It should be within "
-                                        + "24-hour format. (0000-2359)");
+                                        + "24-hour format.");
                             } else if (timeStartMin < 0 || timeStartMin > 59) {
                                 timetable.remove(newEvent);
                                 throw new WhereGotTimeException("Invalid minute! It should be within "
-                                        + "24-hour format. (0000-2359)");
+                                        + "24-hour format.");
                             }
 
                             if (timeEndHour < 0 || timeEndHour > 23) {
                                 timetable.remove(newEvent);
                                 throw new WhereGotTimeException("Invalid Hour! It should be within "
-                                        + "24-hour format. (0000-2359)");
+                                        + "24-hour format.");
                             } else if (timeEndMin < 0 || timeEndMin > 59) {
                                 timetable.remove(newEvent);
                                 throw new WhereGotTimeException("Invalid minute! It should be within "
-                                        + "24-hour format. (0000-2359)");
+                                        + "24-hour format.");
                             }
                             
                             if (timeStart == timeEnd) {
@@ -87,7 +87,7 @@ public class AddCommand extends Command {
                             if (timeStart > 2300 || timeEnd > 2359) {
                                 timetable.remove(newEvent);
                                 throw new WhereGotTimeException("Start and End time must be "
-                                        + "in 24 hour format (0000-2359)");
+                                        + "in 24 hour format");
                             }
 
                             if ((timeStartMin % 60) != 0 || (timeEndMin % 60) != 0) {
