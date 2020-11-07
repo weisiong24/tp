@@ -16,7 +16,8 @@ WhereGotTime is an application for the student to check their timetable and comp
 Some example commands you can try:
     1. login /John Snow /123123: login as John Snow
     1. add /CS2113 Lec /mon /1600-1800 /LT23: Adds an event named CS2113 Lecture for current logged in the student (John Snow) to Time Table
-    1. edit /mon /1 /1300-1400 : Edits first event named CS2113 on Monday for current logged in (John Snow) in the TimeTable
+    1. edit /mon <br/>
+       /1 /1300-1400 : Edits first event named CS2113 on Monday for current logged in (John Snow) in the TimeTable
     1. list /all: list of all the classes that John Snow has in a new line, enumerated.
     1. find /CS2113: finds all the classes that John Snow has containing "CS2113"
     1. delete /mon /1 : Deletes the 1st class shown in the current list.
@@ -38,7 +39,9 @@ Some example commands you can try:
 Creates a new User with inputted username and password (if first time user).
 Logs the existing user back into the app. (existing user)
 
-Format: `login /username /password(6-digit)`
+Format: 
+
+`login /username /password(6-digit)`
 
 Example of usage: 
 
@@ -51,7 +54,9 @@ Expected Output:
 ### Adding a timetable: `add`
 Adds a new timetable to the list of timetable arraylist.
 
-Format: `add /event name /day /timeStart-timeEnd /Location`
+Format: 
+
+`add /event name /day /timeStart-timeEnd /Location`
   
 Example of usage: 
 
@@ -66,15 +71,23 @@ Expected Output:
 ### Editing a timetable : `edit`
 Edits an existing timetable with a new timing.
 
-Format: `edit /day /index /(timeStart-timeEnd)`
+Format: 
+
+`edit /day` <br/>
+
+`/index /newStarttime-newEndtime` <br/>
 
 Note: You may get the `index` by listing the full timetables using `list /all`
 
 Example of usage:
 
-`edit /mon /1 /1100-1200`
+`edit /mon` <br/>
 
-`edit /thu /1 /1300-1500`
+`/1 /1100-1200`<br/>
+
+`edit /thu` <br/> 
+
+`/1 /1300-1500` <br/>
 
 Expected Output:
 
@@ -82,7 +95,9 @@ Expected Output:
 ### Listing a timetable: `list`
 Lists all the classes on a particular day or on all days
 
-Format: `list /day`
+Format: 
+
+`list /day`
 
 Example of usage:
 
@@ -100,6 +115,7 @@ Expected Output:
 Compares current User's timetable to Target user's timetable and returns a range of common available timeslots.<br/>
 
 Format: <br/>
+
 `compare`<br/>
 `TargetUser's index`<br/>
 `day`<br/>
@@ -121,7 +137,9 @@ Expected output: <br/>
 ### Finding a class: `find`
 Lists all the classes based on the keyword entered by user
 
-Format: `find /keyword`
+Format: 
+
+`find /keyword`
 
 Example of usage:
 
@@ -136,7 +154,9 @@ Expected output:
 ### Deleting a class: `delete`
 Deletes a class as specified by the user 
 
-Format: `delete /day /index`
+Format: 
+
+`delete /day /index`
 
 Example of usage:
 
@@ -149,7 +169,9 @@ Expected Output:
 ### Clearing timetable: `clear`
 Clears all the classes on the day specified by the user
 
-Format: `clear /day`
+Format: 
+
+`clear /day`
 
 Example of usage:
 
@@ -162,7 +184,9 @@ Expected Output:
 ### Help Command: `help`
 Display the list of commands available and their usage<br/>
 
-Format: `help`
+Format: 
+
+`help`
 
 Expected output:
 
@@ -171,20 +195,43 @@ Expected output:
 ### Exiting the program: `bye`
 Exits the Program<br/>
 
-Format: `bye`
+Format: 
+
+`bye`
 
 Expected output:
 
 ![](images/Exit_EO.PNG)<br/>
 
 ## Command Summary
-* Login user `login /username /password`
-* Add timetable `add /event name /day /timeStart-timeEnd /Location`
-* Edit timetable `edit /day /index /timeStart-timeEnd`
-* List timetable `list /day`
-* Compare timetable `compare /target username /day`
-* Find class `find /keyword`
-* Delete timetable `delete /day /index`
-* Clear timetable `clear /day`
-* Help Command `help`
-* Exit program `bye`
+* Login user 
+
+    `login /username /password`
+* Add timetable 
+
+    `add /event name /day /timeStart-timeEnd /Location`
+* Edit timetable
+ 
+    `edit /day` <br/>
+    `/index /newStarttime-newEndtime`
+* List timetable 
+    
+    `list /day`
+* Compare timetable 
+    
+    `compare /target username /day`
+* Find class 
+
+    `find /keyword`
+* Delete timetable 
+    
+    `delete /day /index`
+* Clear timetable 
+    
+    `clear /day`
+* Help Command 
+    
+    `help`
+* Exit program 
+    
+    `bye`
