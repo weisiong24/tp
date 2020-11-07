@@ -90,10 +90,10 @@ public class AddCommand extends Command {
                                         + "in 24 hour format (0000-2359)");
                             }
 
-                            if ((timeStartMin % 30) != 0 || (timeEndMin % 30) != 0) {
+                            if ((timeStartMin % 60) != 0 || (timeEndMin % 60) != 0) {
                                 timetable.remove(newEvent);
-                                throw new WhereGotTimeException("The timings should be in 30-minute block! "
-                                        + "e.g. 0900, 1330, 1530, etc");
+                                throw new WhereGotTimeException("The timings should be in 1 hour block! "
+                                        + "e.g. 0900, 1200, 1500, etc");
                             }
 
                             if (parsedInputs[4].contains("/")) {
