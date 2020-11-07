@@ -31,7 +31,7 @@ public class AddCommand extends Command {
         if (nowUser != null) {
             String[] parsedInputs = input.split("/", 5);
             String[] timeInputs = parsedInputs[3].split("-", 2);
-
+            
             String day = parsedInputs[2].toLowerCase().trim();
 
             assert day.length() == 3 : "Wrong format of day entered";

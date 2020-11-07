@@ -145,24 +145,44 @@ public class Ui {
         System.out.println("\t2. Add command\t\t: add /(module name with optional descriptions) /(day) "
                 + "/(startTime-endTime) /(location)");
         System.out.println("\t3. List command\t\t: list /all OR list /(day)");
-        System.out.println("\t4. Edit command\t\t: edit /(day) /(index) /(startTime-endTime)");
+        System.out.println("\t4. Edit command\t\t: edit /(day)");
         System.out.println("\t5. Delete command\t: delete /(day) /(index)");
         System.out.println("\t6. Clear command\t: clear /(day)");
         System.out.println("\t7. Find command\t\t: find /(keyword)");
         System.out.println("\t8. Compare command\t: compare");
+        System.out.println("\t9. Bye command\t\t: bye");
         System.out.println("\nNote:");
+        System.out.println("- the brackets shown above should be omitted when entering commands");
         System.out.println("- if this is your first time using WhereGotTime, using the Login command "
                 + "would \n  create a new user profile that matches (username) and (6-digit password)");
         System.out.println("- command and 'day' are not case sensitive, but username and password are.");
-        System.out.println("- startTime and endTime should be in 24-hour format (e.g. 0000-2359).");
+        System.out.println("- startTime and endTime should be in 24-hour format and in 30-minute block. "
+                + "e.g. 0900, 1330, 1530, etc.");
         System.out.println("- 'day' should be 3-letter, e.g. Mon, TUE, wed, etc.");
-
-
     }
 
-    public void printEdit(String[] editedField, String date, int index) throws WhereGotTimeException {
-        System.out.println("Got it! I have edited " + date + "'s #" + index + " lesson to "
-                + "the following timing: " + editedField[0] + "-" + editedField[1]);
+    public void printEditEmptyClass(User nowUser, String date) {
+        System.out.println("Hey " + nowUser.getName() + ", there is no class in your " + date + " timetable!");
+    }
+    
+    public void printEditLessonList(User nowUser, String date, ArrayList<Event> dateTimetable) {
+        System.out.println("Hey " + nowUser.getName() + ", here are the lessons in your " + date + " timetable, "
+                + "sorted from the earliest class.");
+        int listIndex = 1;
+        for (Event e : dateTimetable) {
+            System.out.println("\t" + listIndex + ". " + e);
+            listIndex++;
+        }
+        System.out.println("\nTo edit, enter:");
+        System.out.println("/(index) /(newStartTime-newEndTime)");
+        showLine();
+        
+    }
+            
+    public void printEdit(Event original, Event edited) {
+        System.out.println("Got it! I have edited the lesson as follows:");
+        System.out.println("ORIGINAL\t: " + original.toString());
+        System.out.println("EDITED\t\t: " + edited.toString());
     }
 
     /**
