@@ -49,6 +49,7 @@ public class AddCommand extends Command {
                         timetable.add(newEvent);
                         
                         try {
+                            
                             int timeStart = Integer.parseInt(timeInputs[0].trim());
                             int timeEnd = Integer.parseInt(timeInputs[1].trim());
                             int timeStartHour = Integer.parseInt(timeInputs[0].trim().substring(0, 2));
@@ -87,6 +88,12 @@ public class AddCommand extends Command {
                                 timetable.remove(newEvent);
                                 throw new WhereGotTimeException("Start and End time must be "
                                         + "in 24 hour format (0000-2359)");
+                            }
+
+                            if ((timeStartMin % 30) != 0 || (timeEndMin % 30) != 0) {
+                                timetable.remove(newEvent);
+                                throw new WhereGotTimeException("The timings should be in 30-minute block! "
+                                        + "e.g. 0900, 1330, 1530, etc");
                             }
 
                             if (parsedInputs[4].contains("/")) {
