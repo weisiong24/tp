@@ -29,7 +29,7 @@ public class ListCommand extends Command {
             }
         }
 
-        String day = input.substring(1);
+        String day = input.substring(1).toLowerCase();
         if (day.equals("all")) {
             ui.printList(users, userIndex, "mon");
             System.out.println();

@@ -25,7 +25,7 @@ public class DeleteCommand extends Command {
         
         try {
             String[] parsedInputs = input.split("/", 3);
-            String day = parsedInputs[1].trim();
+            String day = parsedInputs[1].trim().toLowerCase();
             int index;
             index = Integer.parseInt(parsedInputs[2]);
             for (int i = 0; i < users.getTotalUserCount(); i++) {
