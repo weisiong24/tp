@@ -22,19 +22,34 @@ public class CompareCommand extends Command {
             ArrayList<Integer> outputArray = new ArrayList<>(Arrays.asList(0, 1, 2, 3, 4, 5, 6, 7, 8, 9,
                     10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23));
 
+            //@@author yeapcl
             if (nowUser == null) {
                 throw new WhereGotTimeException("Sorry! You are not logged in to any account!");
             } else {
                 int tempInt = 1;
-                System.out.println("Please input the index number of the user you would like to compare with.");
+                int sameUserIndex = 0;
+                System.out.println("Hey " + nowUser.getName() + ", please enter the index number of the "
+                        + "user that you would like to compare with.");
                 System.out.println("____________________________________________________________");
                 for (User u : users.getUserList()) {
-                    System.out.println(tempInt + ". " + u.getName());
+                    if (u == nowUser) {
+                        sameUserIndex = tempInt;
+                        continue;
+                    }
+                    System.out.println("\t" + tempInt + ". " + u.getName());
                     tempInt++;
+                    
                 }
                 System.out.println("____________________________________________________________");
                 Scanner scanner = new Scanner(System.in);
-                String tempString = scanner.nextLine().trim();
+                String indexString = scanner.nextLine().trim();
+                int indexInt = Integer.parseInt(indexString);
+                if (indexInt > (users.getTotalUserCount() - 1)) {
+                    throw new WhereGotTimeException("You have entered an invalid index number!");
+                } else if (indexInt == sameUserIndex) {
+                    indexInt += 1;
+                }
+                //@@author
 
                 //String[] parsedInputs = temp_string.split(" /", 3);
                 //String targetName = parsedInputs[0].substring(1);
@@ -43,10 +58,9 @@ public class CompareCommand extends Command {
                 ArrayList<Event> targetUserTimetable;
 
                 //User targetUser = users.getUserByName(targetName);
-                final User targetUser = users.getUser(Integer.parseInt(tempString));
+                final User targetUser = users.getUser(indexInt);
                 System.out.println("____________________________________________________________");
-                System.out.println("Please input the day of the week you would like to compare. (Mon / Tue"
-                        + " / Wed / Thu / Fri)");
+                System.out.println("Please input the day (Mon-Sun) that you would like to compare.");
                 System.out.println("____________________________________________________________");
                 scanner = new Scanner(System.in);
                 String date = scanner.nextLine().trim();
@@ -85,7 +99,7 @@ public class CompareCommand extends Command {
                     targetUserTimetable = targetUser.getTimetable().getTimetable("sun");
                     break;
                 default:
-                    throw new WhereGotTimeException("Sorry! I don't know what day you mean :-(");
+                    throw new WhereGotTimeException("Sorry! I don't know what day you mean!");
                 }
 
                 /**
