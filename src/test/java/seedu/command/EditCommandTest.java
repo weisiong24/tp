@@ -445,7 +445,8 @@ class EditCommandTest {
 
         assertEquals("Got it! I've added the following event on mon" + System.lineSeparator()
                         + "CS2113 NUS 0900-1200" + System.lineSeparator()
-                        + "Hey devtest, here are the lessons in your mon timetable, sorted from the earliest class." + System.lineSeparator()
+                        + "Hey devtest, here are the lessons in your mon timetable, sorted from "
+                        + "the earliest class." + System.lineSeparator()
                         + "\t1. CS2113 NUS 0900-1200" + System.lineSeparator() + System.lineSeparator()
                         + "To edit, enter:" + System.lineSeparator()
                         + "/(index) /(newStartTime-newEndTime)" + System.lineSeparator()
