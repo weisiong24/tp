@@ -100,21 +100,21 @@ public class EditCommand extends Command {
 
         if (time[0].length() != 4 || time[1].length() != 4) {
             throw new WhereGotTimeException("Invalid hour format! It should be in "
-                    + "24-hour format and in 30-minute block! e.g. 0900, 1330, 1530, etc.");
+                    + "24-hour format and in 1-hour block! e.g. 0900, 1300, 2300, etc.");
         } else if (startTimeHourInt < 0 || startTimeHourInt > 23) {
             throw new WhereGotTimeException("Invalid hour for start time! It should be in "
-                    + "24-hour format and in 30-minute block! e.g. 0900, 1330, 1530, etc.");
+                    + "24-hour format and in 1-hour block! e.g. 0900, 1300, 2300, etc.");
         } else if (startTimeMinuteInt < 0 || startTimeMinuteInt > 59) {
             throw new WhereGotTimeException("Invalid minute for start time! It should be in "
-                    + "24-hour format and in 30-minute block! e.g. 0900, 1330, 1530, etc.");
+                    + "24-hour format and in 1-hour block! e.g. 0900, 1300, 2300, etc.");
         } else if (endTimeHourInt < 0 || endTimeHourInt > 23) {
             throw new WhereGotTimeException("Invalid hour for end time! It should be in "
-                    + "24-hour format and in 30-minute block! e.g. 0900, 1330, 1530, etc.");
+                    + "24-hour format and in 1-hour block! e.g. 0900, 1300, 2300, etc.");
         } else if (endTimeMinuteInt < 0 || endTimeMinuteInt > 59) {
             throw new WhereGotTimeException("Invalid minute for end time! It should be in "
-                    + "24-hour format and in 30-minute block! e.g. 0900, 1330, 1530, etc.");
-        } else if ((startTimeMinuteInt % 30) != 0 || (endTimeMinuteInt % 30) != 0) {
-            throw new WhereGotTimeException("The timings should be in 30-minute block! e.g. 0900, 1330, 1530, etc");
+                    + "24-hour format and in 1-hour block! e.g. 0900, 1300, 2300, etc.");
+        } else if ((startTimeMinuteInt % 60) != 0 || (endTimeMinuteInt % 60) != 0) {
+            throw new WhereGotTimeException("The timings should be in 1-hour block! e.g. 0900, 1300, 2300, etc");
         }
 
         try {
