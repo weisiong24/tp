@@ -24,12 +24,23 @@ import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertThrows;
 
 class EditCommandTest {
-    private final PrintStream standardOut = System.out;
+    /*    private final PrintStream standardOut = System.out;
     private final ByteArrayOutputStream outputStreamCaptor = new ByteArrayOutputStream();
 
     @BeforeEach
     public void setUp() {
         System.setOut(new PrintStream(outputStreamCaptor));
+    }*/
+
+    private final ByteArrayOutputStream outContent = new ByteArrayOutputStream();
+    private final ByteArrayOutputStream errContent = new ByteArrayOutputStream();
+    private final PrintStream originalOut = System.out;
+    private final PrintStream originalErr = System.err;
+
+    @BeforeEach
+    public void setUpStreams() {
+        System.setOut(new PrintStream(outContent));
+        System.setErr(new PrintStream(errContent));
     }
 
     @Test
@@ -441,7 +452,7 @@ class EditCommandTest {
 
         editCommand.execute(users, ui, nowUser);
 
-        System.setOut(new PrintStream(outputStreamCaptor));
+        System.setOut(new PrintStream(outContent));
 
         assertEquals("Got it! I've added the following event on mon" + System.lineSeparator()
                         + "CS2113 NUS 0900-1200" + System.lineSeparator()
@@ -455,7 +466,7 @@ class EditCommandTest {
                         + "ORIGINAL    : CS2113 NUS 0900-1200" + System.lineSeparator()
                         + "EDITED      : CS2113 NUS 0900-1300" + System.lineSeparator(),
 
-                outputStreamCaptor.toString());
+                outContent.toString());
     }
 
     @Test
@@ -485,7 +496,7 @@ class EditCommandTest {
 
         editCommand.execute(users, ui, nowUser);
 
-        System.setOut(new PrintStream(outputStreamCaptor));
+        System.setOut(new PrintStream(outContent));
 
         assertEquals("Got it! I've added the following event on mon" + System.lineSeparator()
                         + "CS2113 NUS 0900-1200" + System.lineSeparator()
@@ -507,7 +518,7 @@ class EditCommandTest {
                         + "ORIGINAL    : CS2040C LT34 1300-1500" + System.lineSeparator()
                         + "EDITED      : CS2040C LT34 1300-1600" + System.lineSeparator(),
 
-                outputStreamCaptor.toString());
+                outContent.toString());
     }
 
     @Test
@@ -531,18 +542,25 @@ class EditCommandTest {
 
         editCommand.execute(users, ui, nowUser);
 
-        System.setOut(new PrintStream(outputStreamCaptor));
+        System.setOut(new PrintStream(outContent));
 
         assertEquals("Got it! I've added the following event on mon" + System.lineSeparator()
                         + "CS2113 NUS 0900-1200" + System.lineSeparator()
                         + "Hey devtest, there is no class in your fri timetable!" + System.lineSeparator(),
-                
-                outputStreamCaptor.toString());
+
+                outContent.toString());
     }
     
-    @AfterEach
+    /*    @AfterEach
     public void tearDown() {
         System.setOut(standardOut);
+    }*/
+
+    @AfterEach
+    public void restoreStreams() {
+        System.setOut(originalOut);
+        System.setErr(originalErr);
     }
+    
 
 }
