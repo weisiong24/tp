@@ -18,7 +18,8 @@ Timetable --> DeleteCommand
 deactivate Timetable
 
 DeleteCommand -> UI: printDelete()
-
+activate UI
+deactivate UI
 deactivate DeleteCommand
 
 @enduml
