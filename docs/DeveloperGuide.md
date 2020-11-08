@@ -24,8 +24,6 @@ tiers make use of services provided by lower tiers.
 
 <div markdown="span" class="alert alert-primary">
 
-**Tip:** The `.puml` files used to create diagrams in this document can be found in the [diagrams](https://github.com/se-edu/addressbook-level3/tree/master/docs/diagrams/) folder. Refer to the [_PlantUML Tutorial_](https://se-education.org/guides/tutorials/plantUml.html) to learn to create and edit diagrams.
-
 </div>
 
 Here is a quick overview of the main components of WhereGotTime:
@@ -43,7 +41,7 @@ Here is a quick overview of the main components of WhereGotTime:
 
 The following Sequence Diagram displays how components interact when the user inputs `clear /fri`
 
-![Architecture Sequence Diagram](images/ArchitectureSequenceDiagram.png)
+![Architecture Sequence Diagram](images/ArchitectureSequenceDiagram.PNG)
 
 ## 3. Design & Implementation
 This section describes how features/functions are implemented.
@@ -77,7 +75,7 @@ and location) to the timetable class into its arraylist divided by the day of th
 #### Sequence Design of Add Function<br/>
 ![](images/seqdiagram.jpg)<br/>
 
-#### Improvements to be made to Version 2.0<br/>
+#### Improvements made to Version 2.0<br/>
 * To ensure that the users do not enter duplicate event that has the same timing or in between the time 
 that is entered. 
 * A verification check is added to the add command of the version 2.0 of WhereGotTime.
@@ -85,7 +83,7 @@ that is entered.
 E.g.
 * add /CS2113 Lec /Mon /1200-1400 /LT21<br/>
 * add /CS2113 Lec /Mon /1300-1400 /LT22<br/>
-* add /CS2040C Tut /Mon /1300-1500 /LT32<br/>
+* add /CS2040C Tut /Mon /1100-1300 /LT32<br/>
 
 The above would result in the first line being add,
 while the other two will result in the app giving an error message
@@ -218,7 +216,7 @@ timeslots the User and Target User have on a specific day of the week.<br/>
 #### Sequence Design of Compare Function<br/>
 ![](images/CompareCommand_SequenceDesign.jpg) <br/>
 
-#### Improvements to be made to Version 2.0<br/>
+#### Improvements made to Version 2.0<br/>
 * Display a range of timings instead of individual hours<br/>
 * Remove edge cases<br/>
 
@@ -257,7 +255,7 @@ it search the users to check if the input Username already exists with the corre
 User with the input Username and Password.
 <br/>
 
-#### Improvements to be made to Version 2.0<br/>
+#### Improvements made to Version 2.0<br/>
 * In order to protect the User's privacy, the User's Passwords have been encrypted on the save file. 
 * A Cryptography Class with encipherPassword and decipherPassword has been implemented as part of the version 2.0 of 
 WhereGotTime.
@@ -286,17 +284,9 @@ It is also developed to assist in finding common available time slots for studen
 |v2.0|user|be assured that my inputs are correctly added|my input are correctly convey into the timetable|
 |v2.0|user|access my saved timetables|I do not have to manually enter the timetables again|
 
-## Non-Functional Requirements
-
-{Give non-functional requirements}
-
-## Glossary
-
-* *glossary item* - Definition
-
 ## Instructions for manual testing
 
-login Alex /123123<br/>
+login /Alex /123123<br/>
 add /CS2113 Lec /mon /1200-1300 /LT21<br/>
 add /CS3243 Lec /mon /1400-1500 /LT22<br/>
 add /CS2040C Tut /mon /0800-1000 /COM1-2<br/>
@@ -304,19 +294,22 @@ add /CG2028 Tut /Thu /0900-1100 /E4-4-1<br/>
 add /CG2023 Lec /Fri /1700-1800 /E7-3-10<br/>
 list /all<br/>
 list /mon<br/>
-edit /mon /3 /1300-1400<br/>
-edit /fri /1 /0900-1100<br/>
+edit /mon<br/>
+/3 /1300-1400<br/>
+edit /fri<br/>
+/1 /0900-1100<br/>
 list /all<br/>
 list /mon<br/>
-login Tammy /321321<br/>
+login /Tammy /321321<br/>
 add /CS2113 Lec /mon /1200-1300 /LT21<br/>
 add /CS2040C Tut /mon /0800-1000 /COM1-2<br/>
 add /CG2028 Tut /Thu /0900-1100 /E4-4-1<br/>
 compare /Alex /mon<br/>
 list /mon<br/>
-edit /mon /2 /1000-1200<br/>
+edit /mon<br/>
+/2 /1000-1200<br/>
 compare /Alex /mon<br/>
-login Alex /123123<br/>
+login /Alex /123123<br/>
 delete /mon /2<br/>
 clear /fri<br/>
 bye<br/>

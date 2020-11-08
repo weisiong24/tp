@@ -1,6 +1,6 @@
 package seedu.ui;
 
-import seedu.exception.DukeException;
+import seedu.exception.WhereGotTimeException;
 import seedu.task.Event;
 import seedu.user.User;
 import seedu.user.UserList;
@@ -22,8 +22,10 @@ public class Ui {
             + "\\  /\\  / | | |  __/ | |  __/ |_\\ \\ (_) | |_| | | | | | | | |  __/\n"
             + " \\/  \\/|_| |_|\\___|_|  \\___|\\____/\\___/ \\__\\_/ |_|_| |_| |_|\\___|\n"
             + "                                                                 \n";
-    private static final String MESSAGE_GREETINGS = "\n" + MESSAGE_LOGO + "Hello! Welcome to WhereGotTime!\n"
-            + "Please enter your time table details.\nYou may refer to the User Guide for instructions.\n";
+    private static final String MESSAGE_GREETINGS = "\n" + MESSAGE_LOGO + "Hello! Welcome to WhereGotTime, a special "
+            + "timetable program that helps \nyou and your friend find common unoccupied slots in the timetable!"
+            + "\n\nYou're currently not logged in."
+            + "\n\nTip: enter 'help' for a list of commands.\n";
 
     private final Scanner scanner = new Scanner(System.in);
 
@@ -57,13 +59,14 @@ public class Ui {
      * @param userIndex the index of the current user
      * @param day the day in the timetable to print
      */
-    public void printList(UserList users, int userIndex, String day) throws DukeException {
+    public void printList(UserList users, int userIndex, String day) throws WhereGotTimeException {
         ArrayList<Event> timetable = (users.getUser(userIndex).getTimetable()).getTimetable(day);
         if (!timetable.isEmpty()) {
             int count = 1;
-            System.out.println("Here are the classes in your timetable for " + day + ":");
+            System.out.println("Here are the classes in your timetable for " + day
+                    + ", sorted according to time:");
             for (Object c : timetable) {
-                System.out.println(count + ". " + c);
+                System.out.println("    " + count + ". " + c);
                 count++;
             }
         } else {
@@ -77,7 +80,7 @@ public class Ui {
      * @param event the task to be added to the array list.
      */
     public void printEvent(Event event, String date) {
-        System.out.println("Got it! I've added the following event in " + date + "\n" + event);
+        System.out.println("Got it! I've added the following event on " + date + "\n" + event);
         //System.out.println("Now now have " + taskList.getTotalTaskCount() + " tasks in the list.");
     }
 
@@ -108,7 +111,7 @@ public class Ui {
             System.out.println("Noted. I have removed these classes from your " + day + " timetable:");
         }
         for (Object c : timetable) {
-            System.out.println(count + ". " + c);
+            System.out.println("\t" + count + ". " + c);
             count++;
         }
         System.out.println("Your " + day + " timetable has been cleared.");
@@ -130,9 +133,56 @@ public class Ui {
         }
     }
 
-    public void printEdit(String[] editedField, String date, int index) throws DukeException {
-        System.out.println("Got it! I have edited " + date + "'s #" + index + " lesson to "
-                + "the following timing: " + editedField[0] + "-" + editedField[1]);
+    public void printHelp(boolean isLoggedIn, User nowUser) {
+        if (isLoggedIn) {
+            System.out.print("Hi " + nowUser.getName() + ".");
+        } else {
+            System.out.print("You're currently not logged in.");
+        }
+        System.out.println("\nHere are the list of commands for WhereGotTime.");
+
+        System.out.println("\t1. Login command\t: login /(username) /(6-digit password)");
+        System.out.println("\t2. Add command\t\t: add /(module name with optional descriptions) /(day) "
+                + "/(startTime-endTime) /(location)");
+        System.out.println("\t3. List command\t\t: list /all OR list /(day)");
+        System.out.println("\t4. Edit command\t\t: edit /(day)");
+        System.out.println("\t5. Delete command\t: delete /(day) /(index)");
+        System.out.println("\t6. Clear command\t: clear /(day)");
+        System.out.println("\t7. Find command\t\t: find /(keyword)");
+        System.out.println("\t8. Compare command\t: compare");
+        System.out.println("\t9. Bye command\t\t: bye");
+        System.out.println("\nNote:");
+        System.out.println("- the brackets shown above should be omitted when entering commands");
+        System.out.println("- if this is your first time using WhereGotTime, using the Login command "
+                + "would \n  create a new user profile that matches (username) and (6-digit password)");
+        System.out.println("- command and 'day' are not case sensitive, but username and password are.");
+        System.out.println("- startTime and endTime should be in 24-hour format and in 1-hour block. "
+                + "e.g. 0900, 1300, 2300, etc.");
+        System.out.println("- 'day' should be 3-letter, e.g. Mon, TUE, wed, etc.");
+    }
+
+    public void printEditEmptyClass(User nowUser, String date) {
+        System.out.println("Hey " + nowUser.getName() + ", there is no class in your " + date + " timetable!");
+    }
+    
+    public void printEditLessonList(User nowUser, String date, ArrayList<Event> dateTimetable) {
+        System.out.println("Hey " + nowUser.getName() + ", here are the lessons in your " + date + " timetable, "
+                + "sorted from the earliest class.");
+        int listIndex = 1;
+        for (Event e : dateTimetable) {
+            System.out.println("    " + listIndex + ". " + e);
+            listIndex++;
+        }
+        System.out.println("\nTo edit, enter:");
+        System.out.println("/(index) /(newStartTime-newEndTime)");
+        showLine();
+        
+    }
+            
+    public void printEdit(Event original, Event edited) {
+        System.out.println("Got it! I have edited the lesson as follows:");
+        System.out.println("ORIGINAL    : " + original.toString());
+        System.out.println("EDITED      : " + edited.toString());
     }
 
     /**
@@ -144,6 +194,10 @@ public class Ui {
 
     public void greetUser(User currentUser) {
         System.out.println("Hello " + currentUser.getName() + "!");
+    }
+
+    public void greetReturningUser(User currentUser) {
+        System.out.println("Hello again " + currentUser.getName() + "!");
     }
 
     /**
@@ -161,7 +215,7 @@ public class Ui {
 
         int checkPoint = 0;
 
-        System.out.println("Your common timeslots are: \n");
+        System.out.println("Your common unoccupied timeslots are: \n");
         for (int availableTime : fullArray) {
             if ((availableTime >= 1) && (!(outputArray.contains(availableTime - 1)))
                     && (!(outputArray.contains(availableTime)))) {

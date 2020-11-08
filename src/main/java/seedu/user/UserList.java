@@ -1,6 +1,6 @@
 package seedu.user;
 
-import seedu.exception.DukeException;
+import seedu.exception.WhereGotTimeException;
 
 import java.util.ArrayList;
 
@@ -25,11 +25,11 @@ public class UserList {
         return users;
     }
 
-    public User getUser(int index) throws DukeException {
+    public User getUser(int index) throws WhereGotTimeException {
         try {
             return users.get(index - 1);
         } catch (IndexOutOfBoundsException e) {
-            throw new DukeException("Invalid user number!");
+            throw new WhereGotTimeException("Invalid user number!");
         }
     }
 
@@ -46,4 +46,27 @@ public class UserList {
         return null;
     }
     
+    public void removeUser(String userName, String passWord)  throws WhereGotTimeException {
+        boolean isMatch = false;
+        
+        if (users.isEmpty()) {
+            throw new WhereGotTimeException("No users exist!");
+        }
+        
+        for (int i = 0; i < users.size(); i++) {
+            if (users.get(i).getName().equals(userName)) {
+                if (users.get(i).getPassword().equals(passWord)) {
+                    users.remove(i);
+                    System.out.println(userName + " has been removed.");
+                    isMatch = true;
+                } else {
+                    throw new WhereGotTimeException("Wrong Password");
+                }
+            }
+        }
+
+        if (isMatch == false) {
+            throw new WhereGotTimeException(userName + " does not exist!");
+        }
+    }
 }
