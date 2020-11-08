@@ -472,57 +472,11 @@ class EditCommandTest {
         printWriter.println("EDITED      : CS2113 NUS 0900-1300");
         printWriter.close();
         
-
         String expected = expectedStringWriter.toString().replaceAll("\r", "");
         
         assertEquals(expected, outContent.toString().replaceAll("\r", ""));
     }
     
-    @Test
-    void execute_normalEdit2() throws WhereGotTimeException {
-
-        UserList users = new UserList();
-        Ui ui = new Ui();
-        User nowUser = new User("devtest", "123123");
-        users.addUser(nowUser);
-
-        String addInput = "/CS2113 /Mon /0900-1200 /NUS";
-        Command addCommand = new AddCommand(addInput);
-        addCommand.execute(users, ui, nowUser);
-
-        String editDay = "/mon";
-        String editTime = "/1 /0900-1300";
-
-        EditCommand editCommand = new EditCommand(editDay);
-        InputStream in = new ByteArrayInputStream(editTime.getBytes());
-        System.setIn(in);
-
-        editCommand.execute(users, ui, nowUser);
-
-        System.setOut(new PrintStream(outContent));
-
-        StringWriter expectedStringWriter = new StringWriter();
-        PrintWriter printWriter = new PrintWriter(expectedStringWriter);
-
-        printWriter.println("Got it! I've added the following event on mon");
-        printWriter.println("CS2113 NUS 0900-1200");
-        printWriter.println("Hey devtest, here are the lessons in your mon timetable, sorted from the earliest class.");
-        printWriter.println("    1. CS2113 NUS 0900-1200");
-        printWriter.println();
-        printWriter.println("To edit, enter:");
-        printWriter.println("/(index) /(newStartTime-newEndTime)");
-        printWriter.println("____________________________________________________________");
-        printWriter.println("Got it! I have edited the lesson as follows:");
-        printWriter.println("ORIGINAL    : CS2113 NUS 0900-1200");
-        printWriter.println("EDITED      : CS2113 NUS 0900-1300");
-        printWriter.close();
-
-
-        String expected = expectedStringWriter.toString().trim();
-
-        assertEquals(expected, outContent.toString().trim());
-    }
-
     /*@Test
     void execute_advancedEdit() throws WhereGotTimeException {
 
