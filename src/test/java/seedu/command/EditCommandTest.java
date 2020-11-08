@@ -18,6 +18,8 @@ import java.io.ByteArrayInputStream;
 import java.io.ByteArrayOutputStream;
 import java.io.InputStream;
 import java.io.PrintStream;
+import java.io.PrintWriter;
+import java.io.StringWriter;
 
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
@@ -453,24 +455,25 @@ class EditCommandTest {
         editCommand.execute(users, ui, nowUser);
 
         System.setOut(new PrintStream(outContent));
-        //System.getProperty("line.separator");
 
-        assertEquals("Got it! I've added the following event on mon" + System.getProperty("line.separator")
-                        + "CS2113 NUS 0900-1200" + System.getProperty("line.separator")
-                        + "Hey devtest, here are the lessons in your mon timetable, sorted from "
-                        + "the earliest class." + System.getProperty("line.separator")
-                        + "    1. CS2113 NUS 0900-1200"
-                        + System.getProperty("line.separator")
-                        + System.getProperty("line.separator")
-                        + "To edit, enter:" + System.getProperty("line.separator")
-                        + "/(index) /(newStartTime-newEndTime)" + System.getProperty("line.separator")
-                        + "____________________________________________________________"
-                        + System.getProperty("line.separator")
-                        + "Got it! I have edited the lesson as follows:" + System.getProperty("line.separator")
-                        + "ORIGINAL    : CS2113 NUS 0900-1200" + System.getProperty("line.separator")
-                        + "EDITED      : CS2113 NUS 0900-1300" + System.getProperty("line.separator"),
-
-                outContent.toString());
+        StringWriter expectedStringWriter = new StringWriter();
+        PrintWriter printWriter = new PrintWriter(expectedStringWriter);
+        
+        printWriter.println("Got it! I've added the following event on mon");
+        printWriter.println("CS2113 NUS 0900-1200");
+        printWriter.println("Hey devtest, here are the lessons in your mon timetable, sorted from the earliest class.");
+        printWriter.println("    1. CS2113 NUS 0900-1200");
+        printWriter.println();
+        printWriter.println("To edit, enter:");
+        printWriter.println("/(index) /(newStartTime-newEndTime)");
+        printWriter.println("____________________________________________________________");
+        printWriter.println("Got it! I have edited the lesson as follows:");
+        printWriter.println("ORIGINAL    : CS2113 NUS 0900-1200");
+        printWriter.println("EDITED      : CS2113 NUS 0900-1300");
+        printWriter.close();
+        String expected = expectedStringWriter.toString();
+        
+        assertEquals(expected, outContent.toString());
     }
 
     /*@Test
