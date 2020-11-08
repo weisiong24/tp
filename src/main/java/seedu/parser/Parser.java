@@ -147,7 +147,7 @@ public class Parser {
             throw new WhereGotTimeException("An clear command needs to be in a 'clear /day' format!");
         }
 
-        String[] position = input[1].split("/",2);
+        String[] position = input[1].split("/",3);
         if (!position[0].isEmpty()) {
             throw new WhereGotTimeException("Unexpected input found! A clear command needs to be in "
                     + "a 'clear /day' format.");

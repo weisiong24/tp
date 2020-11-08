@@ -138,6 +138,27 @@ public class ParserTest {
     }
 
     @Test
+    public void parse_clearCommand_noDescription() {
+        Assertions.assertThrows(WhereGotTimeException.class, () -> {
+            Parser.parse("clear");
+        });
+    }
+
+    @Test
+    public void parse_clearCommand_noSlash() {
+        Assertions.assertThrows(WhereGotTimeException.class, () -> {
+            Parser.parse("clear tue");
+        });
+    }
+
+    @Test
+    public void parse_clearCommand_extraDescription() {
+        Assertions.assertThrows(WhereGotTimeException.class, () -> {
+            Parser.parse("clear d/mon");
+        });
+    }
+
+    @Test
     public void parse_removeCommand_testExpectedException_noDescription() {
         Assertions.assertThrows(WhereGotTimeException.class, () -> {
             Parser.parse("remove");
