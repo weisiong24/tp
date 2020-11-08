@@ -56,8 +56,8 @@ public class Ui {
      * Prints out all tasks saved in the array list.
      *
      * @param users the array list to print.
-     * @param userIndex the index of the current user
-     * @param day the day in the timetable to print
+     * @param userIndex the index of the current user.
+     * @param day the day in the timetable to print.
      */
     public void printList(UserList users, int userIndex, String day) throws WhereGotTimeException {
         ArrayList<Event> timetable = (users.getUser(userIndex).getTimetable()).getTimetable(day);
@@ -101,6 +101,9 @@ public class Ui {
      * Prints out the day of the timetable that has been cleared.
      *
      * @param timetable the timetable of the day to be cleared.
+     * @param counter the number of empty days in the timetable.
+     * @param input the input by the user.
+     * @param day the current day being cleared.
      */
     public void printClear(ArrayList<Object> timetable, int counter, String input, String day) {
         int count = 1;

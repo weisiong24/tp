@@ -9,7 +9,7 @@ import seedu.user.UserList;
 import java.util.ArrayList;
 
 /**
- * Clear timetable of user on a particular day.
+ * Clears timetable of user on a particular day or the entire timetable.
  */
 public class ClearCommand extends Command {
 
@@ -47,6 +47,18 @@ public class ClearCommand extends Command {
         }
     }
 
+    /**
+     * Clears timetable of user on a particular day.
+     *
+     * @param users list of users.
+     * @param ui user interface.
+     * @param userIndex index of current user.
+     * @param counter counts the number of empty days in the timetable.
+     * @param input the input entered by the user.
+     * @param day the day in the timetable that is currently being deleted.
+     *
+     * @throws WhereGotTimeException if timetable for clearing a single day is empty.
+     */
     public void deleteTimetable(UserList users, Ui ui, int userIndex, int counter[], String input, String day)
             throws WhereGotTimeException {
         ArrayList<Event> timetable = (users.getUser(userIndex).getTimetable()).getTimetable(day);
