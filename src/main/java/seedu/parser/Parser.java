@@ -115,7 +115,7 @@ public class Parser {
             }
 
             if (!position[0].contains("/")) {
-                throw new WhereGotTimeException("TAn add command needs to be in "
+                throw new WhereGotTimeException("An add command needs to be in "
                         + "a 'add /name /day /time /location' format!");
             }
         } catch (IndexOutOfBoundsException e) {
