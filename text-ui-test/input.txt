@@ -6,22 +6,13 @@ add /CG2028 Tut /Thu /0900-1100 /E4-4-1
 add /CG2023 Lec /Fri /1700-1800 /E7-3-10
 list /all
 list /mon
-edit /mon /1 /1300-1400
-edit /fri /1 /0900-1100
 list /all
 list /mon
 login /Tammy /321321
 add /CS2113 Lec /mon /1200-1300 /LT21
 add /CS2040C Tut /mon /0800-1000 /COM1-2
 add /CG2028 Tut /Thu /0900-1100 /E4-4-1
-compare
-1
-mon
 list /mon
-edit /mon /1 /1000-1200
-compare
-1
-mon
 login /Alex /123123
 delete /mon /2
 clear /fri

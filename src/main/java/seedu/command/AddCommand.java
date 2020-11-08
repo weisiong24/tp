@@ -31,7 +31,7 @@ public class AddCommand extends Command {
         if (nowUser != null) {
             String[] parsedInputs = input.split("/", 5);
             String[] timeInputs = parsedInputs[3].split("-", 2);
-
+            
             String day = parsedInputs[2].toLowerCase().trim();
 
             assert day.length() == 3 : "Wrong format of day entered";
@@ -49,6 +49,7 @@ public class AddCommand extends Command {
                         timetable.add(newEvent);
                         
                         try {
+                            
                             int timeStart = Integer.parseInt(timeInputs[0].trim());
                             int timeEnd = Integer.parseInt(timeInputs[1].trim());
                             int timeStartHour = Integer.parseInt(timeInputs[0].trim().substring(0, 2));
@@ -59,21 +60,21 @@ public class AddCommand extends Command {
                             if (timeStartHour < 0 || timeStartHour > 23) {
                                 timetable.remove(newEvent);
                                 throw new WhereGotTimeException("Invalid Hour! It should be within "
-                                        + "24-hour format. (0000-2359)");
+                                        + "24-hour format.");
                             } else if (timeStartMin < 0 || timeStartMin > 59) {
                                 timetable.remove(newEvent);
                                 throw new WhereGotTimeException("Invalid minute! It should be within "
-                                        + "24-hour format. (0000-2359)");
+                                        + "24-hour format.");
                             }
 
                             if (timeEndHour < 0 || timeEndHour > 23) {
                                 timetable.remove(newEvent);
                                 throw new WhereGotTimeException("Invalid Hour! It should be within "
-                                        + "24-hour format. (0000-2359)");
+                                        + "24-hour format.");
                             } else if (timeEndMin < 0 || timeEndMin > 59) {
                                 timetable.remove(newEvent);
                                 throw new WhereGotTimeException("Invalid minute! It should be within "
-                                        + "24-hour format. (0000-2359)");
+                                        + "24-hour format.");
                             }
                             
                             if (timeStart == timeEnd) {
@@ -86,7 +87,13 @@ public class AddCommand extends Command {
                             if (timeStart > 2300 || timeEnd > 2359) {
                                 timetable.remove(newEvent);
                                 throw new WhereGotTimeException("Start and End time must be "
-                                        + "in 24 hour format (0000-2359)");
+                                        + "in 24 hour format");
+                            }
+
+                            if ((timeStartMin % 60) != 0 || (timeEndMin % 60) != 0) {
+                                timetable.remove(newEvent);
+                                throw new WhereGotTimeException("The timings should be in 1 hour block! "
+                                        + "e.g. 0900, 1200, 1500, etc");
                             }
 
                             if (parsedInputs[4].contains("/")) {
