@@ -38,19 +38,19 @@ CG2023 Lec E7-3-10 1700-1800
 ____________________________________________________________
 ____________________________________________________________
 Here are the classes in your timetable for mon, sorted according to time:
-	1. CS2040C Tut COM1-2 0800-1000
-	2. CS2113 Lec LT21 1200-1300
-	3. CS3243 Lec LT22 1400-1500
+    1. CS2040C Tut COM1-2 0800-1000
+    2. CS2113 Lec LT21 1200-1300
+    3. CS3243 Lec LT22 1400-1500
 
 There is no class in your timetable for tue!
 
 There is no class in your timetable for wed!
 
 Here are the classes in your timetable for thu, sorted according to time:
-	1. CG2028 Tut E4-4-1 0900-1100
+    1. CG2028 Tut E4-4-1 0900-1100
 
 Here are the classes in your timetable for fri, sorted according to time:
-	1. CG2023 Lec E7-3-10 1700-1800
+    1. CG2023 Lec E7-3-10 1700-1800
 
 There is no class in your timetable for sat!
 
@@ -58,25 +58,25 @@ There is no class in your timetable for sun!
 ____________________________________________________________
 ____________________________________________________________
 Here are the classes in your timetable for mon, sorted according to time:
-	1. CS2040C Tut COM1-2 0800-1000
-	2. CS2113 Lec LT21 1200-1300
-	3. CS3243 Lec LT22 1400-1500
+    1. CS2040C Tut COM1-2 0800-1000
+    2. CS2113 Lec LT21 1200-1300
+    3. CS3243 Lec LT22 1400-1500
 ____________________________________________________________
 ____________________________________________________________
 Here are the classes in your timetable for mon, sorted according to time:
-	1. CS2040C Tut COM1-2 0800-1000
-	2. CS2113 Lec LT21 1200-1300
-	3. CS3243 Lec LT22 1400-1500
+    1. CS2040C Tut COM1-2 0800-1000
+    2. CS2113 Lec LT21 1200-1300
+    3. CS3243 Lec LT22 1400-1500
 
 There is no class in your timetable for tue!
 
 There is no class in your timetable for wed!
 
 Here are the classes in your timetable for thu, sorted according to time:
-	1. CG2028 Tut E4-4-1 0900-1100
+    1. CG2028 Tut E4-4-1 0900-1100
 
 Here are the classes in your timetable for fri, sorted according to time:
-	1. CG2023 Lec E7-3-10 1700-1800
+    1. CG2023 Lec E7-3-10 1700-1800
 
 There is no class in your timetable for sat!
 
@@ -84,9 +84,9 @@ There is no class in your timetable for sun!
 ____________________________________________________________
 ____________________________________________________________
 Here are the classes in your timetable for mon, sorted according to time:
-	1. CS2040C Tut COM1-2 0800-1000
-	2. CS2113 Lec LT21 1200-1300
-	3. CS3243 Lec LT22 1400-1500
+    1. CS2040C Tut COM1-2 0800-1000
+    2. CS2113 Lec LT21 1200-1300
+    3. CS3243 Lec LT22 1400-1500
 ____________________________________________________________
 ____________________________________________________________
 Hello Tammy!
@@ -105,8 +105,8 @@ CG2028 Tut E4-4-1 0900-1100
 ____________________________________________________________
 ____________________________________________________________
 Here are the classes in your timetable for mon, sorted according to time:
-	1. CS2040C Tut COM1-2 0800-1000
-	2. CS2113 Lec LT21 1200-1300
+    1. CS2040C Tut COM1-2 0800-1000
+    2. CS2113 Lec LT21 1200-1300
 ____________________________________________________________
 ____________________________________________________________
 Hello again Alex!
@@ -130,16 +130,16 @@ ____________________________________________________________
 ____________________________________________________________
 ____________________________________________________________
 Here are the classes in your timetable for mon, sorted according to time:
-	1. CS2040C Tut COM1-2 0800-1000
-	2. CS3243 Lec LT22 1400-1500
+    1. CS2040C Tut COM1-2 0800-1000
+    2. CS3243 Lec LT22 1400-1500
 
 There is no class in your timetable for tue!
 
 Here are the classes in your timetable for wed, sorted according to time:
-	1. CS3230 Lab COM1-2-21 1100-1400
+    1. CS3230 Lab COM1-2-21 1100-1400
 
 Here are the classes in your timetable for thu, sorted according to time:
-	1. CG2028 Tut E4-4-1 0900-1100
+    1. CG2028 Tut E4-4-1 0900-1100
 
 There is no class in your timetable for fri!
 
