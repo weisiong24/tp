@@ -102,19 +102,25 @@ public class Ui {
      *
      * @param timetable the timetable of the day to be cleared.
      */
-    public void printClear(ArrayList<Object> timetable, String day) {
+    public void printClear(ArrayList<Object> timetable, int counter, String input, String day) {
         int count = 1;
         int size = timetable.size();
         if (size == 1) {
-            System.out.println("Noted. I have removed this class from your " + day + " timetable:");
-        } else {
-            System.out.println("Noted. I have removed these classes from your " + day + " timetable:");
+            System.out.println("I have removed this class from your " + day + " timetable:");
+        } else if (size > 1){
+            System.out.println("I have removed these classes from your " + day + " timetable:");
         }
         for (Object c : timetable) {
             System.out.println("\t" + count + ". " + c);
             count++;
         }
-        System.out.println("Your " + day + " timetable has been cleared.");
+        if (!input.equals("all")) {
+            System.out.println("Your " + day + " timetable has been cleared.");
+        } else if (counter == 7) {
+            System.out.println("Your timetable is empty. There is nothing to clear.");
+        } else if (day.equals("sun")) {
+            System.out.println("Your timetable has been cleared.");
+        }
     }
 
     /**
