@@ -459,7 +459,7 @@ class EditCommandTest {
         StringWriter expectedStringWriter = new StringWriter();
         PrintWriter printWriter = new PrintWriter(expectedStringWriter);
         
-        printWriter.println("Got it! I've added the following event on mon");
+        printWriter.println("Got it! I've added the following event on mon\r");
         printWriter.println("CS2113 NUS 0900-1200");
         printWriter.println("Hey devtest, here are the lessons in your mon timetable, sorted from the earliest class.");
         printWriter.println("    1. CS2113 NUS 0900-1200");
@@ -471,7 +471,9 @@ class EditCommandTest {
         printWriter.println("ORIGINAL    : CS2113 NUS 0900-1200");
         printWriter.println("EDITED      : CS2113 NUS 0900-1300");
         printWriter.close();
-        String expected = expectedStringWriter.toString();
+        
+
+        String expected = expectedStringWriter.toString().replaceAll("[\r]", "");
         
         assertEquals(expected, outContent.toString());
     }
