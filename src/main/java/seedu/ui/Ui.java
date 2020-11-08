@@ -66,7 +66,7 @@ public class Ui {
             System.out.println("Here are the classes in your timetable for " + day
                     + ", sorted according to time:");
             for (Object c : timetable) {
-                System.out.println("\t" + count + ". " + c);
+                System.out.println("    " + count + ". " + c);
                 count++;
             }
         } else {
@@ -170,7 +170,7 @@ public class Ui {
                 + "sorted from the earliest class.");
         int listIndex = 1;
         for (Event e : dateTimetable) {
-            System.out.println("\t" + listIndex + ". " + e);
+            System.out.println("    " + listIndex + ". " + e);
             listIndex++;
         }
         System.out.println("\nTo edit, enter:");
@@ -181,8 +181,8 @@ public class Ui {
             
     public void printEdit(Event original, Event edited) {
         System.out.println("Got it! I have edited the lesson as follows:");
-        System.out.println("ORIGINAL\t: " + original.toString());
-        System.out.println("EDITED\t\t: " + edited.toString());
+        System.out.println("ORIGINAL    : " + original.toString());
+        System.out.println("EDITED      : " + edited.toString());
     }
 
     /**

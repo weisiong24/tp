@@ -1,8 +1,13 @@
 package seedu.command;
 
+import seedu.exception.IdenticalTimingsException;
+import seedu.exception.IllogicalTimingException;
+import seedu.exception.IncorrectCommandFormatException;
+import seedu.exception.InvalidIndexException;
+import seedu.exception.InvalidTimingFormatException;
+import seedu.exception.NotLoggedInException;
 import seedu.exception.WhereGotTimeException;
 import seedu.timetable.SortTimetable;
-import seedu.timetable.Timetable;
 import seedu.ui.Ui;
 import seedu.user.User;
 import seedu.user.UserList;
@@ -20,12 +25,12 @@ public class EditCommand extends Command {
     public void execute(UserList users, Ui ui, User nowUser/*, Storage storage*/) throws WhereGotTimeException {
 
         if (nowUser == null) {
-            throw new WhereGotTimeException("Sorry! You are not logged in to any account!");
+            throw new NotLoggedInException("Sorry! You are not logged in to any account!");
         }
 
         String[] parsedInputs = input.split("/", 2);
         if (parsedInputs.length != 2) {
-            throw new WhereGotTimeException("Incorrect format for edit command! Enter 'help' for the correct "
+            throw new IncorrectCommandFormatException("Incorrect format for edit command! Enter 'help' for the correct "
                     + "input format!");
         }
 
@@ -33,9 +38,9 @@ public class EditCommand extends Command {
         ArrayList<Event> dateTimetable = nowUser.getTimetable().getTimetable(date);
 
         if (dateTimetable.size() == 0) {
-            
+
             ui.printEditEmptyClass(nowUser, date);
-            
+
         } else {
             try {
                 ui.printEditLessonList(nowUser, date, dateTimetable);
@@ -45,16 +50,17 @@ public class EditCommand extends Command {
                 String[] parsedEditInput = editInput.split("/", 3);
 
                 if (parsedEditInput.length != 3) {
-                    throw new WhereGotTimeException("You have entered an invalid edit format!");
+                    throw new IncorrectCommandFormatException("You have entered an invalid edit format!");
                 } else if (!parsedEditInput[0].isEmpty()) {
-                    throw new WhereGotTimeException("You have entered an invalid edit format!");
+                    throw new IncorrectCommandFormatException("You have entered an invalid edit format!");
                 }
 
                 int index = Integer.parseInt(parsedEditInput[1].trim());
 
                 String[] newTime = parsedEditInput[2].split("-");
                 if (newTime.length != 2) {
-                    throw new WhereGotTimeException("Invalid time format. Enter 'help' for the correct input format!");
+                    throw new IncorrectCommandFormatException("Invalid time format. Enter 'help' for the "
+                            + "correct input format!");
                 }
                 checkTimeValidity(newTime);
 
@@ -65,8 +71,8 @@ public class EditCommand extends Command {
                         String originalStartTime = originalEvent.getTimeStart();
                         String originalEndTime = originalEvent.getTimeEnd();
                         if (newTime[0].equals(originalStartTime) && newTime[1].equals(originalEndTime)) {
-                            throw new WhereGotTimeException("You have entered a timing that is exactly the \nsame as "
-                                    + "the original one! Hence, no changes were made!");
+                            throw new IdenticalTimingsException("You have entered a timing that is exactly "
+                                    + "the \nsame as the original one! Hence, no changes were made!");
                         }
                         Event modifiedEvent = new Event(originalEvent.getDescription(),
                                 originalEvent.getLocation(), newTime[0], newTime[1]);
@@ -77,11 +83,9 @@ public class EditCommand extends Command {
                 SortTimetable.sortTimetable(users, nowUser, date);
 
             } catch (NumberFormatException e) {
-                throw new WhereGotTimeException("You've entered an invalid edit format!");
+                throw new IncorrectCommandFormatException("You've entered an invalid edit format!");
             } catch (IndexOutOfBoundsException e) {
-                throw new WhereGotTimeException("You've entered an invalid index!");
-            } catch (NullPointerException e) {
-                throw new WhereGotTimeException("Empty timing values!");
+                throw new InvalidIndexException("You've entered an invalid index!");
             }
         }
     }
@@ -99,32 +103,26 @@ public class EditCommand extends Command {
         int endTime = Integer.parseInt(time[1]);
 
         if (time[0].length() != 4 || time[1].length() != 4) {
-            throw new WhereGotTimeException("Invalid hour format! It should be in "
+            throw new InvalidTimingFormatException("Invalid hour format! It should be in "
                     + "24-hour format and in 1-hour block! e.g. 0900, 1300, 2300, etc.");
         } else if (startTimeHourInt < 0 || startTimeHourInt > 23) {
-            throw new WhereGotTimeException("Invalid hour for start time! It should be in "
+            throw new InvalidTimingFormatException("Invalid hour for start time! It should be in "
                     + "24-hour format and in 1-hour block! e.g. 0900, 1300, 2300, etc.");
         } else if (startTimeMinuteInt < 0 || startTimeMinuteInt > 59) {
-            throw new WhereGotTimeException("Invalid minute for start time! It should be in "
+            throw new InvalidTimingFormatException("Invalid minute for start time! It should be in "
                     + "24-hour format and in 1-hour block! e.g. 0900, 1300, 2300, etc.");
         } else if (endTimeHourInt < 0 || endTimeHourInt > 23) {
-            throw new WhereGotTimeException("Invalid hour for end time! It should be in "
+            throw new InvalidTimingFormatException("Invalid hour for end time! It should be in "
                     + "24-hour format and in 1-hour block! e.g. 0900, 1300, 2300, etc.");
         } else if (endTimeMinuteInt < 0 || endTimeMinuteInt > 59) {
-            throw new WhereGotTimeException("Invalid minute for end time! It should be in "
+            throw new InvalidTimingFormatException("Invalid minute for end time! It should be in "
                     + "24-hour format and in 1-hour block! e.g. 0900, 1300, 2300, etc.");
         } else if ((startTimeMinuteInt % 60) != 0 || (endTimeMinuteInt % 60) != 0) {
-            throw new WhereGotTimeException("The timings should be in 1-hour block! e.g. 0900, 1300, 2300, etc");
-        }
-
-        try {
-            if (startTime == endTime) {
-                throw new WhereGotTimeException("Start time cannot be the same as end time!");
-            } else if (startTime > endTime) {
-                throw new WhereGotTimeException("Start time cannot be later than end time!");
-            }
-        } catch (NullPointerException e) {
-            throw new WhereGotTimeException("Empty timing values!");
+            throw new InvalidTimingFormatException("The timings should be in 1-hour block! e.g. 0900, 1300, 2300, etc");
+        } else if (startTime == endTime) {
+            throw new IllogicalTimingException("Start time cannot be the same as end time!");
+        } else if (startTime > endTime) {
+            throw new IllogicalTimingException("Start time cannot be later than end time!");
         }
     }
 
