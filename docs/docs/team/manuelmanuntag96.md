@@ -26,7 +26,3 @@ Given below are my contributions to the project.
 ### Contributions to team-based tasks
  - Added to labels for issue tracking in GitHub for teammates to use
  - Added to the user stories and features in the issue tracking
- 
- ### Review/mentoring and other contributions
- ![](tp/docs/images/ManProblem.jpg)
- ![](tp/docs/images/ManTroubleshoot.PNG)
