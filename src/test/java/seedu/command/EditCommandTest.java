@@ -475,7 +475,7 @@ class EditCommandTest {
 
         String expected = expectedStringWriter.toString();
         
-        assertEquals(expected, outContent.toString().replaceAll("\r\n", ""));
+        assertEquals(expected, outContent.toString().replaceAll("\r", ""));
     }
 
     /*@Test
