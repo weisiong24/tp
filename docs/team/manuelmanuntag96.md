@@ -1,8 +1,11 @@
 # MANUNTAG MANUEL - Project Portfolio Page
 
 ## Overview
-- WhereGotTime is an application for the student to check their timetable and compare them against their peers for a 
-common timeslot to be able so that they can schedule a study time together
+WhereGotTime is an application for students to add, edit and check their timetable schedules.
+It is also able to compare timetable with their peers to find a common timeslot 
+so that they can schedule a study time together.
+
+Given below are my contributions to the project.
 
 ## Summary of Contributions
 ### Code contributed
@@ -18,4 +21,12 @@ common timeslot to be able so that they can schedule a study time together
 - Edited the login feature part of the UG (description, format, etc)
 
 ### Contributions to the Developer Guide 
-- Edited the Architecture, Class Diagram and Sequence Diagram of the Login Feature.	
+- Edited the Architecture, Class Diagram and Sequence Diagram of the Login Feature
+
+### Contributions to team-based tasks
+ - Added to labels for issue tracking in GitHub for teammates to use
+ - Added to the user stories and features in the issue tracking
+ 
+ ### Review/mentoring and other contributions
+ ![](images/ManProblem.jpg)
+ ![](images/ManTroubleshoot.PNG)
