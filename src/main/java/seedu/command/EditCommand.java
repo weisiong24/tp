@@ -22,7 +22,7 @@ public class EditCommand extends Command {
     }
 
     @Override
-    public void execute(UserList users, Ui ui, User nowUser/*, Storage storage*/) throws WhereGotTimeException {
+    public void execute(UserList users, Ui ui, User nowUser) throws WhereGotTimeException {
 
         if (nowUser == null) {
             throw new NotLoggedInException("Sorry! You are not logged in to any account!");
