@@ -49,12 +49,14 @@ public class Storage {
             if (storageFile.createNewFile()) {
                 System.out.println("No existing WhereGotTime.txt found! Creating one...");
             } else {
-                System.out.println("Existing WhereGotTime.txt found. Loading previously saved task list...");
+                System.out.println("Existing WhereGotTime.txt found. Loading previously saved "
+                        + "timetable information...");
+                System.out.println("Timetable information loaded successfully!");
             }
         } catch (IOException e) {
             throw new WhereGotTimeException("Attempt to create WhereGotTime.txt failed.");
         } finally {
-            System.out.println("Previous task list loaded successfully");
+            System.out.println("Storage initialisation completed without issue.");
         }
     }
     

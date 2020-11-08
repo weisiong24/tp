@@ -1,6 +1,6 @@
 Data folder not found! Creating one...
 No existing WhereGotTime.txt found! Creating one...
-Previous task list loaded successfully
+Storage initialisation completed without issue.
 ____________________________________________________________
  _    _ _                   _____       _ _____ _                
 | |  | | |                 |  __ \     | |_   _(_)               
