@@ -28,5 +28,5 @@ Given below are my contributions to the project.
  - Added to the user stories and features in the issue tracking
  
  ### Review/mentoring and other contributions
- [](images/ManProblem.jpg)
- [](images/ManTroubleshoot.PNG)
+ ![](images/ManProblem.jpg)
+ ![](images/ManTroubleshoot.PNG)
