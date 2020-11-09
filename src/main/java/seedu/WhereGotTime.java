@@ -36,14 +36,11 @@ public class WhereGotTime {
                 String fullCommand = ui.readCommand();
                 ui.showLine(); // show the divider line ("_______")
                 Command c = Parser.parse(fullCommand);
-                c.execute(users, ui, nowUser/*, storage*/);
+                c.execute(users, ui, nowUser);
                 storage.write(users);
-
                 if (c.isLogIn()) {
                     nowUser = c.getCurrentUser();
-                    //System.out.println(nowUser.getName() + users.getTotalUserCount());
                 }
-                //System.out.println(nowUser.getName());
                 isExit = c.isExit();
             } catch (WhereGotTimeException e) {
                 ui.showError(e.getMessage());

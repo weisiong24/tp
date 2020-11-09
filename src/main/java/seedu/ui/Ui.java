@@ -23,7 +23,7 @@ public class Ui {
             + " \\/  \\/|_| |_|\\___|_|  \\___|\\____/\\___/ \\__\\_/ |_|_| |_| |_|\\___|\n"
             + "                                                                 \n";
     private static final String MESSAGE_GREETINGS = "\n" + MESSAGE_LOGO + "Hello! Welcome to WhereGotTime, a special "
-            + "timetable program that helps \nyou and your friend(s) find common unoccupied slots in the timetable!"
+            + "timetable program that helps \nyou and your friend find common unoccupied slots in the timetable!"
             + "\n\nYou're currently not logged in."
             + "\n\nTip: enter 'help' for a list of commands.\n";
 
@@ -56,8 +56,8 @@ public class Ui {
      * Prints out all tasks saved in the array list.
      *
      * @param users the array list to print.
-     * @param userIndex the index of the current user
-     * @param day the day in the timetable to print
+     * @param userIndex the index of the current user.
+     * @param day the day in the timetable to print.
      */
     public void printList(UserList users, int userIndex, String day) throws WhereGotTimeException {
         ArrayList<Event> timetable = (users.getUser(userIndex).getTimetable()).getTimetable(day);
@@ -101,20 +101,29 @@ public class Ui {
      * Prints out the day of the timetable that has been cleared.
      *
      * @param timetable the timetable of the day to be cleared.
+     * @param counter the number of empty days in the timetable.
+     * @param input the input by the user.
+     * @param day the current day being cleared.
      */
-    public void printClear(ArrayList<Object> timetable, String day) {
+    public void printClear(ArrayList<Object> timetable, int counter, String input, String day) {
         int count = 1;
         int size = timetable.size();
         if (size == 1) {
-            System.out.println("Noted. I have removed this class from your " + day + " timetable:");
-        } else {
-            System.out.println("Noted. I have removed these classes from your " + day + " timetable:");
+            System.out.println("I have removed this class from your " + day + " timetable:");
+        } else if (size > 1) {
+            System.out.println("I have removed these classes from your " + day + " timetable:");
         }
         for (Object c : timetable) {
             System.out.println("\t" + count + ". " + c);
             count++;
         }
-        System.out.println("Your " + day + " timetable has been cleared.");
+        if (!input.equals("all")) {
+            System.out.println("Your " + day + " timetable has been cleared.");
+        } else if (counter == 7) {
+            System.out.println("Your timetable is empty. There is nothing to clear.");
+        } else if (day.equals("sun")) {
+            System.out.println("Your timetable has been cleared.");
+        }
     }
 
     /**

@@ -18,7 +18,8 @@ Timetable --> ListCommand
 deactivate Timetable
 
 ListCommand -> UI: printList()
-
+activate UI
+deactivate UI
 deactivate ListCommand
 
 @enduml
