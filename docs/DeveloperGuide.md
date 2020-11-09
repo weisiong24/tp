@@ -47,7 +47,9 @@ The following Sequence Diagram displays how components interact when the user in
 This section describes how features/functions are implemented.
 
 ### Parser Component
-
+![](images/Parser.PNG)
+The Parser object uses its parse method to parse inputs passed to it from Ui. This method returns a Command object to be executed by
+WhereGotTime.
 
 ### Add Function
 
