@@ -447,6 +447,9 @@ ____________________________________________________________
 * Help Command 
     
     `help`
+* Remove user 
+
+    `remove /(username) /(6-digit password)`  
 * Exit program 
     
-    `bye`
+    `bye`  
