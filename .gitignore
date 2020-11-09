@@ -25,3 +25,6 @@ data/duke.txt
 AddCommand.log.lck
 LogInCommand.log.2
 duke.txt
+EditCommand.log
+EditCommand.log.1
+EditCommand.log.lck
