@@ -16,7 +16,7 @@ Given below are my contributions to the project.
     - Provided skeleton framework (adapted from my iP) for which the application is built upon
     - Provided general direction on user experience (UX) and how the application should behave to ensure high usability
     - Ensured all features form a cohesive UX for our target user
-    - 100% JUnit test coverage for `EditCommand`
+    - 100% JUnit test coverage for EditCommand
 
 * #### Enhancements
     * New Feature: Added the structure and ability to store and load user's credentials and timetable information automatically
@@ -39,7 +39,7 @@ Given below are my contributions to the project.
         Furthermore, the help instructions are written as dummy-proof and as meticulous as far as possible to ensure swift understanding for fast-typist.
 
 ### Contributions to the User Guide
-- Updated all expected outputs for all commands
+- Added documentations for all expected outputs for all commands
 - Provided comprehensive documentations for Main Menu, `help`, and `edit` commands
 
 ### Contributions to the Developer Guide 
@@ -51,7 +51,7 @@ Given below are my contributions to the project.
  - Review PRs to check if codes can be improved or refactored
  - Keeping track of all issues assigned to ensure project achieves milestone on time
  
- ### Review/mentoring and other contributions
+### Review/mentoring and other contributions
 * Assisted with code reviews and suggested improvements to teammates' PRs
     * [Example 1](https://github.com/AY2021S1-CS2113-T13-3/tp/pull/181#pullrequestreview-523577115)
     * [Example 2](https://github.com/AY2021S1-CS2113-T13-3/tp/pull/77#pullrequestreview-516325424)
