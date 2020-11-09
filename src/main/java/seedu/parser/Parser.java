@@ -12,7 +12,6 @@ import seedu.command.HelpCommand;
 import seedu.command.ListCommand;
 import seedu.command.LogInCommand;
 import seedu.command.RemoveUserCommand;
-import seedu.command.TestCommand;
 import seedu.exception.WhereGotTimeException;
 
 /**
@@ -30,10 +29,8 @@ public class Parser {
     private static final String COMMAND_ADD = "add";
     private static final String COMMAND_EDIT = "edit";
     private static final String COMMAND_COMPARE = "compare";
-    private static final String COMMAND_TEST = "devtest";
     public static final int MAX_PASSWORD_LENGTH = 6;
-
-
+    
     /**
      * Returns a Command object based on user's string input.
      *
@@ -74,8 +71,6 @@ public class Parser {
             return new ByeCommand();
         case COMMAND_COMPARE:
             return new CompareCommand(parsedInputs[0]);
-        case COMMAND_TEST:
-            return new TestCommand();
         default:
             throw new WhereGotTimeException("Sorry! I don't know what that means. Enter 'help' for a "
                     + "list of valid commands!");

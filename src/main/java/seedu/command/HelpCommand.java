@@ -1,6 +1,5 @@
 package seedu.command;
 
-import seedu.exception.WhereGotTimeException;
 import seedu.ui.Ui;
 import seedu.user.User;
 import seedu.user.UserList;
