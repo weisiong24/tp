@@ -3,20 +3,18 @@ package seedu.command;
 import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
-import seedu.WhereGotTime;
 import seedu.exception.NotLoggedInException;
 import seedu.exception.WhereGotTimeException;
 import seedu.ui.Ui;
 import seedu.user.User;
 import seedu.user.UserList;
 
-import java.io.*;
-import java.util.Scanner;
+import java.io.ByteArrayInputStream;
+import java.io.ByteArrayOutputStream;
+import java.io.InputStream;
+import java.io.PrintStream;
 
-import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertThrows;
-
-import static org.junit.jupiter.api.Assertions.*;
 
 class CompareCommandTest {
     private final ByteArrayOutputStream outContent = new ByteArrayOutputStream();
