@@ -31,7 +31,6 @@ Given below are my contributions to the project.
     * User Guide:
         * Added the format of the user guide to allow teammates to add on
         * Added User guide for add command ,exit command and Command summary
-        * Updated Expected outputs of login, add,edit, list ,delete ,find, clear,help, exit commands
         * Updated the introduction, quick start and feature to base on our Project
     
     * Developer guide:

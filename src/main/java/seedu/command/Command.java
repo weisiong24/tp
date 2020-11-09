@@ -24,7 +24,7 @@ public abstract class Command {
      * Executes the Command based on the TaskList, Ui and Storage.
      *
      * @param users the UserList given to execute command on.
-     * @param ui the corresponding messages based on the task.
+     * @param ui    the corresponding messages based on the task.
      * @throws WhereGotTimeException if execution encounters error.
      */
     public abstract void execute(UserList users, Ui ui, User nowUser) throws WhereGotTimeException;
