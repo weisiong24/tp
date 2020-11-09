@@ -13,33 +13,66 @@ import seedu.user.User;
 import seedu.user.UserList;
 import seedu.task.Event;
 
+import java.io.IOException;
 import java.util.ArrayList;
 import java.util.Scanner;
+import java.util.logging.FileHandler;
+import java.util.logging.Level;
+import java.util.logging.LogManager;
+import java.util.logging.Logger;
+import java.util.logging.SimpleFormatter;
 
+/**
+ * Command to edit a timetable.
+ */
 public class EditCommand extends Command {
+    
+    private static Logger logger = Logger.getLogger("LogEditCommand");
+
+    /**
+     * Constructor for editing an event.
+     */
     public EditCommand(String input) {
         super(input);
     }
 
+    /**
+     * Parses timings to be edited and check for validity.
+     *
+     * @param users   object of UserList containing all available user's data
+     * @param ui      containing the outputs to print
+     * @param nowUser object of currently logged in user
+     * @throws WhereGotTimeException           all possible exceptions extended from WhereGotTimeException can be thrown
+     * @throws NotLoggedInException            if user invoke edit command without first logging in
+     * @throws IncorrectCommandFormatException if user inputs a format that is not valid, e.g. extra or missing fields
+     * @throws IdenticalTimingsException       if the new timings are identical with original timings
+     * @throws InvalidIndexException           if the user inputs an index that is out of bound
+     */
     @Override
     public void execute(UserList users, Ui ui, User nowUser) throws WhereGotTimeException {
 
+        setupInputLogger();
+
         if (nowUser == null) {
+            logger.log(Level.WARNING, "Not logged in" + "\n");
             throw new NotLoggedInException("Sorry! You are not logged in to any account!");
         }
 
         String[] parsedInputs = input.split("/", 2);
+        
         if (parsedInputs.length != 2) {
             throw new IncorrectCommandFormatException("Incorrect format for edit command! Enter 'help' for the correct "
                     + "input format!");
         }
 
         String date = parsedInputs[1].trim();
+        logger.log(Level.INFO, "Correct date added: " + parsedInputs[1]);
         ArrayList<Event> dateTimetable = nowUser.getTimetable().getTimetable(date);
 
         if (dateTimetable.size() == 0) {
 
             ui.printEditEmptyClass(nowUser, date);
+            logger.log(Level.WARNING, "No class in this day." + "\n");
 
         } else {
             try {
@@ -54,15 +87,21 @@ public class EditCommand extends Command {
                 } else if (!parsedEditInput[0].isEmpty()) {
                     throw new IncorrectCommandFormatException("You have entered an invalid edit format!");
                 }
-
+                
                 int index = Integer.parseInt(parsedEditInput[1].trim());
+                logger.log(Level.INFO, "Correct index added: " + index);
 
                 String[] newTime = parsedEditInput[2].split("-");
+                
                 if (newTime.length != 2) {
+                    logger.log(Level.WARNING, "Invalid time format!" + "\n");
                     throw new IncorrectCommandFormatException("Invalid time format. Enter 'help' for the "
                             + "correct input format!");
                 }
                 checkTimeValidity(newTime);
+
+                logger.log(Level.INFO, "Correct start time added: " + newTime[0]);
+                logger.log(Level.INFO, "Correct end time added: " + newTime[1]);
 
                 Event originalEvent;
                 for (int i = 0; i < users.getTotalUserCount(); i++) {
@@ -71,6 +110,7 @@ public class EditCommand extends Command {
                         String originalStartTime = originalEvent.getTimeStart();
                         String originalEndTime = originalEvent.getTimeEnd();
                         if (newTime[0].equals(originalStartTime) && newTime[1].equals(originalEndTime)) {
+                            logger.log(Level.WARNING, "Identical class detected." + "\n");
                             throw new IdenticalTimingsException("You have entered a timing that is exactly "
                                     + "the \nsame as the original one! Hence, no changes were made!");
                         }
@@ -78,18 +118,31 @@ public class EditCommand extends Command {
                                 originalEvent.getLocation(), newTime[0], newTime[1]);
                         nowUser.getTimetable().getTimetable(date).set(index - 1, modifiedEvent);
                         ui.printEdit(originalEvent, modifiedEvent);
+                        logger.log(Level.INFO, "Class edited successfully:\n" + originalEvent + "\n" + modifiedEvent);
                     }
                 }
                 SortTimetable.sortTimetable(users, nowUser, date);
 
             } catch (NumberFormatException e) {
+                logger.log(Level.WARNING, "Invalid edit format!" + "\n");
                 throw new IncorrectCommandFormatException("You've entered an invalid edit format!");
             } catch (IndexOutOfBoundsException e) {
+                logger.log(Level.WARNING, "Invalid index!" + "\n");
                 throw new InvalidIndexException("You've entered an invalid index!");
             }
         }
     }
 
+    /**
+     * Checks for time validity.
+     *
+     * @param time the array of new times to be edited
+     * @throws WhereGotTimeException        all possible exceptions extending from WhereGotTimeException can be thrown
+     * @throws InvalidTimingFormatException if user inputs a time that is not 4-digit, not conforming to 24-hour
+     *                                      format and not in 1-hour block
+     * @throws IllogicalTimingException     if user inputs identical start and end time, or if start time is later
+     *                                      than end time
+     */
     private void checkTimeValidity(String[] time) throws WhereGotTimeException {
         String startTimeHour = time[0].substring(0, 2);
         String startTimeMinute = time[0].substring(2);
@@ -123,6 +176,19 @@ public class EditCommand extends Command {
             throw new IllogicalTimingException("Start time cannot be the same as end time!");
         } else if (startTime > endTime) {
             throw new IllogicalTimingException("Start time cannot be later than end time!");
+        }
+    }
+
+    private void setupInputLogger() {
+        LogManager.getLogManager().reset();
+        logger.setLevel(Level.ALL);
+        try {
+            FileHandler fh = new FileHandler("EditCommand.log", true);
+            fh.setLevel(Level.INFO);
+            fh.setFormatter(new SimpleFormatter());
+            logger.addHandler(fh);
+        } catch (IOException e) {
+            logger.log(Level.SEVERE, "File logging fails!");
         }
     }
 
