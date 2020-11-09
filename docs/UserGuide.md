@@ -37,6 +37,64 @@ Some example commands you can try:
 * Help command
 * Exit program
 
+### Main menu
+The launch screen of WhereGotTime includes Storage initialisation messages that indicates the status of loading from previous timetable via the text file
+
+```
+Data folder found! Finding WhereGotTime.txt...
+Existing WhereGotTime.txt found. Loading previously saved timetable information...
+Timetable information loaded successfully!
+Storage initialisation completed without issue.
+____________________________________________________________
+ _    _ _                   _____       _ _____ _                
+| |  | | |                 |  __ \     | |_   _(_)               
+| |  | | |__   ___ _ __ ___| |  \/ ___ | |_| |  _ _ __ ___   ___ 
+| |/\| | '_ \ / _ \ '__/ _ \ | __ / _ \| __| | | | '_ ` _ \ / _ \
+\  /\  / | | |  __/ | |  __/ |_\ \ (_) | |_| | | | | | | | |  __/
+ \/  \/|_| |_|\___|_|  \___|\____/\___/ \__\_/ |_|_| |_| |_|\___|
+                                                                 
+Hello! Welcome to WhereGotTime, a special timetable program that helps 
+you and your friend find common unoccupied slots in the timetable!
+
+You're currently not logged in.
+
+Tip: enter 'help' for a list of commands.
+____________________________________________________________
+```
+
+Note that the Storage initialisation message is dependent on your 
+
+
+### Viewing help menu: `help`
+Whenever you require assistance and want to see a list of valid commands and their input format, type `help` in the console and press <kbd>Enter</kbd>
+Note: in `edit` and `compare`, on-screen prompt will guide you through the process, hence `help` is not valid in these two modes.
+
+Expected outcome:
+```
+____________________________________________________________
+You're currently not logged in.
+Here are the list of commands for WhereGotTime.
+	1. Login command	: login /(username) /(6-digit password)
+	2. Add command		: add /(module name with optional descriptions) /(day) /(startTime-endTime) /(location)
+	3. List command		: list /all OR list /(day)
+	4. Edit command		: edit /(day)
+	5. Delete command	: delete /(day) /(index)
+	6. Clear command	: clear /(day)
+	7. Find command		: find /(keyword)
+	8. Compare command	: compare
+	9. Bye command		: bye
+
+Note:
+- the brackets shown above should be omitted when entering commands
+- if this is your first time using WhereGotTime, using the Login command would 
+  create a new user profile that matches (username) and (6-digit password)
+- command and 'day' are not case sensitive, but username and password are.
+- startTime and endTime should be in 24-hour format and in 1-hour block. e.g. 0900, 1300, 2300, etc.
+- 'day' should be 3-letter, e.g. Mon, TUE, wed, etc.
+____________________________________________________________
+```
+
+
 ### Login user: `login`
 Creates a new User with inputted username and password (if first time user).
 Logs the existing user back into the app. (existing user)
@@ -86,15 +144,19 @@ Expected Output:
 ![](images/expectedoutput.PNG)<br/>
 
 ### Editing a timetable : `edit`
-Edits an existing timetable with a new timing.
+This command allows user to edit an existing timetable belonging to him or her.
 
-Format: 
+Conditions:
+- the user must first be logged in
+- there should be a class in that day
+
+Format:
 
 `edit /day` <br/>
 
 `/index /newStarttime-newEndtime` <br/>
 
-Note: You may get the `index` by listing the full timetables using `list /all`
+Note: if you do not have a lesson on that day, the expected output
 
 Example of usage:
 
@@ -109,6 +171,8 @@ Example of usage:
 Expected Output:
 
 ![](images/Edit_EO.PNG)<br/>
+
+
 ### Listing a timetable: `list`
 Lists all the classes on a particular day or on all days
 
