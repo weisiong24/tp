@@ -110,7 +110,7 @@ public class Ui {
         int size = timetable.size();
         if (size == 1) {
             System.out.println("I have removed this class from your " + day + " timetable:");
-        } else if (size > 1){
+        } else if (size > 1) {
             System.out.println("I have removed these classes from your " + day + " timetable:");
         }
         for (Object c : timetable) {
