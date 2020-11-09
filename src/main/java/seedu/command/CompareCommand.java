@@ -1,5 +1,6 @@
 package seedu.command;
 
+import seedu.exception.NotLoggedInException;
 import seedu.exception.WhereGotTimeException;
 import seedu.task.Event;
 import seedu.ui.Ui;
@@ -24,7 +25,7 @@ public class CompareCommand extends Command {
 
             //@@author yeapcl
             if (nowUser == null) {
-                throw new WhereGotTimeException("Sorry! You are not logged in to any account!");
+                throw new NotLoggedInException("Sorry! You are not logged in to any account!");
             } else {
                 int tempInt = 1;
                 int sameUserIndex = 0;
