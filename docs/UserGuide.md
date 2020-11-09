@@ -87,7 +87,7 @@ Here are the list of commands for WhereGotTime.
 	3. List command		: list /all OR list /(day)
 	4. Edit command		: edit /(day)
 	5. Delete command	: delete /(day) /(index)
-	6. Clear command	: clear /(day)
+	6. Clear command	: clear /(day) OR clear /all
 	7. Find command		: find /(keyword)
 	8. Compare command	: compare
 	9. Remove command	: remove /(username) /(6-digit password)
@@ -300,7 +300,12 @@ ____________________________________________________________
 ```
 
 ### Comparing timetables: `compare`
-Compares current User's timetable to Target user's timetable and returns a range of common available timeslots.<br/>
+Compare the timetables between current user and another user and returns a range of common available free timeslots.<br/>
+
+Scenario
+- assuming the currently logged in user is JohnSnow, and he didn't clear his monday timetable as shown above
+- assuming there is another user named "WhiteWalker" with his own set of monday timetable
+- to compare the currently logged in user (i.e. "JohnSnow") vs "WhiteWalker"
 
 Format: <br/>
 
@@ -314,13 +319,26 @@ Example of usage: <br/>
 `1`<br/>
 `mon`<br/>
 
-`compare`<br/>
-`2`<br/>
-`tue`<br/>
-
 Expected output: <br/>
+```
+____________________________________________________________
+compare
+____________________________________________________________
+Hey JohnSnow, please enter the index number of the user that you would like to compare with.
+____________________________________________________________
+	1. WhiteWalker
+____________________________________________________________
+1
+____________________________________________________________
+Please input the day (Mon-Sun) that you would like to compare.
+____________________________________________________________
+mon
+Your common unoccupied timeslots are: 
 
-![](images/compare_ss.png)<br/>
+0000HR to 0959HR
+1300HR to 2359HR
+____________________________________________________________
+```
 
 ### Finding a class: `find`
 Lists all the classes based on the keyword entered by user
@@ -443,7 +461,7 @@ ____________________________________________________________
     `delete /(day) /(index)`
 * Clear timetable 
     
-    `clear /(day)`
+    `clear /(day)` OR `clear /all`
 * Help Command 
     
     `help`
