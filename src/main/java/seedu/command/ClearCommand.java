@@ -34,7 +34,7 @@ public class ClearCommand extends Command {
 
         String[] parsedInputs = input.split("/", 2);
         String day = parsedInputs[1].toLowerCase();
-        int counter[] = {0};
+        int[] counter = {0};
         if (day.equals("all")) {
             deleteTimetable(users, ui, userIndex, counter, day,"mon");
             deleteTimetable(users, ui, userIndex, counter, day,"tue");
@@ -60,7 +60,7 @@ public class ClearCommand extends Command {
      *
      * @throws WhereGotTimeException if timetable for clearing a single day is empty.
      */
-    public void deleteTimetable(UserList users, Ui ui, int userIndex, int counter[], String input, String day)
+    public void deleteTimetable(UserList users, Ui ui, int userIndex, int[] counter, String input, String day)
             throws WhereGotTimeException {
         ArrayList<Event> timetable = (users.getUser(userIndex).getTimetable()).getTimetable(day);
         ArrayList<Object> deletedTimetable = new ArrayList<>(timetable);
