@@ -120,7 +120,7 @@ CS2113 Lec LT21 1200-1300
 Now you have 2 class(es) for mon in the timetable.
 ____________________________________________________________
 ____________________________________________________________
-Noted. I have removed this class from your fri timetable:
+I have removed this class from your fri timetable:
 	1. CG2023 Lec E7-3-10 1700-1800
 Your fri timetable has been cleared.
 ____________________________________________________________
