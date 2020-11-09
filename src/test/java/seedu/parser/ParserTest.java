@@ -10,13 +10,12 @@ import seedu.command.CompareCommand;
 import seedu.command.DeleteCommand;
 import seedu.command.EditCommand;
 import seedu.command.FindCommand;
+import seedu.command.HelpCommand;
 import seedu.command.ListCommand;
 import seedu.command.LogInCommand;
 import seedu.command.RemoveUserCommand;
 import seedu.exception.WhereGotTimeException;
-import seedu.user.UserList;
 
-//import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertThrows;
 import static org.junit.jupiter.api.Assertions.assertTrue;
 
@@ -68,6 +67,12 @@ public class ParserTest {
     public void parse_findCommand_parsedCorrectly() throws WhereGotTimeException {
         final String input = "find /CS2113";
         parseAndAssertCommandType(input, FindCommand.class);
+    }
+
+    @Test
+    public void parse_helpCommand_parsedCorrectly() throws WhereGotTimeException {
+        final String input = "help";
+        parseAndAssertCommandType(input, HelpCommand.class);
     }
 
     @Test
@@ -155,6 +160,111 @@ public class ParserTest {
     public void parse_clearCommand_extraDescription() {
         Assertions.assertThrows(WhereGotTimeException.class, () -> {
             Parser.parse("clear d/mon");
+        });
+    }
+
+    @Test
+    public void parse_clearCommand_missingDay() {
+        Assertions.assertThrows(WhereGotTimeException.class, () -> {
+            Parser.parse("clear /");
+        });
+    }
+
+    @Test
+    public void parse_listCommand_noDescription() {
+        Assertions.assertThrows(WhereGotTimeException.class, () -> {
+            Parser.parse("list");
+        });
+    }
+
+    @Test
+    public void parse_listCommand_noSlash() {
+        Assertions.assertThrows(WhereGotTimeException.class, () -> {
+            Parser.parse("list mon");
+        });
+    }
+
+    @Test
+    public void parse_listCommand_extraDescription() {
+        Assertions.assertThrows(WhereGotTimeException.class, () -> {
+            Parser.parse("list all /mon");
+        });
+    }
+
+    @Test
+    public void parse_listCommand_missingDay() {
+        Assertions.assertThrows(WhereGotTimeException.class, () -> {
+            Parser.parse("list /");
+        });
+    }
+
+    @Test
+    public void parse_deleteCommand_noDescription() {
+        Assertions.assertThrows(WhereGotTimeException.class, () -> {
+            Parser.parse("delete");
+        });
+    }
+
+    @Test
+    public void parse_deleteCommand_noSlash() {
+        Assertions.assertThrows(WhereGotTimeException.class, () -> {
+            Parser.parse("delete mon");
+        });
+    }
+
+    @Test
+    public void parse_deleteCommand_extraDescription() {
+        Assertions.assertThrows(WhereGotTimeException.class, () -> {
+            Parser.parse("delete xy /mon /1");
+        });
+    }
+
+    @Test
+    public void parse_deleteCommand_missingDay() {
+        Assertions.assertThrows(WhereGotTimeException.class, () -> {
+            Parser.parse("delete / /1");
+        });
+    }
+
+    @Test
+    public void parse_deleteCommand_missingIndex() {
+        Assertions.assertThrows(WhereGotTimeException.class, () -> {
+            Parser.parse("delete /mon /");
+        });
+    }
+
+    @Test
+    public void parse_deleteCommand_missingSlash() {
+        Assertions.assertThrows(WhereGotTimeException.class, () -> {
+            Parser.parse("delete /mon");
+        });
+    }
+
+    @Test
+    public void parse_findCommand_noDescription() {
+        Assertions.assertThrows(WhereGotTimeException.class, () -> {
+            Parser.parse("find");
+        });
+    }
+
+    @Test
+    public void parse_findCommand_noSlash() {
+        Assertions.assertThrows(WhereGotTimeException.class, () -> {
+            Parser.parse("find Lec");
+        });
+    }
+
+    @Test
+    public void parse_findCommand_extraDescription() {
+        Assertions.assertThrows(WhereGotTimeException.class, () -> {
+            Parser.parse("find lec /CS2113");
+        });
+    }
+
+    @Test
+    public void parse_findCommand_missingKeyword() {
+        Assertions.assertThrows(WhereGotTimeException.class, () -> {
+            Parser.parse("find /");
         });
     }
 
