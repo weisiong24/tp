@@ -110,7 +110,7 @@ public class Ui {
         int size = timetable.size();
         if (size == 1) {
             System.out.println("I have removed this class from your " + day + " timetable:");
-        } else if (size > 1){
+        } else if (size > 1) {
             System.out.println("I have removed these classes from your " + day + " timetable:");
         }
         for (Object c : timetable) {
@@ -156,10 +156,11 @@ public class Ui {
         System.out.println("\t3. List command\t\t: list /all OR list /(day)");
         System.out.println("\t4. Edit command\t\t: edit /(day)");
         System.out.println("\t5. Delete command\t: delete /(day) /(index)");
-        System.out.println("\t6. Clear command\t: clear /(day)");
+        System.out.println("\t6. Clear command\t: clear /(day) OR clear /all");
         System.out.println("\t7. Find command\t\t: find /(keyword)");
         System.out.println("\t8. Compare command\t: compare");
-        System.out.println("\t9. Bye command\t\t: bye");
+        System.out.println("\t9. Remove command\t: remove /(username) /(6-digit password)");
+        System.out.println("\t10. Bye command\t\t: bye");
         System.out.println("\nNote:");
         System.out.println("- the brackets shown above should be omitted when entering commands");
         System.out.println("- if this is your first time using WhereGotTime, using the Login command "

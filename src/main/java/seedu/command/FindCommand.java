@@ -7,7 +7,9 @@ import seedu.ui.Ui;
 import seedu.user.User;
 import seedu.user.UserList;
 
+import java.io.IOException;
 import java.util.ArrayList;
+import java.util.logging.*;
 
 /**
  * Finds class(es) in the timetable that matches the keyword.
@@ -18,9 +20,16 @@ public class FindCommand extends Command {
         super(keyword);
     }
 
+    private static Logger logger = Logger.getLogger("LogFindCommand");
+
     @Override
     public void execute(UserList users, Ui ui, User nowUser) throws WhereGotTimeException {
+
+        setupInputLogger();
+        logger.log(Level.INFO, "Beginning FindCommand...");
+
         if (nowUser == null) {
+            logger.log(Level.WARNING, "User not logged in, ending FindCommand function");
             throw new NotLoggedInException("Sorry! You are not logged in to any account :-(");
         }
 
@@ -32,11 +41,14 @@ public class FindCommand extends Command {
         for (int i = 0; i < users.getTotalUserCount(); i++) {
             if ((users.getUser(i + 1).getName().equals(nowUser.getName()))) {
                 userIndex = i + 1;
+                logger.log(Level.INFO, "User has been found, user index: " + userIndex);
                 break;
             }
         }
 
         assert userIndex != -1 : "User not found";
+
+        logger.log(Level.INFO, "Begin searching through timetable for keyword");
 
         String classesFound = "";
 
@@ -101,7 +113,21 @@ public class FindCommand extends Command {
                 count++;
             }
         }
-
+        logger.log(Level.INFO, "Search has ended");
         ui.printFind(classesFound, keyword);
+        logger.log(Level.INFO, "FindCommand function has ended successfully");
+    }
+
+    private void setupInputLogger() {
+        LogManager.getLogManager().reset();
+        logger.setLevel(Level.ALL);
+        try {
+            FileHandler fh = new FileHandler("FindCommand.log", true);
+            fh.setLevel(Level.INFO);
+            fh.setFormatter(new SimpleFormatter());
+            logger.addHandler(fh);
+        } catch (IOException e) {
+            logger.log(Level.SEVERE, "File logging is not functional");
+        }
     }
 }

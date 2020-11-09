@@ -13,16 +13,20 @@ Given below are my contributions to the project.
 
 ### A summary of the enhancements implemented
 - Implemented a login feature to enable Users to edit their own timetables without affecting other's work.
+- Implemented a remove feature to enable Users to remove User data and their timetables.
 - Created the User class for user functionality
 - Created the UserList class for User Arraylist functionality
 - Implemented a Cryptography class that can encrypt and decrypt User's password before saving into save file.
 
 ### Contributions to the User Guide
-- Edited the login feature part of the UG (description, format, etc)
+- Added documentation for the `login` and `remove` feature
+- Updated expected outputs for the `login` and `remove` features
 
 ### Contributions to the Developer Guide 
 - Edited the Architecture, Class Diagram and Sequence Diagram of the Login Feature
+- Added the design and implementation for the `login` command
 
 ### Contributions to team-based tasks
  - Added to labels for issue tracking in GitHub for teammates to use
- - Added to the user stories and features in the issue tracking
+ - Added to the user stories and features in the issue tracking and assigned them accordingly
+ - Helped to test the program for bugs
