@@ -83,6 +83,7 @@ public class Storage {
      * Parses the saved tasks according to specified format in order to be loaded.
      *
      * @param reader reads user's string input.
+     * @param users object of UserList containing all available user's data
      * @throws WhereGotTimeException if an I/O error has occurred.
      */
     private void loadTask(Scanner reader, UserList users) throws WhereGotTimeException {
@@ -125,7 +126,8 @@ public class Storage {
 
     /**
      * Writes data to the text file.
-     * #@tasks Arraylist of task.
+     * 
+     * @param users object of UserList containing all available user's data
      * @throws WhereGotTimeException if an I/O error has occurred.
      */
     public void write(UserList users) throws WhereGotTimeException {
@@ -143,6 +145,7 @@ public class Storage {
      * Writes specific task details to the text file in given format.
      *
      * @param fw FileWriter object.
+     * @param users object of UserList containing all available user's data          
      * @throws IOException if an I/O error has occurred.
      */
     private void writeTask(FileWriter fw, UserList users) throws IOException, WhereGotTimeException {

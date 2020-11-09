@@ -20,6 +20,28 @@ ____________________________________________________________
 Hello Alex!
 ____________________________________________________________
 ____________________________________________________________
+Hi Alex.
+Here are the list of commands for WhereGotTime.
+	1. Login command	: login /(username) /(6-digit password)
+	2. Add command		: add /(module name with optional descriptions) /(day) /(startTime-endTime) /(location)
+	3. List command		: list /all OR list /(day)
+	4. Edit command		: edit /(day)
+	5. Delete command	: delete /(day) /(index)
+	6. Clear command	: clear /(day) OR clear /all
+	7. Find command		: find /(keyword)
+	8. Compare command	: compare
+	9. Remove command	: remove /(username) /(6-digit password)
+	10. Bye command		: bye
+
+Note:
+- the brackets shown above should be omitted when entering commands
+- if this is your first time using WhereGotTime, using the Login command would 
+  create a new user profile that matches (username) and (6-digit password)
+- command and 'day' are not case sensitive, but username and password are.
+- startTime and endTime should be in 24-hour format and in 1-hour block. e.g. 0900, 1300, 2300, etc.
+- 'day' should be 3-letter, e.g. Mon, TUE, wed, etc.
+____________________________________________________________
+____________________________________________________________
 Got it! I've added the following event on mon
 CS2113 Lec LT21 1200-1300
 ____________________________________________________________
