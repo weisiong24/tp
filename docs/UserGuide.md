@@ -38,12 +38,13 @@ Some example commands you can try:
 * Exit program
 
 ### Main menu
-The launch screen of WhereGotTime includes Storage initialisation messages that indicates the status of loading from previous timetable via the text file
+The greeting screen of WhereGotTime is preceded by Storage initialisation messages that indicate if previously saved data, if any, is 
+loaded successfully.
 
+For example, if this is your first time running the application, the expected greeting screen is as follows:
 ```
-Data folder found! Finding WhereGotTime.txt...
-Existing WhereGotTime.txt found. Loading previously saved timetable information...
-Timetable information loaded successfully!
+Data folder not found! Creating one...
+No existing WhereGotTime.txt found! Creating one...
 Storage initialisation completed without issue.
 ____________________________________________________________
  _    _ _                   _____       _ _____ _                
@@ -62,12 +63,19 @@ Tip: enter 'help' for a list of commands.
 ____________________________________________________________
 ```
 
-Note that the Storage initialisation message is dependent on your 
+Note that the Storage initialisation message is dependent on the status of WhereGotTime.txt, for example, if this is second time using the application,
+and provided that the folder containing the previously stored information is not altered, the expected output is as follows:
+```
+Data folder found! Finding WhereGotTime.txt...
+Existing WhereGotTime.txt found. Loading previously saved timetable information...
+Timetable information loaded successfully!
+Storage initialisation completed without issue.
+```
+
 
 
 ### Viewing help menu: `help`
-Whenever you require assistance and want to see a list of valid commands and their input format, type `help` in the console and press <kbd>Enter</kbd>
-Note: in `edit` and `compare`, on-screen prompt will guide you through the process, hence `help` is not valid in these two modes.
+Whenever you require assistance and want to see a list of valid commands and their input format, type `help` in the console and press Enter.
 
 Expected outcome:
 ```
@@ -82,7 +90,8 @@ Here are the list of commands for WhereGotTime.
 	6. Clear command	: clear /(day)
 	7. Find command		: find /(keyword)
 	8. Compare command	: compare
-	9. Bye command		: bye
+	9. Remove command	: remove /(username) /(6-digit password)
+	10. Bye command		: bye
 
 Note:
 - the brackets shown above should be omitted when entering commands
@@ -94,6 +103,9 @@ Note:
 ____________________________________________________________
 ```
 
+Tips:
+- `help` is invalid in `edit` and `compare` modes due to the presence of intuitive on-screen prompts to guide you through the process.
+- if you're logged in, entering `help` will also display your username.
 
 ### Login user: `login`
 Creates a new User with inputted username and password (if first time user).
@@ -101,15 +113,34 @@ Logs the existing user back into the app. (existing user)
 
 Format: 
 
-`login /username /password(6-digit)`
+`login /(username) /(6-digit password)`
 
 Example of usage: 
 
-`login /John /123456`
+`login /JohnSnow /123456`
 
 Expected Output:
+```
+____________________________________________________________
+ _    _ _                   _____       _ _____ _                
+| |  | | |                 |  __ \     | |_   _(_)               
+| |  | | |__   ___ _ __ ___| |  \/ ___ | |_| |  _ _ __ ___   ___ 
+| |/\| | '_ \ / _ \ '__/ _ \ | __ / _ \| __| | | | '_ ` _ \ / _ \
+\  /\  / | | |  __/ | |  __/ |_\ \ (_) | |_| | | | | | | | |  __/
+ \/  \/|_| |_|\___|_|  \___|\____/\___/ \__\_/ |_|_| |_| |_|\___|
+                                                                 
+Hello! Welcome to WhereGotTime, a special timetable program that helps 
+you and your friend find common unoccupied slots in the timetable!
 
-![](images/Userlogin_EO.PNG)<br/>
+You're currently not logged in.
+
+Tip: enter 'help' for a list of commands.
+____________________________________________________________
+login /JohnSnow /123456
+____________________________________________________________
+Hello JohnSnow!
+____________________________________________________________
+```
 
 ### Remove user: `remove`
 Remove existing User and their timetable with inputted username and password.
@@ -120,65 +151,123 @@ Format:
 
 Example of usage: 
 
-`remove /John /123456`
+`remove /JohnSnow /123456`
 
 Expected Output:
-
-![](images/Remove_EO.PNG)<br/>
+```
+____________________________________________________________
+remove /JohnSnow /123456
+____________________________________________________________
+JohnSnow has been removed.
+____________________________________________________________
+```
 
 ### Adding a timetable: `add`
 Adds a new timetable to the list of timetable arraylist.
 
 Format: 
 
-`add /event name /day /timeStart-timeEnd /Location`
+`add /(module name with optional descriptions) /(day) /(startTime-endTime) /(location)`
   
 Example of usage: 
 
-`add /CS2040C Tut /mon /0800-1000 /COM1-2`
+`add /CS2113 Lec /Mon /0900-1200 /LT33`
 
-`add /CG2028 Tut /Thu /1200-1300 /E4-4-1`
+`add /CS2040C Tut /MON /1300-1500 /COM1-2`
+
+`add /CG2028 Tut /wed /1200-1300 /E4-4-1`
 
 Expected Output:
+```
+____________________________________________________________
+add /CS2113 Lec /Mon /0900-1200 /LT33
+____________________________________________________________
+Got it! I've added the following event on mon
+CS2113 Lec LT33 0900-1200
+____________________________________________________________
+add /CS2040C Tut /MON /1300-1500 /COM1-2
+____________________________________________________________
+Got it! I've added the following event on mon
+CS2040C Tut COM1-2 1300-1500
+____________________________________________________________
+add /CG2028 Tut /wed /1200-1300 /E4-4-1
+____________________________________________________________
+Got it! I've added the following event on wed
+CG2028 Tut E4-4-1 1200-1300
+____________________________________________________________
+```
 
-![](images/expectedoutput.PNG)<br/>
 
 ### Editing a timetable : `edit`
-This command allows user to edit an existing timetable belonging to him or her.
+This command allows the currently logged-in user to edit a lesson's time, provided it exists.
 
 Conditions:
 - the user must first be logged in
-- there should be a class in that day
+- there should be at least one lesson in that `day`
 
 Format:
 
-`edit /day` <br/>
+`edit /day`
 
-`/index /newStarttime-newEndtime` <br/>
-
-Note: if you do not have a lesson on that day, the expected output
+`/(index) /(newStartTime-newEndTime)`
 
 Example of usage:
 
-`edit /mon` <br/>
+`edit /mon`
 
-`/1 /1100-1200`<br/>
+`/2 /1400-1500`
 
-`edit /thu` <br/> 
+`edit /wed`
 
-`/1 /1300-1500` <br/>
+`/1 /1100-1300`
 
 Expected Output:
+```
+____________________________________________________________
+edit /mon
+____________________________________________________________
+Hey JohnSnow, here are the lessons in your mon timetable, sorted from the earliest class.
+    1. CS2113 Lec LT33 0900-1200
+    2. CS2040C Tut COM1-2 1300-1500
 
-![](images/Edit_EO.PNG)<br/>
+To edit, enter:
+/(index) /(newStartTime-newEndTime)
+____________________________________________________________
+/2 /1400-1500
+Got it! I have edited the lesson as follows:
+ORIGINAL    : CS2040C Tut COM1-2 1300-1500
+EDITED      : CS2040C Tut COM1-2 1400-1500
+____________________________________________________________
+edit /wed
+____________________________________________________________
+Hey JohnSnow, here are the lessons in your wed timetable, sorted from the earliest class.
+    1. CG2028 Tut E4-4-1 1200-1300
 
+To edit, enter:
+/(index) /(newStartTime-newEndTime)
+____________________________________________________________
+/1 /1100-1300
+Got it! I have edited the lesson as follows:
+ORIGINAL    : CG2028 Tut E4-4-1 1200-1300
+EDITED      : CG2028 Tut E4-4-1 1100-1300
+____________________________________________________________
+```
+
+Note: if you do not have a lesson on that day, for example if you enter `edit /fri`, the expected output is:
+```
+____________________________________________________________
+edit /fri
+____________________________________________________________
+Hey JohnSnow, there is no class in your fri timetable!
+____________________________________________________________
+```
 
 ### Listing a timetable: `list`
 Lists all the classes on a particular day or on all days
 
 Format: 
 
-`list /day`
+`list /all` or `list /(day)`
 
 Example of usage:
 
@@ -187,8 +276,28 @@ Example of usage:
 `list /all`
 
 Expected Output:
+```
+____________________________________________________________
+list /all
+____________________________________________________________
+Here are the classes in your timetable for mon, sorted according to time:
+    1. CS2113 Lec LT33 0900-1200
+    2. CS2040C Tut COM1-2 1400-1500
 
-![](images/list_EO.PNG)<br/>
+There is no class in your timetable for tue!
+
+Here are the classes in your timetable for wed, sorted according to time:
+    1. CG2028 Tut E4-4-1 1100-1300
+
+There is no class in your timetable for thu!
+
+There is no class in your timetable for fri!
+
+There is no class in your timetable for sat!
+
+There is no class in your timetable for sun!
+____________________________________________________________
+```
 
 ### Comparing timetables: `compare`
 Compares current User's timetable to Target user's timetable and returns a range of common available timeslots.<br/>
@@ -216,9 +325,11 @@ Expected output: <br/>
 ### Finding a class: `find`
 Lists all the classes based on the keyword entered by user
 
+Note: the keyword is case-sensitive.
+
 Format: 
 
-`find /keyword`
+`find /(keyword)`
 
 Example of usage:
 
@@ -227,89 +338,112 @@ Example of usage:
 `find /Tut`
 
 Expected output:
-
-![](images/Find_EO.PNG)<br/>
+```
+____________________________________________________________
+find /CG2028
+____________________________________________________________
+Here are the class(es) in your timetable that matches the keyword "CG2028":
+1. (Wednesday) CG2028 Tut E4-4-1 1100-1300
+____________________________________________________________
+find /Tut
+____________________________________________________________
+Here are the class(es) in your timetable that matches the keyword "Tut":
+1. (Monday) CS2040C Tut COM1-2 1400-1500
+2. (Wednesday) CG2028 Tut E4-4-1 1100-1300
+____________________________________________________________
+```
 
 ### Deleting a class: `delete`
 Deletes a class as specified by the user 
 
 Format: 
 
-`delete /day /index`
+`delete /(day) /(index)`
 
 Example of usage:
 
-`delete /thu /1`
+`delete /wed /1`
 
 Expected Output:
-
-![](images/Delete_EO.PNG)<br/>
+```
+____________________________________________________________
+delete /wed /1
+____________________________________________________________
+Noted. I have removed this class from your timetable:
+CG2028 Tut E4-4-1 1100-1300
+Now you have 0 class(es) for wed in the timetable.
+____________________________________________________________
+```
 
 ### Clearing timetable: `clear`
-Clears all the classes on the day specified by the user
+Clears all the classes on the day (or all days) as specified by the user 
 
 Format: 
 
-`clear /day`
+`clear /(day)` or `clear /all`
 
 Example of usage:
 
-`clear /thu`
+`clear /wed`
 
 `clear /all`
 
 Expected Output:
-
-![](images/clear_EO.PNG)<br/>
-
-### Help Command: `help`
-Displays the list of commands available and their usage<br/>
-
-Format: 
-
-`help`
-
-Expected output:
-
-![](images/help_EO.PNG)<br/>
+```
+____________________________________________________________
+clear /wed
+____________________________________________________________
+:( OOPS!!! There is no class in your timetable for wed!
+____________________________________________________________
+clear /all
+____________________________________________________________
+I have removed these classes from your mon timetable:
+	1. CS2113 Lec LT33 0900-1200
+	2. CS2040C Tut COM1-2 1400-1500
+Your timetable has been cleared.
+____________________________________________________________
+```
 
 ### Exiting the program: `bye`
-Exits the Program<br/>
+Exits the program<br/>
 
 Format: 
 
 `bye`
 
 Expected output:
-
-![](images/Exit_EO.PNG)<br/>
+```
+____________________________________________________________
+Thanks for using WhereGotTime. Hope to see you again soon!
+____________________________________________________________
+```
 
 ## Command Summary
 * Login user 
 
-    `login /username /password`
+    `login /(username) /(6-digit password)`
 * Add timetable 
 
-    `add /event name /day /timeStart-timeEnd /Location`
+    `add /(module name with optional descriptions) /(day) /(startTime-endTime) /(location)`
 * Edit timetable
  
-    `edit /day` <br/>
-    `/index /newStarttime-newEndtime`
+    `edit /(day)` <br/>
+    `/(index) /(newStartTime-newEndTime)`
 * List timetable 
     
-    `list /day`
-* Compare timetable 
+    `list /all` OR `list /(day)`
+* Compare timetables 
     
-    `compare /target username /day`
-* Find class 
+    `compare`
+* Find 
 
-    `find /keyword`
+    `find /(keyword)`
 * Delete timetable 
     
-    `delete /day /index`
+    `delete /(day) /(index)`
 * Clear timetable 
     
-    `clear /day`
+    `clear /(day)`
 * Help Command 
     
     `help`
