@@ -46,6 +46,11 @@ The following Sequence Diagram displays how components interact when the user in
 ## 3. Design & Implementation
 This section describes how features/functions are implemented.
 
+### Parser Component
+![](images/Parser.PNG)
+The Parser object uses its parse method to parse inputs passed to it from Ui. This method returns a Command object to be executed by
+WhereGotTime.
+
 ### Add Function
 
 #### System Architecture of the Add Function<br/>
@@ -259,6 +264,8 @@ User with the input Username and Password.
 * In order to protect the User's privacy, the User's Passwords have been encrypted on the save file. 
 * A Cryptography Class with encipherPassword and decipherPassword has been implemented as part of the version 2.0 of 
 WhereGotTime.
+* Added Storage capability to allow saving and loading of user's timetable
+* revamped edit command so that it's more intuitive and user-friendly
 
 ## Product scope
 ### Target user profile

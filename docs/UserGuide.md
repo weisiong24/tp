@@ -199,11 +199,20 @@ ____________________________________________________________
 
 
 ### Editing a timetable : `edit`
-This command allows the currently logged-in user to edit a lesson's time, provided it exists.
+This command allows the currently logged-in user to edit a lesson's time, provided the lesson exists.
+The newly provided timings will be subject to a series of checks (stated in the conditions below), 
+before a successful edit can be allowed.
 
 Conditions:
 - the user must first be logged in
 - there should be at least one lesson in that `day`
+- newStartTime and newEndTime will be rejected if:
+    1. either one is not in 4-digit format (e.g. 09000)
+    2. either one is not in 1-hour block (e.g. 0903)
+    3. either one has invalid hours and minutes (e.g. 2861, 0989)
+    4. both are identical (e.g. 0900-0900)
+    5. start time is later than end time (e.g. 1100-0900)
+    
 
 Format:
 
@@ -261,6 +270,25 @@ ____________________________________________________________
 Hey JohnSnow, there is no class in your fri timetable!
 ____________________________________________________________
 ```
+
+Note: if the new timings are identical to the lesson's original timings, the expected output is:
+```
+____________________________________________________________
+edit /mon
+____________________________________________________________
+Hey Alex, here are the lessons in your mon timetable, sorted from the earliest class.
+    1. CS2113 NUS 0900-1200
+    2. CS2040C NUS 1400-1500
+
+To edit, enter:
+/(index) /(newStartTime-newEndTime)
+____________________________________________________________
+/1 /0900-1200
+:( OOPS!!! You have entered a timing that is exactly the 
+same as the original one! Hence, no changes were made!
+____________________________________________________________
+```
+
 
 ### Listing a timetable: `list`
 Lists all the classes on a particular day or on all days
