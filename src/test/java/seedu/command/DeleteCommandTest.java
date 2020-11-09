@@ -9,15 +9,12 @@ import seedu.ui.Ui;
 import seedu.user.User;
 import seedu.user.UserList;
 
-import java.io.ByteArrayOutputStream;
-import java.io.PrintStream;
-import java.io.PrintWriter;
-import java.io.StringWriter;
+import java.io.*;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertThrows;
 
-class ClearCommandTest {
+class DeleteCommandTest {
     private final ByteArrayOutputStream outContent = new ByteArrayOutputStream();
     private final ByteArrayOutputStream errContent = new ByteArrayOutputStream();
     private final PrintStream originalOut = System.out;
@@ -35,11 +32,11 @@ class ClearCommandTest {
         UserList users = new UserList();
         Ui ui = new Ui();
         User nowUser = null;
-        String clearDay = "/mon";
+        String deleteLesson = "/mon /1";
 
         assertThrows(NotLoggedInException.class, () -> {
-            ClearCommand clearCommand = new ClearCommand(clearDay);
-            clearCommand.execute(users, ui, nowUser);
+            DeleteCommand deleteCommand = new DeleteCommand(deleteLesson);
+            deleteCommand.execute(users, ui, nowUser);
         });
     }
 
@@ -49,43 +46,70 @@ class ClearCommandTest {
         Ui ui = new Ui();
         User nowUser = new User("devtest", "123123");
         users.addUser(nowUser);
-        String clearDay = "/hey";
+        String deleteLesson = "/hey /2";
 
         assertThrows(WhereGotTimeException.class, () -> {
-            ClearCommand clearCommand = new ClearCommand(clearDay);
-            clearCommand.execute(users, ui, nowUser);
+            DeleteCommand deleteCommand = new DeleteCommand(deleteLesson);
+            deleteCommand.execute(users, ui, nowUser);
         });
     }
 
     @Test
-    void execute_singleDay_emptyTimetable_expectWhereGotTimeException() {
+    void execute_noSuchClass_expectWhereGotTimeException() {
         UserList users = new UserList();
         Ui ui = new Ui();
         User nowUser = new User("devtest", "123123");
         users.addUser(nowUser);
-        String clearDay = "/fri";
+        String deleteLesson = "/fri /2";
 
         assertThrows(WhereGotTimeException.class, () -> {
-            ClearCommand clearCommand = new ClearCommand(clearDay);
-            clearCommand.execute(users, ui, nowUser);
+            DeleteCommand deleteCommand = new DeleteCommand(deleteLesson);
+            deleteCommand.execute(users, ui, nowUser);
         });
     }
 
     @Test
-    void execute_allDays_emptyTimetable_expectWhereGotTimeException() throws WhereGotTimeException {
+    void execute_invalidIndex_expectWhereGotTimeException() {
         UserList users = new UserList();
         Ui ui = new Ui();
         User nowUser = new User("devtest", "123123");
         users.addUser(nowUser);
-        String clearDay = "/all";
+        String deleteLesson = "/fri /a";
 
-        ClearCommand clearCommand = new ClearCommand(clearDay);
-        clearCommand.execute(users, ui, nowUser);
+        assertThrows(WhereGotTimeException.class, () -> {
+            DeleteCommand deleteCommand = new DeleteCommand(deleteLesson);
+            deleteCommand.execute(users, ui, nowUser);
+        });
+    }
+
+
+    @Test
+    void execute_successfulDeletion() throws WhereGotTimeException {
+        UserList users = new UserList();
+        Ui ui = new Ui();
+        User nowUser = new User("devtest", "123123");
+        users.addUser(nowUser);
+
+        String addInput = "/CS2113 /Mon /0900-1200 /LT14";
+        Command addCommand = new AddCommand(addInput);
+        addCommand.execute(users, ui, nowUser);
+
+        String deleteLesson = "/mon /1";
+
+        DeleteCommand deleteCommand = new DeleteCommand(deleteLesson);
+        deleteCommand.execute(users, ui, nowUser);
+
+        System.setOut(new PrintStream(outContent));
 
         StringWriter sw = new StringWriter();
         PrintWriter pw = new PrintWriter(sw);
 
-        pw.println("Your timetable is empty. There is nothing to clear.");
+        pw.println("Got it! I've added the following event on mon");
+        pw.println("CS2113 LT14 0900-1200");
+        pw.println("Noted. I have removed this class from your timetable:");
+        pw.println("CS2113 LT14 0900-1200");
+        pw.println("Now you have 0 class(es) for mon in the timetable.");
+        pw.close();
 
         String expected = sw.toString().replaceAll("\r", "");
 
