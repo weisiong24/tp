@@ -50,14 +50,10 @@ public class CompareCommand extends Command {
                     indexInt += 1;
                 }
                 //@@author
-
-                //String[] parsedInputs = temp_string.split(" /", 3);
-                //String targetName = parsedInputs[0].substring(1);
-                //String date = parsedInputs[1];
+                
                 ArrayList<Event> nowUserTimetable;
                 ArrayList<Event> targetUserTimetable;
 
-                //User targetUser = users.getUserByName(targetName);
                 final User targetUser = users.getUser(indexInt);
                 System.out.println("____________________________________________________________");
                 System.out.println("Please input the day (Mon-Sun) that you would like to compare.");

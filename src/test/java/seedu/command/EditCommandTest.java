@@ -18,20 +18,15 @@ import java.io.ByteArrayInputStream;
 import java.io.ByteArrayOutputStream;
 import java.io.InputStream;
 import java.io.PrintStream;
+import java.io.PrintWriter;
+import java.io.StringWriter;
 
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertThrows;
 
 class EditCommandTest {
-    /*    private final PrintStream standardOut = System.out;
-    private final ByteArrayOutputStream outputStreamCaptor = new ByteArrayOutputStream();
-
-    @BeforeEach
-    public void setUp() {
-        System.setOut(new PrintStream(outputStreamCaptor));
-    }*/
-
+    
     private final ByteArrayOutputStream outContent = new ByteArrayOutputStream();
     private final ByteArrayOutputStream errContent = new ByteArrayOutputStream();
     private final PrintStream originalOut = System.out;
@@ -454,21 +449,27 @@ class EditCommandTest {
 
         System.setOut(new PrintStream(outContent));
 
-        assertEquals("Got it! I've added the following event on mon" + System.lineSeparator()
-                        + "CS2113 NUS 0900-1200" + System.lineSeparator()
-                        + "Hey devtest, here are the lessons in your mon timetable, sorted from "
-                        + "the earliest class." + System.lineSeparator()
-                        + "    1. CS2113 NUS 0900-1200" + System.lineSeparator() + System.lineSeparator()
-                        + "To edit, enter:" + System.lineSeparator()
-                        + "/(index) /(newStartTime-newEndTime)" + System.lineSeparator()
-                        + "____________________________________________________________" + System.lineSeparator()
-                        + "Got it! I have edited the lesson as follows:" + System.lineSeparator()
-                        + "ORIGINAL    : CS2113 NUS 0900-1200" + System.lineSeparator()
-                        + "EDITED      : CS2113 NUS 0900-1300" + System.lineSeparator(),
-
-                outContent.toString());
+        StringWriter sw = new StringWriter();
+        PrintWriter pw = new PrintWriter(sw);
+        
+        pw.println("Got it! I've added the following event on mon");
+        pw.println("CS2113 NUS 0900-1200");
+        pw.println("Hey devtest, here are the lessons in your mon timetable, sorted from the earliest class.");
+        pw.println("    1. CS2113 NUS 0900-1200");
+        pw.println();
+        pw.println("To edit, enter:");
+        pw.println("/(index) /(newStartTime-newEndTime)");
+        pw.println("____________________________________________________________");
+        pw.println("Got it! I have edited the lesson as follows:");
+        pw.println("ORIGINAL    : CS2113 NUS 0900-1200");
+        pw.println("EDITED      : CS2113 NUS 0900-1300");
+        pw.close();
+        
+        String expected = sw.toString().replaceAll("\r", "");
+        
+        assertEquals(expected, outContent.toString().replaceAll("\r", ""));
     }
-
+    
     @Test
     void execute_advancedEdit() throws WhereGotTimeException {
 
@@ -498,27 +499,30 @@ class EditCommandTest {
 
         System.setOut(new PrintStream(outContent));
 
-        assertEquals("Got it! I've added the following event on mon" + System.lineSeparator()
-                        + "CS2113 NUS 0900-1200" + System.lineSeparator()
-                        + "Got it! I've added the following event on mon" + System.lineSeparator()
-                        + "CS2040C LT34 1300-1500" + System.lineSeparator()
-                        + "Got it! I've added the following event on mon" + System.lineSeparator()
-                        + "CS3230 COM1 1600-1800\n"
-                        + "Hey devtest, here are the lessons in your mon timetable, sorted from the "
-                        + "earliest class." + System.lineSeparator()
-                        + "    1. CS2113 NUS 0900-1200" + System.lineSeparator()
-                        + "    2. CS2040C LT34 1300-1500" + System.lineSeparator()
-                        + "    3. CS3230 COM1 1600-1800" + System.lineSeparator()
-                        + System.lineSeparator()
-                        + "To edit, enter:" + System.lineSeparator()
-                        + "/(index) /(newStartTime-newEndTime)" + System.lineSeparator()
-                        + "____________________________________________________________"
-                        + System.lineSeparator()
-                        + "Got it! I have edited the lesson as follows:" + System.lineSeparator()
-                        + "ORIGINAL    : CS2040C LT34 1300-1500" + System.lineSeparator()
-                        + "EDITED      : CS2040C LT34 1300-1600" + System.lineSeparator(),
+        StringWriter sw = new StringWriter();
+        PrintWriter pw = new PrintWriter(sw);
+        
+        pw.println("Got it! I've added the following event on mon");
+        pw.println("CS2113 NUS 0900-1200");
+        pw.println("Got it! I've added the following event on mon");
+        pw.println("CS2040C LT34 1300-1500");
+        pw.println("Got it! I've added the following event on mon");
+        pw.println("CS3230 COM1 1600-1800");
+        pw.println("Hey devtest, here are the lessons in your mon timetable, sorted from the earliest class.");
+        pw.println("    1. CS2113 NUS 0900-1200");
+        pw.println("    2. CS2040C LT34 1300-1500");
+        pw.println("    3. CS3230 COM1 1600-1800");
+        pw.println();
+        pw.println("To edit, enter:");
+        pw.println("/(index) /(newStartTime-newEndTime)");
+        pw.println("____________________________________________________________");
+        pw.println("Got it! I have edited the lesson as follows:");
+        pw.println("ORIGINAL    : CS2040C LT34 1300-1500");
+        pw.println("EDITED      : CS2040C LT34 1300-1600");
 
-                outContent.toString());
+        String expected = sw.toString().replaceAll("\r", "");
+        
+        assertEquals(expected, outContent.toString().replaceAll("\r", ""));
     }
 
     @Test
@@ -544,17 +548,17 @@ class EditCommandTest {
 
         System.setOut(new PrintStream(outContent));
 
-        assertEquals("Got it! I've added the following event on mon" + System.lineSeparator()
-                        + "CS2113 NUS 0900-1200" + System.lineSeparator()
-                        + "Hey devtest, there is no class in your fri timetable!" + System.lineSeparator(),
+        StringWriter sw = new StringWriter();
+        PrintWriter pw = new PrintWriter(sw);
 
-                outContent.toString());
+        pw.println("Got it! I've added the following event on mon");
+        pw.println("CS2113 NUS 0900-1200");
+        pw.println("Hey devtest, there is no class in your fri timetable!");
+
+        String expected = sw.toString().replaceAll("\r", "");
+
+        assertEquals(expected, outContent.toString().replaceAll("\r", ""));
     }
-    
-    /*    @AfterEach
-    public void tearDown() {
-        System.setOut(standardOut);
-    }*/
 
     @AfterEach
     public void restoreStreams() {

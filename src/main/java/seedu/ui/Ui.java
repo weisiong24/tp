@@ -23,7 +23,7 @@ public class Ui {
             + " \\/  \\/|_| |_|\\___|_|  \\___|\\____/\\___/ \\__\\_/ |_|_| |_| |_|\\___|\n"
             + "                                                                 \n";
     private static final String MESSAGE_GREETINGS = "\n" + MESSAGE_LOGO + "Hello! Welcome to WhereGotTime, a special "
-            + "timetable program that helps \nyou and your friend(s) find common unoccupied slots in the timetable!"
+            + "timetable program that helps \nyou and your friend find common unoccupied slots in the timetable!"
             + "\n\nYou're currently not logged in."
             + "\n\nTip: enter 'help' for a list of commands.\n";
 
