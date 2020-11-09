@@ -1,5 +1,6 @@
 package seedu.command;
 
+import seedu.exception.NotLoggedInException;
 import seedu.exception.WhereGotTimeException;
 import seedu.task.Event;
 import seedu.ui.Ui;
@@ -20,7 +21,7 @@ public class ClearCommand extends Command {
     @Override
     public void execute(UserList users, Ui ui, User nowUser) throws WhereGotTimeException {
         if (nowUser == null) {
-            throw new WhereGotTimeException("Sorry! You are not logged in to any account :-(");
+            throw new NotLoggedInException("Sorry! You are not logged in to any account :-(");
         }
 
         int userIndex = -1;
@@ -33,7 +34,7 @@ public class ClearCommand extends Command {
 
         String[] parsedInputs = input.split("/", 2);
         String day = parsedInputs[1].toLowerCase();
-        int counter[] = {0};
+        int[] counter = {0};
         if (day.equals("all")) {
             deleteTimetable(users, ui, userIndex, counter, day,"mon");
             deleteTimetable(users, ui, userIndex, counter, day,"tue");
@@ -59,7 +60,7 @@ public class ClearCommand extends Command {
      *
      * @throws WhereGotTimeException if timetable for clearing a single day is empty.
      */
-    public void deleteTimetable(UserList users, Ui ui, int userIndex, int counter[], String input, String day)
+    public void deleteTimetable(UserList users, Ui ui, int userIndex, int[] counter, String input, String day)
             throws WhereGotTimeException {
         ArrayList<Event> timetable = (users.getUser(userIndex).getTimetable()).getTimetable(day);
         ArrayList<Object> deletedTimetable = new ArrayList<>(timetable);

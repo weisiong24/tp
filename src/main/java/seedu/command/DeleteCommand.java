@@ -1,5 +1,6 @@
 package seedu.command;
 
+import seedu.exception.NotLoggedInException;
 import seedu.exception.WhereGotTimeException;
 import seedu.task.Event;
 import seedu.ui.Ui;
@@ -20,7 +21,7 @@ public class DeleteCommand extends Command {
     @Override
     public void execute(UserList users, Ui ui, User nowUser) throws WhereGotTimeException {
         if (nowUser == null) {
-            throw new WhereGotTimeException("Sorry! You are not logged in to any account :-(");
+            throw new NotLoggedInException("Sorry! You are not logged in to any account :-(");
         }
         
         try {
@@ -41,8 +42,6 @@ public class DeleteCommand extends Command {
             throw new WhereGotTimeException("You've entered an invalid index!");
         } catch (IndexOutOfBoundsException e) {
             throw new WhereGotTimeException("You've entered an invalid index!");
-        } catch (NullPointerException e) {
-            throw new WhereGotTimeException("Input not according UG!");
         }
     }
 }
