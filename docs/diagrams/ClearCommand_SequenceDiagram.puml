@@ -18,7 +18,8 @@ Timetable --> ClearCommand
 deactivate Timetable
 
 ClearCommand -> UI: printClear()
-
+activate UI
+deactivate UI
 deactivate ClearCommand
 
 @enduml
