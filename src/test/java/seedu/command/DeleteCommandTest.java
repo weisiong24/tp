@@ -9,7 +9,10 @@ import seedu.ui.Ui;
 import seedu.user.User;
 import seedu.user.UserList;
 
-import java.io.*;
+import java.io.ByteArrayOutputStream;
+import java.io.PrintStream;
+import java.io.PrintWriter;
+import java.io.StringWriter;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertThrows;

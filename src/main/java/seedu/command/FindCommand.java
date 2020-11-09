@@ -1,5 +1,6 @@
 package seedu.command;
 
+import seedu.exception.NotLoggedInException;
 import seedu.exception.WhereGotTimeException;
 import seedu.task.Event;
 import seedu.ui.Ui;
@@ -20,7 +21,7 @@ public class FindCommand extends Command {
     @Override
     public void execute(UserList users, Ui ui, User nowUser) throws WhereGotTimeException {
         if (nowUser == null) {
-            throw new WhereGotTimeException("Sorry! You are not logged in to any account :-(");
+            throw new NotLoggedInException("Sorry! You are not logged in to any account :-(");
         }
 
         String[] parsedInputs = input.split("/", 2);
