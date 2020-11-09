@@ -14,17 +14,19 @@ WhereGotTime is an application for the student to check their timetable and comp
 1. Run the command java -jar {filename}.jar e.g., java -jar Duke.jar (i.e., run the command in the same folder as the jar file)
 1. Type the command in the command box and press Enter to execute it. e.g. typing bye and pressing Enter will close the app.<br/>
 Some example commands you can try:
-    1. login /John Snow /123123: login as John Snow
-    1. add /CS2113 Lec /mon /1600-1800 /LT23: Adds an event named CS2113 Lecture for current logged in the student (John Snow) to Time Table
+    1. login /JohnSnow /123123: login as JohnSnow
+    1. add /CS2113 Lec /mon /1600-1800 /LT23: Adds an event named CS2113 Lecture for current logged in the student (JohnSnow) to Time Table
     1. edit /mon <br/>
-       /1 /1300-1400 : Edits first event named CS2113 on Monday for current logged in (John Snow) in the TimeTable
-    1. list /all: list of all the classes that John Snow has in a new line, enumerated.
-    1. find /CS2113: finds all the classes that John Snow has containing "CS2113"
+       /1 /1300-1400 : Edits first event named CS2113 on Monday for current logged in (JohnSnow) in the TimeTable
+    1. list /all: list of all the classes that JohnSnow has in a new line, enumerated.
+    1. find /CS2113: finds all the classes that JohnSnow has containing "CS2113"
     1. delete /mon /1 : Deletes the 1st class shown in the current list.
-    1. clear /mon: Deletes all classes in the current list for John Snow for his Monday timetable
+    1. clear /mon: Deletes all classes in the current list for JohnSnow for his Monday timetable
+    1. remove /JohnSnow /123123: Remove JohnSnow and all his timetable
 
 ## Features 
 * Login user
+* Remove user
 * Add timetable
 * Edit timetable
 * List timetable
@@ -108,6 +110,21 @@ Example of usage:
 Expected Output:
 
 ![](images/Userlogin_EO.PNG)<br/>
+
+### Remove user: `remove`
+Remove existing User and their timetable with inputted username and password.
+
+Format: 
+
+`remove /username /password(6-digit)`
+
+Example of usage: 
+
+`remove /John /123456`
+
+Expected Output:
+
+![](images/Remove_EO.PNG)<br/>
 
 ### Adding a timetable: `add`
 Adds a new timetable to the list of timetable arraylist.
