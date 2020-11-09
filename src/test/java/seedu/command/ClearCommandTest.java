@@ -92,6 +92,37 @@ class ClearCommandTest {
         assertEquals(expected, outContent.toString().replaceAll("\r", ""));
     }
 
+    @Test
+    void execute_successfulClearing() throws WhereGotTimeException {
+        UserList users = new UserList();
+        Ui ui = new Ui();
+        User nowUser = new User("devtest", "123123");
+        users.addUser(nowUser);
+
+        String addInput = "/CS2113 Lec /Mon /0900-1200 /LT14";
+        Command addCommand = new AddCommand(addInput);
+        addCommand.execute(users, ui, nowUser);
+
+        String clearDay = "/mon";
+
+        ClearCommand clearCommand = new ClearCommand(clearDay);
+        clearCommand.execute(users, ui, nowUser);
+
+        StringWriter sw = new StringWriter();
+        PrintWriter pw = new PrintWriter(sw);
+
+        pw.println("Got it! I've added the following event on mon");
+        pw.println("CS2113 Lec LT14 0900-1200");
+        pw.println("I have removed this class from your mon timetable:");
+        pw.println("\t1. CS2113 Lec LT14 0900-1200");
+        pw.println("Your mon timetable has been cleared.");
+        pw.close();
+
+        String expected = sw.toString().replaceAll("\r", "");
+
+        assertEquals(expected, outContent.toString().replaceAll("\r", ""));
+    }
+
     @AfterEach
     public void restoreStreams() {
         System.setOut(originalOut);
