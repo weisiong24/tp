@@ -173,8 +173,6 @@ Expected Output:
 
 ![](images/list_EO.PNG)<br/>
 
-![](images/list_all_EO.PNG)<br/>
-
 ### Comparing timetables: `compare`
 Compares current User's timetable to Target user's timetable and returns a range of common available timeslots.<br/>
 
@@ -239,14 +237,16 @@ Format:
 
 Example of usage:
 
-`clear /mon`
+`clear /thu`
+
+`clear /all`
 
 Expected Output:
 
 ![](images/clear_EO.PNG)<br/>
 
 ### Help Command: `help`
-Display the list of commands available and their usage<br/>
+Displays the list of commands available and their usage<br/>
 
 Format: 
 

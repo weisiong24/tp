@@ -110,7 +110,7 @@ public class Parser {
             }
 
             if (!position[0].contains("/")) {
-                throw new WhereGotTimeException("TAn add command needs to be in "
+                throw new WhereGotTimeException("An add command needs to be in "
                         + "a 'add /name /day /time /location' format!");
             }
         } catch (IndexOutOfBoundsException e) {
@@ -142,7 +142,7 @@ public class Parser {
             throw new WhereGotTimeException("An clear command needs to be in a 'clear /day' format!");
         }
 
-        String[] position = input[1].split("/",2);
+        String[] position = input[1].split("/",3);
         if (!position[0].isEmpty()) {
             throw new WhereGotTimeException("Unexpected input found! A clear command needs to be in "
                     + "a 'clear /day' format.");
@@ -163,7 +163,7 @@ public class Parser {
             if (!position[0].isEmpty()) {
                 throw new WhereGotTimeException("Unexpected input found! A delete command needs to be in a"
                         + "'delete /day /index format.");
-            } else if (position[1].isEmpty()) {
+            } else if (position[1].isEmpty() || position[1].equals(" ")) {
                 throw new WhereGotTimeException("There is no day in your delete command!");
             } else if (position[2].isEmpty()) {
                 throw new WhereGotTimeException("There is no index in your delete command!");

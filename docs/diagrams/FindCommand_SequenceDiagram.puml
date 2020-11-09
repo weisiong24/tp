@@ -18,7 +18,8 @@ Timetable --> FindCommand
 deactivate Timetable
 
 FindCommand -> UI: printFind()
-
+activate UI
+deactivate UI
 deactivate FindCommand
 
 @enduml
